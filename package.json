@@ -1,0 +1,29 @@
+{
+  "name": "beauty-and-blush",
+  "version": "1.0.0",
+  "description": "Beauty and Blush - Luxury Cosmetics, Skincare & Beauty Marketplace",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev": "npm run dev:frontend",
+    "build": "cd frontend && npm run build",
+    "start": "cd frontend && npm start"
+  },
+  "keywords": [
+    "beauty",
+    "cosmetics",
+    "skincare",
+    "makeup",
+    "marketplace",
+    "nextjs",
+    "express",
+    "mongodb"
+  ],
+  "author": "Beauty and Blush Team",
+  "license": "MIT"
+}
