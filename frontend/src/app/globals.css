@@ -1,0 +1,147 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root, html.light {
+    --bg-main: #fff5f7;
+    --text-main: #1f1118;
+    --text-muted: #886576;
+    --panel-bg: rgba(255, 255, 255, 0.94);
+    --panel-border: #fce7ec;
+    --card-bg: #ffffff;
+    --card-border: #fbd5df;
+    --card-hover-bg: #fff0f4;
+    --surface-subtle: #fdf2f4;
+    --surface-input: #ffffff;
+    --accent-rose: #e11d48;
+    --accent-rose-hover: #be123c;
+    --accent-blush: #f43f5e;
+    --accent-gold: #f59e0b;
+    --accent-champagne: #fbbf24;
+  }
+
+  html.dark {
+    --bg-main: #0f0910;
+    --text-main: #fdf2f4;
+    --text-muted: #b89ca9;
+    --panel-bg: rgba(26, 15, 28, 0.92);
+    --panel-border: rgba(244, 63, 94, 0.2);
+    --card-bg: #180f1b;
+    --card-border: #2e1628;
+    --card-hover-bg: #221226;
+    --surface-subtle: #241328;
+    --surface-input: #150b18;
+    --accent-rose: #f43f5e;
+    --accent-rose-hover: #fb7185;
+    --accent-blush: #fda4af;
+    --accent-gold: #fbbf24;
+    --accent-champagne: #fde68a;
+  }
+
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  @media (min-width: 768px) {
+    html {
+      font-size: 17px;
+    }
+  }
+
+  body {
+    background-color: var(--bg-main);
+    background-image: radial-gradient(circle at 50% -10%, rgba(225, 29, 72, 0.12), transparent 55%);
+    color: var(--text-main);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    min-height: 100vh;
+    max-width: 100vw;
+    overflow-x: hidden;
+    letter-spacing: -0.01em;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: var(--panel-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--panel-border);
+}
+
+.glass-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--card-border);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  border-color: #f43f5e !important;
+  background: var(--card-hover-bg) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px -10px rgba(225, 29, 72, 0.2);
+}
+
+/* Rose / Blush Primary Buttons */
+.btn-rose-primary {
+  background: linear-gradient(135deg, #e11d48, #f43f5e);
+  color: #ffffff !important;
+  font-weight: 600;
+  border-radius: 9999px;
+  box-shadow: 0 4px 14px 0 rgba(225, 29, 72, 0.35);
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-rose-primary:hover {
+  background: linear-gradient(135deg, #be123c, #e11d48);
+  box-shadow: 0 6px 20px 0 rgba(225, 29, 72, 0.45);
+  transform: translateY(-1px);
+}
+
+.btn-rose-outline {
+  border: 1.5px solid #f43f5e;
+  color: #e11d48;
+  font-weight: 600;
+  border-radius: 9999px;
+  transition: all 0.2s ease-in-out;
+}
+
+.dark .btn-rose-outline {
+  color: #fda4af;
+  border-color: #f43f5e;
+}
+
+.btn-rose-outline:hover {
+  background-color: rgba(244, 63, 94, 0.08);
+}
+
+/* Custom Minimal Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+::-webkit-scrollbar-thumb {
+  background: #fda4af;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #e11d48;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: #4c1d2d;
+}
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: #f43f5e;
+}
