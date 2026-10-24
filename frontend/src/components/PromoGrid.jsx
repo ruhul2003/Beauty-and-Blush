@@ -2,79 +2,82 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Sparkles, ArrowRight, ShieldCheck, Flame } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 export function PromoGrid() {
-  const cards = [
-    {
-      tag: "Korean Skincare Edit",
-      title: "Glass-Skin Essentials & Barrier Repair",
-      desc: "Authentic COSRX, Laneige, Beauty of Joseon directly imported with intact Korean seals.",
-      link: "/browse?category=Skincare",
-      gradient: "from-rose-500/90 to-pink-600/90",
-      image: "https://images.unsplash.com/photo-1608248597359-0028a394ec56?auto=format&fit=crop&w=600&q=80"
-    },
-    {
-      tag: "French & Arabian Scents",
-      title: "Prestige Designer & Niche Perfumes",
-      desc: "Dior, YSL, Tom Ford & Lattafa flacons. Verifiable batch code engraving guaranteed.",
-      link: "/browse?category=Fragrance",
-      gradient: "from-amber-600/90 to-rose-700/90",
-      image: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=600&q=80"
-    },
-    {
-      tag: "Makeup Artist Vault",
-      title: "Dewy Blushes, Powders & Lip Oils",
-      desc: "Rare Beauty, Charlotte Tilbury, Fenty and MAC. Brand new & sealed boxes.",
-      link: "/browse?category=Makeup",
-      gradient: "from-purple-600/90 to-rose-600/90",
-      image: "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=600&q=80"
-    }
-  ];
-
   return (
-    <section className="py-10">
+    <section className="py-8 sm:py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {cards.map((card, idx) => (
-            <div
-              key={idx}
-              className="relative rounded-3xl overflow-hidden shadow-lg border border-rose-200/60 dark:border-rose-900/40 group min-h-[260px] flex flex-col justify-end p-6"
-            >
-              {/* Background Image with Overlay */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+          
+          {/* Card 1: Special Offer - Skincare */}
+          <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-[#faece9] dark:bg-[#1a0f19] border border-[#f7dade] dark:border-rose-950/60 p-6 sm:p-8 flex flex-col justify-between min-h-[220px] sm:min-h-[260px] group shadow-sm hover:shadow-md transition-shadow">
+            {/* Background Product Image */}
+            <div className="absolute right-0 top-0 bottom-0 w-1/2 sm:w-5/12 overflow-hidden pointer-events-none opacity-85 group-hover:scale-105 transition-transform duration-700">
               <img
-                src={card.image}
-                alt={card.title}
-                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                src="/images/promo-skincare.jpg"
+                alt="Skincare Special Offer"
+                className="w-full h-full object-cover object-center"
               />
-              <div className={`absolute inset-0 bg-gradient-to-t ${card.gradient} opacity-85 group-hover:opacity-90 transition-opacity`} />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#faece9] via-[#faece9]/50 to-transparent dark:from-[#1a0f19] dark:via-[#1a0f19]/50" />
+            </div>
 
-              {/* Card Content */}
-              <div className="relative z-10 text-white space-y-2">
-                <span className="inline-block px-2.5 py-0.5 text-[10px] uppercase font-bold tracking-widest bg-white/20 backdrop-blur-md rounded-full">
-                  {card.tag}
-                </span>
+            {/* Left Content */}
+            <div className="relative z-10 max-w-[240px] sm:max-w-[280px] space-y-3">
+              <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] text-[#c94d64] dark:text-[#f4728d]">
+                SPECIAL OFFER
+              </span>
 
-                <h3 className="text-xl font-serif font-bold leading-tight">
-                  {card.title}
-                </h3>
+              <h3 className="text-xl sm:text-2xl lg:text-[26px] font-serif font-normal text-[#23171e] dark:text-white leading-tight">
+                Up To 30% Off <br />
+                <span className="text-[#23171e] dark:text-white">On Skincare Products</span>
+              </h3>
 
-                <p className="text-xs text-white/90 line-clamp-2 font-normal">
-                  {card.desc}
-                </p>
-
-                <div className="pt-2">
-                  <Link
-                    href={card.link}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-white hover:text-amber-200 transition-colors"
-                  >
-                    <span>Shop Curated Deals</span>
-                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                </div>
+              <div className="pt-2">
+                <Link
+                  href="/browse?category=Skincare"
+                  className="btn-berry-primary px-6 py-2.5 text-xs tracking-wider uppercase font-bold inline-flex items-center gap-1.5 shadow-md active:scale-95 transition-all"
+                >
+                  <span>SHOP NOW</span>
+                </Link>
               </div>
             </div>
-          ))}
+          </div>
+
+          {/* Card 2: New Arrivals - Makeup */}
+          <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-[#faece9] dark:bg-[#1a0f19] border border-[#f7dade] dark:border-rose-950/60 p-6 sm:p-8 flex flex-col justify-between min-h-[220px] sm:min-h-[260px] group shadow-sm hover:shadow-md transition-shadow">
+            {/* Background Product Image */}
+            <div className="absolute right-0 top-0 bottom-0 w-1/2 sm:w-5/12 overflow-hidden pointer-events-none opacity-85 group-hover:scale-105 transition-transform duration-700">
+              <img
+                src="/images/promo-makeup.jpg"
+                alt="Makeup New Arrivals"
+                className="w-full h-full object-cover object-center"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#faece9] via-[#faece9]/50 to-transparent dark:from-[#1a0f19] dark:via-[#1a0f19]/50" />
+            </div>
+
+            {/* Left Content */}
+            <div className="relative z-10 max-w-[240px] sm:max-w-[280px] space-y-3">
+              <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] text-[#c94d64] dark:text-[#f4728d]">
+                NEW ARRIVALS
+              </span>
+
+              <h3 className="text-xl sm:text-2xl lg:text-[26px] font-serif font-normal text-[#23171e] dark:text-white leading-tight">
+                Fresh & Trendy <br />
+                <span className="text-[#23171e] dark:text-white">Makeup Collection</span>
+              </h3>
+
+              <div className="pt-2">
+                <Link
+                  href="/browse?category=Makeup"
+                  className="btn-berry-primary px-6 py-2.5 text-xs tracking-wider uppercase font-bold inline-flex items-center gap-1.5 shadow-md active:scale-95 transition-all"
+                >
+                  <span>DISCOVER NOW</span>
+                </Link>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

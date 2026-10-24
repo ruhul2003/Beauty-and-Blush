@@ -3,7 +3,17 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { api } from '@/lib/api';
 
-const AuthContext = createContext();
+const defaultAuth = {
+  user: null,
+  token: null,
+  loading: false,
+  login: async () => {},
+  register: async () => {},
+  logout: () => {},
+  updateUser: () => {}
+};
+
+const AuthContext = createContext(defaultAuth);
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
@@ -11,10 +21,11 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const savedToken = localStorage.getItem('bnb_token');
-    const savedUser = localStorage.getItem('bnb_user');
-    if (savedToken && savedUser) {
-      try {
+    if (typeof window === 'undefined') return;
+    try {
+      const savedToken = localStorage.getItem('bnb_token');
+      const savedUser = localStorage.getItem('bnb_user');
+      if (savedToken && savedUser) {
         setToken(savedToken);
         setUser(JSON.parse(savedUser));
         // Verify with backend
@@ -28,9 +39,9 @@ export function AuthProvider({ children }) {
           .catch(() => {
             // Keep local cached user if offline
           });
-      } catch (e) {
-        console.error('Error loading stored user', e);
       }
+    } catch (e) {
+      console.error('Error loading stored user', e);
     }
     setLoading(false);
   }, []);
@@ -40,8 +51,10 @@ export function AuthProvider({ children }) {
     if (res.data && res.data.token) {
       setToken(res.data.token);
       setUser(res.data.user);
-      localStorage.setItem('bnb_token', res.data.token);
-      localStorage.setItem('bnb_user', JSON.stringify(res.data.user));
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('bnb_token', res.data.token);
+        localStorage.setItem('bnb_user', JSON.stringify(res.data.user));
+      }
     }
     return res.data;
   };
@@ -51,8 +64,10 @@ export function AuthProvider({ children }) {
     if (res.data && res.data.token) {
       setToken(res.data.token);
       setUser(res.data.user);
-      localStorage.setItem('bnb_token', res.data.token);
-      localStorage.setItem('bnb_user', JSON.stringify(res.data.user));
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('bnb_token', res.data.token);
+        localStorage.setItem('bnb_user', JSON.stringify(res.data.user));
+      }
     }
     return res.data;
   };
@@ -60,14 +75,18 @@ export function AuthProvider({ children }) {
   const logout = () => {
     setToken(null);
     setUser(null);
-    localStorage.removeItem('bnb_token');
-    localStorage.removeItem('bnb_user');
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('bnb_token');
+      localStorage.removeItem('bnb_user');
+    }
   };
 
   const updateUser = (updatedData) => {
     const merged = { ...user, ...updatedData };
     setUser(merged);
-    localStorage.setItem('bnb_user', JSON.stringify(merged));
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('bnb_user', JSON.stringify(merged));
+    }
   };
 
   return (
@@ -77,4 +96,4 @@ export function AuthProvider({ children }) {
   );
 }
 
-export const useAuth = () => useContext(AuthContext);
+export const useAuth = () => useContext(AuthContext) || defaultAuth;

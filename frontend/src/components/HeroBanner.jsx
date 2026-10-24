@@ -1,99 +1,167 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Sparkles, ArrowRight, ShieldCheck, Heart, Award, CheckCircle } from 'lucide-react';
+import { ArrowRight, ShieldCheck, Sparkles, CheckCircle2 } from 'lucide-react';
 
 export function HeroBanner() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const slides = [
+    {
+      tag: "ENHANCE YOUR NATURAL BEAUTY",
+      titleLine1: "Glow Up With",
+      titleLine2: "Premium Beauty",
+      titleAccent: "Products",
+      desc: "Discover high-quality makeup & skincare that makes you shine every day.",
+      image: "/images/hero-model.jpg",
+      highlight: "Dewy Silk Serum & Radiance Cream",
+      price: "$24.99",
+      oldPrice: "$34.00"
+    },
+    {
+      tag: "CLINICAL SKINCARE FORMULAS",
+      titleLine1: "Pure & Potent",
+      titleLine2: "Hydrating Barrier",
+      titleAccent: "Serums",
+      desc: "Formulated with pure hyaluronic acid, niacinamide & rosewater for long-lasting dewy skin.",
+      image: "/images/promo-skincare.jpg",
+      highlight: "Hyaluronic Acid Glow Drops",
+      price: "$24.99",
+      oldPrice: "$32.00"
+    },
+    {
+      tag: "TRENDY VELVET FINISHES",
+      titleLine1: "Sculpt & Shine",
+      titleLine2: "Luxury Velvet",
+      titleAccent: "Lipsticks",
+      desc: "Rich pigment, long-wearing comfort and weightless matte texture crafted for effortless glam.",
+      image: "/images/promo-makeup.jpg",
+      highlight: "Velvet Matte Lipstick Rouge",
+      price: "$14.99",
+      oldPrice: "$19.99"
+    }
+  ];
+
+  // Auto-advance slides smoothly every 6 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, [slides.length]);
+
+  const slide = slides[currentSlide];
+
   return (
-    <div className="relative overflow-hidden bg-gradient-to-b from-rose-100/60 via-rose-50/30 to-transparent dark:from-[#1a0c1a] dark:via-[#120a14] dark:to-transparent py-12 md:py-20">
-      {/* Decorative Blur Orbs */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-rose-300/20 dark:bg-rose-900/15 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 right-10 w-80 h-80 bg-amber-200/20 dark:bg-amber-900/10 rounded-full blur-3xl pointer-events-none" />
+    <section className="relative overflow-hidden bg-gradient-to-br from-[#fdf6f4] via-[#faeaeb] to-[#fbf4f2] dark:from-[#180d16] dark:via-[#140a12] dark:to-[#1b0e19] pt-6 pb-12 md:py-16 transition-colors">
+      {/* Subtle Ambient Glow */}
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-rose-200/30 dark:bg-rose-900/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-10 w-80 h-80 bg-[#fae0e4]/40 dark:bg-rose-950/20 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          
           {/* Left Column: Headlines & CTA */}
-          <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-100/80 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-900/50 text-rose-700 dark:text-rose-300 text-xs font-semibold tracking-wide">
-              <Sparkles className="w-3.5 h-3.5 text-rose-500" />
-              <span>Bangladesh's #1 Luxury Cosmetics Marketplace</span>
+          <div className="lg:col-span-6 space-y-5 text-center lg:text-left">
+            
+            {/* Tagline Badge */}
+            <div className="inline-flex items-center gap-2">
+              <span className="text-[#c94d64] dark:text-[#f4728d] text-[11px] sm:text-xs font-bold uppercase tracking-[0.25em]">
+                {slide.tag}
+              </span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-extrabold text-slate-900 dark:text-white leading-[1.15] tracking-tight">
-              Where True Beauty Meets <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-rose-500 to-amber-600">Uncompromising Authenticity</span>.
+            {/* Main Luxury Title */}
+            <h1 className="text-4xl sm:text-5xl lg:text-[58px] font-serif font-normal text-[#1e1319] dark:text-white leading-[1.12] tracking-tight">
+              {slide.titleLine1} <br className="hidden sm:inline" />
+              {slide.titleLine2} <br />
+              <span className="text-[#c94d64] dark:text-[#f4728d] font-serif italic">
+                {slide.titleAccent}
+              </span>
             </h1>
 
-            <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-xl mx-auto lg:mx-0 leading-relaxed font-normal">
-              Buy and sell sealed & gently swatched luxury makeup, clinical skincare, and authentic designer fragrances. Every listing verified with physical batch-code inspection.
+            {/* Description */}
+            <p className="text-sm sm:text-base text-[#6d5761] dark:text-slate-300 max-w-lg mx-auto lg:mx-0 leading-relaxed font-normal">
+              {slide.desc}
             </p>
 
-            {/* CTAs */}
+            {/* Call To Actions */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
               <Link
                 href="/browse"
-                className="btn-rose-primary px-7 py-3 text-sm font-semibold flex items-center gap-2"
+                className="btn-berry-primary px-8 py-3 text-xs tracking-wider uppercase font-bold flex items-center gap-2 shadow-lg hover:shadow-xl active:scale-95 transition-all"
               >
-                <span>Shop Verified Deals</span>
-                <ArrowRight className="w-4 h-4" />
+                <span>SHOP NOW</span>
               </Link>
+              
               <Link
-                href="/sell"
-                className="btn-rose-outline px-6 py-3 text-sm font-semibold flex items-center gap-2"
+                href="/browse"
+                className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#24171e] dark:text-white hover:text-[#c94d64] dark:hover:text-[#f4728d] transition-colors py-3 px-2 group"
               >
-                <span>Open Your Boutique</span>
+                <span>BROWSE COLLECTIONS</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform text-[#c94d64]" />
               </Link>
             </div>
 
-            {/* Micro Trust Pills */}
-            <div className="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs text-slate-600 dark:text-slate-400">
-              <div className="flex items-center gap-1.5">
-                <CheckCircle className="w-4 h-4 text-emerald-500" />
-                <span>100% Genuine Guarantee</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <ShieldCheck className="w-4 h-4 text-rose-500" />
-                <span>Batch Code Checked</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <Award className="w-4 h-4 text-amber-500" />
-                <span>Cash on Delivery</span>
-              </div>
+            {/* Slide Pagination Indicator Dots */}
+            <div className="flex items-center justify-center lg:justify-start gap-2 pt-4">
+              {slides.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentSlide(idx)}
+                  className={`h-2.5 rounded-full transition-all duration-300 ${
+                    currentSlide === idx 
+                      ? 'w-7 bg-[#c94d64]' 
+                      : 'w-2.5 bg-[#f0cdd4] hover:bg-[#c94d64]/60'
+                  }`}
+                  aria-label={`Go to slide ${idx + 1}`}
+                />
+              ))}
             </div>
           </div>
 
-          {/* Right Column: Hero Visual Card */}
-          <div className="lg:col-span-5 relative">
-            <div className="relative mx-auto max-w-md">
-              {/* Luxury Frame */}
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-rose-200/80 dark:border-rose-900/40 bg-white dark:bg-[#1a0f1c] p-2">
+          {/* Right Column: Hero Visual Showcase */}
+          <div className="lg:col-span-6 relative">
+            <div className="relative mx-auto max-w-lg lg:max-w-none">
+              
+              {/* Luxury Frame Container */}
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/80 dark:border-rose-950/40 bg-white/40 dark:bg-rose-950/10">
                 <img
-                  src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=800&q=80"
-                  alt="Rare Beauty Liquid Blush Collection"
-                  className="w-full h-80 sm:h-96 object-cover rounded-2xl"
+                  src={slide.image}
+                  alt={slide.highlight}
+                  className="w-full h-80 sm:h-[440px] lg:h-[480px] object-cover transition-opacity duration-700"
                 />
 
-                {/* Floating Authentic Stamp */}
-                <div className="absolute top-6 right-6 bg-white/95 dark:bg-[#120a14]/95 backdrop-blur-md px-3.5 py-2 rounded-2xl shadow-xl border border-rose-100 dark:border-rose-900/40 flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-xl bg-rose-500 text-white flex items-center justify-center font-bold text-xs">
+                {/* Authenticity Floating Badge */}
+                <div className="absolute top-4 right-4 bg-white/95 dark:bg-[#150a16]/95 backdrop-blur-md px-3.5 py-2 rounded-2xl shadow-lg border border-[#fae0e4] dark:border-rose-900/40 flex items-center gap-2.5">
+                  <div className="w-7 h-7 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xs font-bold">
                     ✓
                   </div>
                   <div>
-                    <p className="text-[11px] font-bold text-slate-900 dark:text-white leading-tight">Batch Code Verified</p>
-                    <p className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold">100% Genuine</p>
+                    <p className="text-[11px] font-bold text-slate-900 dark:text-white leading-tight">100% Authentic</p>
+                    <p className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold">Batch Code Checked</p>
                   </div>
                 </div>
 
-                {/* Bottom Highlight Pill */}
-                <div className="absolute bottom-6 left-6 right-6 bg-white/95 dark:bg-[#120a14]/95 backdrop-blur-md p-3 rounded-2xl shadow-xl border border-rose-100 dark:border-rose-900/40 flex items-center justify-between">
+                {/* Bottom Highlight Preview Card */}
+                <div className="absolute bottom-4 left-4 right-4 bg-white/95 dark:bg-[#150a16]/95 backdrop-blur-md p-3 rounded-2xl shadow-xl border border-[#fae0e4] dark:border-rose-900/40 flex items-center justify-between">
                   <div>
-                    <span className="text-[10px] uppercase font-bold text-rose-500">Trending Now</span>
-                    <h3 className="text-xs font-bold text-slate-900 dark:text-white">Rare Beauty Soft Pinch Blush</h3>
-                    <p className="text-xs text-rose-600 dark:text-rose-400 font-bold">৳3,200 <span className="line-through text-slate-400 text-[10px]">৳3,800</span></p>
+                    <span className="text-[10px] uppercase font-bold text-[#c94d64] tracking-wider">
+                      Featured Pick
+                    </span>
+                    <h3 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white truncate max-w-[200px] sm:max-w-xs">
+                      {slide.highlight}
+                    </h3>
+                    <p className="text-xs text-[#c94d64] font-bold mt-0.5">
+                      {slide.price} <span className="line-through text-slate-400 text-[10px] font-normal">{slide.oldPrice}</span>
+                    </p>
                   </div>
+
                   <Link
-                    href="/product/bnb-prod-001"
-                    className="p-2 rounded-xl bg-rose-500 hover:bg-rose-600 text-white transition-colors"
+                    href="/browse"
+                    className="p-2.5 rounded-xl bg-[#c94d64] hover:bg-[#b53e54] text-white active:scale-95 transition-all shadow-md"
+                    title="View item"
                   >
                     <ArrowRight className="w-4 h-4" />
                   </Link>
@@ -101,8 +169,9 @@ export function HeroBanner() {
               </div>
             </div>
           </div>
+
         </div>
       </div>
-    </div>
+    </section>
   );
 }

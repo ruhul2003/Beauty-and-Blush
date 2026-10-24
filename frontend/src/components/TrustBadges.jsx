@@ -1,57 +1,52 @@
 "use client";
 
 import React from 'react';
-import { ShieldCheck, Truck, Award, Sparkles, CheckCircle2 } from 'lucide-react';
+import { Truck, Award, RotateCcw, ShieldCheck } from 'lucide-react';
 
 export function TrustBadges() {
-  const badges = [
-    {
-      icon: ShieldCheck,
-      title: "100% Genuine Guaranteed",
-      desc: "Batch code verification & receipt check on all listings",
-      color: "text-rose-500",
-      bg: "bg-rose-50 dark:bg-rose-950/30"
-    },
+  const items = [
     {
       icon: Truck,
-      title: "Nationwide Courier COD",
-      desc: "Fast delivery via Pathao & Steadfast with open-box check",
-      color: "text-amber-500",
-      bg: "bg-amber-50 dark:bg-amber-950/30"
+      title: "FREE SHIPPING",
+      desc: "On all orders over $50"
     },
     {
       icon: Award,
-      title: "Verified Boutiques & MUAs",
-      desc: "Trusted Dhaka & Chittagong beauty salons and distributors",
-      color: "text-purple-500",
-      bg: "bg-purple-50 dark:bg-purple-950/30"
+      title: "HIGH QUALITY",
+      desc: "Premium quality products"
     },
     {
-      icon: Sparkles,
-      title: "Anti-Counterfeit Protection",
-      desc: "Zero fake tolerance with full buyer money-back assurance",
-      color: "text-emerald-500",
-      bg: "bg-emerald-50 dark:bg-emerald-950/30"
+      icon: RotateCcw,
+      title: "EASY RETURNS",
+      desc: "30 days money back"
+    },
+    {
+      icon: ShieldCheck,
+      title: "SECURE PAYMENT",
+      desc: "100% secure checkout"
     }
   ];
 
   return (
-    <div className="py-8 border-y border-rose-100 dark:border-rose-950/40 bg-white/40 dark:bg-[#120a14]/40">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {badges.map((b, idx) => {
-            const Icon = b.icon;
+    <section className="py-6 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div className="bg-[#fcf2f2]/90 dark:bg-[#1a0f19]/90 border border-[#fae0e4] dark:border-rose-950/60 rounded-2xl p-4 sm:p-6 shadow-sm">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          {items.map((item, idx) => {
+            const Icon = item.icon;
             return (
-              <div key={idx} className="flex items-start gap-3.5 p-3 rounded-2xl hover:bg-rose-50/50 dark:hover:bg-rose-950/20 transition-colors">
-                <div className={`p-3 rounded-2xl ${b.bg} ${b.color} shrink-0`}>
-                  <Icon className="w-5 h-5" />
+              <div 
+                key={idx} 
+                className="flex items-center gap-3 sm:gap-4 p-2 sm:p-3 rounded-xl hover:bg-white/60 dark:hover:bg-rose-950/20 transition-all duration-200"
+              >
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-[#f5c6cf] dark:border-rose-900/40 bg-white/80 dark:bg-rose-950/40 flex items-center justify-center text-[#c94d64] shrink-0 shadow-sm">
+                  <Icon className="w-4 h-4 sm:w-5 sm:h-5 stroke-[1.8]" />
                 </div>
-                <div>
-                  <h3 className="text-xs font-bold text-slate-900 dark:text-white">
-                    {b.title}
+                <div className="min-w-0">
+                  <h3 className="text-[11px] sm:text-xs font-bold tracking-wider uppercase text-[#23171e] dark:text-white truncate">
+                    {item.title}
                   </h3>
-                  <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 leading-snug">
-                    {b.desc}
+                  <p className="text-[10px] sm:text-[11px] text-[#7d646f] dark:text-slate-400 mt-0.5 truncate">
+                    {item.desc}
                   </p>
                 </div>
               </div>
@@ -59,6 +54,6 @@ export function TrustBadges() {
           })}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
