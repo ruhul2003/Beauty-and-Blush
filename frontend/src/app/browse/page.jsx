@@ -16,11 +16,25 @@ function BrowseContent() {
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState(initialSearch);
   const [category, setCategory] = useState(initialCategory);
+  const [brand, setBrand] = useState('All');
   const [condition, setCondition] = useState('All');
   const [skinType, setSkinType] = useState('All');
   const [sort, setSort] = useState('newest');
   const [maxPrice, setMaxPrice] = useState('');
+  const [onlyInStock, setOnlyInStock] = useState(false);
   const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
+
+  const popularBrands = [
+    'All',
+    'Rare Beauty',
+    'The Ordinary',
+    'Charlotte Tilbury',
+    'Dior',
+    'Fenty Beauty',
+    'CeraVe',
+    'Laneige',
+    'Huda Beauty'
+  ];
 
   // Sync category and search when navigating via Next Link
   useEffect(() => {
@@ -32,7 +46,7 @@ function BrowseContent() {
 
   useEffect(() => {
     fetchFilteredProducts();
-  }, [category, condition, skinType, sort, maxPrice]);
+  }, [category, brand, condition, skinType, sort, maxPrice, onlyInStock]);
 
   const fetchFilteredProducts = async () => {
     setLoading(true);
@@ -40,13 +54,18 @@ function BrowseContent() {
       const params = {};
       if (searchTerm) params.search = searchTerm;
       if (category !== 'All') params.category = category;
+      if (brand !== 'All') params.brand = brand;
       if (condition !== 'All') params.condition = condition;
       if (skinType !== 'All') params.skinType = skinType;
       if (sort) params.sort = sort;
       if (maxPrice) params.maxPrice = maxPrice;
 
       const res = await api.get('/products', { params });
-      setProducts(res.data || []);
+      let list = res.data || [];
+      if (onlyInStock) {
+        list = list.filter(p => p.status !== 'Sold Out');
+      }
+      setProducts(list);
     } catch (err) {
       console.error('Failed to filter products', err);
     } finally {
@@ -61,9 +80,11 @@ function BrowseContent() {
 
   const resetFilters = () => {
     setCategory('All');
+    setBrand('All');
     setCondition('All');
     setSkinType('All');
     setMaxPrice('');
+    setOnlyInStock(false);
     setSort('newest');
     setSearchTerm('');
   };
@@ -115,13 +136,13 @@ function BrowseContent() {
                 <Filter className="w-3.5 h-3.5 text-rose-500" />
                 <span>Filters</span>
               </span>
-              <Link
-                href="/browse"
+              <button
+                type="button"
                 onClick={resetFilters}
                 className="text-[11px] text-rose-600 dark:text-rose-400 hover:underline"
               >
                 Reset All
-              </Link>
+              </button>
             </div>
 
             {/* Category Filter */}
@@ -129,9 +150,9 @@ function BrowseContent() {
               <label className="text-xs font-bold text-slate-800 dark:text-slate-200 block mb-2">Category</label>
               <div className="space-y-1.5 text-xs">
                 {['All', 'Skincare', 'Makeup', 'Haircare', 'Fragrance', 'Bath & Body', 'Tools & Brushes'].map(cat => (
-                  <Link
+                  <button
                     key={cat}
-                    href={cat === 'All' ? '/browse' : `/browse?category=${encodeURIComponent(cat)}`}
+                    type="button"
                     onClick={() => {
                       setCategory(cat);
                       setMobileFilterOpen(false);
@@ -143,9 +164,23 @@ function BrowseContent() {
                     }`}
                   >
                     {cat}
-                  </Link>
+                  </button>
                 ))}
               </div>
+            </div>
+
+            {/* Brand Filter */}
+            <div>
+              <label className="text-xs font-bold text-slate-800 dark:text-slate-200 block mb-2">Brand</label>
+              <select
+                value={brand}
+                onChange={(e) => setBrand(e.target.value)}
+                className="w-full text-xs p-2 rounded-xl border border-rose-200 dark:border-rose-900/50 bg-white dark:bg-[#1a0f1c]"
+              >
+                {popularBrands.map(b => (
+                  <option key={b} value={b}>{b === 'All' ? 'All Brands' : b}</option>
+                ))}
+              </select>
             </div>
 
             {/* Condition Filter */}
@@ -177,6 +212,19 @@ function BrowseContent() {
                 <option value="Dry">Dry / Sensitive</option>
                 <option value="Normal">Normal</option>
               </select>
+            </div>
+
+            {/* In-Stock Toggle */}
+            <div className="pt-2 border-t border-rose-100 dark:border-rose-950/40">
+              <label className="flex items-center gap-2 cursor-pointer text-xs font-semibold text-slate-700 dark:text-slate-200">
+                <input
+                  type="checkbox"
+                  checked={onlyInStock}
+                  onChange={(e) => setOnlyInStock(e.target.checked)}
+                  className="rounded text-rose-500 focus:ring-rose-400 accent-rose-500"
+                />
+                <span>In-Stock Only</span>
+              </label>
             </div>
 
             {/* Max Price Filter */}
