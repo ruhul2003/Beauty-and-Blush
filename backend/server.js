@@ -35,6 +35,7 @@ app.use('/api/reviews', require('./routes/reviewRoutes'));
 app.use('/api/coupons', require('./routes/couponRoutes'));
 app.use('/api/ai', require('./routes/aiRoutes'));
 app.use('/api/seed', require('./routes/seedRoutes'));
+app.use('/api/admin', require('./routes/adminRoutes'));
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {
