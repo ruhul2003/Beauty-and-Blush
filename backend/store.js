@@ -486,11 +486,67 @@ let reviews = [
   }
 ];
 
+const seedCoupons = [
+  {
+    _id: "cpn-001",
+    code: "BLUSH15",
+    discountType: "percentage",
+    discountValue: 15,
+    minPurchase: 1500,
+    maxDiscount: 1000,
+    description: "15% off all orders over ৳1,500",
+    isActive: true,
+    usageCount: 42,
+    expiresAt: new Date("2027-12-31")
+  },
+  {
+    _id: "cpn-002",
+    code: "GLOW20",
+    discountType: "percentage",
+    discountValue: 20,
+    minPurchase: 3000,
+    maxDiscount: 1500,
+    description: "20% off luxury skincare over ৳3,000",
+    isActive: true,
+    usageCount: 78,
+    expiresAt: new Date("2027-12-31")
+  },
+  {
+    _id: "cpn-003",
+    code: "BEAUTY500",
+    discountType: "fixed",
+    discountValue: 500,
+    minPurchase: 2500,
+    maxDiscount: 500,
+    description: "Flat ৳500 off any purchase over ৳2,500",
+    isActive: true,
+    usageCount: 19,
+    expiresAt: new Date("2027-12-31")
+  },
+  {
+    _id: "cpn-004",
+    code: "FREESHIP",
+    discountType: "shipping",
+    discountValue: 120,
+    minPurchase: 1000,
+    maxDiscount: 120,
+    description: "Free express shipping nationwide",
+    isActive: true,
+    usageCount: 105,
+    expiresAt: new Date("2027-12-31")
+  }
+];
+
+let coupons = [...seedCoupons];
+
 module.exports = {
   seedProducts,
   seedShops,
+  seedCoupons,
   products,
   shops,
   orders,
-  reviews
+  reviews,
+  coupons
 };
+
