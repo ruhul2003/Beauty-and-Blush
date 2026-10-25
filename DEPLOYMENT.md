@@ -54,9 +54,13 @@ The repository is organized as a clean monorepo:
 
 ## 🌟 Marketplace Capabilities
 
-1. **Physical Batch Code Authentication**: Verifiable codes on all luxury cosmetics, perfumes & skincare.
-2. **Interactive AI Beauty Advisor**: Real-time consultation for skin types, shades, and perfumes.
-3. **Nationwide Courier Delivery Calculator**: Division-based cost breakdown covering Pathao, Steadfast, RedX with Cash on Delivery (COD).
-4. **WhatsApp 1-Click Seller Inquiries**: Direct connection with verified boutique owners.
-5. **Community Q&A and Verified Reviews**: Social proof and community trust.
-6. **Seller Boutique Dashboard**: Inventory management, order tracking, and metrics.
+1. **Administration Control Portal (`/admin`)**: Unified operations portal with real-time KPIs, product inventory management, status advancement, promotional vouchers, customer reviews moderation, and store configuration.
+2. **Coupons & Promo Codes Engine (`/api/coupons`)**: Percentage discounts, flat rate cash vouchers, and free shipping codes with automated checkout deduction.
+3. **Interactive Parcel Tracking (`/track-order`)**: 5-stage milestone timeline with Pathao, Steadfast, and RedX integration.
+4. **Interactive Quick View Modal**: Instant shade swatch inspection and checkout without leaving catalog pages.
+5. **Physical Batch Code Authentication**: Verifiable codes on all luxury cosmetics, perfumes & skincare.
+6. **Interactive AI Beauty Advisor**: Real-time consultation for skin types, shades, and perfumes.
+7. **Nationwide Courier Delivery Calculator**: Division-based cost breakdown covering Pathao, Steadfast, RedX with Cash on Delivery (COD).
+8. **WhatsApp 1-Click Seller Inquiries**: Direct connection with verified boutique owners.
+9. **Community Q&A and Verified Reviews**: Social proof and community trust.
+10. **Seller Boutique Dashboard**: Inventory management, order tracking, and metrics.
