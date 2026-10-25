@@ -22,6 +22,8 @@ import { useToast } from '@/context/ToastContext';
 import { useAuth } from '@/context/AuthContext';
 import { api } from '@/lib/api';
 import { BuyModal } from '@/components/BuyModal';
+import { ProductCard } from '@/components/ProductCard';
+import { saveRecentProduct, getRecentProducts } from '@/utils/recentProducts';
 
 export default function ProductDetailPage() {
   const { id } = useParams();
@@ -33,6 +35,7 @@ export default function ProductDetailPage() {
   const [loading, setLoading] = useState(true);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [isWishlisted, setIsWishlisted] = useState(false);
+  const [recentItems, setRecentItems] = useState([]);
   const [buyModalOpen, setBuyModalOpen] = useState(false);
   
   // Q&A state
@@ -56,6 +59,11 @@ export default function ProductDetailPage() {
     try {
       const res = await api.get(`/products/${id}`);
       setProduct(res.data);
+      if (res.data) {
+        saveRecentProduct(res.data);
+        const stored = getRecentProducts();
+        setRecentItems(stored.filter(item => (item._id || item.id) !== id));
+      }
       if (res.data && res.data.qa) {
         setQaList(res.data.qa);
       }
@@ -453,6 +461,35 @@ export default function ProductDetailPage() {
           </div>
         </div>
       </section>
+
+      {/* Recently Viewed Products */}
+      {recentItems.length > 0 && (
+        <section className="pt-8 border-t border-rose-100 dark:border-rose-950/60 space-y-5">
+          <div className="flex items-center justify-between">
+            <div>
+              <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[#c94d64] uppercase tracking-wider">
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>Browsing History</span>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-serif font-bold text-slate-900 dark:text-white mt-0.5">
+                Recently Viewed Essentials
+              </h3>
+            </div>
+            <Link
+              href="/browse"
+              className="text-xs font-bold text-[#c94d64] hover:underline"
+            >
+              Explore All Catalog
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {recentItems.map(item => (
+              <ProductCard key={item._id || item.id} product={item} />
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Buy Modal */}
       {buyModalOpen && (
