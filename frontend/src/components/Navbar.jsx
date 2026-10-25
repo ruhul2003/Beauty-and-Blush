@@ -18,7 +18,8 @@ import {
   ShieldCheck,
   Gift,
   ArrowRight,
-  Truck
+  Truck,
+  LayoutDashboard
 } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
 
@@ -170,6 +171,11 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
                     <Link href="/track-order" className="flex items-center gap-2.5 px-4 py-2.5 hover:bg-rose-50 dark:hover:bg-rose-950/40 text-slate-700 dark:text-slate-200">
                       <Truck className="w-4 h-4 text-[#c94d64]" />
                       <span>Track Order</span>
+                    </Link>
+
+                    <Link href="/admin" className="flex items-center gap-2.5 px-4 py-2.5 hover:bg-rose-50 dark:hover:bg-rose-950/40 text-rose-700 dark:text-rose-400 font-bold border-t border-rose-100/60 dark:border-rose-950/40 mt-1">
+                      <LayoutDashboard className="w-4 h-4 text-[#c94d64]" />
+                      <span>Admin Control Panel</span>
                     </Link>
 
                     <div className="border-t border-rose-100 dark:border-rose-950/60 mt-1 pt-1">

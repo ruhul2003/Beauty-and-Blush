@@ -36,16 +36,17 @@ export function MobileBottomNav({ onOpenCategories }) {
   const isHome = pathname === '/';
   const isShop = Boolean(pathname && pathname.startsWith('/browse'));
   const isWishlist = pathname === '/wishlist';
+  const isAdmin = Boolean(pathname && pathname.startsWith('/admin'));
   const isAccount = Boolean(pathname && (pathname.startsWith('/dashboard') || pathname.startsWith('/auth')));
 
   const navItems = [
     { label: 'Home', href: '/', icon: Home, isActive: isHome },
     { label: 'Shop', href: '/browse', icon: ShoppingBag, isActive: isShop },
     { 
-      label: 'Categories', 
-      href: '/browse',
+      label: 'Admin', 
+      href: '/admin',
       icon: LayoutGrid, 
-      isActive: false 
+      isActive: isAdmin 
     },
     { 
       label: 'Wishlist', 
