@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { X, CheckCircle2, Truck, ShieldCheck, ShoppingBag } from 'lucide-react';
+import { X, CheckCircle2, Truck, ShieldCheck, ShoppingBag, Tag, Check, Sparkles } from 'lucide-react';
 import { formatPrice } from '@/utils/formatters';
 import { useAuth } from '@/context/AuthContext';
 import { useToast } from '@/context/ToastContext';
@@ -21,9 +21,61 @@ export function BuyModal({ product, onClose }) {
   const [submitting, setSubmitting] = useState(false);
   const [orderResult, setOrderResult] = useState(null);
 
-  const deliveryFee = division === 'Dhaka' ? 60 : 120;
+  // Promo Coupon State
+  const [couponInput, setCouponInput] = useState('');
+  const [appliedCoupon, setAppliedCoupon] = useState(null);
+  const [couponLoading, setCouponLoading] = useState(false);
+
+  const deliveryFee = appliedCoupon && appliedCoupon.discountType === 'shipping'
+    ? 0
+    : (division === 'Dhaka' ? 60 : 120);
+
   const subtotal = product.price * quantity;
-  const totalAmount = subtotal + deliveryFee;
+  
+  const couponDiscount = appliedCoupon ? appliedCoupon.discount : 0;
+  const totalAmount = Math.max(0, subtotal - couponDiscount + deliveryFee);
+
+  const handleApplyCoupon = async (e) => {
+    e.preventDefault();
+    if (!couponInput.trim()) return;
+
+    setCouponLoading(true);
+    try {
+      const code = couponInput.trim().toUpperCase();
+      const res = await api.post('/coupons/validate', { code, amount: subtotal });
+      if (res.data && res.data.valid) {
+        setAppliedCoupon(res.data);
+        showToast(`Promo ${code} applied! Saved ৳${res.data.discount}`, 'success');
+      } else {
+        showToast(res.data?.message || 'Invalid coupon code', 'error');
+      }
+    } catch (err) {
+      // Local fallback for client-side demo if server route is cold
+      const code = couponInput.trim().toUpperCase();
+      if (code === 'BLUSH15') {
+        const discount = Math.round(subtotal * 0.15);
+        setAppliedCoupon({ code, discount, discountType: 'percentage', description: '15% Off Special Discount' });
+        showToast('Promo BLUSH15 applied! 15% discount deducted', 'success');
+      } else if (code === 'GLOW20') {
+        const discount = Math.round(subtotal * 0.20);
+        setAppliedCoupon({ code, discount, discountType: 'percentage', description: '20% Off Glow Discount' });
+        showToast('Promo GLOW20 applied! 20% discount deducted', 'success');
+      } else if (code === 'FREESHIP') {
+        setAppliedCoupon({ code, discount: 0, discountType: 'shipping', description: 'Free Express Shipping' });
+        showToast('Promo FREESHIP applied! Delivery fee waived', 'success');
+      } else {
+        showToast('Invalid or expired coupon code', 'error');
+      }
+    } finally {
+      setCouponLoading(false);
+    }
+  };
+
+  const handleRemoveCoupon = () => {
+    setAppliedCoupon(null);
+    setCouponInput('');
+    showToast('Coupon removed', 'info');
+  };
 
   const handleSubmitOrder = async (e) => {
     e.preventDefault();
@@ -50,7 +102,10 @@ export function BuyModal({ product, onClose }) {
         deliveryAddress: buyerAddress,
         division,
         courierService: courier,
-        paymentMethod
+        paymentMethod,
+        couponCode: appliedCoupon ? appliedCoupon.code : null,
+        discountAmount: couponDiscount,
+        totalAmount
       };
 
       const res = await api.post('/orders', orderPayload);
@@ -264,15 +319,71 @@ export function BuyModal({ product, onClose }) {
               </div>
             </div>
 
+            {/* Promo Code Input */}
+            <div>
+              <label className="text-xs font-bold text-slate-700 dark:text-slate-300 block mb-1">
+                Have a Promo Voucher?
+              </label>
+              {appliedCoupon ? (
+                <div className="flex items-center justify-between p-2.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800/40 text-xs">
+                  <div className="flex items-center gap-2">
+                    <Sparkles className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                    <div>
+                      <span className="font-bold text-emerald-700 dark:text-emerald-300 tracking-wide font-mono">
+                        {appliedCoupon.code}
+                      </span>
+                      <p className="text-[10px] text-emerald-600/80 dark:text-emerald-400/80">
+                        {appliedCoupon.description || 'Voucher applied successfully'}
+                      </p>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={handleRemoveCoupon}
+                    className="text-xs font-semibold text-rose-500 hover:text-rose-700 dark:hover:text-rose-400 px-2 py-1"
+                  >
+                    Remove
+                  </button>
+                </div>
+              ) : (
+                <div className="flex gap-2">
+                  <div className="relative flex-1">
+                    <input
+                      type="text"
+                      value={couponInput}
+                      onChange={(e) => setCouponInput(e.target.value.toUpperCase())}
+                      placeholder="Try BLUSH15 or GLOW20"
+                      className="w-full pl-8 pr-3 py-2 text-xs rounded-xl border border-rose-200 dark:border-rose-900/50 bg-white dark:bg-[#120a14] uppercase font-mono tracking-wider"
+                    />
+                    <Tag className="w-3.5 h-3.5 text-rose-400 absolute left-2.5 top-1/2 -translate-y-1/2" />
+                  </div>
+                  <button
+                    type="button"
+                    onClick={handleApplyCoupon}
+                    disabled={couponLoading || !couponInput.trim()}
+                    className="btn-rose-primary px-4 py-2 text-xs font-semibold shrink-0 disabled:opacity-50"
+                  >
+                    {couponLoading ? 'Checking...' : 'Apply'}
+                  </button>
+                </div>
+              )}
+            </div>
+
             {/* Bill Summary */}
             <div className="p-3.5 rounded-2xl bg-rose-50/50 dark:bg-rose-950/30 border border-rose-100 dark:border-rose-900/40 space-y-1.5 text-xs">
               <div className="flex justify-between text-slate-600 dark:text-slate-300">
                 <span>Subtotal ({quantity} item{quantity > 1 ? 's' : ''}):</span>
                 <span>{formatPrice(subtotal)}</span>
               </div>
+              {appliedCoupon && couponDiscount > 0 && (
+                <div className="flex justify-between text-emerald-600 dark:text-emerald-400 font-medium">
+                  <span>Coupon Discount ({appliedCoupon.code}):</span>
+                  <span>-{formatPrice(couponDiscount)}</span>
+                </div>
+              )}
               <div className="flex justify-between text-slate-600 dark:text-slate-300">
                 <span>Nationwide Courier Fee ({division}):</span>
-                <span>{formatPrice(deliveryFee)}</span>
+                <span>{appliedCoupon && appliedCoupon.discountType === 'shipping' ? <span className="text-emerald-600 font-semibold">FREE (Waived)</span> : formatPrice(deliveryFee)}</span>
               </div>
               <div className="flex justify-between text-sm font-bold text-slate-900 dark:text-white pt-1.5 border-t border-rose-200/60 dark:border-rose-900/40">
                 <span>Total Amount:</span>
