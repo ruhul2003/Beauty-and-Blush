@@ -17,7 +17,8 @@ import {
   ChevronDown,
   ShieldCheck,
   Gift,
-  ArrowRight
+  ArrowRight,
+  Truck
 } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
 
@@ -65,7 +66,7 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
     { label: 'Skincare', href: '/browse?category=Skincare' },
     { label: 'Makeup', href: '/browse?category=Makeup' },
     { label: 'Haircare', href: '/browse?category=Haircare' },
-    { label: 'Accessories', href: '/browse?category=Accessories' },
+    { label: 'Track Order', href: '/track-order' },
     { label: 'About Us', href: '/#about' },
     { label: 'Contact', href: '/#contact' },
   ];
@@ -164,6 +165,11 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
                     <Link href="/sell" className="flex items-center gap-2.5 px-4 py-2.5 hover:bg-rose-50 dark:hover:bg-rose-950/40 text-slate-700 dark:text-slate-200">
                       <PlusCircle className="w-4 h-4 text-[#c94d64]" />
                       <span>Post New Listing</span>
+                    </Link>
+
+                    <Link href="/track-order" className="flex items-center gap-2.5 px-4 py-2.5 hover:bg-rose-50 dark:hover:bg-rose-950/40 text-slate-700 dark:text-slate-200">
+                      <Truck className="w-4 h-4 text-[#c94d64]" />
+                      <span>Track Order</span>
                     </Link>
 
                     <div className="border-t border-rose-100 dark:border-rose-950/60 mt-1 pt-1">
