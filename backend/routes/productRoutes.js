@@ -252,7 +252,7 @@ router.put('/:id', async (req, res) => {
       if (!updated) return res.status(404).json({ message: 'Product not found' });
       return res.json(updated);
     } else {
-      const idx = products.findIndex(p => p._id === id);
+      const idx = products.findIndex(p => p._id === id || p.id === id);
       if (idx === -1) return res.status(404).json({ message: 'Product not found' });
       products[idx] = { ...products[idx], ...req.body };
       return res.json(products[idx]);
@@ -270,7 +270,7 @@ router.delete('/:id', async (req, res) => {
       await Product.findByIdAndDelete(id);
       return res.json({ message: 'Product deleted successfully' });
     } else {
-      const idx = products.findIndex(p => p._id === id);
+      const idx = products.findIndex(p => p._id === id || p.id === id);
       if (idx !== -1) products.splice(idx, 1);
       return res.json({ message: 'Product deleted successfully' });
     }
