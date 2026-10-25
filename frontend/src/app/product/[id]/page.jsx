@@ -122,7 +122,7 @@ export default function ProductDetailPage() {
 
   if (loading) {
     return (
-      <div className="max-w-7xl mx-auto px-4 py-20 text-center">
+      <div className="w-[90%] mx-auto px-2 sm:px-4 py-20 text-center">
         <Sparkles className="w-8 h-8 text-rose-500 animate-spin mx-auto mb-3" />
         <p className="text-xs text-slate-500">Loading authentic beauty listing...</p>
       </div>
@@ -131,7 +131,7 @@ export default function ProductDetailPage() {
 
   if (!product) {
     return (
-      <div className="max-w-7xl mx-auto px-4 py-20 text-center">
+      <div className="w-[90%] mx-auto px-2 sm:px-4 py-20 text-center">
         <h2 className="text-xl font-bold">Listing Not Found</h2>
         <Link href="/browse" className="mt-4 inline-block btn-rose-primary px-4 py-2 text-xs">
           Return to Catalog
@@ -147,7 +147,7 @@ export default function ProductDetailPage() {
   const discount = calculateDiscount(product.originalPrice, product.price);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+    <div className="w-[90%] mx-auto px-2 sm:px-4 py-8 space-y-12">
       {/* Top Breadcrumb */}
       <nav className="text-xs text-slate-500 flex items-center gap-2">
         <Link href="/" className="hover:text-rose-600">Home</Link>
@@ -212,9 +212,12 @@ export default function ProductDetailPage() {
         <div className="lg:col-span-6 space-y-6">
           <div>
             <div className="flex items-center justify-between text-xs mb-2">
-              <span className="px-2.5 py-0.5 rounded-full bg-rose-100 dark:bg-rose-950/50 text-rose-700 dark:text-rose-300 font-bold uppercase tracking-wider text-[10px]">
+              <Link
+                href={`/browse?category=${encodeURIComponent(product.category || 'All')}`}
+                className="px-2.5 py-0.5 rounded-full bg-rose-100 dark:bg-rose-950/50 text-rose-700 dark:text-rose-300 font-bold uppercase tracking-wider text-[10px] hover:bg-rose-200 transition-colors"
+              >
                 {product.brand || product.category}
-              </span>
+              </Link>
               <div className="flex items-center gap-1 text-amber-500 font-bold">
                 <Star className="w-4 h-4 fill-current" />
                 <span>{product.rating || 4.9}</span>

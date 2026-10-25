@@ -59,11 +59,11 @@ export function HeroBanner() {
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-rose-200/30 dark:bg-rose-900/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-10 w-80 h-80 bg-[#fae0e4]/40 dark:bg-rose-950/20 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="w-[90%] mx-auto px-2 sm:px-4 lg:px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
           {/* Left Column: Headlines & CTA */}
-          <div className="lg:col-span-6 space-y-5 text-center lg:text-left">
+          <div className="lg:col-span-5 space-y-5 text-center lg:text-left">
             
             {/* Tagline Badge */}
             <div className="inline-flex items-center gap-2">
@@ -73,7 +73,7 @@ export function HeroBanner() {
             </div>
 
             {/* Main Luxury Title */}
-            <h1 className="text-4xl sm:text-5xl lg:text-[58px] font-serif font-normal text-[#1e1319] dark:text-white leading-[1.12] tracking-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-5xl xl:text-[58px] font-serif font-normal text-[#1e1319] dark:text-white leading-[1.12] tracking-tight">
               {slide.titleLine1} <br className="hidden sm:inline" />
               {slide.titleLine2} <br />
               <span className="text-[#c94d64] dark:text-[#f4728d] font-serif italic">
@@ -121,20 +121,22 @@ export function HeroBanner() {
             </div>
           </div>
 
-          {/* Right Column: Hero Visual Showcase */}
-          <div className="lg:col-span-6 relative">
-            <div className="relative mx-auto max-w-lg lg:max-w-none">
+          {/* Right Column: Hero Visual Showcase (Wider banner) */}
+          <div className="lg:col-span-7 relative">
+            <div className="relative mx-auto w-full">
               
               {/* Luxury Frame Container */}
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/80 dark:border-rose-950/40 bg-white/40 dark:bg-rose-950/10">
-                <img
-                  src={slide.image}
-                  alt={slide.highlight}
-                  className="w-full h-80 sm:h-[440px] lg:h-[480px] object-cover transition-opacity duration-700"
-                />
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/80 dark:border-rose-950/40 bg-white/40 dark:bg-rose-950/10 group">
+                <Link href="/browse" className="block relative w-full overflow-hidden" title="Explore Collection">
+                  <img
+                    src={slide.image}
+                    alt={slide.highlight}
+                    className="w-full h-80 sm:h-[460px] md:h-[500px] lg:h-[530px] xl:h-[580px] object-cover transition-all duration-700 group-hover:scale-105"
+                  />
+                </Link>
 
                 {/* Authenticity Floating Badge */}
-                <div className="absolute top-4 right-4 bg-white/95 dark:bg-[#150a16]/95 backdrop-blur-md px-3.5 py-2 rounded-2xl shadow-lg border border-[#fae0e4] dark:border-rose-900/40 flex items-center gap-2.5">
+                <Link href="/browse" className="absolute top-4 right-4 bg-white/95 dark:bg-[#150a16]/95 backdrop-blur-md px-3.5 py-2 rounded-2xl shadow-lg border border-[#fae0e4] dark:border-rose-900/40 flex items-center gap-2.5 hover:border-[#c94d64] transition-colors">
                   <div className="w-7 h-7 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xs font-bold">
                     ✓
                   </div>
@@ -142,25 +144,25 @@ export function HeroBanner() {
                     <p className="text-[11px] font-bold text-slate-900 dark:text-white leading-tight">100% Authentic</p>
                     <p className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold">Batch Code Checked</p>
                   </div>
-                </div>
+                </Link>
 
                 {/* Bottom Highlight Preview Card */}
-                <div className="absolute bottom-4 left-4 right-4 bg-white/95 dark:bg-[#150a16]/95 backdrop-blur-md p-3 rounded-2xl shadow-xl border border-[#fae0e4] dark:border-rose-900/40 flex items-center justify-between">
-                  <div>
+                <div className="absolute bottom-4 left-4 right-4 bg-white/95 dark:bg-[#150a16]/95 backdrop-blur-md p-3.5 rounded-2xl shadow-xl border border-[#fae0e4] dark:border-rose-900/40 flex items-center justify-between">
+                  <Link href="/browse" className="block flex-1 min-w-0 pr-3">
                     <span className="text-[10px] uppercase font-bold text-[#c94d64] tracking-wider">
                       Featured Pick
                     </span>
-                    <h3 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white truncate max-w-[200px] sm:max-w-xs">
+                    <h3 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white truncate max-w-[220px] sm:max-w-xs md:max-w-md hover:text-[#c94d64] transition-colors">
                       {slide.highlight}
                     </h3>
                     <p className="text-xs text-[#c94d64] font-bold mt-0.5">
                       {slide.price} <span className="line-through text-slate-400 text-[10px] font-normal">{slide.oldPrice}</span>
                     </p>
-                  </div>
+                  </Link>
 
                   <Link
                     href="/browse"
-                    className="p-2.5 rounded-xl bg-[#c94d64] hover:bg-[#b53e54] text-white active:scale-95 transition-all shadow-md"
+                    className="p-2.5 rounded-xl bg-[#c94d64] hover:bg-[#b53e54] text-white active:scale-95 transition-all shadow-md shrink-0"
                     title="View item"
                   >
                     <ArrowRight className="w-4 h-4" />

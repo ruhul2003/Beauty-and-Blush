@@ -67,7 +67,7 @@ export default function SellPage() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto px-4 sm:px-6 py-10">
+    <div className="w-[90%] max-w-4xl mx-auto px-2 sm:px-4 py-10">
       <div className="glass-panel p-6 sm:p-10 rounded-3xl space-y-6">
         <div>
           <div className="inline-flex items-center gap-1.5 text-xs font-bold text-rose-500 uppercase tracking-widest mb-1">

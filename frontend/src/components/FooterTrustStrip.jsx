@@ -29,7 +29,7 @@ export function FooterTrustStrip() {
 
   return (
     <div className="bg-[#faeeeb] dark:bg-[#180e17] border-y border-[#fae0e4] dark:border-rose-950/60 py-6 transition-colors">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-[90%] mx-auto px-2 sm:px-4">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {assurances.map((item, idx) => {
             const Icon = item.icon;

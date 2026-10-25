@@ -99,7 +99,7 @@ export function TrendingProducts({ products = [] }) {
 
   return (
     <section className="py-12 md:py-16 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-[90%] mx-auto px-2 sm:px-4">
         
         {/* Section Heading with Crown Motif */}
         <div className="text-center mb-10 sm:mb-12">
@@ -148,11 +148,13 @@ export function TrendingProducts({ products = [] }) {
                   <div>
                     {/* Product Image Frame */}
                     <div className="relative aspect-square w-full rounded-xl overflow-hidden bg-[#fdf5f4] dark:bg-rose-950/20 mb-3">
-                      <img
-                        src={prod.image}
-                        alt={prod.title}
-                        className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500"
-                      />
+                      <Link href={`/browse?category=${prod.category}`} className="block w-full h-full">
+                        <img
+                          src={prod.image}
+                          alt={prod.title}
+                          className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500"
+                        />
+                      </Link>
 
                       {/* SALE Badge */}
                       {prod.isSale && (

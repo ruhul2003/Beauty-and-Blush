@@ -66,20 +66,23 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
     { label: 'Makeup', href: '/browse?category=Makeup' },
     { label: 'Haircare', href: '/browse?category=Haircare' },
     { label: 'Accessories', href: '/browse?category=Accessories' },
-    { label: 'About Us', href: '#about' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'About Us', href: '/#about' },
+    { label: 'Contact', href: '/#contact' },
   ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-40 bg-white/95 dark:bg-[#0e080f]/95 backdrop-blur-md border-b border-[#fae1e5] dark:border-rose-950/40 transition-colors">
       {/* Top Banner Notice */}
-      <div className="bg-[#faeeeb] dark:bg-[#20121a] text-[#553b47] dark:text-[#f3d9e2] border-b border-[#fae1db] dark:border-rose-950/50 text-[11px] sm:text-xs py-1.5 px-4 text-center font-medium tracking-wide flex items-center justify-center gap-2">
+      <Link
+        href="/browse"
+        className="bg-[#faeeeb] dark:bg-[#20121a] text-[#553b47] dark:text-[#f3d9e2] border-b border-[#fae1db] dark:border-rose-950/50 text-[11px] sm:text-xs py-1.5 px-4 text-center font-medium tracking-wide flex items-center justify-center gap-2 hover:bg-[#fae4df] dark:hover:bg-[#281722] transition-colors"
+      >
         <Gift className="w-3.5 h-3.5 text-[#c94d64]" />
         <span>FREE SHIPPING on all orders over $50 | 30 Days Easy Returns</span>
-      </div>
+      </Link>
 
-      {/* Main Header Container */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Main Header Container (90% width) */}
+      <div className="w-[90%] mx-auto px-2 sm:px-4">
         <div className="flex items-center justify-between h-16 sm:h-20 gap-4">
           
           {/* Logo */}

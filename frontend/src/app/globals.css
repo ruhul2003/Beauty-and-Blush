@@ -77,6 +77,14 @@
   }
 }
 
+/* Site Container Utility for 90% Layout Width */
+.site-container {
+  width: 90% !important;
+  max-width: none !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
 /* Glassmorphism Classes */
 .glass-panel {
   background: var(--panel-bg);

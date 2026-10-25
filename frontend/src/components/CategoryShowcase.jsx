@@ -40,7 +40,7 @@ const categories = [
 export function CategoryShowcase() {
   return (
     <section className="py-12 md:py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-[90%] mx-auto px-2 sm:px-4">
         
         {/* Section Heading with Crown Motif */}
         <div className="text-center mb-10 sm:mb-12">

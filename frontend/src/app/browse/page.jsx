@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, Suspense } from 'react';
+import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { Search, Filter, SlidersHorizontal, Sparkles, X } from 'lucide-react';
 import { ProductCard } from '@/components/ProductCard';
@@ -20,6 +21,14 @@ function BrowseContent() {
   const [sort, setSort] = useState('newest');
   const [maxPrice, setMaxPrice] = useState('');
   const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
+
+  // Sync category and search when navigating via Next Link
+  useEffect(() => {
+    const urlCategory = searchParams.get('category') || 'All';
+    const urlSearch = searchParams.get('search') || '';
+    setCategory(urlCategory);
+    setSearchTerm(urlSearch);
+  }, [searchParams]);
 
   useEffect(() => {
     fetchFilteredProducts();
@@ -60,7 +69,7 @@ function BrowseContent() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="w-[90%] mx-auto px-2 sm:px-4 py-8">
       {/* Header & Search */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
         <div>
@@ -106,12 +115,13 @@ function BrowseContent() {
                 <Filter className="w-3.5 h-3.5 text-rose-500" />
                 <span>Filters</span>
               </span>
-              <button
+              <Link
+                href="/browse"
                 onClick={resetFilters}
                 className="text-[11px] text-rose-600 dark:text-rose-400 hover:underline"
               >
                 Reset All
-              </button>
+              </Link>
             </div>
 
             {/* Category Filter */}
@@ -119,17 +129,21 @@ function BrowseContent() {
               <label className="text-xs font-bold text-slate-800 dark:text-slate-200 block mb-2">Category</label>
               <div className="space-y-1.5 text-xs">
                 {['All', 'Skincare', 'Makeup', 'Haircare', 'Fragrance', 'Bath & Body', 'Tools & Brushes'].map(cat => (
-                  <button
+                  <Link
                     key={cat}
-                    onClick={() => setCategory(cat)}
-                    className={`w-full text-left px-2.5 py-1.5 rounded-lg transition-colors ${
+                    href={cat === 'All' ? '/browse' : `/browse?category=${encodeURIComponent(cat)}`}
+                    onClick={() => {
+                      setCategory(cat);
+                      setMobileFilterOpen(false);
+                    }}
+                    className={`block w-full text-left px-2.5 py-1.5 rounded-lg transition-colors ${
                       category === cat
                         ? 'bg-rose-500 text-white font-semibold'
                         : 'text-slate-600 dark:text-slate-300 hover:bg-rose-50 dark:hover:bg-rose-950/30'
                     }`}
                   >
                     {cat}
-                  </button>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -222,12 +236,16 @@ function BrowseContent() {
               <Sparkles className="w-8 h-8 text-rose-400 mx-auto mb-3" />
               <h3 className="text-base font-bold text-slate-800 dark:text-slate-200">No matching cosmetics found</h3>
               <p className="text-xs text-slate-500 mt-1">Try resetting your filters or adjusting your search keywords.</p>
-              <button onClick={resetFilters} className="mt-4 btn-rose-primary px-4 py-2 text-xs">
+              <Link
+                href="/browse"
+                onClick={resetFilters}
+                className="mt-4 btn-rose-primary px-4 py-2 text-xs inline-block"
+              >
                 Clear Filters
-              </button>
+              </Link>
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {products.map(product => (
                 <ProductCard key={product._id || product.id} product={product} />
               ))}

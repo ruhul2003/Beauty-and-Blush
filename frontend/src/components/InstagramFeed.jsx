@@ -1,6 +1,5 @@
-"use client";
-
 import React from 'react';
+import Link from 'next/link';
 import { Heart } from 'lucide-react';
 
 function InstagramIcon({ className = "w-5 h-5" }) {
@@ -15,35 +14,36 @@ function InstagramIcon({ className = "w-5 h-5" }) {
 
 export function InstagramFeed() {
   const posts = [
-    { image: '/images/lipstick.jpg', likes: '1.4k', alt: 'Velvet Rouge Lipstick Swatch' },
-    { image: '/images/brushes.jpg', likes: '2.8k', alt: '10-piece Rose Gold Brush Set' },
-    { image: '/images/hero-model.jpg', likes: '5.2k', alt: 'Dewy Skin Routine & Peonies' },
-    { image: '/images/cream.jpg', likes: '1.9k', alt: 'Collagen Night Cream Moisture Barrier' },
-    { image: '/images/promo-skincare.jpg', likes: '3.1k', alt: 'Hydrating Essence & Toner Routine' },
-    { image: '/images/perfume.jpg', likes: '4.6k', alt: 'Parisian Rose Perfume Flacon' }
+    { image: '/images/lipstick.jpg', likes: '1.4k', alt: 'Velvet Rouge Lipstick Swatch', href: '/browse?category=Makeup' },
+    { image: '/images/brushes.jpg', likes: '2.8k', alt: '10-piece Rose Gold Brush Set', href: '/browse?category=Accessories' },
+    { image: '/images/hero-model.jpg', likes: '5.2k', alt: 'Dewy Skin Routine & Peonies', href: '/browse?category=Skincare' },
+    { image: '/images/cream.jpg', likes: '1.9k', alt: 'Collagen Night Cream Moisture Barrier', href: '/browse?category=Skincare' },
+    { image: '/images/promo-skincare.jpg', likes: '3.1k', alt: 'Hydrating Essence & Toner Routine', href: '/browse?category=Skincare' },
+    { image: '/images/perfume.jpg', likes: '4.6k', alt: 'Parisian Rose Perfume Flacon', href: '/browse?category=Fragrance' }
   ];
 
   return (
     <section className="py-12 sm:py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-[90%] mx-auto px-2 sm:px-4">
         
         {/* Section Heading */}
         <div className="text-center mb-8 sm:mb-10">
-          <h2 className="text-xs sm:text-sm font-bold uppercase tracking-[0.25em] text-[#23171e] dark:text-white">
-            FOLLOW US ON INSTAGRAM <span className="text-[#c94d64]">@BEAUTYANDBLUSH</span>
-          </h2>
+          <Link href="/browse" className="group inline-block">
+            <h2 className="text-xs sm:text-sm font-bold uppercase tracking-[0.25em] text-[#23171e] dark:text-white group-hover:text-[#c94d64] transition-colors">
+              FOLLOW US ON INSTAGRAM <span className="text-[#c94d64]">@BEAUTYANDBLUSH</span>
+            </h2>
+          </Link>
           <div className="w-12 h-0.5 bg-[#f0cdd4] mx-auto mt-2" />
         </div>
 
         {/* 6 Images Grid: Smooth touch scroll on mobile, 6-col on desktop */}
         <div className="flex sm:grid sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 overflow-x-auto pb-4 pt-1 no-scrollbar snap-x snap-mandatory">
           {posts.map((post, idx) => (
-            <a
+            <Link
               key={idx}
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative aspect-square w-36 sm:w-auto shrink-0 snap-item rounded-xl sm:rounded-2xl overflow-hidden bg-[#fdf5f4] dark:bg-rose-950/20 border border-[#fae0e4] dark:border-rose-950/50 shadow-sm"
+              href={post.href || '/browse'}
+              className="group relative aspect-square w-36 sm:w-auto shrink-0 snap-item rounded-xl sm:rounded-2xl overflow-hidden bg-[#fdf5f4] dark:bg-rose-950/20 border border-[#fae0e4] dark:border-rose-950/50 shadow-sm block"
+              title={post.alt}
             >
               <img
                 src={post.image}
@@ -59,7 +59,7 @@ export function InstagramFeed() {
                   <span>{post.likes}</span>
                 </div>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
 
