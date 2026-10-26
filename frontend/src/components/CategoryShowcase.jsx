@@ -42,15 +42,14 @@ export function CategoryShowcase() {
     <section className="py-12 md:py-16">
       <div className="w-[90%] mx-auto px-2 sm:px-4">
         
-        {/* Section Heading with Crown Motif */}
+        {/* Section Heading */}
         <div className="text-center mb-10 sm:mb-12">
-          <div className="flex items-center justify-center mb-1.5">
-            <Crown className="w-4 h-4 text-[#c94d64]" />
-          </div>
-          <h2 className="text-2xl sm:text-3xl font-serif tracking-[0.1em] uppercase text-[#23171e] dark:text-white font-normal">
-            SHOP BY CATEGORY
+          <p className="text-[11px] uppercase tracking-[0.22em] text-[#82757a] font-medium mb-1">
+            Collections
+          </p>
+          <h2 className="text-2xl sm:text-3xl font-serif text-[#191416] dark:text-white font-normal tracking-tight">
+            Shop by Category
           </h2>
-          <div className="w-12 h-0.5 bg-[#f0cdd4] mx-auto mt-2" />
         </div>
 
         {/* Circular Categories: Smooth touch-swipeable on mobile, 5-col on desktop */}
@@ -62,25 +61,24 @@ export function CategoryShowcase() {
               className="group flex flex-col items-center text-center shrink-0 snap-item w-32 sm:w-auto"
             >
               {/* Circular Thumbnail Frame */}
-              <div className="relative w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-full overflow-hidden p-1 border-2 border-[#fae0e4] group-hover:border-[#c94d64] bg-[#fcf2f2]/60 dark:bg-rose-950/20 transition-all duration-300 shadow-sm group-hover:shadow-lg group-hover:shadow-[#c94d64]/15">
+              <div className="relative w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-full overflow-hidden p-1 border border-[#eee7e6] dark:border-white/10 group-hover:border-[#191416] dark:group-hover:border-white bg-[#faf8f7] dark:bg-white/5 transition-all duration-300">
                 <div className="w-full h-full rounded-full overflow-hidden">
                   <img
                     src={cat.image}
                     alt={cat.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
               </div>
 
               {/* Title & Link */}
-              <div className="mt-3.5 space-y-1">
-                <h3 className="text-xs sm:text-sm font-bold tracking-wider text-[#23171e] dark:text-white uppercase group-hover:text-[#c94d64] transition-colors">
+              <div className="mt-3 space-y-0.5">
+                <h3 className="text-xs sm:text-[13px] font-medium tracking-wider text-[#191416] dark:text-white uppercase transition-colors">
                   {cat.name}
                 </h3>
-                <span className="inline-flex items-center gap-1 text-[11px] text-[#7d646f] dark:text-slate-400 group-hover:text-[#c94d64] transition-colors">
-                  <span>Shop Now</span>
-                  <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-                </span>
+                <p className="text-[11px] text-[#73676c] dark:text-slate-400">
+                  {cat.desc}
+                </p>
               </div>
             </Link>
           ))}
