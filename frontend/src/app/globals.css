@@ -4,41 +4,41 @@
 
 @layer base {
   :root, html.light {
-    --bg-main: #fcf7f6;
-    --text-main: #24171e;
-    --text-muted: #78606b;
-    --panel-bg: rgba(255, 255, 255, 0.96);
-    --panel-border: #fae1e5;
+    --bg-main: #faf9f8;
+    --text-main: #191416;
+    --text-muted: #73676c;
+    --panel-bg: rgba(255, 255, 255, 0.92);
+    --panel-border: #eee7e6;
     --card-bg: #ffffff;
-    --card-border: #f7dade;
-    --card-hover-bg: #fff6f8;
-    --surface-subtle: #fdf2f2;
+    --card-border: #f0eae9;
+    --card-hover-bg: #fdfbfb;
+    --surface-subtle: #f5f2f1;
     --surface-input: #ffffff;
-    --accent-rose: #c94d64;
-    --accent-rose-hover: #b53e54;
-    --accent-blush: #d84766;
-    --accent-peach: #faeeeb;
-    --accent-gold: #f59e0b;
-    --accent-champagne: #fbbf24;
+    --accent-rose: #b84357;
+    --accent-rose-hover: #a13649;
+    --accent-blush: #c94d64;
+    --accent-peach: #f7f2f0;
+    --accent-gold: #d99726;
+    --accent-champagne: #ecd399;
   }
 
   html.dark {
-    --bg-main: #0e080f;
-    --text-main: #fcf5f7;
-    --text-muted: #b89ca9;
-    --panel-bg: rgba(24, 14, 26, 0.94);
-    --panel-border: rgba(201, 77, 100, 0.25);
-    --card-bg: #180f1b;
-    --card-border: #2e1628;
-    --card-hover-bg: #221226;
-    --surface-subtle: #241328;
-    --surface-input: #150b18;
-    --accent-rose: #d84766;
-    --accent-rose-hover: #e85d7b;
-    --accent-blush: #f4728d;
-    --accent-peach: #261520;
-    --accent-gold: #fbbf24;
-    --accent-champagne: #fde68a;
+    --bg-main: #0c0a0c;
+    --text-main: #f5f3f4;
+    --text-muted: #9e9398;
+    --panel-bg: rgba(18, 15, 18, 0.92);
+    --panel-border: rgba(255, 255, 255, 0.08);
+    --card-bg: #141114;
+    --card-border: #221c21;
+    --card-hover-bg: #1b161c;
+    --surface-subtle: #1c171d;
+    --surface-input: #120f13;
+    --accent-rose: #c94d64;
+    --accent-rose-hover: #db5972;
+    --accent-blush: #e26982;
+    --accent-peach: #1c141a;
+    --accent-gold: #e5a73b;
+    --accent-champagne: #ebd5a0;
   }
 
   * {
