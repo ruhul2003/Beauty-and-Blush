@@ -101,20 +101,19 @@ function TrackOrderContent() {
     <div className="w-[90%] max-w-4xl mx-auto px-2 sm:px-4 py-10 space-y-8">
       {/* Header */}
       <div className="text-center max-w-lg mx-auto space-y-2">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-900/40 text-xs font-bold text-[#c94d64] dark:text-[#f4728d]">
-          <Truck className="w-3.5 h-3.5" />
-          <span>Real-time Parcel Tracking</span>
-        </div>
-        <h1 className="text-3xl font-serif font-bold text-slate-900 dark:text-white">
+        <span className="text-[10px] uppercase font-medium tracking-[0.22em] text-[#82757a]">
+          Live Logistics
+        </span>
+        <h1 className="text-2xl sm:text-3xl font-serif font-normal text-slate-900 dark:text-white">
           Track Your Beauty Order
         </h1>
         <p className="text-xs text-slate-500">
-          Enter your order reference number (e.g. BNB-123456) to view live courier and packaging milestones.
+          Enter your order reference number (e.g. BNB-123456) to view courier milestones.
         </p>
       </div>
 
       {/* Search Input Card */}
-      <div className="p-4 sm:p-6 rounded-3xl glass-card max-w-xl mx-auto border border-[#fae0e4] dark:border-rose-950/60 shadow-lg">
+      <div className="p-4 sm:p-5 rounded-xl bg-white dark:bg-[#141114] max-w-xl mx-auto border border-[#eee7e6] dark:border-white/10 shadow-sm">
         <form 
           onSubmit={(e) => {
             e.preventDefault();
@@ -128,16 +127,16 @@ function TrackOrderContent() {
               value={orderIdInput}
               onChange={(e) => setOrderIdInput(e.target.value)}
               placeholder="e.g. BNB-748921"
-              className="w-full pl-9 pr-3 py-2.5 text-xs rounded-xl border border-rose-200 dark:border-rose-900/50 bg-white dark:bg-[#120a14] uppercase tracking-wider font-mono font-semibold"
+              className="w-full pl-9 pr-3 py-2 text-xs rounded-lg border border-[#eee7e6] dark:border-white/10 bg-[#faf8f7] dark:bg-white/5 text-slate-900 dark:text-white uppercase tracking-wider font-mono font-medium focus:outline-none focus:ring-1 focus:ring-black dark:focus:ring-white"
             />
-            <Search className="w-4 h-4 text-rose-400 absolute left-3 top-1/2 -translate-y-1/2" />
+            <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
           </div>
           <button
             type="submit"
             disabled={loading}
-            className="btn-rose-primary px-5 py-2.5 text-xs font-bold shrink-0 disabled:opacity-50"
+            className="px-4 py-2 rounded-lg bg-[#191416] hover:bg-black dark:bg-white dark:hover:bg-slate-100 text-white dark:text-black text-xs font-medium shrink-0 disabled:opacity-50 transition-all"
           >
-            {loading ? 'Searching...' : 'Track Order'}
+            {loading ? 'Searching...' : 'Track'}
           </button>
         </form>
 
@@ -150,7 +149,7 @@ function TrackOrderContent() {
               setOrderIdInput('BNB-482019');
               handleLookup('BNB-482019');
             }}
-            className="text-[#c94d64] hover:underline font-mono font-semibold"
+            className="text-slate-800 dark:text-slate-200 hover:underline font-mono font-medium"
           >
             BNB-482019
           </button>
@@ -161,7 +160,7 @@ function TrackOrderContent() {
               setOrderIdInput('BNB-910243');
               handleLookup('BNB-910243');
             }}
-            className="text-[#c94d64] hover:underline font-mono font-semibold"
+            className="text-slate-800 dark:text-slate-200 hover:underline font-mono font-medium"
           >
             BNB-910243
           </button>
