@@ -101,15 +101,14 @@ export function TrendingProducts({ products = [] }) {
     <section className="py-12 md:py-16 relative">
       <div className="w-[90%] mx-auto px-2 sm:px-4">
         
-        {/* Section Heading with Crown Motif */}
+        {/* Section Heading */}
         <div className="text-center mb-10 sm:mb-12">
-          <div className="flex items-center justify-center mb-1.5">
-            <Crown className="w-4 h-4 text-[#c94d64]" />
-          </div>
-          <h2 className="text-2xl sm:text-3xl font-serif tracking-[0.1em] uppercase text-[#23171e] dark:text-white font-normal">
-            BEST SELLERS
+          <p className="text-[11px] uppercase tracking-[0.22em] text-[#82757a] font-medium mb-1">
+            Iconic Formulations
+          </p>
+          <h2 className="text-2xl sm:text-3xl font-serif text-[#191416] dark:text-white font-normal tracking-tight">
+            Best Sellers
           </h2>
-          <div className="w-12 h-0.5 bg-[#f0cdd4] mx-auto mt-2" />
         </div>
 
         {/* Carousel Container with Side Navigation Arrows */}
@@ -118,19 +117,19 @@ export function TrendingProducts({ products = [] }) {
           {/* Left Arrow Button */}
           <button
             onClick={() => handleScroll('left')}
-            className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white dark:bg-[#1a0f1c] shadow-lg border border-[#fae0e4] dark:border-rose-900/50 items-center justify-center text-[#24171e] dark:text-white hover:text-[#c94d64] hover:border-[#c94d64] active:scale-95 transition-all"
+            className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-white dark:bg-[#141114] shadow-sm border border-[#eee7e6] dark:border-white/10 items-center justify-center text-[#191416] dark:text-white hover:border-[#191416] active:scale-95 transition-all"
             aria-label="Previous products"
           >
-            <ChevronLeft className="w-5 h-5" />
+            <ChevronLeft className="w-4 h-4" />
           </button>
 
           {/* Right Arrow Button */}
           <button
             onClick={() => handleScroll('right')}
-            className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white dark:bg-[#1a0f1c] shadow-lg border border-[#fae0e4] dark:border-rose-900/50 items-center justify-center text-[#24171e] dark:text-white hover:text-[#c94d64] hover:border-[#c94d64] active:scale-95 transition-all"
+            className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-white dark:bg-[#141114] shadow-sm border border-[#eee7e6] dark:border-white/10 items-center justify-center text-[#191416] dark:text-white hover:border-[#191416] active:scale-95 transition-all"
             aria-label="Next products"
           >
-            <ChevronRight className="w-5 h-5" />
+            <ChevronRight className="w-4 h-4" />
           </button>
 
           {/* Horizontal Smooth Carousel with Snap on Mobile */}
@@ -143,22 +142,22 @@ export function TrendingProducts({ products = [] }) {
               return (
                 <div
                   key={prod.id}
-                  className="snap-item w-[220px] sm:w-[240px] md:w-[260px] flex-shrink-0 bg-white dark:bg-[#180f1b] rounded-2xl overflow-hidden border border-[#fae0e4] dark:border-rose-950/60 p-3 sm:p-3.5 flex flex-col justify-between group/card hover:border-[#c94d64] transition-all duration-300 hover:shadow-xl hover:shadow-[#c94d64]/10"
+                  className="snap-item w-[220px] sm:w-[240px] md:w-[260px] flex-shrink-0 bg-white dark:bg-[#141114] rounded-xl overflow-hidden border border-[#eee7e6] dark:border-white/10 p-3 sm:p-3.5 flex flex-col justify-between group/card hover:border-[#d6cecc] dark:hover:border-white/20 transition-all duration-300 shadow-none hover:shadow-sm"
                 >
                   <div>
                     {/* Product Image Frame */}
-                    <div className="relative aspect-square w-full rounded-xl overflow-hidden bg-[#fdf5f4] dark:bg-rose-950/20 mb-3">
+                    <div className="relative aspect-square w-full rounded-lg overflow-hidden bg-[#faf8f7] dark:bg-white/5 mb-3">
                       <Link href={`/browse?category=${prod.category}`} className="block w-full h-full">
                         <img
                           src={prod.image}
                           alt={prod.title}
-                          className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500"
+                          className="w-full h-full object-cover group-hover/card:scale-103 transition-transform duration-500"
                         />
                       </Link>
 
                       {/* SALE Badge */}
                       {prod.isSale && (
-                        <span className="absolute top-2.5 left-2.5 px-2 py-0.5 text-[9px] font-extrabold uppercase tracking-wider rounded bg-[#c94d64] text-white shadow-sm">
+                        <span className="absolute top-2.5 left-2.5 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider rounded bg-[#191416] text-white">
                           SALE
                         </span>
                       )}
