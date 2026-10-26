@@ -121,11 +121,11 @@ export function BuyModal({ product, onClose }) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
-      <div className="bg-white dark:bg-[#1a0f1c] rounded-3xl max-w-lg w-full max-h-[90vh] overflow-y-auto border border-rose-200 dark:border-rose-900/60 shadow-2xl p-6 relative">
+      <div className="bg-white dark:bg-[#141114] rounded-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto border border-[#eee7e6] dark:border-white/10 shadow-2xl p-6 relative">
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 p-1.5 rounded-full text-slate-400 hover:text-slate-600 dark:hover:text-white hover:bg-rose-50 dark:hover:bg-rose-950/40 transition-colors"
+          className="absolute top-5 right-5 p-1.5 rounded-full text-slate-400 hover:text-[#191416] dark:hover:text-white hover:bg-[#faf8f7] dark:hover:bg-white/5 transition-colors"
         >
           <X className="w-5 h-5" />
         </button>
@@ -133,26 +133,26 @@ export function BuyModal({ product, onClose }) {
         {orderResult ? (
           /* Order Confirmation View */
           <div className="text-center py-6 space-y-4">
-            <div className="w-16 h-16 rounded-3xl bg-emerald-100 text-emerald-600 dark:bg-emerald-950/50 dark:text-emerald-400 flex items-center justify-center mx-auto shadow-lg">
-              <CheckCircle2 className="w-8 h-8" />
+            <div className="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 dark:bg-emerald-950/30 dark:text-emerald-400 flex items-center justify-center mx-auto border border-emerald-200 dark:border-emerald-900/40">
+              <CheckCircle2 className="w-7 h-7" />
             </div>
 
-            <h2 className="text-2xl font-serif font-bold text-slate-900 dark:text-white">
-              Order Confirmed!
+            <h2 className="text-2xl font-serif font-normal text-slate-900 dark:text-white">
+              Order Confirmed
             </h2>
 
             <p className="text-xs text-slate-600 dark:text-slate-300">
-              Your order reference is <strong className="font-mono text-rose-600 dark:text-rose-400 font-bold">{orderResult.orderNumber}</strong>. The boutique is preparing your authentic cosmetic item.
+              Your order reference is <strong className="font-mono text-[#191416] dark:text-white font-semibold">{orderResult.orderNumber}</strong>. The boutique is preparing your item.
             </p>
 
-            <div className="p-4 rounded-2xl bg-rose-50/60 dark:bg-rose-950/30 text-left text-xs space-y-2 border border-rose-100 dark:border-rose-900/40">
+            <div className="p-4 rounded-xl bg-[#faf8f7] dark:bg-white/5 text-left text-xs space-y-2 border border-[#eee7e6] dark:border-white/10">
               <div className="flex justify-between">
                 <span className="text-slate-500">Item:</span>
-                <span className="font-semibold text-slate-900 dark:text-white">{orderResult.productTitle}</span>
+                <span className="font-medium text-slate-900 dark:text-white">{orderResult.productTitle}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-slate-500">Total Payable (COD):</span>
-                <span className="font-bold text-rose-600 dark:text-rose-400">{formatPrice(orderResult.totalAmount)}</span>
+                <span className="font-semibold text-[#191416] dark:text-white">{formatPrice(orderResult.totalAmount)}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-slate-500">Courier:</span>
@@ -166,7 +166,7 @@ export function BuyModal({ product, onClose }) {
 
             <button
               onClick={onClose}
-              className="w-full btn-rose-primary py-3 text-xs font-semibold"
+              className="w-full btn-rose-primary py-2.5 text-xs font-medium"
             >
               Done & Return
             </button>
@@ -175,25 +175,25 @@ export function BuyModal({ product, onClose }) {
           /* Order Placement Form */
           <form onSubmit={handleSubmitOrder} className="space-y-5">
             <div>
-              <span className="text-[10px] uppercase font-bold tracking-widest text-rose-500">
+              <span className="text-[10px] uppercase font-medium tracking-widest text-[#82757a]">
                 Express Checkout
               </span>
-              <h2 className="text-xl font-serif font-bold text-slate-900 dark:text-white">
-                Purchase Authentic Cosmetic
+              <h2 className="text-xl font-serif font-normal text-slate-900 dark:text-white">
+                Complete Your Order
               </h2>
             </div>
 
             {/* Product Summary */}
-            <div className="flex items-center gap-3 p-3 rounded-2xl bg-rose-50/50 dark:bg-rose-950/20 border border-rose-100 dark:border-rose-900/40">
+            <div className="flex items-center gap-3 p-3 rounded-xl bg-[#faf8f7] dark:bg-white/5 border border-[#eee7e6] dark:border-white/10">
               <img
                 src={product.images && product.images[0] ? product.images[0] : ''}
                 alt={product.title}
-                className="w-14 h-14 object-cover rounded-xl shrink-0"
+                className="w-12 h-12 object-cover rounded-lg shrink-0"
               />
               <div className="flex-1 min-w-0">
-                <h4 className="text-xs font-bold text-slate-900 dark:text-white truncate">{product.title}</h4>
+                <h4 className="text-xs font-medium text-slate-900 dark:text-white truncate">{product.title}</h4>
                 <p className="text-[11px] text-slate-500">{product.shade || product.condition}</p>
-                <p className="text-xs font-bold text-rose-600 dark:text-rose-400 mt-0.5">{formatPrice(product.price)}</p>
+                <p className="text-xs font-semibold text-[#191416] dark:text-white mt-0.5">{formatPrice(product.price)}</p>
               </div>
 
               {/* Quantity Selector */}
@@ -201,15 +201,15 @@ export function BuyModal({ product, onClose }) {
                 <button
                   type="button"
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                  className="w-7 h-7 rounded-lg border border-rose-200 dark:border-rose-900/50 text-xs font-bold"
+                  className="w-7 h-7 rounded-md border border-[#eee7e6] dark:border-white/10 text-xs font-medium"
                 >
                   -
                 </button>
-                <span className="text-xs font-bold">{quantity}</span>
+                <span className="text-xs font-medium">{quantity}</span>
                 <button
                   type="button"
                   onClick={() => setQuantity(quantity + 1)}
-                  className="w-7 h-7 rounded-lg border border-rose-200 dark:border-rose-900/50 text-xs font-bold"
+                  className="w-7 h-7 rounded-md border border-[#eee7e6] dark:border-white/10 text-xs font-medium"
                 >
                   +
                 </button>
