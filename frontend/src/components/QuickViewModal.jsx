@@ -67,13 +67,13 @@ export function QuickViewModal({ product, onClose }) {
         onClick={onClose}
       >
         <div 
-          className="bg-white dark:bg-[#180e1a] rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-rose-200 dark:border-rose-900/60 shadow-2xl p-6 relative"
+          className="bg-white dark:bg-[#141114] rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-[#eee7e6] dark:border-white/10 shadow-2xl p-6 relative"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Close button */}
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 p-2 rounded-full text-slate-400 hover:text-slate-600 dark:hover:text-white hover:bg-rose-50 dark:hover:bg-rose-950/40 transition-colors z-10"
+            className="absolute top-4 right-4 p-2 rounded-full text-slate-400 hover:text-[#191416] dark:hover:text-white hover:bg-[#faf8f7] dark:hover:bg-white/5 transition-colors z-10"
             aria-label="Close modal"
           >
             <X className="w-5 h-5" />
@@ -82,14 +82,14 @@ export function QuickViewModal({ product, onClose }) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Image Preview Side */}
             <div className="space-y-3">
-              <div className="relative aspect-square rounded-2xl overflow-hidden bg-rose-50/50 dark:bg-rose-950/20 border border-rose-100 dark:border-rose-900/40">
+              <div className="relative aspect-square rounded-xl overflow-hidden bg-[#faf8f7] dark:bg-white/5 border border-[#eee7e6] dark:border-white/10">
                 <img
                   src={images[activeImageIdx]}
                   alt={product.title}
                   className="w-full h-full object-cover"
                 />
                 {discount > 0 && (
-                  <span className="absolute top-3 left-3 bg-[#c94d64] text-white text-[11px] font-bold px-2.5 py-1 rounded-full shadow-md">
+                  <span className="absolute top-3 left-3 bg-[#191416] text-white text-[10px] font-semibold px-2 py-0.5 rounded">
                     SAVE {discount}%
                   </span>
                 )}
@@ -102,10 +102,10 @@ export function QuickViewModal({ product, onClose }) {
                     <button
                       key={idx}
                       onClick={() => setActiveImageIdx(idx)}
-                      className={`relative w-14 h-14 rounded-xl overflow-hidden border-2 transition-all ${
+                      className={`relative w-12 h-12 rounded-lg overflow-hidden border transition-all ${
                         activeImageIdx === idx 
-                          ? 'border-[#c94d64] scale-105' 
-                          : 'border-rose-200 dark:border-rose-900/40 opacity-70 hover:opacity-100'
+                          ? 'border-[#191416] dark:border-white ring-1 ring-black dark:ring-white' 
+                          : 'border-[#eee7e6] dark:border-white/10 opacity-70 hover:opacity-100'
                       }`}
                     >
                       <img src={img} alt="" className="w-full h-full object-cover" />
