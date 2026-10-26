@@ -73,14 +73,14 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-40 bg-white/95 dark:bg-[#0e080f]/95 backdrop-blur-md border-b border-[#fae1e5] dark:border-rose-950/40 transition-colors">
+    <header className="fixed top-0 left-0 right-0 z-40 bg-white/90 dark:bg-[#0c0a0c]/90 backdrop-blur-md border-b border-[#eee7e6] dark:border-white/10 transition-colors">
       {/* Top Banner Notice */}
       <Link
         href="/browse"
-        className="bg-[#faeeeb] dark:bg-[#20121a] text-[#553b47] dark:text-[#f3d9e2] border-b border-[#fae1db] dark:border-rose-950/50 text-[11px] sm:text-xs py-1.5 px-4 text-center font-medium tracking-wide flex items-center justify-center gap-2 hover:bg-[#fae4df] dark:hover:bg-[#281722] transition-colors"
+        className="bg-[#f7f4f3] dark:bg-[#141113] text-[#63575c] dark:text-[#d4ccd0] border-b border-[#eee7e6] dark:border-white/5 text-[11px] sm:text-xs py-1.5 px-4 text-center font-medium tracking-wide flex items-center justify-center gap-2 hover:bg-[#efeae8] dark:hover:bg-[#1c181b] transition-colors"
       >
-        <Gift className="w-3.5 h-3.5 text-[#c94d64]" />
-        <span>FREE SHIPPING on all orders over $50 | 30 Days Easy Returns</span>
+        <span className="w-1.5 h-1.5 rounded-full bg-[#b84357]" />
+        <span>Complimentary delivery on orders over $50 | 30 Days Easy Returns</span>
       </Link>
 
       {/* Main Header Container (90% width) */}
@@ -89,7 +89,7 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
           
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 sm:gap-3 shrink-0 group">
-            <div className="relative w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden border border-[#fae0e4] dark:border-rose-900/40 shadow-sm group-hover:scale-105 transition-transform duration-300 shrink-0 bg-white">
+            <div className="relative w-9 h-9 sm:w-11 sm:h-11 rounded-full overflow-hidden border border-[#eee7e6] dark:border-white/10 shadow-none group-hover:opacity-90 transition-opacity duration-200 shrink-0 bg-white">
               <img
                 src="/images/logo.png"
                 alt="Beauty & Blush Logo"
@@ -97,22 +97,22 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
               />
             </div>
             <div className="flex flex-col">
-              <span className="text-xl sm:text-2xl font-serif tracking-normal text-[#23171e] dark:text-white font-medium group-hover:text-[#c94d64] transition-colors">
+              <span className="text-xl sm:text-2xl font-serif tracking-normal text-[#191416] dark:text-white font-medium transition-colors">
                 Beauty & Blush
               </span>
-              <span className="text-[9px] uppercase tracking-[0.22em] text-[#c94d64] font-semibold -mt-0.5 hidden sm:block">
+              <span className="text-[9px] uppercase tracking-[0.24em] text-[#82757a] font-medium -mt-0.5 hidden sm:block">
                 Luxury Cosmetics
               </span>
             </div>
           </Link>
 
           {/* Centered Desktop Menu Links */}
-          <nav className="hidden lg:flex items-center gap-7 text-[13px] font-medium text-[#3b2933] dark:text-slate-200">
+          <nav className="hidden lg:flex items-center gap-7 text-[13px] font-medium text-[#4f4449] dark:text-slate-300">
             {navLinks.map((item, idx) => (
               <Link
                 key={idx}
                 href={item.href}
-                className="hover:text-[#c94d64] dark:hover:text-[#f4728d] transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-[#c94d64] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200"
+                className="hover:text-[#191416] dark:hover:text-white transition-colors relative py-1"
               >
                 {item.label}
               </Link>
@@ -234,7 +234,7 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
 
       {/* Expandable Search Modal / Bar */}
       {searchModalOpen && (
-        <div className="border-t border-[#fae1e5] dark:border-rose-950/60 bg-white/95 dark:bg-[#150a17]/95 px-4 py-3 shadow-md animate-in fade-in slide-in-from-top-2 duration-200">
+        <div className="border-t border-[#eee7e6] dark:border-white/10 bg-white/95 dark:bg-[#0c0a0c]/95 px-4 py-3 shadow-sm animate-in fade-in slide-in-from-top-2 duration-200">
           <form onSubmit={handleSearch} className="max-w-2xl mx-auto relative flex items-center">
             <input
               type="text"
@@ -242,12 +242,12 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Search serums, lipstick, brushes, perfume, night cream..."
-              className="w-full pl-10 pr-24 py-2.5 text-sm rounded-full bg-[#fdf6f5] dark:bg-rose-950/20 border border-[#fae1e5] dark:border-rose-900/40 text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#c94d64]/30 focus:border-[#c94d64]"
+              className="w-full pl-10 pr-24 py-2.5 text-sm rounded-lg bg-[#f7f4f3] dark:bg-white/5 border border-[#eee7e6] dark:border-white/10 text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-1 focus:ring-black dark:focus:ring-white"
             />
-            <Search className="w-4 h-4 text-[#c94d64] absolute left-3.5" />
+            <Search className="w-4 h-4 text-[#73676c] absolute left-3.5" />
             <button
               type="submit"
-              className="absolute right-1.5 px-4 py-1.5 rounded-full bg-[#c94d64] text-white text-xs font-semibold hover:bg-[#b53e54] transition-colors"
+              className="absolute right-1.5 px-4 py-1.5 rounded-md bg-[#191416] dark:bg-white text-white dark:text-black text-xs font-medium hover:opacity-90 transition-opacity"
             >
               Search
             </button>
