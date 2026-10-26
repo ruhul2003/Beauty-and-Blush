@@ -169,31 +169,31 @@ export default function ProductDetailPage() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
         {/* Left Column: Image Gallery (6 cols) */}
         <div className="lg:col-span-6 space-y-4">
-          <div className="aspect-square rounded-3xl overflow-hidden glass-card border border-rose-200/80 dark:border-rose-900/40 relative bg-rose-50/20">
+          <div className="aspect-square rounded-2xl overflow-hidden border border-[#eee7e6] dark:border-white/10 relative bg-[#faf8f7] dark:bg-white/5">
             <img
               src={images[activeImageIndex]}
               alt={product.title}
               className="w-full h-full object-cover"
             />
             {discount > 0 && (
-              <span className="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-extrabold bg-rose-500 text-white shadow-md">
+              <span className="absolute top-4 left-4 px-2.5 py-1 rounded text-[10px] font-semibold uppercase tracking-wider bg-[#191416] text-white">
                 -{discount}% OFF
               </span>
             )}
-            <span className="absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-bold bg-white/95 dark:bg-[#120a14]/95 text-slate-800 dark:text-white backdrop-blur-md shadow-md border border-rose-100 dark:border-rose-900/50">
+            <span className="absolute top-4 right-4 px-2.5 py-1 rounded text-[10px] font-medium bg-white/95 dark:bg-[#141114]/95 text-slate-800 dark:text-white backdrop-blur-md border border-[#eee7e6] dark:border-white/10">
               {product.condition}
             </span>
           </div>
 
           {/* Thumbnails */}
           {images.length > 1 && (
-            <div className="flex gap-3 overflow-x-auto pb-2">
+            <div className="flex gap-2.5 overflow-x-auto pb-2">
               {images.map((img, idx) => (
                 <button
                   key={idx}
                   onClick={() => setActiveImageIndex(idx)}
-                  className={`w-20 h-20 rounded-2xl overflow-hidden border-2 transition-all shrink-0 ${
-                    activeImageIndex === idx ? 'border-rose-500 scale-95 shadow-md' : 'border-transparent opacity-70'
+                  className={`w-16 h-16 rounded-xl overflow-hidden border transition-all shrink-0 ${
+                    activeImageIndex === idx ? 'border-[#191416] dark:border-white ring-1 ring-black dark:ring-white' : 'border-[#eee7e6] dark:border-white/10 opacity-70 hover:opacity-100'
                   }`}
                 >
                   <img src={img} alt="Thumb" className="w-full h-full object-cover" />
@@ -203,14 +203,14 @@ export default function ProductDetailPage() {
           )}
 
           {/* Authenticity Guarantee Card */}
-          <div className="p-4 rounded-2xl bg-emerald-50/80 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-900/40 flex items-start gap-3">
-            <ShieldCheck className="w-6 h-6 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+          <div className="p-4 rounded-xl bg-[#faf8f7] dark:bg-white/5 border border-[#eee7e6] dark:border-white/10 flex items-start gap-3">
+            <ShieldCheck className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
             <div>
-              <h4 className="text-xs font-bold text-emerald-950 dark:text-emerald-200">
-                100% Genuine Authenticity Verified
+              <h4 className="text-xs font-semibold text-slate-900 dark:text-white">
+                Authenticity Guarantee
               </h4>
-              <p className="text-[11px] text-emerald-800 dark:text-emerald-300/80 mt-0.5 leading-relaxed">
-                Batch code <strong className="font-mono bg-emerald-100 dark:bg-emerald-900/60 px-1 py-0.5 rounded">{product.batchCode || '3K01'}</strong> checked against manufacturer production runs. Protected by Beauty & Blush Money-Back Guarantee.
+              <p className="text-[11px] text-slate-600 dark:text-slate-400 mt-0.5 leading-relaxed">
+                Batch code <strong className="font-mono bg-white dark:bg-black/40 px-1 py-0.5 rounded border border-[#eee7e6] dark:border-white/10">{product.batchCode || '3K01'}</strong> verified against manufacturer records.
               </p>
             </div>
           </div>
