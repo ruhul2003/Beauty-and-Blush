@@ -101,10 +101,15 @@
 }
 
 .glass-card:hover {
-  border-color: #d84766 !important;
+  border-color: #d8ced0 !important;
   background: var(--card-hover-bg) !important;
-  transform: translateY(-3px);
-  box-shadow: 0 16px 36px -10px rgba(201, 77, 100, 0.18);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -8px rgba(25, 20, 22, 0.08);
+}
+
+html.dark .glass-card:hover {
+  border-color: rgba(255, 255, 255, 0.16) !important;
+  box-shadow: 0 10px 24px -8px rgba(0, 0, 0, 0.4);
 }
 
 /* Luxury Berry / Blush Primary Buttons */
