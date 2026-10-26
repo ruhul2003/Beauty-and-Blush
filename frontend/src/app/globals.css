@@ -112,45 +112,49 @@ html.dark .glass-card:hover {
   box-shadow: 0 10px 24px -8px rgba(0, 0, 0, 0.4);
 }
 
-/* Luxury Berry / Blush Primary Buttons */
+/* Minimalist Luxury Primary & Outline Buttons */
 .btn-rose-primary, .btn-berry-primary {
-  background-color: #c94d64;
+  background-color: var(--accent-rose);
   color: #ffffff !important;
-  font-weight: 700;
-  border-radius: 6px;
-  box-shadow: 0 4px 14px 0 rgba(201, 77, 100, 0.28);
-  transition: all 0.2s ease-in-out;
+  font-weight: 600;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.08);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-rose-primary:hover, .btn-berry-primary:hover {
-  background-color: #b53e54;
-  box-shadow: 0 6px 20px 0 rgba(201, 77, 100, 0.4);
+  background-color: var(--accent-rose-hover);
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.12);
   transform: translateY(-1px);
 }
 
 .btn-rose-primary:active, .btn-berry-primary:active {
-  transform: scale(0.97);
+  transform: scale(0.98);
 }
 
 .btn-rose-outline {
-  border: 1.5px solid #c94d64;
-  color: #c94d64;
-  font-weight: 600;
-  border-radius: 9999px;
-  transition: all 0.2s ease-in-out;
+  border: 1px solid var(--accent-rose);
+  color: var(--accent-rose);
+  font-weight: 500;
+  border-radius: 8px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .dark .btn-rose-outline {
-  color: #f4728d;
-  border-color: #d84766;
+  color: #f38da3;
+  border-color: rgba(201, 77, 100, 0.4);
 }
 
 .btn-rose-outline:hover {
-  background-color: rgba(201, 77, 100, 0.08);
+  background-color: rgba(184, 67, 87, 0.06);
+}
+
+.dark .btn-rose-outline:hover {
+  background-color: rgba(201, 77, 100, 0.12);
 }
 
 .btn-rose-outline:active {
-  transform: scale(0.97);
+  transform: scale(0.98);
 }
 
 /* Mobile Smooth Horizontal Scroller with Snap */
