@@ -28,34 +28,36 @@ export function InstagramFeed() {
         
         {/* Section Heading */}
         <div className="text-center mb-8 sm:mb-10">
+          <p className="text-[11px] uppercase tracking-[0.22em] text-[#82757a] font-medium mb-1">
+            Community & Journal
+          </p>
           <Link href="/browse" className="group inline-block">
-            <h2 className="text-xs sm:text-sm font-bold uppercase tracking-[0.25em] text-[#23171e] dark:text-white group-hover:text-[#c94d64] transition-colors">
-              FOLLOW US ON INSTAGRAM <span className="text-[#c94d64]">@BEAUTYANDBLUSH</span>
+            <h2 className="text-xl sm:text-2xl font-serif text-[#191416] dark:text-white font-normal tracking-tight">
+              @beautyandblush
             </h2>
           </Link>
-          <div className="w-12 h-0.5 bg-[#f0cdd4] mx-auto mt-2" />
         </div>
 
-        {/* 6 Images Grid: Smooth touch scroll on mobile, 6-col on desktop */}
+        {/* 6 Images Grid */}
         <div className="flex sm:grid sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 overflow-x-auto pb-4 pt-1 no-scrollbar snap-x snap-mandatory">
           {posts.map((post, idx) => (
             <Link
               key={idx}
               href={post.href || '/browse'}
-              className="group relative aspect-square w-36 sm:w-auto shrink-0 snap-item rounded-xl sm:rounded-2xl overflow-hidden bg-[#fdf5f4] dark:bg-rose-950/20 border border-[#fae0e4] dark:border-rose-950/50 shadow-sm block"
+              className="group relative aspect-square w-36 sm:w-auto shrink-0 snap-item rounded-lg overflow-hidden bg-[#faf8f7] dark:bg-white/5 border border-[#eee7e6] dark:border-white/10 shadow-none block"
               title={post.alt}
             >
               <img
                 src={post.image}
                 alt={post.alt}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                className="w-full h-full object-cover group-hover:scale-104 transition-transform duration-500"
               />
 
               {/* Hover Dark Overlay with Instagram Heart */}
-              <div className="absolute inset-0 bg-[#23171e]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white p-2">
-                <InstagramIcon className="w-6 h-6 mb-1.5 text-rose-300" />
-                <div className="flex items-center gap-1 text-xs font-bold">
-                  <Heart className="w-3.5 h-3.5 fill-current text-[#c94d64]" />
+              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white p-2">
+                <InstagramIcon className="w-5 h-5 mb-1 text-white/90" />
+                <div className="flex items-center gap-1 text-xs font-medium">
+                  <Heart className="w-3.5 h-3.5 fill-current text-white" />
                   <span>{post.likes}</span>
                 </div>
               </div>
