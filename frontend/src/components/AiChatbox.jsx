@@ -72,35 +72,35 @@ export function AiChatbox() {
       {/* Floating Trigger Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 z-40 btn-rose-primary p-3.5 sm:px-5 sm:py-3.5 rounded-full shadow-2xl flex items-center gap-2 group hover:scale-105 transition-transform"
-        title="Open AI Beauty Advisor"
+        className="fixed bottom-6 right-6 z-40 bg-[#191416] dark:bg-white text-white dark:text-black p-3 sm:px-4 sm:py-3 rounded-full shadow-lg flex items-center gap-2 group hover:opacity-95 transition-all"
+        title="Open Beauty Advisor"
       >
-        <Sparkles className="w-5 h-5 text-amber-300 animate-pulse" />
-        <span className="hidden sm:inline text-xs font-bold tracking-wide">
+        <Sparkles className="w-4 h-4 text-amber-300" />
+        <span className="hidden sm:inline text-xs font-medium tracking-wide">
           Beauty Advisor
         </span>
       </button>
 
       {/* Chat Drawer / Modal */}
       {isOpen && (
-        <div className="fixed bottom-20 right-4 sm:right-6 z-50 w-[94vw] sm:w-96 max-h-[600px] h-[520px] rounded-3xl bg-white dark:bg-[#180e1a] border border-rose-200 dark:border-rose-900/60 shadow-2xl flex flex-col overflow-hidden animate-slide-up">
+        <div className="fixed bottom-20 right-4 sm:right-6 z-50 w-[94vw] sm:w-96 max-h-[600px] h-[520px] rounded-2xl bg-white dark:bg-[#141114] border border-[#eee7e6] dark:border-white/10 shadow-2xl flex flex-col overflow-hidden animate-slide-up">
           {/* Header */}
-          <div className="p-4 bg-gradient-to-r from-rose-600 via-rose-500 to-amber-600 text-white flex items-center justify-between">
+          <div className="p-3.5 bg-[#191416] dark:bg-[#141114] text-white flex items-center justify-between border-b border-white/10">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center">
-                <Sparkles className="w-4 h-4 text-amber-200" />
+              <div className="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center">
+                <Sparkles className="w-3.5 h-3.5 text-amber-200" />
               </div>
               <div>
-                <h3 className="text-xs font-bold leading-tight">Beauty & Blush Advisor</h3>
-                <span className="text-[10px] text-rose-100 flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block animate-ping" />
-                  Online Concierge
+                <h3 className="text-xs font-semibold leading-tight">Beauty Advisor</h3>
+                <span className="text-[10px] text-white/60 flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block" />
+                  Online
                 </span>
               </div>
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="p-1 rounded-full hover:bg-white/20 transition-colors"
+              className="p-1 rounded-full text-white/60 hover:text-white hover:bg-white/10 transition-colors"
             >
               <X className="w-4 h-4" />
             </button>
@@ -114,16 +114,16 @@ export function AiChatbox() {
                 className={`flex gap-2 ${m.sender === 'user' ? 'justify-end' : 'justify-start'}`}
               >
                 {m.sender === 'bot' && (
-                  <div className="w-6 h-6 rounded-full bg-rose-100 dark:bg-rose-950/60 text-rose-600 flex items-center justify-center shrink-0 mt-1">
+                  <div className="w-6 h-6 rounded-full bg-[#f7f4f3] dark:bg-white/10 text-[#191416] dark:text-white flex items-center justify-center shrink-0 mt-0.5">
                     <Bot className="w-3.5 h-3.5" />
                   </div>
                 )}
 
                 <div
-                  className={`p-3 rounded-2xl max-w-[85%] leading-relaxed ${
+                  className={`p-3 rounded-xl max-w-[85%] leading-relaxed ${
                     m.sender === 'user'
-                      ? 'bg-rose-500 text-white rounded-br-none shadow-md'
-                      : 'bg-rose-50/70 dark:bg-rose-950/30 text-slate-800 dark:text-rose-100 rounded-bl-none border border-rose-100 dark:border-rose-900/40'
+                      ? 'bg-[#191416] dark:bg-white text-white dark:text-black shadow-none'
+                      : 'bg-[#faf8f7] dark:bg-white/5 text-[#191416] dark:text-slate-100 border border-[#eee7e6] dark:border-white/10'
                   }`}
                 >
                   <p className="whitespace-pre-line">{m.text}</p>
