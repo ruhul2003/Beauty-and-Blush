@@ -215,7 +215,7 @@ export default function AdminOrdersPage() {
                           <FileText className="w-3.5 h-3.5" />
                         </button>
 
-                        <a
+                        <Link
                           href={`https://wa.me/${(ord.buyerPhone || '8801700000000').replace(/[^0-9]/g, '')}?text=${encodeURIComponent(`Hi ${ord.buyerName}, your Beauty & Blush order ${ord.orderNumber} is currently: ${ord.status}. Delivery via ${ord.courierService || 'Express Courier'}.`)}`}
                           target="_blank"
                           rel="noreferrer"
@@ -223,7 +223,7 @@ export default function AdminOrdersPage() {
                           title="Notify on WhatsApp"
                         >
                           <MessageCircle className="w-3.5 h-3.5" />
-                        </a>
+                        </Link>
                       </div>
                     </td>
                   </tr>

@@ -270,7 +270,7 @@ function TrackOrderContent() {
 
             {/* WhatsApp Help Button */}
             <div className="flex gap-3">
-              <a
+              <Link
                 href={`https://wa.me/8801711224466?text=${encodeURIComponent(`Hi Beauty & Blush, I am inquiring about order ${order.orderNumber}.`)}`}
                 target="_blank"
                 rel="noreferrer"
@@ -278,7 +278,7 @@ function TrackOrderContent() {
               >
                 <MessageCircle className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                 <span>Contact Courier Support on WhatsApp</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

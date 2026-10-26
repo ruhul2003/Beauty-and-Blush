@@ -40,14 +40,9 @@ export function ProductCard({ product }) {
     }
   };
 
-  const openWhatsApp = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    const phone = product.sellerPhone || '+8801711224466';
-    const cleanPhone = phone.replace(/[^0-9]/g, '');
-    const msg = encodeURIComponent(`Hi, I'm interested in "${product.title}" priced at ${formatPrice(product.price)} on Beauty & Blush. Is this available for delivery?`);
-    window.open(`https://wa.me/${cleanPhone}?text=${msg}`, '_blank');
-  };
+  const whatsappPhone = (product.sellerPhone || '+8801711224466').replace(/[^0-9]/g, '');
+  const whatsappMsg = encodeURIComponent(`Hi, I'm interested in "${product.title}" priced at ${formatPrice(product.price)} on Beauty & Blush. Is this available for delivery?`);
+  const whatsappUrl = `https://wa.me/${whatsappPhone}?text=${whatsappMsg}`;
 
   return (
     <>
@@ -166,13 +161,15 @@ export function ProductCard({ product }) {
             View Details
           </Link>
 
-          <button
-            onClick={openWhatsApp}
+          <Link
+            href={whatsappUrl}
+            target="_blank"
+            rel="noreferrer"
             className="p-1.5 rounded-md border border-[#eee7e6] dark:border-white/10 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-950/20 active:scale-95 transition-all"
             title="WhatsApp inquiry"
           >
             <MessageCircle className="w-4 h-4" />
-          </button>
+          </Link>
         </div>
       </div>
 
