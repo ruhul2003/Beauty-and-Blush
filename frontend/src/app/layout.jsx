@@ -7,6 +7,7 @@ import { Footer } from "@/components/Footer";
 import { FooterTrustStrip } from "@/components/FooterTrustStrip";
 import { MobileBottomNav } from "@/components/MobileBottomNav";
 import { AiChatbox } from "@/components/AiChatbox";
+import { CartDrawer } from "@/components/CartDrawer";
 
 export const metadata = {
   title: "Beauty & Blush | Luxury Cosmetics, Skincare & Fragrance",
@@ -37,6 +38,7 @@ export default function RootLayout({ children }) {
               <Footer />
               <MobileBottomNav />
               <AiChatbox />
+              <CartDrawer />
             </CartProvider>
           </ToastProvider>
         </AuthProvider>
