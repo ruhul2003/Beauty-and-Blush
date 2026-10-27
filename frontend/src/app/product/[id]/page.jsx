@@ -20,6 +20,7 @@ import {
 import { formatPrice, calculateDiscount } from '@/utils/formatters';
 import { useToast } from '@/context/ToastContext';
 import { useAuth } from '@/context/AuthContext';
+import { useCart } from '@/context/CartContext';
 import { api } from '@/lib/api';
 import { BuyModal } from '@/components/BuyModal';
 import { ProductCard } from '@/components/ProductCard';
@@ -30,6 +31,7 @@ export default function ProductDetailPage() {
   const router = useRouter();
   const { user } = useAuth();
   const { showToast } = useToast();
+  const { addToCart } = useCart();
 
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -37,6 +39,7 @@ export default function ProductDetailPage() {
   const [isWishlisted, setIsWishlisted] = useState(false);
   const [recentItems, setRecentItems] = useState([]);
   const [buyModalOpen, setBuyModalOpen] = useState(false);
+  const [quantity, setQuantity] = useState(1);
   
   // Q&A state
   const [questionInput, setQuestionInput] = useState('');
@@ -259,19 +262,49 @@ export default function ProductDetailPage() {
             </span>
           </div>
 
-          {/* Action CTAs */}
+          {/* Quantity and Action CTAs */}
           <div className="space-y-3 pt-2">
+            <div className="flex items-center gap-3">
+              <div className="flex items-center border border-rose-200 dark:border-rose-900/60 rounded-xl overflow-hidden bg-white dark:bg-white/5">
+                <button
+                  type="button"
+                  onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                  className="px-3.5 py-2.5 text-slate-600 dark:text-slate-300 hover:bg-rose-50 dark:hover:bg-rose-950/40 text-sm font-bold transition-colors"
+                >
+                  -
+                </button>
+                <span className="px-4 py-2.5 text-xs font-bold text-slate-800 dark:text-white min-w-[36px] text-center">
+                  {quantity}
+                </span>
+                <button
+                  type="button"
+                  onClick={() => setQuantity(quantity + 1)}
+                  className="px-3.5 py-2.5 text-slate-600 dark:text-slate-300 hover:bg-rose-50 dark:hover:bg-rose-950/40 text-sm font-bold transition-colors"
+                >
+                  +
+                </button>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => addToCart(product, quantity)}
+                className="flex-1 py-3 px-4 rounded-xl bg-white dark:bg-white/10 hover:bg-rose-50 dark:hover:bg-white/20 text-[#b84357] dark:text-rose-300 border border-rose-300 dark:border-rose-800 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 active:scale-98 transition-all"
+              >
+                <ShoppingBag className="w-4 h-4" />
+                <span>Add to Bag</span>
+              </button>
+            </div>
+
             <button
               onClick={() => setBuyModalOpen(true)}
               className="w-full btn-rose-primary py-3.5 text-sm font-bold flex items-center justify-center gap-2 shadow-lg"
             >
-              <ShoppingBag className="w-4 h-4" />
-              <span>Buy with Cash on Delivery (COD)</span>
+              <span>Instant Buy with Cash on Delivery (COD)</span>
             </button>
 
             <button
               onClick={openWhatsApp}
-              className="w-full py-3 rounded-full border-2 border-emerald-500 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-950/20 font-semibold text-xs flex items-center justify-center gap-2 transition-colors"
+              className="w-full py-3 rounded-xl border border-emerald-500/80 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-950/20 font-semibold text-xs flex items-center justify-center gap-2 transition-colors"
             >
               <MessageCircle className="w-4 h-4" />
               <span>Ask Seller via WhatsApp Direct</span>
