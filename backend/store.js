@@ -539,14 +539,127 @@ const seedCoupons = [
 
 let coupons = [...seedCoupons];
 
+const seedCartEvents = [
+  {
+    _id: "cart-evt-101",
+    productId: "bnb-prod-001",
+    productTitle: "Rare Beauty Soft Pinch Liquid Blush - Joy",
+    productPrice: 3200,
+    productImage: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=800&q=80",
+    shade: "Joy - Dewy Peach",
+    quantity: 1,
+    category: "Makeup",
+    sessionId: "sess_demo_101",
+    userId: "buyer_tasnim",
+    userEmail: "tasnim@example.com",
+    status: "converted",
+    createdAt: new Date(Date.now() - 1000 * 60 * 12)
+  },
+  {
+    _id: "cart-evt-102",
+    productId: "bnb-prod-002",
+    productTitle: "The Ordinary Niacinamide 10% + Zinc 1% (60ml)",
+    productPrice: 1850,
+    productImage: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=800&q=80",
+    shade: "Clear Serum",
+    quantity: 2,
+    category: "Skincare",
+    sessionId: "sess_demo_102",
+    userId: "guest",
+    userEmail: "",
+    status: "active",
+    createdAt: new Date(Date.now() - 1000 * 60 * 28)
+  },
+  {
+    _id: "cart-evt-103",
+    productId: "bnb-prod-003",
+    productTitle: "Dior Addict Lip Glow Oil - 015 Cherry",
+    productPrice: 4800,
+    productImage: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=800&q=80",
+    shade: "015 Cherry",
+    quantity: 1,
+    category: "Lipstick",
+    sessionId: "sess_demo_103",
+    userId: "buyer_meghla",
+    userEmail: "meghla@example.com",
+    status: "active",
+    createdAt: new Date(Date.now() - 1000 * 60 * 45)
+  },
+  {
+    _id: "cart-evt-104",
+    productId: "bnb-prod-004",
+    productTitle: "Chanel Chance Eau Tendre Eau de Parfum (100ml)",
+    productPrice: 16800,
+    productImage: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=800&q=80",
+    shade: "100ml Floral Mist",
+    quantity: 1,
+    category: "Fragrance",
+    sessionId: "sess_demo_104",
+    userId: "buyer_nuzhat",
+    userEmail: "nuzhat.khan@example.com",
+    status: "converted",
+    createdAt: new Date(Date.now() - 1000 * 60 * 85)
+  },
+  {
+    _id: "cart-evt-105",
+    productId: "bnb-prod-005",
+    productTitle: "Laneige Lip Sleeping Mask - Sweet Candy & Berry",
+    productPrice: 1950,
+    productImage: "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=800&q=80",
+    shade: "Sweet Berry",
+    quantity: 1,
+    category: "Skincare",
+    sessionId: "sess_demo_105",
+    userId: "guest",
+    userEmail: "",
+    status: "abandoned",
+    createdAt: new Date(Date.now() - 1000 * 60 * 130)
+  },
+  {
+    _id: "cart-evt-106",
+    productId: "bnb-prod-006",
+    productTitle: "Charlotte Tilbury Airbrush Flawless Setting Spray",
+    productPrice: 4200,
+    productImage: "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=800&q=80",
+    shade: "Original 100ml",
+    quantity: 2,
+    category: "Makeup",
+    sessionId: "sess_demo_106",
+    userId: "guest",
+    userEmail: "",
+    status: "active",
+    createdAt: new Date(Date.now() - 1000 * 60 * 180)
+  },
+  {
+    _id: "cart-evt-107",
+    productId: "bnb-prod-001",
+    productTitle: "Rare Beauty Soft Pinch Liquid Blush - Joy",
+    productPrice: 3200,
+    productImage: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=800&q=80",
+    shade: "Joy - Dewy Peach",
+    quantity: 1,
+    category: "Makeup",
+    sessionId: "sess_demo_107",
+    userId: "guest",
+    userEmail: "",
+    status: "converted",
+    createdAt: new Date(Date.now() - 1000 * 60 * 240)
+  }
+];
+
+let cartEvents = [...seedCartEvents];
+
 module.exports = {
   seedProducts,
   seedShops,
   seedCoupons,
+  seedCartEvents,
   products,
   shops,
   orders,
   reviews,
-  coupons
+  coupons,
+  cartEvents
 };
+
 
