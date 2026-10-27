@@ -128,42 +128,46 @@ export function HeroBanner() {
           {/* Left Column: Headlines & CTA */}
           <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
             
-            {/* Tagline Badge */}
-            <div className="inline-flex items-center gap-2">
-              <span className="text-[#82757a] dark:text-[#a89da2] text-[11px] font-medium uppercase tracking-[0.22em]">
+            {/* Tagline & Curated Badge */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5">
+              <span className="px-3 py-1 rounded-full text-[11px] font-semibold uppercase tracking-[0.2em] bg-white/10 text-rose-200 border border-white/15 backdrop-blur-md">
                 {slide.tag}
+              </span>
+              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-medium tracking-wider bg-rose-500/20 text-rose-300 border border-rose-500/30 backdrop-blur-md">
+                {slide.badge}
               </span>
             </div>
 
             {/* Main Luxury Title */}
-            <h1 className="text-4xl sm:text-5xl lg:text-5xl xl:text-[54px] font-serif font-normal text-[#191416] dark:text-white leading-[1.14] tracking-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-[62px] font-serif font-normal text-white leading-[1.12] tracking-tight drop-shadow-sm">
               {slide.titleLine1} <br className="hidden sm:inline" />
-              {slide.titleLine2} <br />
-              <span className="text-[#b84357] dark:text-[#e0677f] font-serif italic">
+              <span className="font-light text-slate-100">{slide.titleLine2}</span> <br />
+              <span className="text-[#f4728d] font-serif italic drop-shadow-md">
                 {slide.titleAccent}
               </span>
             </h1>
 
             {/* Description */}
-            <p className="text-sm sm:text-base text-[#685c62] dark:text-slate-300 max-w-lg mx-auto lg:mx-0 leading-relaxed font-normal">
+            <p className="text-sm sm:text-base text-slate-200 max-w-xl mx-auto lg:mx-0 leading-relaxed font-normal drop-shadow">
               {slide.desc}
             </p>
 
             {/* Call To Actions */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-3">
               <Link
                 href="/browse"
-                className="btn-berry-primary px-7 py-3 text-xs tracking-widest uppercase font-semibold flex items-center gap-2 shadow-none hover:shadow-sm transition-all"
+                className="px-8 py-3.5 text-xs tracking-[0.2em] uppercase font-bold text-white bg-[#b84357] hover:bg-[#a13346] rounded-xl flex items-center gap-2.5 shadow-lg shadow-[#b84357]/30 hover:shadow-xl hover:shadow-[#b84357]/40 active:scale-98 transition-all"
               >
-                <span>EXPLORE SHOP</span>
+                <span>EXPLORE COLLECTION</span>
+                <ArrowRight className="w-4 h-4" />
               </Link>
               
               <Link
-                href="/browse"
-                className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#191416] dark:text-white hover:text-[#b84357] transition-colors py-3 px-2 group"
+                href="/browse?category=Makeup"
+                className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-white hover:text-rose-300 transition-colors py-3 px-4 rounded-xl border border-white/20 hover:border-rose-400/50 bg-white/5 backdrop-blur-md group"
               >
-                <span>COLLECTIONS</span>
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform text-[#b84357]" />
+                <span>LADIES GLAMOUR</span>
+                <Sparkles className="w-3.5 h-3.5 text-rose-300 group-hover:rotate-12 transition-transform" />
               </Link>
             </div>
 
