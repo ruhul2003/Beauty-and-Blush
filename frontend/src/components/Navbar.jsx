@@ -22,10 +22,12 @@ import {
   LayoutDashboard
 } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
+import { useCart } from '@/context/CartContext';
 
 export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen }) {
   const router = useRouter();
   const { user, logout } = useAuth();
+  const { cartCount, openCart } = useCart();
   const [searchTerm, setSearchTerm] = useState('');
   const [localMobileOpen, setLocalMobileOpen] = useState(false);
   const [userDropdown, setUserDropdown] = useState(false);
@@ -201,24 +203,34 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
               </Link>
             )}
 
-            {/* Shopping Bag / Wishlist with Badge */}
+            {/* Wishlist Link */}
             <Link
               href="/wishlist"
               className="p-2 text-slate-700 dark:text-slate-200 hover:text-[#c94d64] transition-colors relative"
-              title="Cart / Wishlist"
-              aria-label="Wishlist and Bag"
+              title="Saved Wishlist"
+              aria-label="Wishlist"
             >
-              <ShoppingBag className="w-4 h-4 sm:w-5 sm:h-5" />
-              {wishlistCount > 0 ? (
-                <span className="absolute 0 top-1 right-0.5 bg-[#c94d64] text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
+              <Heart className="w-4 h-4 sm:w-5 sm:h-5" />
+              {wishlistCount > 0 && (
+                <span className="absolute top-1 right-0.5 bg-rose-500 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
                   {wishlistCount}
-                </span>
-              ) : (
-                <span className="absolute top-1 right-0.5 bg-[#c94d64] text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
-                  0
                 </span>
               )}
             </Link>
+
+            {/* Shopping Bag / Cart Drawer Trigger */}
+            <button
+              type="button"
+              onClick={openCart}
+              className="p-2 text-slate-700 dark:text-slate-200 hover:text-[#c94d64] transition-colors relative"
+              title="Shopping Bag"
+              aria-label="Open Shopping Bag"
+            >
+              <ShoppingBag className="w-4 h-4 sm:w-5 sm:h-5" />
+              <span className="absolute top-1 right-0.5 bg-[#c94d64] text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
+                {cartCount}
+              </span>
+            </button>
 
             {/* Mobile Menu Button */}
             <button
