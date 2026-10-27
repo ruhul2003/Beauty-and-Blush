@@ -22,3 +22,10 @@ api.interceptors.request.use((config) => {
 }, (error) => {
   return Promise.reject(error);
 });
+
+export const cartApi = {
+  track: (eventData) => api.post('/cart/track', eventData),
+  getEvents: () => api.get('/cart/events'),
+  getAdminAnalytics: () => api.get('/admin/cart-analytics')
+};
+
