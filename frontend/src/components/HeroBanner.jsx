@@ -2,10 +2,12 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { ArrowRight, ShieldCheck, Sparkles, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, ShieldCheck, Sparkles, CheckCircle2, ShoppingBag, Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useCart } from '@/context/CartContext';
 
 export function HeroBanner() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const { addToCart } = useCart();
 
   const slides = [
     {
@@ -188,51 +190,83 @@ export function HeroBanner() {
             </div>
           </div>
 
-          {/* Right Column: Hero Visual Showcase (Wider banner) */}
-          <div className="lg:col-span-7 relative">
-            <div className="relative mx-auto w-full">
+          {/* Right Column: Floating Quick-Shop Ladies Beauty Spotlight Card */}
+          <div className="lg:col-span-5 relative flex justify-center lg:justify-end">
+            <div className="w-full max-w-sm rounded-3xl p-5 sm:p-6 bg-black/45 backdrop-blur-xl border border-white/20 shadow-2xl space-y-4 text-white">
               
-              {/* Luxury Frame Container */}
-              <div className="relative rounded-2xl overflow-hidden border border-[#eee7e6] dark:border-white/10 bg-white/40 dark:bg-white/5 group shadow-sm">
-                <Link href="/browse" className="block relative w-full overflow-hidden" title="Explore Collection">
-                  <img
-                    src={slide.image}
-                    alt={slide.highlight}
-                    className="w-full h-80 sm:h-[460px] md:h-[500px] lg:h-[520px] xl:h-[560px] object-cover transition-all duration-700 group-hover:scale-102"
-                  />
-                </Link>
-
-                {/* Authenticity Floating Badge */}
-                <Link href="/browse" className="absolute top-4 right-4 bg-white/95 dark:bg-[#141114]/95 backdrop-blur-md px-3 py-1.5 rounded-lg border border-[#eee7e6] dark:border-white/10 flex items-center gap-2 hover:border-[#191416] dark:hover:border-white transition-colors">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                  <div>
-                    <p className="text-[11px] font-medium text-slate-900 dark:text-white leading-tight">Authentic</p>
-                  </div>
-                </Link>
-
-                {/* Bottom Highlight Preview Card */}
-                <div className="absolute bottom-4 left-4 right-4 bg-white/95 dark:bg-[#141114]/95 backdrop-blur-md p-3.5 rounded-xl border border-[#eee7e6] dark:border-white/10 flex items-center justify-between">
-                  <Link href="/browse" className="block flex-1 min-w-0 pr-3">
-                    <span className="text-[10px] uppercase font-medium text-[#82757a] tracking-wider">
-                      Featured
-                    </span>
-                    <h3 className="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white truncate max-w-[220px] sm:max-w-xs md:max-w-md hover:text-[#b84357] transition-colors">
-                      {slide.highlight}
-                    </h3>
-                    <p className="text-xs text-[#191416] dark:text-white font-semibold mt-0.5">
-                      {slide.price} <span className="line-through text-slate-400 text-[10px] font-normal ml-1">{slide.oldPrice}</span>
-                    </p>
-                  </Link>
-
-                  <Link
-                    href="/browse"
-                    className="p-2 rounded-lg bg-[#191416] hover:bg-black dark:bg-white dark:hover:bg-slate-100 text-white dark:text-black transition-all shrink-0"
-                    title="View item"
-                  >
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
+              {/* Card Header & Authenticity */}
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-rose-500/25 text-rose-300 border border-rose-500/35">
+                  Spotlight Item
+                </span>
+                <div className="flex items-center gap-1.5 text-xs text-amber-300 font-semibold">
+                  <Star className="w-3.5 h-3.5 fill-current text-amber-400" />
+                  <span>{slide.rating}</span>
+                  <span className="text-white/60 text-[11px]">({slide.reviews})</span>
                 </div>
               </div>
+
+              {/* Product Media Box */}
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-white/5 border border-white/10 group">
+                <img
+                  src={slide.image}
+                  alt={slide.highlight}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute top-2.5 right-2.5 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-full flex items-center gap-1.5 border border-white/15">
+                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+                  <span className="text-[10px] font-semibold text-white">100% Genuine</span>
+                </div>
+                <div className="absolute bottom-2.5 left-2.5 bg-rose-950/80 backdrop-blur-md px-2.5 py-0.5 rounded-md border border-rose-500/30 text-[10px] text-rose-200 font-medium">
+                  {slide.category}
+                </div>
+              </div>
+
+              {/* Product Details */}
+              <div>
+                <p className="text-[11px] font-medium text-rose-200 tracking-wider uppercase">
+                  {slide.shade}
+                </p>
+                <h3 className="font-serif text-base sm:text-lg font-bold text-white line-clamp-1 mt-0.5">
+                  {slide.highlight}
+                </h3>
+                <div className="flex items-baseline gap-2.5 mt-2">
+                  <span className="text-2xl font-bold text-white">{slide.price}</span>
+                  <span className="text-xs text-slate-400 line-through">{slide.oldPrice}</span>
+                  <span className="text-[10px] font-bold text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded-full border border-emerald-500/25">
+                    Save Discount
+                  </span>
+                </div>
+              </div>
+
+              {/* Direct Add to Cart & Explore Actions */}
+              <div className="pt-1 flex items-center gap-2.5">
+                <button
+                  type="button"
+                  onClick={() => addToCart({
+                    id: slide.id,
+                    _id: slide.id,
+                    title: slide.highlight,
+                    price: slide.rawPrice,
+                    image: slide.image,
+                    shade: slide.shade,
+                    category: slide.category
+                  })}
+                  className="flex-1 py-3 px-4 rounded-xl bg-white hover:bg-rose-50 text-slate-900 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg hover:shadow-xl active:scale-98 transition-all cursor-pointer"
+                >
+                  <ShoppingBag className="w-4 h-4 text-[#b84357]" />
+                  <span>Add to Bag</span>
+                </button>
+
+                <Link
+                  href="/browse"
+                  className="p-3 rounded-xl border border-white/20 hover:border-white/50 text-white hover:bg-white/10 active:scale-95 transition-all"
+                  title="View collection"
+                >
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+
             </div>
           </div>
 
