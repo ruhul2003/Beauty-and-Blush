@@ -54,12 +54,22 @@ export function HeroBanner() {
   const slide = slides[currentSlide];
 
   return (
-    <section className="relative overflow-hidden bg-[#faf8f7] dark:bg-[#0c0a0c] border-b border-[#eee7e6] dark:border-white/5 pt-6 pb-12 md:py-16 transition-colors">
-      <div className="w-[90%] mx-auto px-2 sm:px-4 lg:px-6 relative z-10">
+    <section className="relative w-full overflow-hidden bg-[#140c16] min-h-[560px] sm:min-h-[620px] lg:min-h-[680px] flex items-center border-b border-[#eee7e6]/40 dark:border-white/10">
+      {/* Full Width Panoramic Background Image */}
+      <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
+        <img
+          src={slide.image}
+          alt={slide.highlight}
+          className="w-full h-full object-cover object-center scale-105 transition-all duration-1000 ease-out"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/35" />
+      </div>
+
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 lg:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
           {/* Left Column: Headlines & CTA */}
-          <div className="lg:col-span-5 space-y-5 text-center lg:text-left">
+          <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
             
             {/* Tagline Badge */}
             <div className="inline-flex items-center gap-2">
