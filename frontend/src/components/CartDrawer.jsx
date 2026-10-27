@@ -140,27 +140,36 @@ export function CartDrawer() {
                       )}
                       
                       <div className="flex items-center justify-between mt-2.5">
-                        <span className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white">
-                          {formatPrice(item.price)}
-                        </span>
+                        <div className="flex flex-col">
+                          <span className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white">
+                            {formatPrice(item.price * item.quantity)}
+                          </span>
+                          {item.quantity > 1 && (
+                            <span className="text-[10px] text-slate-400">
+                              {formatPrice(item.price)} each
+                            </span>
+                          )}
+                        </div>
 
-                        <div className="flex items-center border border-rose-200 dark:border-rose-900/60 rounded-lg overflow-hidden">
+                        <div className="flex items-center border border-rose-200 dark:border-rose-900/60 rounded-lg overflow-hidden bg-rose-50/40 dark:bg-rose-950/20">
                           <button
                             type="button"
                             onClick={() => updateQuantity(item.id, item.shade, item.quantity - 1)}
-                            className="p-1 text-slate-600 dark:text-slate-300 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition-colors"
+                            className="p-1.5 text-slate-600 dark:text-slate-300 hover:bg-rose-100 dark:hover:bg-rose-900/50 transition-colors cursor-pointer"
                             aria-label="Decrease quantity"
+                            title="Decrease quantity"
                           >
                             <Minus className="w-3 h-3" />
                           </button>
-                          <span className="px-2 text-xs font-bold text-slate-800 dark:text-white min-w-[20px] text-center">
+                          <span className="px-2.5 text-xs font-bold text-slate-800 dark:text-white min-w-[24px] text-center select-none">
                             {item.quantity}
                           </span>
                           <button
                             type="button"
                             onClick={() => updateQuantity(item.id, item.shade, item.quantity + 1)}
-                            className="p-1 text-slate-600 dark:text-slate-300 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition-colors"
+                            className="p-1.5 text-slate-600 dark:text-slate-300 hover:bg-rose-100 dark:hover:bg-rose-900/50 transition-colors cursor-pointer"
                             aria-label="Increase quantity"
+                            title="Increase quantity"
                           >
                             <Plus className="w-3 h-3" />
                           </button>
@@ -171,7 +180,7 @@ export function CartDrawer() {
                     <button
                       type="button"
                       onClick={() => removeFromCart(item.id, item.shade)}
-                      className="absolute top-2.5 right-2.5 p-1 text-slate-400 hover:text-rose-500 transition-colors"
+                      className="absolute top-2.5 right-2.5 p-1 text-slate-400 hover:text-rose-600 transition-colors rounded-md hover:bg-rose-50 dark:hover:bg-rose-950/30"
                       title="Remove item"
                       aria-label="Remove item"
                     >
