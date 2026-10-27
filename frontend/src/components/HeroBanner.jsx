@@ -110,6 +110,14 @@ export function HeroBanner() {
     return () => clearInterval(timer);
   }, [slides.length]);
 
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
+
   const slide = slides[currentSlide];
 
   return (
@@ -173,20 +181,45 @@ export function HeroBanner() {
               </Link>
             </div>
 
-            {/* Slide Pagination Indicator Dots */}
-            <div className="flex items-center justify-center lg:justify-start gap-2 pt-4">
-              {slides.map((_, idx) => (
+            {/* Slide Pagination & Navigation Controls */}
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+              <div className="flex items-center gap-2">
                 <button
-                  key={idx}
-                  onClick={() => setCurrentSlide(idx)}
-                  className={`h-1.5 rounded-full transition-all duration-300 ${
-                    currentSlide === idx 
-                      ? 'w-6 bg-[#191416] dark:bg-white' 
-                      : 'w-2 bg-[#dcd5d4] dark:bg-white/20 hover:bg-[#b84357]'
-                  }`}
-                  aria-label={`Go to slide ${idx + 1}`}
-                />
-              ))}
+                  onClick={prevSlide}
+                  className="p-2.5 rounded-full bg-white/10 hover:bg-white/25 text-white border border-white/15 backdrop-blur-md transition-all active:scale-95"
+                  aria-label="Previous product"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+
+                <div className="flex items-center gap-1.5 px-2">
+                  {slides.map((s, idx) => (
+                    <button
+                      key={s.id}
+                      onClick={() => setCurrentSlide(idx)}
+                      className={`h-2 rounded-full transition-all duration-300 ${
+                        currentSlide === idx 
+                          ? 'w-8 bg-rose-400 shadow-md shadow-rose-500/50' 
+                          : 'w-2 bg-white/30 hover:bg-white/60'
+                      }`}
+                      aria-label={`Go to slide ${idx + 1}`}
+                      title={s.highlight}
+                    />
+                  ))}
+                </div>
+
+                <button
+                  onClick={nextSlide}
+                  className="p-2.5 rounded-full bg-white/10 hover:bg-white/25 text-white border border-white/15 backdrop-blur-md transition-all active:scale-95"
+                  aria-label="Next product"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+              </div>
+
+              <div className="text-xs text-white/70 font-mono tracking-widest pl-2">
+                <span className="text-white font-bold">0{currentSlide + 1}</span> / 0{slides.length}
+              </div>
             </div>
           </div>
 
