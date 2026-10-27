@@ -14,10 +14,12 @@ import {
 } from 'lucide-react';
 import { formatPrice, calculateDiscount } from '@/utils/formatters';
 import { useToast } from '@/context/ToastContext';
+import { useCart } from '@/context/CartContext';
 import { BuyModal } from './BuyModal';
 
 export function QuickViewModal({ product, onClose }) {
   const { showToast } = useToast();
+  const { addToCart } = useCart();
   const [activeImageIdx, setActiveImageIdx] = useState(0);
   const [buyModalOpen, setBuyModalOpen] = useState(false);
   const [isWishlisted, setIsWishlisted] = useState(() => {
@@ -170,11 +172,21 @@ export function QuickViewModal({ product, onClose }) {
               <div className="space-y-2 pt-2">
                 <div className="flex gap-2">
                   <button
+                    onClick={() => {
+                      addToCart(product);
+                      onClose();
+                    }}
+                    className="flex-1 py-3 text-xs font-bold rounded-xl bg-white dark:bg-white/10 hover:bg-rose-50 dark:hover:bg-white/20 text-[#b84357] dark:text-rose-300 border border-rose-300 dark:border-rose-800 flex items-center justify-center gap-2 active:scale-98 transition-all"
+                  >
+                    <ShoppingBag className="w-4 h-4" />
+                    <span>Add to Bag</span>
+                  </button>
+
+                  <button
                     onClick={() => setBuyModalOpen(true)}
                     className="flex-1 btn-rose-primary py-3 text-xs font-bold flex items-center justify-center gap-2"
                   >
-                    <ShoppingBag className="w-4 h-4" />
-                    <span>Instant Order (COD)</span>
+                    <span>Instant Order</span>
                   </button>
 
                   <button
