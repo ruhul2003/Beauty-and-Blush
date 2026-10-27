@@ -220,12 +220,24 @@ export function CartDrawer() {
                 <button
                   type="button"
                   onClick={() => {
-                    const firstItem = cartItems[0];
-                    if (firstItem) {
-                      setCheckoutProduct(firstItem);
+                    if (cartItems.length === 1) {
+                      setCheckoutProduct(cartItems[0]);
+                    } else if (cartItems.length > 1) {
+                      // Consolidate bundle for order processing
+                      setCheckoutProduct({
+                        id: 'bundle-' + Date.now(),
+                        _id: 'bundle-' + Date.now(),
+                        title: `Beauty Bag (${cartCount} Luxury Items: ${cartItems.map(i => i.title.split(' - ')[0]).join(', ')})`,
+                        price: cartTotal,
+                        originalPrice: cartTotal,
+                        shade: `Assorted Package (${cartItems.length} styles)`,
+                        images: [cartItems[0].image || '/images/hero-model.jpg'],
+                        sellerPhone: '+880 1711-224466',
+                        quantity: 1
+                      });
                     }
                   }}
-                  className="w-full py-3.5 px-4 rounded-xl bg-[#c94d64] hover:bg-[#b03e54] text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-[#c94d64]/20 active:scale-98 transition-all"
+                  className="w-full py-3.5 px-4 rounded-xl bg-[#c94d64] hover:bg-[#b03e54] text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-[#c94d64]/20 active:scale-98 transition-all cursor-pointer"
                 >
                   <ShoppingBag className="w-4 h-4" />
                   <span>Proceed to Checkout (COD)</span>
@@ -235,7 +247,7 @@ export function CartDrawer() {
                   <button
                     type="button"
                     onClick={clearCart}
-                    className="hover:text-rose-600 transition-colors"
+                    className="hover:text-rose-600 transition-colors cursor-pointer"
                   >
                     Clear All Items
                   </button>
