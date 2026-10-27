@@ -2,13 +2,15 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Heart, Star, ShieldCheck, MapPin, MessageCircle, Eye } from 'lucide-react';
+import { Heart, Star, ShieldCheck, MapPin, MessageCircle, Eye, ShoppingBag } from 'lucide-react';
 import { formatPrice, calculateDiscount } from '@/utils/formatters';
 import { useToast } from '@/context/ToastContext';
+import { useCart } from '@/context/CartContext';
 import { QuickViewModal } from './QuickViewModal';
 
 export function ProductCard({ product }) {
   const { showToast } = useToast();
+  const { addToCart } = useCart();
   const [isWishlisted, setIsWishlisted] = useState(false);
   const [quickViewOpen, setQuickViewOpen] = useState(false);
 
@@ -160,6 +162,20 @@ export function ProductCard({ product }) {
           >
             View Details
           </Link>
+
+          <button
+            type="button"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              addToCart(product);
+            }}
+            className="p-1.5 rounded-md bg-[#b84357] hover:bg-[#a13346] text-white active:scale-95 transition-all shadow-sm"
+            title="Add to Cart"
+            aria-label={`Add ${product.title} to bag`}
+          >
+            <ShoppingBag className="w-4 h-4" />
+          </button>
 
           <Link
             href={whatsappUrl}
