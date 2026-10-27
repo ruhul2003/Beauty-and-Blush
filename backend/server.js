@@ -34,6 +34,7 @@ app.use('/api/shops', require('./routes/shopRoutes'));
 app.use('/api/reviews', require('./routes/reviewRoutes'));
 app.use('/api/coupons', require('./routes/couponRoutes'));
 app.use('/api/ai', require('./routes/aiRoutes'));
+app.use('/api/cart', require('./routes/cartRoutes'));
 app.use('/api/seed', require('./routes/seedRoutes'));
 app.use('/api/admin', require('./routes/adminRoutes'));
 
