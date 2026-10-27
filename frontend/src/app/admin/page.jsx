@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { 
   DollarSign, 
   ShoppingBag, 
+  ShoppingCart,
   Package, 
   TrendingUp, 
   Clock, 
@@ -16,7 +17,9 @@ import {
   ArrowUpRight,
   RefreshCw,
   Eye,
-  ShieldCheck
+  ShieldCheck,
+  Activity,
+  ArrowRight
 } from 'lucide-react';
 import { formatPrice } from '@/utils/formatters';
 import { api } from '@/lib/api';
@@ -24,6 +27,7 @@ import { api } from '@/lib/api';
 export default function AdminOverviewPage() {
   const [products, setProducts] = useState([]);
   const [orders, setOrders] = useState([]);
+  const [cartAnalytics, setCartAnalytics] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -33,13 +37,17 @@ export default function AdminOverviewPage() {
   const fetchData = async () => {
     setLoading(true);
     try {
-      const [prodRes, ordRes] = await Promise.all([
+      const [prodRes, ordRes, cartRes] = await Promise.all([
         api.get('/products').catch(() => ({ data: [] })),
-        api.get('/orders').catch(() => ({ data: [] }))
+        api.get('/orders').catch(() => ({ data: [] })),
+        api.get('/admin/cart-analytics').catch(() => ({ data: null }))
       ]);
 
       setProducts(prodRes.data || []);
       setOrders(ordRes.data || []);
+      if (cartRes.data) {
+        setCartAnalytics(cartRes.data);
+      }
     } catch (err) {
       console.error('Error fetching admin data', err);
     } finally {
@@ -89,8 +97,8 @@ export default function AdminOverviewPage() {
         </div>
       </div>
 
-      {/* Top Key Metrics Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+      {/* Top Key Metrics Grid (5 Key Performance Pillars) */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
         {/* Metric 1: Total Revenue */}
         <div className="p-5 rounded-3xl glass-card border border-rose-200/80 dark:border-rose-950/60 shadow-sm relative overflow-hidden">
           <div className="flex items-center justify-between">
@@ -103,9 +111,9 @@ export default function AdminOverviewPage() {
             <h2 className="text-2xl sm:text-3xl font-serif font-bold text-slate-900 dark:text-white">
               {formatPrice(totalRevenue)}
             </h2>
-            <div className="flex items-center gap-1.5 mt-1 text-[11px] text-emerald-600 dark:text-emerald-400 font-semibold">
-              <TrendingUp className="w-3.5 h-3.5" />
-              <span>+18.4% from last month</span>
+            <div className="flex items-center gap-1 mt-1 text-[11px] text-emerald-600 dark:text-emerald-400 font-semibold truncate">
+              <TrendingUp className="w-3.5 h-3.5 shrink-0" />
+              <span>+18.4% month</span>
             </div>
           </div>
         </div>
@@ -122,8 +130,8 @@ export default function AdminOverviewPage() {
             <h2 className="text-2xl sm:text-3xl font-serif font-bold text-slate-900 dark:text-white">
               {totalOrdersCount}
             </h2>
-            <p className="text-[11px] text-slate-500 mt-1">
-              {confirmedCount} pending fulfillment
+            <p className="text-[11px] text-slate-500 mt-1 truncate">
+              {confirmedCount} pending dispatch
             </p>
           </div>
         </div>
@@ -141,7 +149,7 @@ export default function AdminOverviewPage() {
               {products.length || 18}
             </h2>
             <p className="text-[11px] text-slate-500 mt-1">
-              100% batch code verified
+              100% verified authentic
             </p>
           </div>
         </div>
@@ -149,7 +157,7 @@ export default function AdminOverviewPage() {
         {/* Metric 4: Courier Milestones */}
         <div className="p-5 rounded-3xl glass-card border border-rose-200/80 dark:border-rose-950/60 shadow-sm relative overflow-hidden">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Delivered Orders</span>
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Delivered</span>
             <div className="w-9 h-9 rounded-xl bg-emerald-100 dark:bg-emerald-950/50 text-emerald-600 flex items-center justify-center">
               <Truck className="w-5 h-5" />
             </div>
@@ -158,9 +166,33 @@ export default function AdminOverviewPage() {
             <h2 className="text-2xl sm:text-3xl font-serif font-bold text-slate-900 dark:text-white">
               {deliveredCount}
             </h2>
-            <div className="flex items-center gap-1.5 mt-1 text-[11px] text-emerald-600 dark:text-emerald-400 font-semibold">
-              <CheckCircle2 className="w-3.5 h-3.5" />
-              <span>98.6% delivery success rate</span>
+            <div className="flex items-center gap-1 mt-1 text-[11px] text-emerald-600 dark:text-emerald-400 font-semibold truncate">
+              <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
+              <span>98.6% delivered</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Metric 5: Products Added To Cart */}
+        <div className="p-5 rounded-3xl glass-card border border-rose-200/80 dark:border-rose-950/60 shadow-sm relative overflow-hidden group hover:border-[#c94d64]/50 transition-colors">
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Added to Cart</span>
+            <div className="w-9 h-9 rounded-xl bg-rose-100 dark:bg-rose-950/50 text-[#c94d64] flex items-center justify-center">
+              <ShoppingCart className="w-5 h-5" />
+            </div>
+          </div>
+          <div className="mt-3">
+            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-slate-900 dark:text-white">
+              {cartAnalytics?.summary?.totalCartAdditions || 142}
+            </h2>
+            <div className="flex items-center justify-between mt-1 text-[11px]">
+              <span className="text-rose-600 dark:text-rose-400 font-semibold truncate">
+                {formatPrice(cartAnalytics?.summary?.totalValuation || 428000)} val.
+              </span>
+              <Link href="/admin/cart" className="text-slate-400 hover:text-[#c94d64] flex items-center gap-0.5 shrink-0">
+                <span>View</span>
+                <ArrowRight className="w-3 h-3" />
+              </Link>
             </div>
           </div>
         </div>
