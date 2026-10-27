@@ -235,6 +235,9 @@ export default function AdminOverviewPage() {
             </div>
             <CheckCircle2 className="w-5 h-5 text-emerald-500" />
           </div>
+        </div>
+      </div>
+
       {/* Cart Conversion Funnel & High Intent Products Strip */}
       <div className="p-5 sm:p-6 rounded-3xl glass-card border border-rose-200/80 dark:border-rose-950/60 space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
