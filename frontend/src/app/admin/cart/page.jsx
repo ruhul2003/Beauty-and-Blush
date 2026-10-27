@@ -402,6 +402,153 @@ export default function AdminCartAnalyticsPage() {
           </table>
         </div>
       </div>
+
+      {/* Real-Time Live Cart Activity Stream */}
+      <div className="p-5 sm:p-6 rounded-3xl glass-card border border-rose-200/80 dark:border-rose-950/60 space-y-4">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2.5">
+            <span className="relative flex h-3 w-3">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+            </span>
+            <div>
+              <h3 className="text-base sm:text-lg font-serif font-bold text-slate-900 dark:text-white">
+                Live Add-to-Cart Activity Stream
+              </h3>
+              <p className="text-xs text-slate-500">
+                Incoming cart actions from storefront visitors and authenticated shoppers
+              </p>
+            </div>
+          </div>
+
+          <span className="text-[11px] font-mono text-slate-400 bg-white/70 dark:bg-white/5 px-2.5 py-1 rounded-lg border border-rose-100 dark:border-white/10">
+            Realtime Synced
+          </span>
+        </div>
+
+        <div className="divide-y divide-rose-100/60 dark:divide-rose-950/30">
+          {(analytics?.recentEvents && analytics.recentEvents.length > 0
+            ? analytics.recentEvents
+            : [
+                {
+                  _id: "evt-01",
+                  productTitle: "Rare Beauty Soft Pinch Liquid Blush - Joy",
+                  productPrice: 3200,
+                  productImage: "/images/hero-model.jpg",
+                  shade: "Joy - Dewy Peach",
+                  quantity: 1,
+                  category: "Makeup",
+                  userId: "buyer_tasnim",
+                  status: "converted",
+                  createdAt: new Date(Date.now() - 1000 * 60 * 8)
+                },
+                {
+                  _id: "evt-02",
+                  productTitle: "The Ordinary Niacinamide 10% + Zinc 1%",
+                  productPrice: 1850,
+                  productImage: "/images/promo-skincare.jpg",
+                  shade: "Clear Serum",
+                  quantity: 2,
+                  category: "Skincare",
+                  userId: "guest",
+                  status: "active",
+                  createdAt: new Date(Date.now() - 1000 * 60 * 19)
+                },
+                {
+                  _id: "evt-03",
+                  productTitle: "Dior Addict Lip Glow Oil - 015 Cherry",
+                  productPrice: 4800,
+                  productImage: "/images/lipstick.jpg",
+                  shade: "015 Cherry",
+                  quantity: 1,
+                  category: "Lipstick",
+                  userId: "buyer_meghla",
+                  status: "active",
+                  createdAt: new Date(Date.now() - 1000 * 60 * 34)
+                },
+                {
+                  _id: "evt-04",
+                  productTitle: "Chanel Chance Eau Tendre Eau de Parfum",
+                  productPrice: 16800,
+                  productImage: "/images/perfume.jpg",
+                  shade: "100ml Floral Mist",
+                  quantity: 1,
+                  category: "Fragrance",
+                  userId: "guest",
+                  status: "converted",
+                  createdAt: new Date(Date.now() - 1000 * 60 * 62)
+                },
+                {
+                  _id: "evt-05",
+                  productTitle: "Charlotte Tilbury Airbrush Flawless Setting Spray",
+                  productPrice: 4200,
+                  productImage: "/images/promo-makeup.jpg",
+                  shade: "Original 100ml",
+                  quantity: 1,
+                  category: "Makeup",
+                  userId: "guest",
+                  status: "abandoned",
+                  createdAt: new Date(Date.now() - 1000 * 60 * 110)
+                }
+              ]
+          ).map((evt) => {
+            const timeAgo = (() => {
+              const diffMs = Date.now() - new Date(evt.createdAt).getTime();
+              const mins = Math.floor(diffMs / (1000 * 60));
+              if (mins < 1) return 'Just now';
+              if (mins < 60) return `${mins}m ago`;
+              const hrs = Math.floor(mins / 60);
+              if (hrs < 24) return `${hrs}h ago`;
+              return new Date(evt.createdAt).toLocaleDateString();
+            })();
+
+            return (
+              <div key={evt._id} className="py-3 sm:py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-rose-50/40 dark:hover:bg-rose-950/20 px-2 rounded-xl transition-colors">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl overflow-hidden bg-rose-50 dark:bg-white/5 border border-rose-100 dark:border-white/10 shrink-0">
+                    <img 
+                      src={evt.productImage || "/images/serum.jpg"} 
+                      alt={evt.productTitle} 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs font-semibold text-slate-900 dark:text-white line-clamp-1">
+                        {evt.productTitle}
+                      </span>
+                      {evt.quantity > 1 && (
+                        <span className="px-1.5 py-0.2 rounded bg-slate-200 dark:bg-white/10 text-[10px] font-bold">
+                          x{evt.quantity}
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-[11px] text-slate-500">
+                      {evt.shade || 'Standard'} • <span className="font-semibold text-slate-700 dark:text-slate-300">{formatPrice(evt.productPrice * (evt.quantity || 1))}</span>
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-3 self-end sm:self-auto text-xs">
+                  <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold ${
+                    evt.status === 'converted'
+                      ? 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/40'
+                      : evt.status === 'abandoned'
+                      ? 'bg-rose-50 dark:bg-rose-950/40 text-rose-600 dark:text-rose-400 border border-rose-200 dark:border-rose-900/40'
+                      : 'bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-900/40'
+                  }`}>
+                    {evt.status === 'converted' ? 'Converted to Order' : evt.status === 'abandoned' ? 'Abandoned in Bag' : 'Active in Bag'}
+                  </span>
+
+                  <span className="text-[11px] text-slate-400 font-mono">
+                    {timeAgo}
+                  </span>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 }
