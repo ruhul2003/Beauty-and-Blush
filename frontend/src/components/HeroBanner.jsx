@@ -79,7 +79,7 @@ export function HeroBanner() {
   const slide = slides[currentSlide];
 
   return (
-    <section className="relative w-full overflow-hidden bg-[#140c16] min-h-[580px] sm:min-h-[640px] lg:min-h-[720px] flex items-center border-b border-[#eee7e6]/40 dark:border-white/10">
+    <section className="relative w-full overflow-hidden bg-[#140c16] min-h-[640px] sm:min-h-[720px] lg:min-h-[820px] xl:min-h-[860px] flex items-center border-b border-[#eee7e6]/40 dark:border-white/10">
       
       {/* Full Width Cinematic Background Crossfade Slides */}
       <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
@@ -104,65 +104,65 @@ export function HeroBanner() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/75 z-[1]" />
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 lg:py-24">
-        <div className="relative flex items-center justify-center min-h-[460px]">
+      <div className="relative z-10 w-[94%] sm:w-[92%] max-w-[1700px] mx-auto px-3 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-28">
+        <div className="relative flex items-center justify-center min-h-[500px]">
 
-          {/* ================= CENTER COLUMN: TITLE & CTAs ================= */}
-          <div className="relative z-20 w-full max-w-2xl lg:max-w-3xl flex flex-col items-center text-center space-y-6">
+          {/* ================= WIDE CENTER COLUMN: TITLE & CTAs ================= */}
+          <div className="relative z-20 w-full max-w-4xl lg:max-w-5xl xl:max-w-6xl flex flex-col items-center text-center space-y-6 sm:space-y-8">
             
             {/* Tagline & Curated Badge */}
-            <div className="flex flex-wrap items-center justify-center gap-2.5">
-              <span className="px-3.5 py-1 rounded-full text-[11px] font-semibold uppercase tracking-[0.22em] bg-white/10 text-rose-200 border border-white/15 backdrop-blur-md shadow-sm">
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              <span className="px-4 sm:px-5 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm md:text-[14px] font-semibold uppercase tracking-[0.24em] bg-white/12 text-rose-200 border border-white/20 backdrop-blur-md shadow-sm">
                 {slide.tag}
               </span>
-              <span className="px-3 py-1 rounded-full text-[10px] font-medium tracking-wider bg-rose-500/20 text-rose-300 border border-rose-500/30 backdrop-blur-md">
+              <span className="px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm md:text-[13px] font-medium tracking-wider bg-rose-500/25 text-rose-200 border border-rose-500/35 backdrop-blur-md">
                 {slide.badge}
               </span>
             </div>
 
-            {/* Main Luxury Centered Title */}
-            <h1 className="text-4xl sm:text-5xl lg:text-5xl xl:text-[62px] font-serif font-normal text-white leading-[1.12] tracking-tight drop-shadow-xl min-h-[140px] sm:min-h-[170px] flex flex-col justify-center">
+            {/* Main Grand Centered Title */}
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[96px] 2xl:text-[104px] font-bold text-white leading-[1.08] tracking-tight drop-shadow-2xl min-h-[160px] sm:min-h-[200px] md:min-h-[230px] flex flex-col justify-center">
               <span>{slide.titleLine1}</span>
               <span className="font-light text-slate-100">{slide.titleLine2}</span>
-              <span className="text-[#f4728d] font-serif italic drop-shadow-lg">
+              <span className="text-[#f4728d] italic drop-shadow-lg">
                 {slide.titleAccent}
               </span>
             </h1>
 
             {/* Description */}
-            <p className="text-sm sm:text-base text-slate-200 max-w-lg mx-auto leading-relaxed font-normal drop-shadow min-h-[48px]">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-slate-100/90 max-w-2xl sm:max-w-3xl lg:max-w-4xl mx-auto leading-relaxed font-normal drop-shadow-md min-h-[56px]">
               {slide.desc}
             </p>
 
             {/* Call To Actions */}
-            <div className="flex flex-wrap items-center justify-center gap-3.5 pt-2">
+            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-5 pt-3">
               <Link
                 href="/browse"
-                className="px-8 py-3.5 text-xs tracking-[0.2em] uppercase font-bold text-white bg-[#b84357] hover:bg-[#a13346] rounded-xl flex items-center gap-2.5 shadow-lg shadow-[#b84357]/30 hover:shadow-xl hover:shadow-[#b84357]/40 active:scale-98 transition-all"
+                className="px-10 sm:px-14 py-4 sm:py-5 text-sm sm:text-base tracking-[0.22em] uppercase font-bold text-white bg-[#b84357] hover:bg-[#a13346] rounded-2xl flex items-center gap-3 shadow-xl shadow-[#b84357]/35 hover:shadow-2xl hover:shadow-[#b84357]/45 active:scale-98 transition-all"
               >
                 <span>EXPLORE COLLECTION</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-5 h-5" />
               </Link>
               
               <Link
                 href="/browse"
-                className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-white hover:text-rose-300 transition-colors py-3.5 px-5 rounded-xl border border-white/20 hover:border-rose-400/50 bg-white/5 backdrop-blur-md group"
+                className="inline-flex items-center gap-3 text-sm sm:text-base font-semibold uppercase tracking-wider text-white hover:text-rose-300 transition-colors py-4 sm:py-5 px-8 sm:px-10 rounded-2xl border border-white/25 hover:border-rose-400/50 bg-white/10 backdrop-blur-md group"
               >
                 <span>LADIES GLAMOUR</span>
-                <Sparkles className="w-3.5 h-3.5 text-rose-300 group-hover:rotate-12 transition-transform" />
+                <Sparkles className="w-5 h-5 text-rose-300 group-hover:rotate-12 transition-transform" />
               </Link>
             </div>
 
-            {/* Automatic Slide Indicator Pills (No next/previous buttons, no slide numbers) */}
-            <div className="flex items-center justify-center gap-2 pt-4">
+            {/* Automatic Slide Indicator Pills */}
+            <div className="flex items-center justify-center gap-3 pt-6">
               {slides.map((s, idx) => (
                 <button
                   key={s.id}
                   onClick={() => setCurrentSlide(idx)}
-                  className={`h-1.5 rounded-full transition-all duration-500 cursor-pointer ${
+                  className={`h-2 rounded-full transition-all duration-500 cursor-pointer ${
                     currentSlide === idx 
-                      ? 'w-8 bg-rose-400 shadow-md shadow-rose-500/50' 
-                      : 'w-2 bg-white/30 hover:bg-white/60'
+                      ? 'w-14 sm:w-16 bg-rose-400 shadow-lg shadow-rose-500/60' 
+                      : 'w-3 sm:w-3.5 bg-white/40 hover:bg-white/70'
                   }`}
                   aria-label={`Slide ${idx + 1}`}
                 />

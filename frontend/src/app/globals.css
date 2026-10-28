@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: 'Bai Jamjuree', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Bai Jamjuree', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 @layer base {
@@ -63,7 +68,7 @@
     background-color: var(--bg-main);
     background-image: radial-gradient(circle at 50% 0%, rgba(201, 77, 100, 0.06), transparent 45%);
     color: var(--text-main);
-    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Bai Jamjuree', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     min-height: 100vh;
     max-width: 100vw;
     overflow-x: hidden;
@@ -71,8 +76,8 @@
     touch-action: manipulation;
   }
 
-  .font-serif, h1, h2, h3, .brand-font {
-    font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  .font-serif, h1, h2, h3, h4, h5, h6, .brand-font {
+    font-family: 'Bai Jamjuree', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     letter-spacing: -0.01em;
   }
 }
@@ -232,4 +237,3 @@ html.dark ::-webkit-scrollbar-thumb:hover {
   margin-left: -50vw;
   margin-right: -50vw;
 }
-
