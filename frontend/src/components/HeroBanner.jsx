@@ -2,168 +2,180 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { ArrowRight, ShieldCheck, Sparkles, CheckCircle2, ShoppingBag, Star, ChevronLeft, ChevronRight } from 'lucide-react';
-import { useCart } from '@/context/CartContext';
+import { 
+  ArrowRight, 
+  Sparkles, 
+  Sparkle
+} from 'lucide-react';
 
 export function HeroBanner() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const { addToCart } = useCart();
 
   const slides = [
     {
-      id: "hero-prod-01",
-      tag: "AUTHENTIC SOFT BLUSH & GLOW",
-      badge: "Best Seller • 100% Genuine",
-      titleLine1: "Radiant Flush With",
-      titleLine2: "Dewy Silk Liquid",
-      titleAccent: "Blushes",
-      desc: "Weightless buildable formula infused with botanical lotus and gardenia extract. Crafted for ladies' natural glass skin and all-day youthful radiance.",
-      image: "/images/hero-model.jpg",
-      highlight: "Rare Beauty Soft Pinch Liquid Blush - Joy",
-      shade: "Joy - Dewy Peach",
-      price: "৳3,200",
-      rawPrice: 3200,
-      oldPrice: "৳3,800",
-      rating: 4.9,
-      reviews: "1.4k+",
-      category: "Blush"
+      id: "hero-slide-bags",
+      tag: "HAUTE MAROQUINERIE & ACCESSORIES",
+      badge: "Artisan Leather • Ladies Bags",
+      titleLine1: "Crafted Elegance With",
+      titleLine2: "Luxury Designer",
+      titleAccent: "Ladies Handbags",
+      desc: "Sculptural silhouettes, Italian craftsmanship, and premium top-grain leather designed for effortless everyday sophistication and evening allure.",
+      image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1920&q=80",
+      category: "Bags"
     },
     {
-      id: "hero-prod-02",
-      tag: "LUXURY LADIES LIP CARE",
-      badge: "Trending • Haute Glamour",
-      titleLine1: "Sculpt & Shine With",
-      titleLine2: "Ultra Hydrating",
-      titleAccent: "Lip Glaze & Rouge",
-      desc: "Rich cherry botanical oil, nourishing vitamins, and velvety mirror-like shine designed for effortless ladies' daytime and evening glamour.",
-      image: "/images/lipstick.jpg",
-      highlight: "Dior Addict Lip Glow Oil - 015 Cherry",
-      shade: "015 Cherry Glaze",
-      price: "৳4,800",
-      rawPrice: 4800,
-      oldPrice: "৳5,400",
-      rating: 5.0,
-      reviews: "980+",
-      category: "Lipstick"
+      id: "hero-slide-decor",
+      tag: "ARTISANAL LIVING & SANCTUARY",
+      badge: "Modern Sanctuary • Home Accents",
+      titleLine1: "Sculptural Vases &",
+      titleLine2: "Serene Minimalist",
+      titleAccent: "Aesthetic Home Decor",
+      desc: "Handcrafted ceramics, soothing botanical scents, and timeless architectural accents that transform living spaces into an oasis of warmth.",
+      image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1920&q=80",
+      category: "Home Decor"
     },
     {
-      id: "hero-prod-03",
+      id: "hero-slide-skincare",
       tag: "CLINICAL SKINCARE FORMULAS",
-      badge: "Dermatologist Approved",
+      badge: "Dermatologist Approved • 72H Dew",
       titleLine1: "Pure & Potent",
       titleLine2: "Hydrating Barrier",
-      titleAccent: "Dewy Serums",
-      desc: "Clinical hyaluronic acid, pure niacinamide 10% and soothing rosewater that visibly minimize pores, balance sebum, and lock in 72-hour moisture.",
+      titleAccent: "Dewy Serums & Creams",
+      desc: "Clinical hyaluronic acid, pure niacinamide 10% and soothing rosewater that visibly minimize pores, balance sebum, and lock in all-day radiance.",
       image: "/images/promo-skincare.jpg",
-      highlight: "The Ordinary Niacinamide 10% + Zinc 1%",
-      shade: "60ml Concentrated Serum",
-      price: "৳1,850",
-      rawPrice: 1850,
-      oldPrice: "৳2,200",
-      rating: 4.8,
-      reviews: "2.8k+",
       category: "Skincare"
     },
     {
-      id: "hero-prod-04",
+      id: "hero-slide-fragrance",
       tag: "HAUTE PARFUMERIE POUR FEMME",
-      badge: "Iconic Signature Scent",
+      badge: "Iconic Signature Scent • Long-lasting",
       titleLine1: "Sensual Floral",
       titleLine2: "French Jasmine &",
       titleAccent: "Pink Peony Mist",
       desc: "A romantic constellation of delicate floral notes, sparkling grapefruit, sweet quince and soft white musk crafted exclusively for women.",
       image: "/images/perfume.jpg",
-      highlight: "Chanel Chance Eau Tendre Eau de Parfum",
-      shade: "100ml Floral Vaporisateur",
-      price: "৳16,800",
-      rawPrice: 16800,
-      oldPrice: "৳18,500",
-      rating: 5.0,
-      reviews: "540+",
       category: "Fragrance"
     },
     {
-      id: "hero-prod-05",
-      tag: "FLAWLESS COMPLEXION PRO",
-      badge: "Red Carpet Choice",
-      titleLine1: "Airbrushed Velvet",
-      titleLine2: "Longwear Setting &",
-      titleAccent: "Complexion Glow",
-      desc: "Micro-fine smoothing formula and pore-blurring radiance mist that sets makeup flawless for up to 24 hours without creasing or shine.",
-      image: "/images/promo-makeup.jpg",
-      highlight: "Charlotte Tilbury Airbrush Setting Spray",
-      shade: "Original 100ml Dewy",
-      price: "৳4,200",
-      rawPrice: 4200,
-      oldPrice: "৳4,900",
-      rating: 4.9,
-      reviews: "1.1k+",
+      id: "hero-slide-makeup",
+      tag: "AUTHENTIC SOFT BLUSH & GLOW",
+      badge: "Best Seller • 100% Genuine",
+      titleLine1: "Radiant Flush With",
+      titleLine2: "Dewy Silk Liquid",
+      titleAccent: "Blushes & Rouge",
+      desc: "Weightless buildable formula infused with botanical lotus and gardenia extract. Crafted for ladies' natural glass skin and all-day youthful radiance.",
+      image: "/images/hero-model.jpg",
       category: "Makeup"
     }
   ];
 
-  // Auto-advance slides smoothly every 6 seconds
+  // Auto-advance slides smoothly every 5 seconds
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 6000);
+    }, 5000);
     return () => clearInterval(timer);
   }, [slides.length]);
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
 
   const slide = slides[currentSlide];
 
   return (
-    <section className="relative w-full overflow-hidden bg-[#140c16] min-h-[560px] sm:min-h-[620px] lg:min-h-[680px] flex items-center border-b border-[#eee7e6]/40 dark:border-white/10">
-      {/* Full Width Panoramic Background Image */}
+    <section className="relative w-full overflow-hidden bg-[#140c16] min-h-[580px] sm:min-h-[640px] lg:min-h-[720px] flex items-center border-b border-[#eee7e6]/40 dark:border-white/10">
+      
+      {/* Full Width Cinematic Background Crossfade Slides */}
       <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
-        <img
-          src={slide.image}
-          alt={slide.highlight}
-          className="w-full h-full object-cover object-center scale-105 transition-all duration-1000 ease-out"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/35" />
+        {slides.map((s, idx) => (
+          <div
+            key={s.id}
+            className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out ${
+              currentSlide === idx ? 'opacity-100 z-0' : 'opacity-0 -z-10'
+            }`}
+          >
+            <img
+              src={s.image}
+              alt={s.titleAccent}
+              className={`w-full h-full object-cover object-center transition-transform duration-[6000ms] ease-out ${
+                currentSlide === idx ? 'scale-105' : 'scale-100'
+              }`}
+            />
+          </div>
+        ))}
+        {/* Soft Vignette Overlay to spotlight center content */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/85 z-[1]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/75 z-[1]" />
       </div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 lg:py-24">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          
-          {/* Left Column: Headlines & CTA */}
-          <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
+        <div className="relative flex items-center justify-center min-h-[460px]">
+
+          {/* ================= LEFT PREMIUM COLOR OBSTACLES ================= */}
+          <div className="hidden lg:flex absolute left-0 xl:-left-4 2xl:-left-10 top-1/2 -translate-y-1/2 items-center justify-center pointer-events-none select-none z-10">
+            <div className="relative w-72 xl:w-80 h-96 flex items-center justify-center">
+              
+              {/* Deep Ambient Chromatic Glow */}
+              <div 
+                className="absolute w-60 h-60 rounded-full bg-gradient-to-tr from-[#e11d48]/35 via-[#f4728d]/25 to-transparent blur-3xl animate-pulse" 
+                style={{ animationDuration: '4.5s' }} 
+              />
+
+              {/* Secondary Layer: Concentric Radiant Glass Ring / Halo */}
+              <div className="absolute w-48 xl:w-56 h-48 xl:h-56 rounded-full border border-rose-300/30 bg-gradient-to-br from-rose-500/20 via-pink-400/5 to-transparent backdrop-blur-md shadow-[0_0_40px_rgba(244,114,142,0.3)] -translate-x-6 translate-y-8 rotate-12">
+                <div className="absolute inset-3 rounded-full border border-white/20 border-dashed" />
+                <div className="absolute top-2 right-4 w-2.5 h-2.5 rounded-full bg-rose-200 shadow-[0_0_12px_#f4728d]" />
+              </div>
+
+              {/* Primary Obstacle: Tilted Frosted Glass Prism Sculpture */}
+              <div className="relative w-40 xl:w-48 h-64 xl:h-76 -rotate-[14deg] rounded-[2.5rem] bg-gradient-to-b from-white/20 via-rose-500/15 to-[#4c0519]/50 backdrop-blur-2xl border border-white/30 shadow-[0_25px_60px_rgba(190,24,93,0.35),inset_0_1px_2px_rgba(255,255,255,0.5),inset_0_-1px_2px_rgba(255,255,255,0.15)] overflow-hidden transition-all duration-700">
+                {/* Specular Diagonal Light Flare */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent opacity-80" />
+                <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-rose-200/25 to-transparent" />
+                <div className="absolute -top-10 -bottom-10 left-3 w-[1px] bg-gradient-to-b from-transparent via-white/50 to-transparent rotate-6" />
+                
+                {/* Delicate Atelier Micro Accent */}
+                <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between text-rose-200/75">
+                  <Sparkle className="w-4 h-4 fill-current text-rose-300 drop-shadow" />
+                  <span className="text-[10px] font-mono tracking-[0.28em] uppercase font-bold text-rose-100/90">
+                    Rose Aura
+                  </span>
+                </div>
+              </div>
+
+              {/* Floating Chromatic Pearls */}
+              <div className="absolute -top-3 left-8 w-9 h-9 rounded-full bg-gradient-to-br from-rose-200/50 via-rose-500/30 to-rose-900/40 border border-white/40 backdrop-blur-md shadow-[0_4px_20px_rgba(244,114,142,0.4)]" />
+              <div className="absolute bottom-4 right-2 w-6 h-6 rounded-full bg-gradient-to-br from-pink-200/50 to-rose-600/30 border border-white/30 backdrop-blur-md shadow-md" />
+
+            </div>
+          </div>
+
+          {/* ================= CENTER COLUMN: TITLE & CTAs ================= */}
+          <div className="relative z-20 w-full max-w-2xl lg:max-w-3xl flex flex-col items-center text-center space-y-6">
             
             {/* Tagline & Curated Badge */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5">
-              <span className="px-3 py-1 rounded-full text-[11px] font-semibold uppercase tracking-[0.2em] bg-white/10 text-rose-200 border border-white/15 backdrop-blur-md">
+            <div className="flex flex-wrap items-center justify-center gap-2.5">
+              <span className="px-3.5 py-1 rounded-full text-[11px] font-semibold uppercase tracking-[0.22em] bg-white/10 text-rose-200 border border-white/15 backdrop-blur-md shadow-sm">
                 {slide.tag}
               </span>
-              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-medium tracking-wider bg-rose-500/20 text-rose-300 border border-rose-500/30 backdrop-blur-md">
+              <span className="px-3 py-1 rounded-full text-[10px] font-medium tracking-wider bg-rose-500/20 text-rose-300 border border-rose-500/30 backdrop-blur-md">
                 {slide.badge}
               </span>
             </div>
 
-            {/* Main Luxury Title */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-[62px] font-serif font-normal text-white leading-[1.12] tracking-tight drop-shadow-sm">
-              {slide.titleLine1} <br className="hidden sm:inline" />
-              <span className="font-light text-slate-100">{slide.titleLine2}</span> <br />
-              <span className="text-[#f4728d] font-serif italic drop-shadow-md">
+            {/* Main Luxury Centered Title */}
+            <h1 className="text-4xl sm:text-5xl lg:text-5xl xl:text-[62px] font-serif font-normal text-white leading-[1.12] tracking-tight drop-shadow-xl min-h-[140px] sm:min-h-[170px] flex flex-col justify-center">
+              <span>{slide.titleLine1}</span>
+              <span className="font-light text-slate-100">{slide.titleLine2}</span>
+              <span className="text-[#f4728d] font-serif italic drop-shadow-lg">
                 {slide.titleAccent}
               </span>
             </h1>
 
             {/* Description */}
-            <p className="text-sm sm:text-base text-slate-200 max-w-xl mx-auto lg:mx-0 leading-relaxed font-normal drop-shadow">
+            <p className="text-sm sm:text-base text-slate-200 max-w-lg mx-auto leading-relaxed font-normal drop-shadow min-h-[48px]">
               {slide.desc}
             </p>
 
             {/* Call To Actions */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-3">
+            <div className="flex flex-wrap items-center justify-center gap-3.5 pt-2">
               <Link
                 href="/browse"
                 className="px-8 py-3.5 text-xs tracking-[0.2em] uppercase font-bold text-white bg-[#b84357] hover:bg-[#a13346] rounded-xl flex items-center gap-2.5 shadow-lg shadow-[#b84357]/30 hover:shadow-xl hover:shadow-[#b84357]/40 active:scale-98 transition-all"
@@ -173,132 +185,67 @@ export function HeroBanner() {
               </Link>
               
               <Link
-                href="/browse?category=Makeup"
-                className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-white hover:text-rose-300 transition-colors py-3 px-4 rounded-xl border border-white/20 hover:border-rose-400/50 bg-white/5 backdrop-blur-md group"
+                href="/browse"
+                className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-white hover:text-rose-300 transition-colors py-3.5 px-5 rounded-xl border border-white/20 hover:border-rose-400/50 bg-white/5 backdrop-blur-md group"
               >
                 <span>LADIES GLAMOUR</span>
                 <Sparkles className="w-3.5 h-3.5 text-rose-300 group-hover:rotate-12 transition-transform" />
               </Link>
             </div>
 
-            {/* Slide Pagination & Navigation Controls */}
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
-              <div className="flex items-center gap-2">
+            {/* Automatic Slide Indicator Pills (No next/previous buttons, no slide numbers) */}
+            <div className="flex items-center justify-center gap-2 pt-4">
+              {slides.map((s, idx) => (
                 <button
-                  onClick={prevSlide}
-                  className="p-2.5 rounded-full bg-white/10 hover:bg-white/25 text-white border border-white/15 backdrop-blur-md transition-all active:scale-95"
-                  aria-label="Previous product"
-                >
-                  <ChevronLeft className="w-4 h-4" />
-                </button>
-
-                <div className="flex items-center gap-1.5 px-2">
-                  {slides.map((s, idx) => (
-                    <button
-                      key={s.id}
-                      onClick={() => setCurrentSlide(idx)}
-                      className={`h-2 rounded-full transition-all duration-300 ${
-                        currentSlide === idx 
-                          ? 'w-8 bg-rose-400 shadow-md shadow-rose-500/50' 
-                          : 'w-2 bg-white/30 hover:bg-white/60'
-                      }`}
-                      aria-label={`Go to slide ${idx + 1}`}
-                      title={s.highlight}
-                    />
-                  ))}
-                </div>
-
-                <button
-                  onClick={nextSlide}
-                  className="p-2.5 rounded-full bg-white/10 hover:bg-white/25 text-white border border-white/15 backdrop-blur-md transition-all active:scale-95"
-                  aria-label="Next product"
-                >
-                  <ChevronRight className="w-4 h-4" />
-                </button>
-              </div>
-
-              <div className="text-xs text-white/70 font-mono tracking-widest pl-2">
-                <span className="text-white font-bold">0{currentSlide + 1}</span> / 0{slides.length}
-              </div>
+                  key={s.id}
+                  onClick={() => setCurrentSlide(idx)}
+                  className={`h-1.5 rounded-full transition-all duration-500 cursor-pointer ${
+                    currentSlide === idx 
+                      ? 'w-8 bg-rose-400 shadow-md shadow-rose-500/50' 
+                      : 'w-2 bg-white/30 hover:bg-white/60'
+                  }`}
+                  aria-label={`Slide ${idx + 1}`}
+                />
+              ))}
             </div>
+
           </div>
 
-          {/* Right Column: Floating Quick-Shop Ladies Beauty Spotlight Card */}
-          <div className="lg:col-span-5 relative flex justify-center lg:justify-end">
-            <div className="w-full max-w-sm rounded-3xl p-5 sm:p-6 bg-black/45 backdrop-blur-xl border border-white/20 shadow-2xl space-y-4 text-white">
+          {/* ================= RIGHT PREMIUM COLOR OBSTACLES ================= */}
+          <div className="hidden lg:flex absolute right-0 xl:-right-4 2xl:-right-10 top-1/2 -translate-y-1/2 items-center justify-center pointer-events-none select-none z-10">
+            <div className="relative w-72 xl:w-80 h-96 flex items-center justify-center">
               
-              {/* Card Header & Authenticity */}
-              <div className="flex items-center justify-between">
-                <span className="text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-rose-500/25 text-rose-300 border border-rose-500/35">
-                  Spotlight Item
-                </span>
-                <div className="flex items-center gap-1.5 text-xs text-amber-300 font-semibold">
-                  <Star className="w-3.5 h-3.5 fill-current text-amber-400" />
-                  <span>{slide.rating}</span>
-                  <span className="text-white/60 text-[11px]">({slide.reviews})</span>
-                </div>
+              {/* Deep Ambient Warm Amber & Rose Glow */}
+              <div 
+                className="absolute w-60 h-60 rounded-full bg-gradient-to-tl from-[#f59e0b]/30 via-[#fb7185]/25 to-transparent blur-3xl animate-pulse" 
+                style={{ animationDuration: '5.5s' }} 
+              />
+
+              {/* Secondary Layer: Concentric Elliptical Orbit Ring / Halo */}
+              <div className="absolute w-52 xl:w-60 h-40 xl:h-48 rounded-[50%] border border-amber-300/30 bg-gradient-to-bl from-amber-400/20 via-rose-400/5 to-transparent backdrop-blur-md shadow-[0_0_40px_rgba(251,191,36,0.25)] translate-x-6 -translate-y-8 rotate-12">
+                <div className="absolute inset-3 rounded-[50%] border border-white/20 border-dashed" />
+                <div className="absolute bottom-3 left-4 w-2.5 h-2.5 rounded-full bg-amber-200 shadow-[0_0_12px_#fbbf24]" />
               </div>
 
-              {/* Product Media Box */}
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-white/5 border border-white/10 group">
-                <img
-                  src={slide.image}
-                  alt={slide.highlight}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute top-2.5 right-2.5 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-full flex items-center gap-1.5 border border-white/15">
-                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-                  <span className="text-[10px] font-semibold text-white">100% Genuine</span>
-                </div>
-                <div className="absolute bottom-2.5 left-2.5 bg-rose-950/80 backdrop-blur-md px-2.5 py-0.5 rounded-md border border-rose-500/30 text-[10px] text-rose-200 font-medium">
-                  {slide.category}
-                </div>
-              </div>
-
-              {/* Product Details */}
-              <div>
-                <p className="text-[11px] font-medium text-rose-200 tracking-wider uppercase">
-                  {slide.shade}
-                </p>
-                <h3 className="font-serif text-base sm:text-lg font-bold text-white line-clamp-1 mt-0.5">
-                  {slide.highlight}
-                </h3>
-                <div className="flex items-baseline gap-2.5 mt-2">
-                  <span className="text-2xl font-bold text-white">{slide.price}</span>
-                  <span className="text-xs text-slate-400 line-through">{slide.oldPrice}</span>
-                  <span className="text-[10px] font-bold text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded-full border border-emerald-500/25">
-                    Save Discount
+              {/* Primary Obstacle: Tilted Frosted Glass Prism Sculpture */}
+              <div className="relative w-40 xl:w-48 h-64 xl:h-76 rotate-[14deg] rounded-[2.5rem] bg-gradient-to-b from-white/20 via-amber-500/15 to-[#3b0764]/50 backdrop-blur-2xl border border-white/30 shadow-[0_25px_60px_rgba(217,119,6,0.3),inset_0_1px_2px_rgba(255,255,255,0.5),inset_0_-1px_2px_rgba(255,255,255,0.15)] overflow-hidden transition-all duration-700">
+                {/* Specular Diagonal Light Flare */}
+                <div className="absolute inset-0 bg-gradient-to-tl from-transparent via-white/20 to-transparent opacity-80" />
+                <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-amber-200/25 to-transparent" />
+                <div className="absolute -top-10 -bottom-10 right-3 w-[1px] bg-gradient-to-b from-transparent via-white/50 to-transparent -rotate-6" />
+                
+                {/* Delicate Atelier Micro Accent */}
+                <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between text-amber-200/75">
+                  <span className="text-[10px] font-mono tracking-[0.28em] uppercase font-bold text-amber-100/90">
+                    Solar Eclat
                   </span>
+                  <Sparkles className="w-4 h-4 text-amber-300 drop-shadow" />
                 </div>
               </div>
 
-              {/* Direct Add to Cart & Explore Actions */}
-              <div className="pt-1 flex items-center gap-2.5">
-                <button
-                  type="button"
-                  onClick={() => addToCart({
-                    id: slide.id,
-                    _id: slide.id,
-                    title: slide.highlight,
-                    price: slide.rawPrice,
-                    image: slide.image,
-                    shade: slide.shade,
-                    category: slide.category
-                  })}
-                  className="flex-1 py-3 px-4 rounded-xl bg-white hover:bg-rose-50 text-slate-900 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg hover:shadow-xl active:scale-98 transition-all cursor-pointer"
-                >
-                  <ShoppingBag className="w-4 h-4 text-[#b84357]" />
-                  <span>Add to Bag</span>
-                </button>
-
-                <Link
-                  href="/browse"
-                  className="p-3 rounded-xl border border-white/20 hover:border-white/50 text-white hover:bg-white/10 active:scale-95 transition-all"
-                  title="View collection"
-                >
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
+              {/* Floating Chromatic Pearls */}
+              <div className="absolute -top-3 right-8 w-10 h-10 rounded-full bg-gradient-to-bl from-amber-200/50 via-amber-400/30 to-amber-700/40 border border-white/40 backdrop-blur-md shadow-[0_4px_20px_rgba(245,158,11,0.4)]" />
+              <div className="absolute bottom-5 left-2 w-6 h-6 rounded-full bg-gradient-to-br from-rose-300/50 to-amber-500/30 border border-white/30 backdrop-blur-md shadow-md" />
 
             </div>
           </div>

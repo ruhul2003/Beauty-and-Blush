@@ -31,7 +31,6 @@ export function CartProvider({ children }) {
     if (!hasLoaded) return;
     try {
       localStorage.setItem('bnb_cart', JSON.stringify(cartItems));
-      window.dispatchEvent(new Event('bnb_cart_updated'));
     } catch (e) {
       console.warn('Error persisting bnb_cart to localStorage', e);
     }
@@ -39,18 +38,23 @@ export function CartProvider({ children }) {
 
   // Listen to external cart update events (e.g. across tabs)
   useEffect(() => {
-    const handleStorageChange = () => {
+    const handleStorageChange = (e) => {
+      if (e.key && e.key !== 'bnb_cart') return;
       try {
         const stored = localStorage.getItem('bnb_cart');
-        if (stored) setCartItems(JSON.parse(stored));
+        const parsed = stored ? JSON.parse(stored) : [];
+        setCartItems(prev => {
+          if (JSON.stringify(prev) === JSON.stringify(parsed)) {
+            return prev;
+          }
+          return parsed;
+        });
       } catch (err) {}
     };
 
     window.addEventListener('storage', handleStorageChange);
-    window.addEventListener('bnb_cart_updated', handleStorageChange);
     return () => {
       window.removeEventListener('storage', handleStorageChange);
-      window.removeEventListener('bnb_cart_updated', handleStorageChange);
     };
   }, []);
 
@@ -133,7 +137,6 @@ export function CartProvider({ children }) {
     setCartItems([]);
     try {
       localStorage.removeItem('bnb_cart');
-      window.dispatchEvent(new Event('bnb_cart_updated'));
     } catch (e) {}
   };
 
