@@ -1,5 +1,8 @@
+"use client";
+
 import React from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import { Heart } from 'lucide-react';
 
 function InstagramIcon({ className = "w-5 h-5" }) {
@@ -23,11 +26,17 @@ export function InstagramFeed() {
   ];
 
   return (
-    <section className="py-12 sm:py-16">
+    <section className="py-12 sm:py-16 overflow-hidden">
       <div className="w-[90%] mx-auto px-2 sm:px-4">
         
         {/* Section Heading */}
-        <div className="text-center mb-8 sm:mb-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-8 sm:mb-10"
+        >
           <p className="text-[11px] uppercase tracking-[0.22em] text-[#82757a] font-medium mb-1">
             Community & Journal
           </p>
@@ -36,32 +45,41 @@ export function InstagramFeed() {
               @beautyandblush
             </h2>
           </Link>
-        </div>
+        </motion.div>
 
-        {/* 6 Images Grid */}
+        {/* 6 Images Grid with Framer Motion */}
         <div className="flex sm:grid sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 overflow-x-auto pb-4 pt-1 no-scrollbar snap-x snap-mandatory">
           {posts.map((post, idx) => (
-            <Link
+            <motion.div
               key={idx}
-              href={post.href || '/browse'}
-              className="group relative aspect-square w-36 sm:w-auto shrink-0 snap-item rounded-lg overflow-hidden bg-[#faf8f7] dark:bg-white/5 border border-[#eee7e6] dark:border-white/10 shadow-none block"
-              title={post.alt}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-30px" }}
+              transition={{ duration: 0.4, delay: idx * 0.06 }}
+              whileHover={{ y: -4, scale: 1.02 }}
+              className="w-36 sm:w-auto shrink-0 snap-item"
             >
-              <img
-                src={post.image}
-                alt={post.alt}
-                className="w-full h-full object-cover group-hover:scale-104 transition-transform duration-500"
-              />
+              <Link
+                href={post.href || '/browse'}
+                className="group relative aspect-square w-full rounded-lg overflow-hidden bg-[#faf8f7] dark:bg-white/5 border border-[#eee7e6] dark:border-white/10 shadow-none block"
+                title={post.alt}
+              >
+                <img
+                  src={post.image}
+                  alt={post.alt}
+                  className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500"
+                />
 
-              {/* Hover Dark Overlay with Instagram Heart */}
-              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white p-2">
-                <InstagramIcon className="w-5 h-5 mb-1 text-white/90" />
-                <div className="flex items-center gap-1 text-xs font-medium">
-                  <Heart className="w-3.5 h-3.5 fill-current text-white" />
-                  <span>{post.likes}</span>
+                {/* Hover Dark Overlay with Instagram Heart */}
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white p-2">
+                  <InstagramIcon className="w-5 h-5 mb-1 text-white/90" />
+                  <div className="flex items-center gap-1 text-xs font-medium">
+                    <Heart className="w-3.5 h-3.5 fill-current text-white" />
+                    <span>{post.likes}</span>
+                  </div>
                 </div>
-              </div>
-            </Link>
+              </Link>
+            </motion.div>
           ))}
         </div>
 

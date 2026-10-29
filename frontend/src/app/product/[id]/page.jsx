@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import { 
   ShieldCheck, 
   Star, 
@@ -158,7 +159,12 @@ export default function ProductDetailPage() {
   const discount = calculateDiscount(product.originalPrice, product.price);
 
   return (
-    <div className="w-[90%] mx-auto px-2 sm:px-4 py-8 space-y-12">
+    <motion.div 
+      initial={{ opacity: 0, y: 15 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4 }}
+      className="w-[90%] mx-auto px-2 sm:px-4 py-8 space-y-12"
+    >
       {/* Top Breadcrumb */}
       <nav className="text-xs text-slate-500 flex items-center gap-2">
         <Link href="/" className="hover:text-rose-600">Home</Link>
@@ -176,7 +182,7 @@ export default function ProductDetailPage() {
             <img
               src={images[activeImageIndex]}
               alt={product.title}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover transition-all duration-300"
             />
             {discount > 0 && (
               <span className="absolute top-4 left-4 px-2.5 py-1 rounded text-[10px] font-semibold uppercase tracking-wider bg-[#191416] text-white">
@@ -192,15 +198,17 @@ export default function ProductDetailPage() {
           {images.length > 1 && (
             <div className="flex gap-2.5 overflow-x-auto pb-2">
               {images.map((img, idx) => (
-                <button
+                <motion.button
                   key={idx}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                   onClick={() => setActiveImageIndex(idx)}
-                  className={`w-16 h-16 rounded-xl overflow-hidden border transition-all shrink-0 ${
+                  className={`w-16 h-16 rounded-xl overflow-hidden border transition-all shrink-0 cursor-pointer ${
                     activeImageIndex === idx ? 'border-[#191416] dark:border-white ring-1 ring-black dark:ring-white' : 'border-[#eee7e6] dark:border-white/10 opacity-70 hover:opacity-100'
                   }`}
                 >
                   <img src={img} alt="Thumb" className="w-full h-full object-cover" />
-                </button>
+                </motion.button>
               ))}
             </div>
           )}
@@ -269,7 +277,7 @@ export default function ProductDetailPage() {
                 <button
                   type="button"
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                  className="px-3.5 py-2.5 text-slate-600 dark:text-slate-300 hover:bg-rose-50 dark:hover:bg-rose-950/40 text-sm font-bold transition-colors"
+                  className="px-3.5 py-2.5 text-slate-600 dark:text-slate-300 hover:bg-rose-50 dark:hover:bg-rose-950/40 text-sm font-bold transition-colors cursor-pointer"
                 >
                   -
                 </button>
@@ -279,36 +287,39 @@ export default function ProductDetailPage() {
                 <button
                   type="button"
                   onClick={() => setQuantity(quantity + 1)}
-                  className="px-3.5 py-2.5 text-slate-600 dark:text-slate-300 hover:bg-rose-50 dark:hover:bg-rose-950/40 text-sm font-bold transition-colors"
+                  className="px-3.5 py-2.5 text-slate-600 dark:text-slate-300 hover:bg-rose-50 dark:hover:bg-rose-950/40 text-sm font-bold transition-colors cursor-pointer"
                 >
                   +
                 </button>
               </div>
 
-              <button
+              <motion.button
+                whileTap={{ scale: 0.96 }}
                 type="button"
                 onClick={() => addToCart(product, quantity)}
-                className="flex-1 py-3 px-4 rounded-xl bg-white dark:bg-white/10 hover:bg-rose-50 dark:hover:bg-white/20 text-[#b84357] dark:text-rose-300 border border-rose-300 dark:border-rose-800 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 active:scale-98 transition-all"
+                className="flex-1 py-3 px-4 rounded-xl bg-white dark:bg-white/10 hover:bg-rose-50 dark:hover:bg-white/20 text-[#b84357] dark:text-rose-300 border border-rose-300 dark:border-rose-800 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 active:scale-98 transition-all cursor-pointer shadow-sm"
               >
                 <ShoppingBag className="w-4 h-4" />
                 <span>Add to Bag</span>
-              </button>
+              </motion.button>
             </div>
 
-            <button
+            <motion.button
+              whileTap={{ scale: 0.97 }}
               onClick={() => setBuyModalOpen(true)}
-              className="w-full btn-rose-primary py-3.5 text-sm font-bold flex items-center justify-center gap-2 shadow-lg"
+              className="w-full btn-rose-primary py-3.5 text-sm font-bold flex items-center justify-center gap-2 shadow-lg shadow-[#b84357]/25 cursor-pointer"
             >
               <span>Instant Buy with Cash on Delivery (COD)</span>
-            </button>
+            </motion.button>
 
-            <button
+            <motion.button
+              whileTap={{ scale: 0.97 }}
               onClick={openWhatsApp}
-              className="w-full py-3 rounded-xl border border-emerald-500/80 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-950/20 font-semibold text-xs flex items-center justify-center gap-2 transition-colors"
+              className="w-full py-3 rounded-xl border border-emerald-500/80 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-950/20 font-semibold text-xs flex items-center justify-center gap-2 transition-colors cursor-pointer"
             >
               <MessageCircle className="w-4 h-4" />
               <span>Ask Seller via WhatsApp Direct</span>
-            </button>
+            </motion.button>
           </div>
 
           {/* Courier Delivery Timeline Box */}
@@ -394,10 +405,14 @@ export default function ProductDetailPage() {
               placeholder="Ask a question about this product..."
               className="flex-1 p-3 text-xs rounded-xl border border-rose-200 dark:border-rose-900/50 bg-white dark:bg-[#1a0f1c]"
             />
-            <button type="submit" className="btn-rose-primary px-5 py-3 text-xs font-semibold flex items-center gap-1.5">
+            <motion.button 
+              whileTap={{ scale: 0.94 }}
+              type="submit" 
+              className="btn-rose-primary px-5 py-3 text-xs font-semibold flex items-center gap-1.5 cursor-pointer"
+            >
               <Send className="w-3.5 h-3.5" />
               <span>Ask</span>
-            </button>
+            </motion.button>
           </form>
 
           {/* Q&A List */}
@@ -448,7 +463,7 @@ export default function ProductDetailPage() {
                     type="button"
                     key={star}
                     onClick={() => setNewRating(star)}
-                    className="p-1 text-amber-400 hover:scale-110 transition-transform"
+                    className="p-1 text-amber-400 hover:scale-110 transition-transform cursor-pointer"
                   >
                     <Star className={`w-5 h-5 ${star <= newRating ? 'fill-current' : 'text-slate-300'}`} />
                   </button>
@@ -464,9 +479,13 @@ export default function ProductDetailPage() {
               className="w-full p-3 text-xs rounded-xl border border-rose-200 dark:border-rose-900/50 bg-white dark:bg-[#1a0f1c]"
             />
 
-            <button type="submit" className="btn-rose-primary px-5 py-2.5 text-xs font-semibold">
+            <motion.button 
+              whileTap={{ scale: 0.94 }}
+              type="submit" 
+              className="btn-rose-primary px-5 py-2.5 text-xs font-semibold cursor-pointer"
+            >
               Post Review
-            </button>
+            </motion.button>
           </form>
 
           {/* Reviews Stream */}
@@ -531,6 +550,6 @@ export default function ProductDetailPage() {
           onClose={() => setBuyModalOpen(false)}
         />
       )}
-    </div>
+    </motion.div>
   );
 }

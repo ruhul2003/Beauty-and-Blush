@@ -2,6 +2,7 @@
 
 import React, { useRef, useState } from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import { Crown, ChevronLeft, ChevronRight, Star, Heart, ArrowRight } from 'lucide-react';
 import { useToast } from '@/context/ToastContext';
 
@@ -58,20 +59,20 @@ export function TrendingProducts({ products = [] }) {
     },
     {
       id: 'bnb-best-05',
-      title: 'Luxury Perfume',
-      price: '$34.99',
-      originalPrice: '$49.99',
+      title: 'Soft Pinch Liquid Blush',
+      price: '$22.00',
+      originalPrice: null,
       rating: 5,
-      reviewsCount: 123,
-      isSale: true,
-      image: '/images/perfume.jpg',
-      category: 'Fragrance'
+      reviewsCount: 142,
+      isSale: false,
+      image: '/images/hero-model.jpg',
+      category: 'Makeup'
     }
   ];
 
   const handleScroll = (direction) => {
     if (scrollRef.current) {
-      const scrollAmount = direction === 'left' ? -320 : 320;
+      const scrollAmount = direction === 'left' ? -280 : 280;
       scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
   };
@@ -98,18 +99,24 @@ export function TrendingProducts({ products = [] }) {
   };
 
   return (
-    <section className="py-12 md:py-16 relative">
+    <section className="py-12 md:py-16 relative overflow-hidden">
       <div className="w-[90%] mx-auto px-2 sm:px-4">
         
-        {/* Section Heading */}
-        <div className="text-center mb-10 sm:mb-12">
+        {/* Section Heading with Framer Motion */}
+        <motion.div 
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-10 sm:mb-12"
+        >
           <p className="text-[11px] uppercase tracking-[0.22em] text-[#82757a] font-medium mb-1">
             Iconic Formulations
           </p>
           <h2 className="text-2xl sm:text-3xl font-serif text-[#191416] dark:text-white font-normal tracking-tight">
             Best Sellers
           </h2>
-        </div>
+        </motion.div>
 
         {/* Carousel Container with Side Navigation Arrows */}
         <div className="relative group">
@@ -137,12 +144,17 @@ export function TrendingProducts({ products = [] }) {
             ref={scrollRef}
             className="flex gap-4 sm:gap-6 overflow-x-auto pb-4 pt-1 px-1 sm:px-2 no-scrollbar snap-x snap-mandatory scroll-smooth"
           >
-            {defaultBestSellers.map((prod) => {
+            {defaultBestSellers.map((prod, idx) => {
               const isSaved = !!wishlist[prod.id];
               return (
-                <div
+                <motion.div
                   key={prod.id}
-                  className="snap-item w-[220px] sm:w-[240px] md:w-[260px] flex-shrink-0 bg-white dark:bg-[#141114] rounded-xl overflow-hidden border border-[#eee7e6] dark:border-white/10 p-3 sm:p-3.5 flex flex-col justify-between group/card hover:border-[#d6cecc] dark:hover:border-white/20 transition-all duration-300 shadow-none hover:shadow-sm"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ duration: 0.45, delay: idx * 0.08 }}
+                  whileHover={{ y: -4 }}
+                  className="snap-item w-[220px] sm:w-[240px] md:w-[260px] flex-shrink-0 bg-white dark:bg-[#141114] rounded-xl overflow-hidden border border-[#eee7e6] dark:border-white/10 p-3 sm:p-3.5 flex flex-col justify-between group/card hover:border-[#d6cecc] dark:hover:border-white/20 transition-all duration-300 shadow-none hover:shadow-md"
                 >
                   <div>
                     {/* Product Image Frame */}
@@ -151,7 +163,7 @@ export function TrendingProducts({ products = [] }) {
                         <img
                           src={prod.image}
                           alt={prod.title}
-                          className="w-full h-full object-cover group-hover/card:scale-103 transition-transform duration-500"
+                          className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500"
                         />
                       </Link>
 
@@ -217,7 +229,7 @@ export function TrendingProducts({ products = [] }) {
                       View Product
                     </Link>
                   </div>
-                </div>
+                </motion.div>
               );
             })}
           </div>

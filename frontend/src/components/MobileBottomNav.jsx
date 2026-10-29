@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { motion } from 'framer-motion';
 import { Home, Heart, User, ShoppingBag, LayoutGrid, Compass } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 
@@ -72,11 +73,14 @@ export function MobileBottomNav({ onOpenCategories }) {
         {navItems.map((item, idx) => {
           const Icon = item.icon;
           const content = (
-            <div className={`flex flex-col items-center justify-center py-1 px-2.5 rounded-lg transition-all duration-200 active:scale-95 ${
-              item.isActive 
-                ? 'text-[#191416] dark:text-white font-medium' 
-                : 'text-[#8a7e84] dark:text-slate-400 hover:text-[#191416]'
-            }`}>
+            <motion.div 
+              whileTap={{ scale: 0.88 }}
+              className={`flex flex-col items-center justify-center py-1 px-2.5 rounded-lg transition-colors ${
+                item.isActive 
+                  ? 'text-[#191416] dark:text-white font-medium' 
+                  : 'text-[#8a7e84] dark:text-slate-400 hover:text-[#191416]'
+              }`}
+            >
               <div className="relative">
                 <Icon className={`w-4 h-4 sm:w-5 sm:h-5 ${item.isActive ? 'stroke-[2]' : 'stroke-[1.5]'}`} />
                 {item.badge && (
@@ -86,7 +90,7 @@ export function MobileBottomNav({ onOpenCategories }) {
                 )}
               </div>
               <span className="text-[10px] mt-1 tracking-tight">{item.label}</span>
-            </div>
+            </motion.div>
           );
 
           if (item.onClick) {

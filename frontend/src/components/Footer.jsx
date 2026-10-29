@@ -2,14 +2,20 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import { Heart, Sparkles, MapPin, Phone, Mail } from 'lucide-react';
 
 export function Footer() {
   return (
     <footer className="bg-[#faf8f7] dark:bg-[#0c0a0c] border-t border-[#eee7e6] dark:border-white/10 pt-16 pb-20 md:pb-12 transition-colors">
       <div className="w-[90%] mx-auto px-2 sm:px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
-          
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.55, ease: "easeOut" }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12"
+        >
           {/* Brand Info */}
           <div className="lg:col-span-2 space-y-4">
             <Link href="/" className="flex items-center gap-3 group">
@@ -85,8 +91,7 @@ export function Footer() {
               <li><Link href="/dashboard" className="hover:text-[#191416] dark:hover:text-white transition-colors">Boutique Analytics</Link></li>
             </ul>
           </div>
-
-        </div>
+        </motion.div>
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-[#eee7e6] dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#8a7e84] dark:text-slate-500">

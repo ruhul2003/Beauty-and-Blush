@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
   X, 
   ShieldCheck, 
@@ -44,7 +45,7 @@ export function QuickViewModal({ product, onClose }) {
     try {
       let list = JSON.parse(localStorage.getItem('bnb_wishlist') || '[]');
       const prodId = product._id || product.id;
-      const exists = list.some(i => (i._id || i.id) === prodId);
+      const exists = list.some(i => (i._id || i.id) !== prodId);
 
       if (exists) {
         list = list.filter(i => (i._id || i.id) !== prodId);
@@ -64,22 +65,31 @@ export function QuickViewModal({ product, onClose }) {
 
   return (
     <>
-      <div 
-        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in"
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.2 }}
+        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
         onClick={onClose}
       >
-        <div 
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95, y: 16 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.95, y: 16 }}
+          transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
           className="bg-white dark:bg-[#141114] rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-[#eee7e6] dark:border-white/10 shadow-2xl p-6 relative"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Close button */}
-          <button
+          <motion.button
+            whileTap={{ scale: 0.9 }}
             onClick={onClose}
             className="absolute top-4 right-4 p-2 rounded-full text-slate-400 hover:text-[#191416] dark:hover:text-white hover:bg-[#faf8f7] dark:hover:bg-white/5 transition-colors z-10"
             aria-label="Close modal"
           >
             <X className="w-5 h-5" />
-          </button>
+          </motion.button>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Image Preview Side */}
@@ -88,7 +98,7 @@ export function QuickViewModal({ product, onClose }) {
                 <img
                   src={images[activeImageIdx]}
                   alt={product.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-all duration-300"
                 />
                 {discount > 0 && (
                   <span className="absolute top-3 left-3 bg-[#191416] text-white text-[10px] font-semibold px-2 py-0.5 rounded">
@@ -101,8 +111,10 @@ export function QuickViewModal({ product, onClose }) {
               {images.length > 1 && (
                 <div className="flex gap-2">
                   {images.map((img, idx) => (
-                    <button
+                    <motion.button
                       key={idx}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
                       onClick={() => setActiveImageIdx(idx)}
                       className={`relative w-12 h-12 rounded-lg overflow-hidden border transition-all ${
                         activeImageIdx === idx 
@@ -111,7 +123,7 @@ export function QuickViewModal({ product, onClose }) {
                       }`}
                     >
                       <img src={img} alt="" className="w-full h-full object-cover" />
-                    </button>
+                    </motion.button>
                   ))}
                 </div>
               )}
@@ -171,25 +183,28 @@ export function QuickViewModal({ product, onClose }) {
               {/* Action Buttons */}
               <div className="space-y-2 pt-2">
                 <div className="flex gap-2">
-                  <button
+                  <motion.button
+                    whileTap={{ scale: 0.96 }}
                     onClick={() => {
                       addToCart(product);
                       onClose();
                     }}
-                    className="flex-1 py-3 text-xs font-bold rounded-xl bg-white dark:bg-white/10 hover:bg-rose-50 dark:hover:bg-white/20 text-[#b84357] dark:text-rose-300 border border-rose-300 dark:border-rose-800 flex items-center justify-center gap-2 active:scale-98 transition-all"
+                    className="flex-1 py-3 text-xs font-bold rounded-xl bg-white dark:bg-white/10 hover:bg-rose-50 dark:hover:bg-white/20 text-[#b84357] dark:text-rose-300 border border-rose-300 dark:border-rose-800 flex items-center justify-center gap-2 transition-all shadow-sm"
                   >
                     <ShoppingBag className="w-4 h-4" />
                     <span>Add to Bag</span>
-                  </button>
+                  </motion.button>
 
-                  <button
+                  <motion.button
+                    whileTap={{ scale: 0.96 }}
                     onClick={() => setBuyModalOpen(true)}
-                    className="flex-1 btn-rose-primary py-3 text-xs font-bold flex items-center justify-center gap-2"
+                    className="flex-1 btn-rose-primary py-3 text-xs font-bold flex items-center justify-center gap-2 shadow-sm"
                   >
                     <span>Instant Order</span>
-                  </button>
+                  </motion.button>
 
-                  <button
+                  <motion.button
+                    whileTap={{ scale: 0.92 }}
                     onClick={toggleWishlist}
                     className={`p-3 rounded-xl border transition-colors ${
                       isWishlisted 
@@ -199,7 +214,7 @@ export function QuickViewModal({ product, onClose }) {
                     title={isWishlisted ? "In Wishlist" : "Save to Wishlist"}
                   >
                     <Heart className={`w-4 h-4 ${isWishlisted ? 'fill-current' : ''}`} />
-                  </button>
+                  </motion.button>
                 </div>
 
                 <Link
@@ -213,8 +228,8 @@ export function QuickViewModal({ product, onClose }) {
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {buyModalOpen && (
         <BuyModal product={product} onClose={() => setBuyModalOpen(false)} />

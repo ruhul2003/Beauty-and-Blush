@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { X, CheckCircle2, Truck, ShieldCheck, ShoppingBag, Tag, Check, Sparkles } from 'lucide-react';
 import { formatPrice } from '@/utils/formatters';
 import { useAuth } from '@/context/AuthContext';
@@ -120,19 +121,38 @@ export function BuyModal({ product, onClose }) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
-      <div className="bg-white dark:bg-[#141114] rounded-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto border border-[#eee7e6] dark:border-white/10 shadow-2xl p-6 relative">
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+      onClick={onClose}
+    >
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.95, y: 16 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.95, y: 16 }}
+        transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+        className="bg-white dark:bg-[#141114] rounded-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto border border-[#eee7e6] dark:border-white/10 shadow-2xl p-6 relative"
+        onClick={(e) => e.stopPropagation()}
+      >
         {/* Close Button */}
-        <button
+        <motion.button
+          whileTap={{ scale: 0.9 }}
           onClick={onClose}
           className="absolute top-5 right-5 p-1.5 rounded-full text-slate-400 hover:text-[#191416] dark:hover:text-white hover:bg-[#faf8f7] dark:hover:bg-white/5 transition-colors"
         >
           <X className="w-5 h-5" />
-        </button>
+        </motion.button>
 
         {orderResult ? (
           /* Order Confirmation View */
-          <div className="text-center py-6 space-y-4">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="text-center py-6 space-y-4"
+          >
             <div className="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 dark:bg-emerald-950/30 dark:text-emerald-400 flex items-center justify-center mx-auto border border-emerald-200 dark:border-emerald-900/40">
               <CheckCircle2 className="w-7 h-7" />
             </div>
@@ -164,13 +184,14 @@ export function BuyModal({ product, onClose }) {
               </div>
             </div>
 
-            <button
+            <motion.button
+              whileTap={{ scale: 0.96 }}
               onClick={onClose}
               className="w-full btn-rose-primary py-2.5 text-xs font-medium"
             >
               Done & Return
-            </button>
-          </div>
+            </motion.button>
+          </motion.div>
         ) : (
           /* Order Placement Form */
           <form onSubmit={handleSubmitOrder} className="space-y-5">
@@ -198,21 +219,23 @@ export function BuyModal({ product, onClose }) {
 
               {/* Quantity Selector */}
               <div className="flex items-center gap-2">
-                <button
+                <motion.button
+                  whileTap={{ scale: 0.9 }}
                   type="button"
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                  className="w-7 h-7 rounded-md border border-[#eee7e6] dark:border-white/10 text-xs font-medium"
+                  className="w-7 h-7 rounded-md border border-[#eee7e6] dark:border-white/10 text-xs font-medium flex items-center justify-center hover:bg-slate-50 dark:hover:bg-white/5"
                 >
                   -
-                </button>
+                </motion.button>
                 <span className="text-xs font-medium">{quantity}</span>
-                <button
+                <motion.button
+                  whileTap={{ scale: 0.9 }}
                   type="button"
                   onClick={() => setQuantity(quantity + 1)}
-                  className="w-7 h-7 rounded-md border border-[#eee7e6] dark:border-white/10 text-xs font-medium"
+                  className="w-7 h-7 rounded-md border border-[#eee7e6] dark:border-white/10 text-xs font-medium flex items-center justify-center hover:bg-slate-50 dark:hover:bg-white/5"
                 >
                   +
-                </button>
+                </motion.button>
               </div>
             </div>
 
@@ -297,9 +320,9 @@ export function BuyModal({ product, onClose }) {
                 <button
                   type="button"
                   onClick={() => setPaymentMethod('Cash on Delivery (COD)')}
-                  className={`p-3 rounded-xl border text-left font-semibold ${
+                  className={`p-3 rounded-xl border text-left font-semibold transition-all ${
                     paymentMethod === 'Cash on Delivery (COD)'
-                      ? 'border-rose-500 bg-rose-50/60 dark:bg-rose-950/40 text-rose-700 dark:text-rose-300'
+                      ? 'border-rose-500 bg-rose-50/60 dark:bg-rose-950/40 text-rose-700 dark:text-rose-300 shadow-sm'
                       : 'border-rose-200 dark:border-rose-900/40'
                   }`}
                 >
@@ -308,9 +331,9 @@ export function BuyModal({ product, onClose }) {
                 <button
                   type="button"
                   onClick={() => setPaymentMethod('bKash / Nagad')}
-                  className={`p-3 rounded-xl border text-left font-semibold ${
+                  className={`p-3 rounded-xl border text-left font-semibold transition-all ${
                     paymentMethod === 'bKash / Nagad'
-                      ? 'border-rose-500 bg-rose-50/60 dark:bg-rose-950/40 text-rose-700 dark:text-rose-300'
+                      ? 'border-rose-500 bg-rose-50/60 dark:bg-rose-950/40 text-rose-700 dark:text-rose-300 shadow-sm'
                       : 'border-rose-200 dark:border-rose-900/40'
                   }`}
                 >
@@ -357,14 +380,15 @@ export function BuyModal({ product, onClose }) {
                     />
                     <Tag className="w-3.5 h-3.5 text-rose-400 absolute left-2.5 top-1/2 -translate-y-1/2" />
                   </div>
-                  <button
+                  <motion.button
+                    whileTap={{ scale: 0.94 }}
                     type="button"
                     onClick={handleApplyCoupon}
                     disabled={couponLoading || !couponInput.trim()}
                     className="btn-rose-primary px-4 py-2 text-xs font-semibold shrink-0 disabled:opacity-50"
                   >
                     {couponLoading ? 'Checking...' : 'Apply'}
-                  </button>
+                  </motion.button>
                 </div>
               )}
             </div>
@@ -391,17 +415,18 @@ export function BuyModal({ product, onClose }) {
               </div>
             </div>
 
-            <button
+            <motion.button
+              whileTap={{ scale: 0.97 }}
               type="submit"
               disabled={submitting}
-              className="w-full btn-rose-primary py-3.5 text-xs font-bold flex items-center justify-center gap-2"
+              className="w-full btn-rose-primary py-3.5 text-xs font-bold flex items-center justify-center gap-2 shadow-md shadow-[#b84357]/20"
             >
               <ShoppingBag className="w-4 h-4" />
               <span>{submitting ? 'Placing Order...' : 'Confirm Order with Cash on Delivery'}</span>
-            </button>
+            </motion.button>
           </form>
         )}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }

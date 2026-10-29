@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import { Heart, Star, ShieldCheck, MapPin, MessageCircle, Eye, ShoppingBag } from 'lucide-react';
 import { formatPrice, calculateDiscount } from '@/utils/formatters';
 import { useToast } from '@/context/ToastContext';
@@ -48,7 +49,11 @@ export function ProductCard({ product }) {
 
   return (
     <>
-      <div className="bg-white dark:bg-[#141114] rounded-xl overflow-hidden group flex flex-col justify-between border border-[#eee7e6] dark:border-white/10 hover:border-[#d6cecc] dark:hover:border-white/20 transition-all duration-300 hover:shadow-sm">
+      <motion.div 
+        whileHover={{ y: -4 }}
+        transition={{ duration: 0.25, ease: "easeOut" }}
+        className="bg-white dark:bg-[#141114] rounded-xl overflow-hidden group flex flex-col justify-between border border-[#eee7e6] dark:border-white/10 hover:border-[#d6cecc] dark:hover:border-white/20 transition-colors duration-300 hover:shadow-md"
+      >
         <div>
           {/* Top Image Showcase */}
           <div className="relative aspect-square overflow-hidden bg-[#f7f5f4] dark:bg-white/5">
@@ -56,7 +61,7 @@ export function ProductCard({ product }) {
               <img
                 src={primaryImage}
                 alt={product.title}
-                className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
             </Link>
 
@@ -88,9 +93,10 @@ export function ProductCard({ product }) {
             </button>
 
             {/* Wishlist Button */}
-            <button
+            <motion.button
+              whileTap={{ scale: 0.85 }}
               onClick={toggleWishlist}
-              className={`absolute top-2.5 right-2.5 p-2 rounded-full backdrop-blur-md shadow-none border border-[#eee7e6] dark:border-white/10 active:scale-95 transition-all z-20 ${
+              className={`absolute top-2.5 right-2.5 p-2 rounded-full backdrop-blur-md shadow-none border border-[#eee7e6] dark:border-white/10 transition-all z-20 ${
                 isWishlisted
                   ? 'bg-[#b84357] text-white'
                   : 'bg-white/90 dark:bg-[#141114]/90 text-slate-600 dark:text-slate-300 hover:text-[#b84357]'
@@ -98,7 +104,7 @@ export function ProductCard({ product }) {
               title="Save to wishlist"
             >
               <Heart className={`w-3.5 h-3.5 ${isWishlisted ? 'fill-current' : ''}`} />
-            </button>
+            </motion.button>
 
             {/* Authenticity Verified Pill */}
             <div className="absolute bottom-2.5 left-2.5 right-2.5 flex items-center justify-between text-[10px] text-white bg-black/50 backdrop-blur-md px-2 py-0.5 rounded pointer-events-none">
@@ -163,7 +169,8 @@ export function ProductCard({ product }) {
             View Details
           </Link>
 
-          <button
+          <motion.button
+            whileTap={{ scale: 0.92 }}
             type="button"
             onClick={(e) => {
               e.preventDefault();
@@ -175,9 +182,10 @@ export function ProductCard({ product }) {
             aria-label={`Add ${product.title} to bag`}
           >
             <ShoppingBag className="w-4 h-4" />
-          </button>
+          </motion.button>
 
-          <Link
+          <motion.a
+            whileTap={{ scale: 0.92 }}
             href={whatsappUrl}
             target="_blank"
             rel="noreferrer"
@@ -185,9 +193,9 @@ export function ProductCard({ product }) {
             title="WhatsApp inquiry"
           >
             <MessageCircle className="w-4 h-4" />
-          </Link>
+          </motion.a>
         </div>
-      </div>
+      </motion.div>
 
       {quickViewOpen && (
         <QuickViewModal product={product} onClose={() => setQuickViewOpen(false)} />
@@ -195,4 +203,3 @@ export function ProductCard({ product }) {
     </>
   );
 }
-

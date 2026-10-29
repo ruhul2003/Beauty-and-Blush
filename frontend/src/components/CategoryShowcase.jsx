@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { ArrowRight, Crown } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const categories = [
   {
@@ -39,48 +39,64 @@ const categories = [
 
 export function CategoryShowcase() {
   return (
-    <section className="py-12 md:py-16">
+    <section className="py-12 md:py-16 overflow-hidden">
       <div className="w-[90%] mx-auto px-2 sm:px-4">
         
         {/* Section Heading */}
-        <div className="text-center mb-10 sm:mb-12">
+        <motion.div 
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-10 sm:mb-12"
+        >
           <p className="text-[11px] uppercase tracking-[0.22em] text-[#82757a] font-medium mb-1">
             Collections
           </p>
           <h2 className="text-2xl sm:text-3xl font-serif text-[#191416] dark:text-white font-normal tracking-tight">
             Shop by Category
           </h2>
-        </div>
+        </motion.div>
 
         {/* Circular Categories: Smooth touch-swipeable on mobile, 5-col on desktop */}
         <div className="flex sm:grid sm:grid-cols-5 gap-6 sm:gap-8 overflow-x-auto pb-4 pt-1 px-2 no-scrollbar snap-x snap-mandatory justify-start sm:justify-items-center">
           {categories.map((cat, idx) => (
-            <Link
+            <motion.div
               key={idx}
-              href={`/browse?category=${cat.slug}`}
-              className="group flex flex-col items-center text-center shrink-0 snap-item w-32 sm:w-auto"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.45, delay: idx * 0.08 }}
+              whileHover={{ y: -6 }}
+              whileTap={{ scale: 0.96 }}
+              className="shrink-0 snap-item w-32 sm:w-auto"
             >
-              {/* Circular Thumbnail Frame */}
-              <div className="relative w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-full overflow-hidden p-1 border border-[#eee7e6] dark:border-white/10 group-hover:border-[#191416] dark:group-hover:border-white bg-[#faf8f7] dark:bg-white/5 transition-all duration-300">
-                <div className="w-full h-full rounded-full overflow-hidden">
-                  <img
-                    src={cat.image}
-                    alt={cat.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
+              <Link
+                href={`/browse?category=${cat.slug}`}
+                className="group flex flex-col items-center text-center w-full"
+              >
+                {/* Circular Thumbnail Frame */}
+                <div className="relative w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-full overflow-hidden p-1 border border-[#eee7e6] dark:border-white/10 group-hover:border-[#191416] dark:group-hover:border-white bg-[#faf8f7] dark:bg-white/5 transition-all duration-300 shadow-sm group-hover:shadow-md">
+                  <div className="w-full h-full rounded-full overflow-hidden">
+                    <img
+                      src={cat.image}
+                      alt={cat.name}
+                      className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500"
+                    />
+                  </div>
                 </div>
-              </div>
 
-              {/* Title & Link */}
-              <div className="mt-3 space-y-0.5">
-                <h3 className="text-xs sm:text-[13px] font-medium tracking-wider text-[#191416] dark:text-white uppercase transition-colors">
-                  {cat.name}
-                </h3>
-                <p className="text-[11px] text-[#73676c] dark:text-slate-400">
-                  {cat.desc}
-                </p>
-              </div>
-            </Link>
+                {/* Title & Link */}
+                <div className="mt-3 space-y-0.5">
+                  <h3 className="text-xs sm:text-[13px] font-medium tracking-wider text-[#191416] dark:text-white uppercase transition-colors">
+                    {cat.name}
+                  </h3>
+                  <p className="text-[11px] text-[#73676c] dark:text-slate-400">
+                    {cat.desc}
+                  </p>
+                </div>
+              </Link>
+            </motion.div>
           ))}
         </div>
 
