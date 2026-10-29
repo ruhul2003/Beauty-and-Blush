@@ -134,7 +134,6 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
   const mainNavLinks = [
     { label: 'Home', href: '/' },
     { label: 'Shop', href: '/browse' },
-    // Category dropdown item sits here
     { label: 'Track Order', href: '/track-order' },
     { label: 'About Us', href: '/#about' },
     { label: 'Contact', href: '/#contact' },
@@ -178,37 +177,41 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
             </div>
           </Link>
 
-          {/* Centered Desktop Menu Links (Clean, Uncluttered, Glass Dropdown) */}
-          <nav className="hidden lg:flex items-center gap-8 text-[13px] font-medium text-[#4f4449] dark:text-slate-300">
+          {/* Centered Desktop Menu Links (Button-Type, Larger Font & Elegant Colors) */}
+          <nav className="hidden lg:flex items-center gap-2 xl:gap-2.5 text-sm lg:text-[15px] font-semibold">
             <Link
               href="/"
-              className="hover:text-[#191416] dark:hover:text-white transition-colors relative py-1 hover:underline underline-offset-4 decoration-[#b84357]"
+              className="px-4 py-2 rounded-xl border border-white/60 dark:border-white/10 bg-white/40 dark:bg-white/5 text-[#2b1928] dark:text-[#f3eef4] hover:text-[#b84357] dark:hover:text-rose-300 hover:bg-rose-500/10 dark:hover:bg-rose-500/20 hover:border-rose-300/60 dark:hover:border-rose-400/40 shadow-xs backdrop-blur-md transition-all active:scale-95"
             >
               Home
             </Link>
 
             <Link
               href="/browse"
-              className="hover:text-[#191416] dark:hover:text-white transition-colors relative py-1 hover:underline underline-offset-4 decoration-[#b84357]"
+              className="px-4 py-2 rounded-xl border border-white/60 dark:border-white/10 bg-white/40 dark:bg-white/5 text-[#2b1928] dark:text-[#f3eef4] hover:text-[#b84357] dark:hover:text-rose-300 hover:bg-rose-500/10 dark:hover:bg-rose-500/20 hover:border-rose-300/60 dark:hover:border-rose-400/40 shadow-xs backdrop-blur-md transition-all active:scale-95"
             >
               Shop
             </Link>
 
-            {/* Hover Categories Dropdown */}
+            {/* Hover Categories Dropdown Button */}
             <div 
-              className="relative py-2"
+              className="relative py-1"
               onMouseEnter={handleCategoryEnter}
               onMouseLeave={handleCategoryLeave}
             >
               <button
                 type="button"
-                className="flex items-center gap-1.5 hover:text-[#191416] dark:hover:text-white transition-colors cursor-pointer py-1 font-medium group"
+                className={`px-4 py-2 rounded-xl border transition-all duration-200 flex items-center gap-1.5 cursor-pointer backdrop-blur-md shadow-xs active:scale-95 ${
+                  categoryDropdown
+                    ? 'bg-rose-500/15 border-rose-400/50 text-[#b84357] dark:text-rose-300 shadow-sm'
+                    : 'border-white/60 dark:border-white/10 bg-white/40 dark:bg-white/5 text-[#2b1928] dark:text-[#f3eef4] hover:text-[#b84357] dark:hover:text-rose-300 hover:bg-rose-500/10 dark:hover:bg-rose-500/20 hover:border-rose-300/60 dark:hover:border-rose-400/40'
+                }`}
                 aria-expanded={categoryDropdown}
               >
                 <span>Categories</span>
                 <ChevronDown 
-                  className={`w-3.5 h-3.5 transition-transform duration-200 text-slate-400 group-hover:text-[#b84357] ${
-                    categoryDropdown ? 'rotate-180 text-[#b84357]' : ''
+                  className={`w-4 h-4 transition-transform duration-200 ${
+                    categoryDropdown ? 'rotate-180 text-[#b84357] dark:text-rose-300' : 'text-[#856b78] dark:text-slate-400'
                   }`} 
                 />
               </button>
@@ -228,10 +231,10 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
                     <div className="bg-white/80 dark:bg-[#130b15]/85 backdrop-blur-2xl rounded-2xl border border-white/60 dark:border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.14)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.55)] p-3.5 space-y-2.5">
                       
                       <div className="flex items-center justify-between px-2 pt-1 pb-1 border-b border-rose-200/40 dark:border-white/10">
-                        <span className="text-[10px] uppercase font-bold tracking-[0.2em] text-[#b84357] dark:text-rose-300">
+                        <span className="text-[11px] uppercase font-bold tracking-[0.2em] text-[#b84357] dark:text-rose-300">
                           Shop by Boutique Category
                         </span>
-                        <span className="text-[10px] text-slate-400 dark:text-slate-500 font-medium">
+                        <span className="text-[11px] text-slate-400 dark:text-slate-500 font-medium">
                           7 Curated Collections
                         </span>
                       </div>
@@ -284,21 +287,21 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
 
             <Link
               href="/track-order"
-              className="hover:text-[#191416] dark:hover:text-white transition-colors relative py-1 hover:underline underline-offset-4 decoration-[#b84357]"
+              className="px-4 py-2 rounded-xl border border-white/60 dark:border-white/10 bg-white/40 dark:bg-white/5 text-[#2b1928] dark:text-[#f3eef4] hover:text-[#b84357] dark:hover:text-rose-300 hover:bg-rose-500/10 dark:hover:bg-rose-500/20 hover:border-rose-300/60 dark:hover:border-rose-400/40 shadow-xs backdrop-blur-md transition-all active:scale-95"
             >
               Track Order
             </Link>
 
             <Link
               href="/#about"
-              className="hover:text-[#191416] dark:hover:text-white transition-colors relative py-1 hover:underline underline-offset-4 decoration-[#b84357]"
+              className="px-4 py-2 rounded-xl border border-white/60 dark:border-white/10 bg-white/40 dark:bg-white/5 text-[#2b1928] dark:text-[#f3eef4] hover:text-[#b84357] dark:hover:text-rose-300 hover:bg-rose-500/10 dark:hover:bg-rose-500/20 hover:border-rose-300/60 dark:hover:border-rose-400/40 shadow-xs backdrop-blur-md transition-all active:scale-95"
             >
               About Us
             </Link>
 
             <Link
               href="/#contact"
-              className="hover:text-[#191416] dark:hover:text-white transition-colors relative py-1 hover:underline underline-offset-4 decoration-[#b84357]"
+              className="px-4 py-2 rounded-xl border border-white/60 dark:border-white/10 bg-white/40 dark:bg-white/5 text-[#2b1928] dark:text-[#f3eef4] hover:text-[#b84357] dark:hover:text-rose-300 hover:bg-rose-500/10 dark:hover:bg-rose-500/20 hover:border-rose-300/60 dark:hover:border-rose-400/40 shadow-xs backdrop-blur-md transition-all active:scale-95"
             >
               Contact
             </Link>
@@ -310,7 +313,7 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
             <motion.button
               whileTap={{ scale: 0.9 }}
               onClick={() => setSearchModalOpen(!searchModalOpen)}
-              className="p-2 text-slate-700 dark:text-slate-200 hover:text-[#c94d64] transition-colors cursor-pointer"
+              className="p-2.5 rounded-xl border border-white/60 dark:border-white/10 bg-white/40 dark:bg-white/5 text-[#2b1928] dark:text-slate-200 hover:text-[#b84357] hover:border-rose-300/60 transition-all cursor-pointer backdrop-blur-sm"
               title="Search products"
               aria-label="Search products"
             >
@@ -323,9 +326,9 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
                 <motion.button
                   whileTap={{ scale: 0.95 }}
                   onClick={() => setUserDropdown(!userDropdown)}
-                  className="flex items-center gap-1.5 p-1 rounded-full border border-white/60 dark:border-rose-900/50 hover:border-[#c94d64] bg-white/40 dark:bg-white/5 backdrop-blur-sm transition-colors cursor-pointer"
+                  className="flex items-center gap-1.5 p-1 rounded-xl border border-white/60 dark:border-rose-900/50 hover:border-[#b84357] bg-white/40 dark:bg-white/5 backdrop-blur-sm transition-colors cursor-pointer"
                 >
-                  <div className="w-7 h-7 rounded-full bg-[#c94d64] text-white flex items-center justify-center text-xs font-bold overflow-hidden">
+                  <div className="w-7 h-7 rounded-lg bg-[#b84357] text-white flex items-center justify-center text-xs font-bold overflow-hidden">
                     {user.avatar ? (
                       <img src={user.avatar} alt={user.name} className="w-full h-full object-cover" />
                     ) : (
@@ -387,7 +390,7 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
             ) : (
               <Link
                 href="/auth/login"
-                className="p-2 text-slate-700 dark:text-slate-200 hover:text-[#c94d64] transition-colors"
+                className="p-2.5 rounded-xl border border-white/60 dark:border-white/10 bg-white/40 dark:bg-white/5 text-[#2b1928] dark:text-slate-200 hover:text-[#b84357] hover:border-rose-300/60 transition-all cursor-pointer backdrop-blur-sm"
                 title="Account"
                 aria-label="Account"
               >
@@ -398,13 +401,13 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
             {/* Wishlist Link */}
             <Link
               href="/wishlist"
-              className="p-2 text-slate-700 dark:text-slate-200 hover:text-[#c94d64] transition-colors relative"
+              className="p-2.5 rounded-xl border border-white/60 dark:border-white/10 bg-white/40 dark:bg-white/5 text-[#2b1928] dark:text-slate-200 hover:text-[#b84357] hover:border-rose-300/60 transition-all relative cursor-pointer backdrop-blur-sm"
               title="Saved Wishlist"
               aria-label="Wishlist"
             >
               <Heart className="w-4 h-4 sm:w-5 sm:h-5" />
               {wishlistCount > 0 && (
-                <span className="absolute top-1 right-0.5 bg-rose-500 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
+                <span className="absolute -top-1 -right-1 bg-[#b84357] text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-xs">
                   {wishlistCount}
                 </span>
               )}
@@ -415,12 +418,12 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
               whileTap={{ scale: 0.9 }}
               type="button"
               onClick={openCart}
-              className="p-2 text-slate-700 dark:text-slate-200 hover:text-[#c94d64] transition-colors relative cursor-pointer"
+              className="p-2.5 rounded-xl border border-white/60 dark:border-white/10 bg-white/40 dark:bg-white/5 text-[#2b1928] dark:text-slate-200 hover:text-[#b84357] hover:border-rose-300/60 transition-all relative cursor-pointer backdrop-blur-sm"
               title="Shopping Bag"
               aria-label="Open Shopping Bag"
             >
               <ShoppingBag className="w-4 h-4 sm:w-5 sm:h-5" />
-              <span className="absolute top-1 right-0.5 bg-[#c94d64] text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
+              <span className="absolute -top-1 -right-1 bg-[#b84357] text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-xs">
                 {cartCount}
               </span>
             </motion.button>
@@ -429,7 +432,7 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
             <motion.button
               whileTap={{ scale: 0.9 }}
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="lg:hidden p-2 text-slate-700 dark:text-slate-200 hover:text-[#c94d64] transition-colors cursor-pointer"
+              className="lg:hidden p-2.5 rounded-xl border border-white/60 dark:border-white/10 bg-white/40 dark:bg-white/5 text-[#2b1928] dark:text-slate-200 hover:text-[#b84357] transition-all cursor-pointer backdrop-blur-sm"
               aria-label="Toggle navigation menu"
             >
               {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -494,7 +497,7 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
 
             {/* Categories Quick Showcase */}
             <div className="space-y-2">
-              <span className="text-[10px] uppercase font-bold tracking-widest text-[#b84357] dark:text-rose-300">
+              <span className="text-[11px] uppercase font-bold tracking-widest text-[#b84357] dark:text-rose-300">
                 Shop by Category
               </span>
               <div className="grid grid-cols-2 gap-2 text-xs">
@@ -503,30 +506,30 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
                     key={idx}
                     href={cat.href}
                     onClick={() => setMobileOpen(false)}
-                    className="p-2.5 rounded-xl bg-white/50 dark:bg-white/5 border border-rose-100/60 dark:border-white/10 hover:border-rose-300 transition-colors flex items-center justify-between"
+                    className="p-2.5 rounded-xl bg-white/60 dark:bg-white/5 border border-white/80 dark:border-white/10 hover:border-rose-300 transition-colors flex items-center justify-between"
                   >
-                    <span className="font-medium text-slate-800 dark:text-slate-200">{cat.name}</span>
-                    <span className="text-[9px] text-[#b84357] font-semibold">{cat.tag}</span>
+                    <span className="font-semibold text-slate-800 dark:text-slate-200">{cat.name}</span>
+                    <span className="text-[9px] text-[#b84357] font-bold">{cat.tag}</span>
                   </Link>
                 ))}
               </div>
             </div>
 
-            {/* Navigation Links Grid */}
+            {/* Navigation Links Grid (Button Type in Mobile) */}
             <div className="pt-2 border-t border-rose-200/40 dark:border-white/10">
-              <span className="text-[10px] uppercase font-bold tracking-widest text-slate-400 block mb-2">
+              <span className="text-[11px] uppercase font-bold tracking-widest text-slate-500 block mb-2">
                 Quick Navigation
               </span>
-              <div className="grid grid-cols-2 gap-2 text-xs font-medium">
+              <div className="grid grid-cols-2 gap-2 text-sm font-semibold">
                 {mainNavLinks.map((item, idx) => (
                   <Link
                     key={idx}
                     href={item.href}
                     onClick={() => setMobileOpen(false)}
-                    className="p-2.5 rounded-xl bg-white/40 dark:bg-white/5 text-[#3a2832] dark:text-slate-200 hover:bg-rose-50/50 active:scale-95 transition-all flex items-center justify-between"
+                    className="p-3 rounded-xl bg-white/60 dark:bg-white/5 text-[#2b1928] dark:text-slate-100 border border-white/80 dark:border-white/10 hover:bg-rose-500/10 hover:border-rose-300/50 hover:text-[#b84357] active:scale-95 transition-all flex items-center justify-between"
                   >
                     <span>{item.label}</span>
-                    <ArrowRight className="w-3 h-3 text-[#c94d64]" />
+                    <ArrowRight className="w-3.5 h-3.5 text-[#b84357]" />
                   </Link>
                 ))}
               </div>
@@ -537,7 +540,7 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
               <Link
                 href="/sell"
                 onClick={() => setMobileOpen(false)}
-                className="flex items-center gap-1.5 text-xs text-[#c94d64] font-bold"
+                className="flex items-center gap-1.5 text-xs text-[#b84357] font-bold"
               >
                 <PlusCircle className="w-4 h-4" />
                 <span>List Your Beauty Items</span>
