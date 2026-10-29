@@ -117,7 +117,7 @@ export function HeroBanner() {
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
-      className="relative w-full overflow-hidden bg-[#140c16] min-h-[520px] sm:min-h-[580px] lg:min-h-[660px] flex items-center border-b border-[#eee7e6]/40 dark:border-white/10 select-none touch-pan-y"
+      className="relative w-full overflow-hidden bg-[#140c16] -mt-20 sm:-mt-24 pt-20 sm:pt-24 min-h-screen min-h-[100dvh] flex flex-col justify-between items-center border-b border-[#eee7e6]/40 dark:border-white/10 select-none touch-pan-y"
     >
       {/* Full Width Cinematic Background Crossfade Slides */}
       <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
@@ -142,8 +142,9 @@ export function HeroBanner() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-transparent to-black/80 z-[1]" />
       </div>
 
-      <div className="relative z-10 w-[92%] sm:w-[90%] max-w-[1500px] mx-auto px-2 sm:px-6 lg:px-8 py-10 sm:py-16 lg:py-20">
-        <div className="relative flex items-center justify-center min-h-[380px] sm:min-h-[420px]">
+      {/* Main Centered Content (Fills available space) */}
+      <div className="relative z-10 w-[92%] sm:w-[90%] max-w-[1500px] mx-auto px-2 sm:px-6 lg:px-8 flex-grow flex items-center justify-center py-6 sm:py-10">
+        <div className="relative flex items-center justify-center w-full">
 
           {/* ================= CENTER COLUMN: TITLE & CTAs WITH FRAMER MOTION ================= */}
           <div className="relative z-20 w-full max-w-3xl lg:max-w-4xl flex flex-col items-center text-center space-y-5 sm:space-y-6">
@@ -207,24 +208,32 @@ export function HeroBanner() {
               </Link>
             </motion.div>
 
-            {/* Smooth Indicator Pills */}
-            <div className="flex items-center justify-center gap-2 sm:gap-2.5 pt-3 sm:pt-4">
-              {slides.map((s, idx) => (
-                <button
-                  key={s.id}
-                  onClick={() => setCurrentSlide(idx)}
-                  className={`h-1.5 sm:h-2 rounded-full transition-all duration-400 cursor-pointer ${
-                    currentSlide === idx 
-                      ? 'w-8 sm:w-10 bg-rose-400 shadow-md shadow-rose-500/50' 
-                      : 'w-2 sm:w-2.5 bg-white/35 hover:bg-white/60'
-                  }`}
-                  aria-label={`Go to slide ${idx + 1}`}
-                />
-              ))}
-            </div>
-
           </div>
 
+        </div>
+      </div>
+
+      {/* Bottom Controls & Indicators */}
+      <div className="relative z-10 w-full flex flex-col items-center justify-center pb-20 sm:pb-8 pt-2 gap-3">
+        {/* Slide Indicator Pills */}
+        <div className="flex items-center justify-center gap-2 sm:gap-2.5">
+          {slides.map((s, idx) => (
+            <button
+              key={s.id}
+              onClick={() => setCurrentSlide(idx)}
+              className={`h-1.5 sm:h-2 rounded-full transition-all duration-400 cursor-pointer ${
+                currentSlide === idx 
+                  ? 'w-8 sm:w-10 bg-rose-400 shadow-md shadow-rose-500/50' 
+                  : 'w-2 sm:w-2.5 bg-white/35 hover:bg-white/60'
+              }`}
+              aria-label={`Go to slide ${idx + 1}`}
+            />
+          ))}
+        </div>
+
+        {/* Subtle Scroll Hint */}
+        <div className="hidden sm:flex items-center gap-1.5 text-[10px] text-white/50 uppercase tracking-[0.25em] font-medium">
+          <span>Scroll to explore</span>
         </div>
       </div>
     </section>
