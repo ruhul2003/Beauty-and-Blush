@@ -14,15 +14,12 @@ import {
   X, 
   PlusCircle, 
   LogOut, 
-  Store,
-  ChevronDown,
-  ShieldCheck,
-  Gift,
-  ArrowRight,
-  Truck,
-  LayoutDashboard,
-  Layers,
-  Sparkle
+  Store, 
+  ChevronDown, 
+  ShieldCheck, 
+  ArrowRight, 
+  Truck, 
+  LayoutDashboard 
 } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
 import { useCart } from '@/context/CartContext';
@@ -140,17 +137,17 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
   ];
 
   return (
-    <header className="fixed top-2 sm:top-3.5 inset-x-0 mx-auto z-40 w-[96%] sm:w-[94%] max-w-[1520px] rounded-2xl sm:rounded-3xl bg-white/40 dark:bg-[#0c0610]/45 backdrop-blur-2xl backdrop-saturate-180 border border-white/60 dark:border-white/15 shadow-[0_10px_35px_rgba(0,0,0,0.06),inset_0_1px_1px_rgba(255,255,255,0.7)] dark:shadow-[0_12px_40px_rgba(0,0,0,0.55),inset_0_1px_1px_rgba(255,255,255,0.1)] transition-all">
-      {/* Top Banner Notice (Rounded top glass strip) */}
+    <header className="fixed top-2 sm:top-3.5 inset-x-0 mx-auto z-40 w-[96%] sm:w-[94%] max-w-[1520px] rounded-2xl sm:rounded-3xl border-0 bg-[#faf5f4]/85 dark:bg-[#140c16]/90 backdrop-blur-2xl backdrop-saturate-180 shadow-[0_10px_35px_rgba(184,67,87,0.08),0_2px_10px_rgba(0,0,0,0.03)] dark:shadow-[0_15px_45px_rgba(0,0,0,0.7)] transition-all">
+      {/* Top Banner Notice (Seamless rounded top strip in website blush/plum tones) */}
       <Link
         href="/browse"
-        className="block rounded-t-2xl sm:rounded-t-3xl bg-white/30 dark:bg-black/25 backdrop-blur-md text-[#483d44] dark:text-[#d4ccd0] border-b border-white/30 dark:border-white/5 text-[10px] sm:text-[11px] py-1 px-4 text-center font-medium tracking-wide hover:bg-white/50 dark:hover:bg-white/10 transition-colors"
+        className="block rounded-t-2xl sm:rounded-t-3xl border-0 bg-[#f3e7e8]/75 dark:bg-[#1b0f1e]/85 backdrop-blur-md text-[#543b46] dark:text-[#f0dce4] text-[10px] sm:text-[11px] py-1 px-4 text-center font-medium tracking-wide hover:bg-[#ecdcde] dark:hover:bg-[#251528] transition-colors"
       >
         <span className="w-1.5 h-1.5 rounded-full bg-[#b84357] inline-block mr-1.5 align-middle" />
         <span>Complimentary nationwide delivery on orders over ৳2,000 | 100% Genuine Authentic Guarantee</span>
       </Link>
 
-      {/* Main Header Container (Fluid, Rounded, Ultra Glassy) */}
+      {/* Main Header Container (Fluid, Rounded, Borderless & Seamless) */}
       <div className="w-full px-3 sm:px-6">
         <div className="flex items-center justify-between h-15 sm:h-18 gap-3 sm:gap-4">
           
@@ -159,7 +156,7 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
             <motion.div 
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="relative w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden border border-white/70 dark:border-white/10 shadow-sm shrink-0 bg-white/80 backdrop-blur-md"
+              className="relative w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden shadow-xs shrink-0 bg-white/90 dark:bg-white/10 backdrop-blur-md"
             >
               <img
                 src="/images/logo.png"
@@ -171,24 +168,24 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
               <span className="text-lg sm:text-2xl font-serif tracking-normal text-[#191416] dark:text-white font-medium transition-colors">
                 Beauty & Blush
               </span>
-              <span className="text-[9px] uppercase tracking-[0.24em] text-[#82757a] font-medium -mt-0.5 hidden sm:block">
+              <span className="text-[9px] uppercase tracking-[0.24em] text-[#b84357] dark:text-rose-300 font-semibold -mt-0.5 hidden sm:block">
                 Luxury Cosmetics
               </span>
             </div>
           </Link>
 
-          {/* Centered Desktop Menu Links (Rounded Glass Button Pills) */}
+          {/* Centered Desktop Menu Links (Button Pills In Website Brand Tones, No Harsh Borders) */}
           <nav className="hidden lg:flex items-center gap-2 xl:gap-2.5 text-sm lg:text-[15px] font-semibold">
             <Link
               href="/"
-              className="px-4 py-2 rounded-xl border border-white/70 dark:border-white/10 bg-white/45 dark:bg-white/5 text-[#2b1928] dark:text-[#f3eef4] hover:text-[#b84357] dark:hover:text-rose-300 hover:bg-white/75 dark:hover:bg-white/15 hover:border-rose-300/70 dark:hover:border-rose-400/40 shadow-[0_2px_8px_rgba(0,0,0,0.03),inset_0_1px_1px_rgba(255,255,255,0.8)] backdrop-blur-xl transition-all active:scale-95"
+              className="px-4 py-2 rounded-xl border-0 bg-[#f0e4e6]/75 dark:bg-[#231427]/80 text-[#2d1826] dark:text-[#f8eff5] hover:bg-[#b84357] hover:text-white dark:hover:bg-[#b84357] dark:hover:text-white shadow-xs backdrop-blur-md transition-all active:scale-95"
             >
               Home
             </Link>
 
             <Link
               href="/browse"
-              className="px-4 py-2 rounded-xl border border-white/70 dark:border-white/10 bg-white/45 dark:bg-white/5 text-[#2b1928] dark:text-[#f3eef4] hover:text-[#b84357] dark:hover:text-rose-300 hover:bg-white/75 dark:hover:bg-white/15 hover:border-rose-300/70 dark:hover:border-rose-400/40 shadow-[0_2px_8px_rgba(0,0,0,0.03),inset_0_1px_1px_rgba(255,255,255,0.8)] backdrop-blur-xl transition-all active:scale-95"
+              className="px-4 py-2 rounded-xl border-0 bg-[#f0e4e6]/75 dark:bg-[#231427]/80 text-[#2d1826] dark:text-[#f8eff5] hover:bg-[#b84357] hover:text-white dark:hover:bg-[#b84357] dark:hover:text-white shadow-xs backdrop-blur-md transition-all active:scale-95"
             >
               Shop
             </Link>
@@ -201,17 +198,17 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
             >
               <button
                 type="button"
-                className={`px-4 py-2 rounded-xl border transition-all duration-200 flex items-center gap-1.5 cursor-pointer backdrop-blur-xl shadow-[0_2px_8px_rgba(0,0,0,0.03),inset_0_1px_1px_rgba(255,255,255,0.8)] active:scale-95 ${
+                className={`px-4 py-2 rounded-xl border-0 transition-all duration-200 flex items-center gap-1.5 cursor-pointer backdrop-blur-md shadow-xs active:scale-95 ${
                   categoryDropdown
-                    ? 'bg-rose-500/20 border-rose-400/60 text-[#b84357] dark:text-rose-300 shadow-sm'
-                    : 'border-white/70 dark:border-white/10 bg-white/45 dark:bg-white/5 text-[#2b1928] dark:text-[#f3eef4] hover:text-[#b84357] dark:hover:text-rose-300 hover:bg-white/75 dark:hover:bg-white/15 hover:border-rose-300/70 dark:hover:border-rose-400/40'
+                    ? 'bg-[#b84357] text-white shadow-sm'
+                    : 'bg-[#f0e4e6]/75 dark:bg-[#231427]/80 text-[#2d1826] dark:text-[#f8eff5] hover:bg-[#b84357] hover:text-white dark:hover:bg-[#b84357] dark:hover:text-white'
                 }`}
                 aria-expanded={categoryDropdown}
               >
                 <span>Categories</span>
                 <ChevronDown 
                   className={`w-4 h-4 transition-transform duration-200 ${
-                    categoryDropdown ? 'rotate-180 text-[#b84357] dark:text-rose-300' : 'text-[#856b78] dark:text-slate-400'
+                    categoryDropdown ? 'rotate-180 text-white' : 'text-[#856b78] dark:text-slate-400'
                   }`} 
                 />
               </button>
@@ -228,7 +225,7 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
                     onMouseEnter={handleCategoryEnter}
                     onMouseLeave={handleCategoryLeave}
                   >
-                    <div className="bg-white/65 dark:bg-[#120a14]/75 backdrop-blur-3xl backdrop-saturate-[190%] rounded-2xl sm:rounded-3xl border border-white/70 dark:border-white/15 shadow-[0_25px_60px_rgba(0,0,0,0.15),inset_0_1px_1px_rgba(255,255,255,0.8)] dark:shadow-[0_25px_60px_rgba(0,0,0,0.65),inset_0_1px_1px_rgba(255,255,255,0.1)] p-4 space-y-3">
+                    <div className="border-0 bg-[#faf5f4]/95 dark:bg-[#140c16]/95 backdrop-blur-3xl rounded-2xl sm:rounded-3xl shadow-[0_25px_60px_rgba(184,67,87,0.15)] dark:shadow-[0_25px_60px_rgba(0,0,0,0.85)] p-4 space-y-3">
                       
                       <div className="flex items-center justify-between px-2 pt-0.5 pb-1 border-b border-rose-200/40 dark:border-white/10">
                         <span className="text-[11px] uppercase font-bold tracking-[0.2em] text-[#b84357] dark:text-rose-300">
@@ -246,13 +243,13 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
                             key={idx}
                             href={cat.href}
                             onClick={() => setCategoryDropdown(false)}
-                            className="p-2.5 rounded-xl hover:bg-rose-500/10 dark:hover:bg-rose-500/20 border border-transparent hover:border-rose-300/50 dark:hover:border-rose-500/30 transition-all flex flex-col group/cat"
+                            className="p-2.5 rounded-xl border-0 bg-[#f4e8eb]/60 dark:bg-[#1f1022]/70 hover:bg-[#b84357]/15 dark:hover:bg-[#b84357]/25 transition-all flex flex-col group/cat"
                           >
                             <div className="flex items-center justify-between">
                               <span className="text-xs font-semibold text-slate-800 dark:text-slate-100 group-hover/cat:text-[#b84357] dark:group-hover/cat:text-rose-300 transition-colors">
                                 {cat.name}
                               </span>
-                              <span className="text-[9px] uppercase font-semibold tracking-wider px-1.5 py-0.5 rounded-md bg-rose-100/80 dark:bg-rose-950/80 text-[#b84357] dark:text-rose-300 border border-rose-200/60 dark:border-rose-900/50">
+                              <span className="text-[9px] uppercase font-semibold tracking-wider px-1.5 py-0.5 rounded-md bg-[#b84357]/15 text-[#b84357] dark:bg-rose-950/80 dark:text-rose-300">
                                 {cat.tag}
                               </span>
                             </div>
@@ -287,33 +284,33 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
 
             <Link
               href="/track-order"
-              className="px-4 py-2 rounded-xl border border-white/70 dark:border-white/10 bg-white/45 dark:bg-white/5 text-[#2b1928] dark:text-[#f3eef4] hover:text-[#b84357] dark:hover:text-rose-300 hover:bg-white/75 dark:hover:bg-white/15 hover:border-rose-300/70 dark:hover:border-rose-400/40 shadow-[0_2px_8px_rgba(0,0,0,0.03),inset_0_1px_1px_rgba(255,255,255,0.8)] backdrop-blur-xl transition-all active:scale-95"
+              className="px-4 py-2 rounded-xl border-0 bg-[#f0e4e6]/75 dark:bg-[#231427]/80 text-[#2d1826] dark:text-[#f8eff5] hover:bg-[#b84357] hover:text-white dark:hover:bg-[#b84357] dark:hover:text-white shadow-xs backdrop-blur-md transition-all active:scale-95"
             >
               Track Order
             </Link>
 
             <Link
               href="/#about"
-              className="px-4 py-2 rounded-xl border border-white/70 dark:border-white/10 bg-white/45 dark:bg-white/5 text-[#2b1928] dark:text-[#f3eef4] hover:text-[#b84357] dark:hover:text-rose-300 hover:bg-white/75 dark:hover:bg-white/15 hover:border-rose-300/70 dark:hover:border-rose-400/40 shadow-[0_2px_8px_rgba(0,0,0,0.03),inset_0_1px_1px_rgba(255,255,255,0.8)] backdrop-blur-xl transition-all active:scale-95"
+              className="px-4 py-2 rounded-xl border-0 bg-[#f0e4e6]/75 dark:bg-[#231427]/80 text-[#2d1826] dark:text-[#f8eff5] hover:bg-[#b84357] hover:text-white dark:hover:bg-[#b84357] dark:hover:text-white shadow-xs backdrop-blur-md transition-all active:scale-95"
             >
               About Us
             </Link>
 
             <Link
               href="/#contact"
-              className="px-4 py-2 rounded-xl border border-white/70 dark:border-white/10 bg-white/45 dark:bg-white/5 text-[#2b1928] dark:text-[#f3eef4] hover:text-[#b84357] dark:hover:text-rose-300 hover:bg-white/75 dark:hover:bg-white/15 hover:border-rose-300/70 dark:hover:border-rose-400/40 shadow-[0_2px_8px_rgba(0,0,0,0.03),inset_0_1px_1px_rgba(255,255,255,0.8)] backdrop-blur-xl transition-all active:scale-95"
+              className="px-4 py-2 rounded-xl border-0 bg-[#f0e4e6]/75 dark:bg-[#231427]/80 text-[#2d1826] dark:text-[#f8eff5] hover:bg-[#b84357] hover:text-white dark:hover:bg-[#b84357] dark:hover:text-white shadow-xs backdrop-blur-md transition-all active:scale-95"
             >
               Contact
             </Link>
           </nav>
 
-          {/* Right Action Icons (Frosted Glass Button Pills) */}
-          <div className="flex items-center gap-2.5 sm:gap-3">
+          {/* Right Action Icons (Matching Borderless Brand Buttons) */}
+          <div className="flex items-center gap-2 sm:gap-2.5">
             {/* Search Icon / Trigger */}
             <motion.button
               whileTap={{ scale: 0.9 }}
               onClick={() => setSearchModalOpen(!searchModalOpen)}
-              className="p-2.5 rounded-xl border border-white/70 dark:border-white/10 bg-white/45 dark:bg-white/5 text-[#2b1928] dark:text-slate-200 hover:text-[#b84357] hover:border-rose-300/70 shadow-[0_2px_8px_rgba(0,0,0,0.03),inset_0_1px_1px_rgba(255,255,255,0.8)] transition-all cursor-pointer backdrop-blur-xl"
+              className="p-2.5 rounded-xl border-0 bg-[#f0e4e6]/75 dark:bg-[#231427]/80 text-[#2d1826] dark:text-[#f8eff5] hover:bg-[#b84357] hover:text-white shadow-xs transition-all cursor-pointer backdrop-blur-md"
               title="Search products"
               aria-label="Search products"
             >
@@ -326,7 +323,7 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
                 <motion.button
                   whileTap={{ scale: 0.95 }}
                   onClick={() => setUserDropdown(!userDropdown)}
-                  className="flex items-center gap-1.5 p-1 rounded-xl border border-white/70 dark:border-rose-900/50 hover:border-[#b84357] bg-white/45 dark:bg-white/5 shadow-[0_2px_8px_rgba(0,0,0,0.03),inset_0_1px_1px_rgba(255,255,255,0.8)] backdrop-blur-xl transition-colors cursor-pointer"
+                  className="flex items-center gap-1.5 p-1 rounded-xl border-0 bg-[#f0e4e6]/75 dark:bg-[#231427]/80 shadow-xs backdrop-blur-md transition-colors cursor-pointer"
                 >
                   <div className="w-7 h-7 rounded-lg bg-[#b84357] text-white flex items-center justify-center text-xs font-bold overflow-hidden shadow-xs">
                     {user.avatar ? (
@@ -346,7 +343,7 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 8, scale: 0.95 }}
                       transition={{ duration: 0.18 }}
-                      className="absolute right-0 mt-2.5 w-56 rounded-2xl bg-white/70 dark:bg-[#140b17]/80 backdrop-blur-3xl shadow-[0_20px_50px_rgba(0,0,0,0.15),inset_0_1px_1px_rgba(255,255,255,0.8)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(255,255,255,0.1)] border border-white/70 dark:border-white/15 py-2 z-50 text-xs"
+                      className="absolute right-0 mt-2.5 w-56 rounded-2xl border-0 bg-[#faf5f4]/95 dark:bg-[#140c16]/95 backdrop-blur-3xl shadow-[0_20px_50px_rgba(184,67,87,0.15)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.8)] py-2 z-50 text-xs"
                       onClick={() => setUserDropdown(false)}
                     >
                       <div className="px-4 py-2 border-b border-rose-100/60 dark:border-white/10">
@@ -354,30 +351,30 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
                         <p className="text-slate-500 dark:text-slate-400 truncate text-[11px]">{user.email}</p>
                       </div>
 
-                      <Link href="/dashboard" className="flex items-center gap-2.5 px-4 py-2.5 hover:bg-rose-500/10 dark:hover:bg-rose-500/20 text-slate-700 dark:text-slate-200">
-                        <Store className="w-4 h-4 text-[#c94d64]" />
+                      <Link href="/dashboard" className="flex items-center gap-2.5 px-4 py-2.5 hover:bg-[#b84357]/10 dark:hover:bg-[#b84357]/20 text-slate-700 dark:text-slate-200">
+                        <Store className="w-4 h-4 text-[#b84357]" />
                         <span>Seller Dashboard</span>
                       </Link>
 
-                      <Link href="/sell" className="flex items-center gap-2.5 px-4 py-2.5 hover:bg-rose-500/10 dark:hover:bg-rose-500/20 text-slate-700 dark:text-slate-200">
-                        <PlusCircle className="w-4 h-4 text-[#c94d64]" />
+                      <Link href="/sell" className="flex items-center gap-2.5 px-4 py-2.5 hover:bg-[#b84357]/10 dark:hover:bg-[#b84357]/20 text-slate-700 dark:text-slate-200">
+                        <PlusCircle className="w-4 h-4 text-[#b84357]" />
                         <span>Post New Listing</span>
                       </Link>
 
-                      <Link href="/track-order" className="flex items-center gap-2.5 px-4 py-2.5 hover:bg-rose-500/10 dark:hover:bg-rose-500/20 text-slate-700 dark:text-slate-200">
-                        <Truck className="w-4 h-4 text-[#c94d64]" />
+                      <Link href="/track-order" className="flex items-center gap-2.5 px-4 py-2.5 hover:bg-[#b84357]/10 dark:hover:bg-[#b84357]/20 text-slate-700 dark:text-slate-200">
+                        <Truck className="w-4 h-4 text-[#b84357]" />
                         <span>Track Order</span>
                       </Link>
 
-                      <Link href="/admin" className="flex items-center gap-2.5 px-4 py-2.5 hover:bg-rose-500/10 dark:hover:bg-rose-500/20 text-rose-700 dark:text-rose-400 font-bold border-t border-rose-100/60 dark:border-white/10 mt-1">
-                        <LayoutDashboard className="w-4 h-4 text-[#c94d64]" />
+                      <Link href="/admin" className="flex items-center gap-2.5 px-4 py-2.5 hover:bg-[#b84357]/10 dark:hover:bg-[#b84357]/20 text-rose-700 dark:text-rose-400 font-bold border-t border-rose-100/60 dark:border-white/10 mt-1">
+                        <LayoutDashboard className="w-4 h-4 text-[#b84357]" />
                         <span>Admin Control Panel</span>
                       </Link>
 
                       <div className="border-t border-rose-100/60 dark:border-white/10 mt-1 pt-1">
                         <button
                           onClick={logout}
-                          className="w-full text-left flex items-center gap-2.5 px-4 py-2.5 hover:bg-rose-500/10 dark:hover:bg-rose-500/20 text-[#c94d64] font-medium"
+                          className="w-full text-left flex items-center gap-2.5 px-4 py-2.5 hover:bg-[#b84357]/10 dark:hover:bg-[#b84357]/20 text-[#b84357] font-medium"
                         >
                           <LogOut className="w-4 h-4" />
                           <span>Sign Out</span>
@@ -390,7 +387,7 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
             ) : (
               <Link
                 href="/auth/login"
-                className="p-2.5 rounded-xl border border-white/70 dark:border-white/10 bg-white/45 dark:bg-white/5 text-[#2b1928] dark:text-slate-200 hover:text-[#b84357] hover:border-rose-300/70 shadow-[0_2px_8px_rgba(0,0,0,0.03),inset_0_1px_1px_rgba(255,255,255,0.8)] transition-all cursor-pointer backdrop-blur-xl"
+                className="p-2.5 rounded-xl border-0 bg-[#f0e4e6]/75 dark:bg-[#231427]/80 text-[#2d1826] dark:text-[#f8eff5] hover:bg-[#b84357] hover:text-white shadow-xs transition-all cursor-pointer backdrop-blur-md"
                 title="Account"
                 aria-label="Account"
               >
@@ -401,7 +398,7 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
             {/* Wishlist Link */}
             <Link
               href="/wishlist"
-              className="p-2.5 rounded-xl border border-white/70 dark:border-white/10 bg-white/45 dark:bg-white/5 text-[#2b1928] dark:text-slate-200 hover:text-[#b84357] hover:border-rose-300/70 shadow-[0_2px_8px_rgba(0,0,0,0.03),inset_0_1px_1px_rgba(255,255,255,0.8)] transition-all relative cursor-pointer backdrop-blur-xl"
+              className="p-2.5 rounded-xl border-0 bg-[#f0e4e6]/75 dark:bg-[#231427]/80 text-[#2d1826] dark:text-[#f8eff5] hover:bg-[#b84357] hover:text-white shadow-xs transition-all relative cursor-pointer backdrop-blur-md"
               title="Saved Wishlist"
               aria-label="Wishlist"
             >
@@ -418,7 +415,7 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
               whileTap={{ scale: 0.9 }}
               type="button"
               onClick={openCart}
-              className="p-2.5 rounded-xl border border-white/70 dark:border-white/10 bg-white/45 dark:bg-white/5 text-[#2b1928] dark:text-slate-200 hover:text-[#b84357] hover:border-rose-300/70 shadow-[0_2px_8px_rgba(0,0,0,0.03),inset_0_1px_1px_rgba(255,255,255,0.8)] transition-all relative cursor-pointer backdrop-blur-xl"
+              className="p-2.5 rounded-xl border-0 bg-[#f0e4e6]/75 dark:bg-[#231427]/80 text-[#2d1826] dark:text-[#f8eff5] hover:bg-[#b84357] hover:text-white shadow-xs transition-all relative cursor-pointer backdrop-blur-md"
               title="Shopping Bag"
               aria-label="Open Shopping Bag"
             >
@@ -432,7 +429,7 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
             <motion.button
               whileTap={{ scale: 0.9 }}
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="lg:hidden p-2.5 rounded-xl border border-white/70 dark:border-white/10 bg-white/45 dark:bg-white/5 text-[#2b1928] dark:text-slate-200 hover:text-[#b84357] shadow-[0_2px_8px_rgba(0,0,0,0.03),inset_0_1px_1px_rgba(255,255,255,0.8)] transition-all cursor-pointer backdrop-blur-xl"
+              className="lg:hidden p-2.5 rounded-xl border-0 bg-[#f0e4e6]/75 dark:bg-[#231427]/80 text-[#2d1826] dark:text-[#f8eff5] hover:bg-[#b84357] hover:text-white shadow-xs transition-all cursor-pointer backdrop-blur-md"
               aria-label="Toggle navigation menu"
             >
               {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -449,7 +446,7 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="rounded-b-2xl sm:rounded-b-3xl border-t border-white/40 dark:border-white/10 bg-white/50 dark:bg-[#0c070d]/65 backdrop-blur-3xl px-4 py-3.5 shadow-md overflow-hidden"
+            className="rounded-b-2xl sm:rounded-b-3xl border-0 bg-[#faf5f4]/95 dark:bg-[#140c16]/95 backdrop-blur-3xl px-4 py-3.5 shadow-md overflow-hidden"
           >
             <form onSubmit={handleSearch} className="max-w-2xl mx-auto relative flex items-center">
               <input
@@ -458,7 +455,7 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="Search serums, lipstick, brushes, perfume, night cream, handbags..."
-                className="w-full pl-10 pr-24 py-2.5 text-sm rounded-xl bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10 text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-1 focus:ring-[#b84357]"
+                className="w-full pl-10 pr-24 py-2.5 text-sm rounded-xl border-0 bg-[#f0e4e6]/70 dark:bg-[#231427]/70 text-[#2d1826] dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#b84357]"
               />
               <Search className="w-4 h-4 text-[#73676c] absolute left-3.5" />
               <motion.button
@@ -481,7 +478,7 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:hidden rounded-b-2xl sm:rounded-b-3xl bg-white/60 dark:bg-[#120a14]/75 backdrop-blur-3xl border-t border-white/40 dark:border-white/10 px-5 pt-4 pb-8 space-y-5 shadow-2xl max-h-[82vh] overflow-y-auto"
+            className="lg:hidden rounded-b-2xl sm:rounded-b-3xl border-0 bg-[#faf5f4]/98 dark:bg-[#140c16]/98 backdrop-blur-3xl px-5 pt-4 pb-8 space-y-5 shadow-2xl max-h-[82vh] overflow-y-auto"
           >
             {/* Mobile Search */}
             <form onSubmit={handleSearch} className="relative">
@@ -490,9 +487,9 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="Search beauty products & brands..."
-                className="w-full pl-9 pr-4 py-2.5 text-xs rounded-xl bg-white/60 dark:bg-white/5 border border-rose-200/60 dark:border-white/10"
+                className="w-full pl-9 pr-4 py-2.5 text-xs rounded-xl border-0 bg-[#f0e4e6]/70 dark:bg-[#231427]/70 text-[#2d1826] dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#b84357]"
               />
-              <Search className="w-4 h-4 text-[#c94d64] absolute left-3 top-1/2 -translate-y-1/2" />
+              <Search className="w-4 h-4 text-[#b84357] absolute left-3 top-1/2 -translate-y-1/2" />
             </form>
 
             {/* Categories Quick Showcase */}
@@ -506,10 +503,10 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
                     key={idx}
                     href={cat.href}
                     onClick={() => setMobileOpen(false)}
-                    className="p-2.5 rounded-xl bg-white/60 dark:bg-white/5 border border-white/80 dark:border-white/10 hover:border-rose-300 transition-colors flex items-center justify-between"
+                    className="p-2.5 rounded-xl border-0 bg-[#f0e4e6]/60 dark:bg-[#231427]/60 hover:bg-[#b84357] hover:text-white transition-colors flex items-center justify-between group/mcat"
                   >
-                    <span className="font-semibold text-slate-800 dark:text-slate-200">{cat.name}</span>
-                    <span className="text-[9px] text-[#b84357] font-bold">{cat.tag}</span>
+                    <span className="font-semibold text-slate-800 dark:text-slate-200 group-hover/mcat:text-white">{cat.name}</span>
+                    <span className="text-[9px] text-[#b84357] group-hover/mcat:text-white font-bold">{cat.tag}</span>
                   </Link>
                 ))}
               </div>
@@ -526,10 +523,10 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
                     key={idx}
                     href={item.href}
                     onClick={() => setMobileOpen(false)}
-                    className="p-3 rounded-xl bg-white/60 dark:bg-white/5 text-[#2b1928] dark:text-slate-100 border border-white/80 dark:border-white/10 hover:bg-rose-500/10 hover:border-rose-300/50 hover:text-[#b84357] active:scale-95 transition-all flex items-center justify-between"
+                    className="p-3 rounded-xl border-0 bg-[#f0e4e6]/75 dark:bg-[#231427]/80 text-[#2d1826] dark:text-slate-100 hover:bg-[#b84357] hover:text-white active:scale-95 transition-all flex items-center justify-between group/mnav"
                   >
                     <span>{item.label}</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#b84357]" />
+                    <ArrowRight className="w-3.5 h-3.5 text-[#b84357] group-hover/mnav:text-white" />
                   </Link>
                 ))}
               </div>
