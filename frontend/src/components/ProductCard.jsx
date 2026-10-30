@@ -3,7 +3,15 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Heart, Star, ShieldCheck, MapPin, MessageCircle, Eye, ShoppingBag } from 'lucide-react';
+import { 
+  Heart, 
+  ShoppingBag, 
+  Star, 
+  MapPin, 
+  Eye, 
+  ShieldCheck, 
+  MessageCircle 
+} from 'lucide-react';
 import { formatPrice, calculateDiscount } from '@/utils/formatters';
 import { useToast } from '@/context/ToastContext';
 import { useCart } from '@/context/CartContext';
@@ -12,19 +20,31 @@ import { QuickViewModal } from './QuickViewModal';
 export function ProductCard({ product }) {
   const { showToast } = useToast();
   const { addToCart } = useCart();
-  const [isWishlisted, setIsWishlisted] = useState(false);
   const [quickViewOpen, setQuickViewOpen] = useState(false);
+  const [isWishlisted, setIsWishlisted] = useState(() => {
+    try {
+      const saved = JSON.parse(localStorage.getItem('bnb_wishlist') || '[]');
+      return saved.some(p => (p._id || p.id) === (product._id || product.id));
+    } catch (e) {
+      return false;
+    }
+  });
 
-  const discount = calculateDiscount(product.originalPrice, product.price);
+  if (!product) return null;
+
   const primaryImage = product.images && product.images.length > 0 
     ? product.images[0] 
-    : '/images/serum.jpg';
+    : (product.image || 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=800&q=80');
+
+  const discount = calculateDiscount(product.price, product.originalPrice);
 
   const toggleWishlist = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    setIsWishlisted(!isWishlisted);
-    if (!isWishlisted) {
+    const nextState = !isWishlisted;
+    setIsWishlisted(nextState);
+
+    if (nextState) {
       showToast?.(`Added "${product.title}" to wishlist!`, 'success');
       try {
         const saved = JSON.parse(localStorage.getItem('bnb_wishlist') || '[]');
@@ -52,11 +72,11 @@ export function ProductCard({ product }) {
       <motion.div 
         whileHover={{ y: -4 }}
         transition={{ duration: 0.25, ease: "easeOut" }}
-        className="bg-white dark:bg-[#141114] rounded-xl overflow-hidden group flex flex-col justify-between border border-[#eee7e6] dark:border-white/10 hover:border-[#d6cecc] dark:hover:border-white/20 transition-colors duration-300 hover:shadow-md"
+        className="bg-white/55 dark:bg-[#140c16]/65 backdrop-blur-2xl backdrop-saturate-180 rounded-2xl overflow-hidden group flex flex-col justify-between border border-white/70 dark:border-white/10 hover:border-[#b84357]/50 dark:hover:border-rose-400/40 transition-all duration-300 shadow-[0_8px_25px_rgba(0,0,0,0.03)] hover:shadow-[0_14px_35px_rgba(184,67,87,0.12)]"
       >
         <div>
           {/* Top Image Showcase */}
-          <div className="relative aspect-square overflow-hidden bg-[#f7f5f4] dark:bg-white/5">
+          <div className="relative aspect-square overflow-hidden bg-white/40 dark:bg-white/5 backdrop-blur-md">
             <Link href={`/product/${product._id || product.id}`} className="block w-full h-full">
               <img
                 src={primaryImage}
@@ -68,11 +88,11 @@ export function ProductCard({ product }) {
             {/* Condition & Discount Badges */}
             <div className="absolute top-2.5 left-2.5 flex flex-col gap-1 z-10 pointer-events-none">
               {discount > 0 ? (
-                <span className="px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider rounded bg-[#191416] text-white shadow-none">
+                <span className="px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider rounded-md bg-[#191416]/90 text-white backdrop-blur-md shadow-xs">
                   -{discount}%
                 </span>
               ) : (
-                <span className="px-2 py-0.5 text-[9px] font-medium tracking-wide rounded bg-white/90 dark:bg-[#141114]/90 text-slate-800 dark:text-slate-200 backdrop-blur-md border border-[#eee7e6] dark:border-white/10">
+                <span className="px-2 py-0.5 text-[9px] font-semibold tracking-wide rounded-md bg-white/85 dark:bg-black/60 text-slate-800 dark:text-slate-200 backdrop-blur-md border border-white/60 dark:border-white/10">
                   {product.condition || 'New'}
                 </span>
               )}
@@ -86,7 +106,7 @@ export function ProductCard({ product }) {
                 e.stopPropagation();
                 setQuickViewOpen(true);
               }}
-              className="absolute inset-x-4 top-1/2 -translate-y-1/2 py-2 px-3 rounded-lg bg-white/95 dark:bg-[#141114]/95 text-[#191416] dark:text-white font-medium text-xs shadow-sm backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all duration-200 flex items-center justify-center gap-1.5 hover:bg-[#191416] hover:text-white dark:hover:bg-white dark:hover:text-black z-20 cursor-pointer"
+              className="absolute inset-x-4 top-1/2 -translate-y-1/2 py-2 px-3 rounded-xl bg-white/90 dark:bg-[#141114]/90 text-[#191416] dark:text-white font-semibold text-xs shadow-md backdrop-blur-xl border border-white/80 dark:border-white/10 opacity-0 group-hover:opacity-100 transition-all duration-200 flex items-center justify-center gap-1.5 hover:bg-[#b84357] hover:text-white dark:hover:bg-[#b84357] dark:hover:text-white z-20 cursor-pointer"
             >
               <Eye className="w-3.5 h-3.5" />
               <span>Quick View</span>
@@ -96,10 +116,10 @@ export function ProductCard({ product }) {
             <motion.button
               whileTap={{ scale: 0.85 }}
               onClick={toggleWishlist}
-              className={`absolute top-2.5 right-2.5 p-2 rounded-full backdrop-blur-md shadow-none border border-[#eee7e6] dark:border-white/10 transition-all z-20 ${
+              className={`absolute top-2.5 right-2.5 p-2 rounded-full backdrop-blur-xl border border-white/70 dark:border-white/10 transition-all z-20 cursor-pointer ${
                 isWishlisted
-                  ? 'bg-[#b84357] text-white'
-                  : 'bg-white/90 dark:bg-[#141114]/90 text-slate-600 dark:text-slate-300 hover:text-[#b84357]'
+                  ? 'bg-[#b84357] text-white shadow-xs'
+                  : 'bg-white/80 dark:bg-[#141114]/80 text-slate-600 dark:text-slate-300 hover:text-[#b84357]'
               }`}
               title="Save to wishlist"
             >
@@ -107,7 +127,7 @@ export function ProductCard({ product }) {
             </motion.button>
 
             {/* Authenticity Verified Pill */}
-            <div className="absolute bottom-2.5 left-2.5 right-2.5 flex items-center justify-between text-[10px] text-white bg-black/50 backdrop-blur-md px-2 py-0.5 rounded pointer-events-none">
+            <div className="absolute bottom-2.5 left-2.5 right-2.5 flex items-center justify-between text-[10px] text-white bg-black/55 backdrop-blur-md px-2.5 py-1 rounded-lg pointer-events-none border border-white/10">
               <div className="flex items-center gap-1 font-medium">
                 <ShieldCheck className="w-3 h-3 text-emerald-400" />
                 <span>Verified</span>
@@ -124,18 +144,18 @@ export function ProductCard({ product }) {
             <div className="flex items-center justify-between text-xs mb-1">
               <Link
                 href={`/browse?category=${encodeURIComponent(product.category || 'All')}`}
-                className="text-[10px] font-medium uppercase tracking-wider text-[#73676c] hover:text-[#191416] dark:hover:text-white"
+                className="text-[10px] font-semibold uppercase tracking-wider text-[#b84357] dark:text-rose-300 hover:underline"
               >
                 {product.brand || product.category}
               </Link>
               <div className="flex items-center gap-1 text-[11px] text-[#8a7e84]">
-                <MapPin className="w-3 h-3 text-[#8a7e84]" />
+                <MapPin className="w-3 h-3 text-[#b84357]" />
                 <span>{product.location || 'Dhaka'}</span>
               </div>
             </div>
 
             <Link href={`/product/${product._id || product.id}`} className="block group-hover:text-[#b84357] transition-colors">
-              <h3 className="font-medium text-sm text-[#191416] dark:text-white line-clamp-1">
+              <h3 className="font-semibold text-sm text-[#191416] dark:text-white line-clamp-1">
                 {product.title}
               </h3>
             </Link>
@@ -148,7 +168,7 @@ export function ProductCard({ product }) {
 
             {/* Pricing */}
             <div className="mt-2 flex items-baseline gap-2">
-              <span className="text-base font-semibold text-[#191416] dark:text-white">
+              <span className="text-base font-bold text-[#b84357] dark:text-rose-300">
                 {formatPrice(product.price)}
               </span>
               {product.originalPrice > product.price && (
@@ -160,11 +180,11 @@ export function ProductCard({ product }) {
           </div>
         </div>
 
-        {/* Card Action Footer */}
-        <div className="px-3.5 pb-3.5 pt-1 flex items-center gap-2 border-t border-[#eee7e6]/60 dark:border-white/5">
+        {/* Card Action Footer with Glass Buttons */}
+        <div className="px-3.5 pb-3.5 pt-2 flex items-center gap-2 border-t border-rose-200/40 dark:border-white/5">
           <Link
             href={`/product/${product._id || product.id}`}
-            className="flex-1 py-1.5 text-center text-xs font-medium rounded-md bg-[#f7f4f3] dark:bg-white/5 hover:bg-[#191416] hover:text-white dark:hover:bg-white dark:hover:text-black text-[#191416] dark:text-white active:scale-98 transition-all"
+            className="flex-1 py-1.5 text-center text-xs font-semibold rounded-xl bg-white/60 dark:bg-white/5 hover:bg-[#b84357] hover:text-white text-[#191416] dark:text-white border border-white/70 dark:border-white/10 backdrop-blur-md active:scale-98 transition-all shadow-xs"
           >
             View Details
           </Link>
@@ -177,7 +197,7 @@ export function ProductCard({ product }) {
               e.stopPropagation();
               addToCart(product);
             }}
-            className="p-1.5 rounded-md bg-[#b84357] hover:bg-[#a13346] text-white active:scale-95 transition-all shadow-sm"
+            className="p-2 rounded-xl bg-[#b84357] hover:bg-[#a13649] text-white active:scale-95 transition-all shadow-md shadow-[#b84357]/20 cursor-pointer"
             title="Add to Cart"
             aria-label={`Add ${product.title} to bag`}
           >
@@ -189,7 +209,7 @@ export function ProductCard({ product }) {
             href={whatsappUrl}
             target="_blank"
             rel="noreferrer"
-            className="p-1.5 rounded-md border border-[#eee7e6] dark:border-white/10 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-950/20 active:scale-95 transition-all"
+            className="p-2 rounded-xl border border-white/70 dark:border-white/10 bg-white/60 dark:bg-white/5 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-950/20 active:scale-95 transition-all shadow-xs backdrop-blur-md"
             title="WhatsApp inquiry"
           >
             <MessageCircle className="w-4 h-4" />
