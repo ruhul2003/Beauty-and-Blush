@@ -29,7 +29,7 @@ export function FooterTrustStrip() {
   ];
 
   return (
-    <div className="bg-[#faf8f7] dark:bg-[#0c0a0c] border-y border-[#eee7e6] dark:border-white/10 py-6 transition-colors overflow-hidden">
+    <div className="bg-white/40 dark:bg-[#100813]/40 backdrop-blur-xl border-y border-white/50 dark:border-white/10 py-6 transition-colors overflow-hidden">
       <div className="w-[90%] mx-auto px-2 sm:px-4">
         <motion.div 
           initial={{ opacity: 0, y: 15 }}
@@ -50,14 +50,14 @@ export function FooterTrustStrip() {
                 whileHover={{ y: -2 }}
                 className="flex items-center gap-3 transition-transform"
               >
-                <div className="w-8 h-8 rounded-full bg-white dark:bg-white/5 border border-[#eee7e6] dark:border-white/10 flex items-center justify-center text-[#191416] dark:text-white shrink-0 shadow-xs">
-                  <Icon className="w-3.5 h-3.5 stroke-[1.5]" />
+                <div className="w-9 h-9 rounded-2xl bg-white/70 dark:bg-white/10 backdrop-blur-md border border-white/60 dark:border-white/10 flex items-center justify-center text-[#c94d64] dark:text-rose-300 shrink-0 shadow-xs">
+                  <Icon className="w-4 h-4 stroke-[1.8]" />
                 </div>
                 <div>
-                  <h4 className="text-[11px] font-semibold uppercase tracking-wider text-[#191416] dark:text-white">
+                  <h4 className="text-[11px] font-bold uppercase tracking-wider text-[#191416] dark:text-white">
                     {item.title}
                   </h4>
-                  <p className="text-[10px] sm:text-[11px] text-[#73676c] dark:text-slate-400 mt-0.5">
+                  <p className="text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
                     {item.desc}
                   </p>
                 </div>
