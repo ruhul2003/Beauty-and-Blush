@@ -135,7 +135,7 @@ export default function ProductDetailPage() {
   if (loading) {
     return (
       <div className="w-[90%] mx-auto px-2 sm:px-4 py-20 text-center">
-        <Sparkles className="w-8 h-8 text-rose-500 animate-spin mx-auto mb-3" />
+        <Sparkles className="w-8 h-8 text-[#c94d64] animate-spin mx-auto mb-3" />
         <p className="text-xs text-slate-500">Loading authentic beauty listing...</p>
       </div>
     );
@@ -386,12 +386,12 @@ export default function ProductDetailPage() {
       </div>
 
       {/* Community Q&A Section */}
-      <section className="pt-8 border-t border-rose-100 dark:border-rose-950/40">
+      <section className="pt-10 border-t border-white/50 dark:border-white/10">
         <div className="max-w-4xl mx-auto space-y-6">
           <div className="flex items-center justify-between">
             <div>
               <h2 className="text-xl font-serif font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                <HelpCircle className="w-5 h-5 text-rose-500" />
+                <HelpCircle className="w-5 h-5 text-[#c94d64]" />
                 <span>Customer Questions & Answers</span>
               </h2>
               <p className="text-xs text-slate-500">Ask the boutique seller directly about shades, skin suitability or authenticity.</p>
@@ -405,12 +405,12 @@ export default function ProductDetailPage() {
               value={questionInput}
               onChange={(e) => setQuestionInput(e.target.value)}
               placeholder="Ask a question about this product..."
-              className="flex-1 p-3 text-xs rounded-xl border border-rose-200 dark:border-rose-900/50 bg-white dark:bg-[#1a0f1c]"
+              className="flex-1 p-3.5 text-xs rounded-2xl border border-white/60 dark:border-white/10 bg-white/70 dark:bg-white/5 backdrop-blur-md text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-1 focus:ring-[#c94d64]"
             />
             <motion.button 
               whileTap={{ scale: 0.94 }}
               type="submit" 
-              className="btn-rose-primary px-5 py-3 text-xs font-semibold flex items-center gap-1.5 cursor-pointer"
+              className="btn-rose-primary px-6 py-3 rounded-2xl text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 cursor-pointer shadow-md shadow-[#c94d64]/20"
             >
               <Send className="w-3.5 h-3.5" />
               <span>Ask</span>
@@ -423,13 +423,13 @@ export default function ProductDetailPage() {
               <p className="text-xs text-slate-400 italic">No community questions asked yet. Be the first to ask!</p>
             ) : (
               qaList.map((item, idx) => (
-                <div key={idx} className="p-4 rounded-2xl bg-rose-50/40 dark:bg-rose-950/20 border border-rose-100 dark:border-rose-900/40 space-y-2">
+                <div key={idx} className="p-5 rounded-3xl bg-white/60 dark:bg-[#140b17]/60 backdrop-blur-2xl border border-white/60 dark:border-white/10 shadow-xs space-y-2.5">
                   <div className="flex items-center gap-2 text-xs font-bold text-slate-900 dark:text-white">
-                    <span className="text-rose-500 font-extrabold">Q:</span>
+                    <span className="text-[#c94d64] font-extrabold">Q:</span>
                     <span>{item.question}</span>
                   </div>
                   {item.answer ? (
-                    <div className="flex items-start gap-2 text-xs text-slate-600 dark:text-slate-300 pl-4 border-l-2 border-rose-400">
+                    <div className="flex items-start gap-2.5 text-xs text-slate-600 dark:text-slate-300 pl-4 border-l-2 border-[#c94d64]">
                       <span className="text-emerald-500 font-bold">A:</span>
                       <div>
                         <p>{item.answer}</p>
@@ -518,7 +518,7 @@ export default function ProductDetailPage() {
 
       {/* Recently Viewed Products */}
       {recentItems.length > 0 && (
-        <section className="pt-8 border-t border-rose-100 dark:border-rose-950/60 space-y-5">
+        <section className="pt-10 border-t border-white/50 dark:border-white/10 space-y-5">
           <div className="flex items-center justify-between">
             <div>
               <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[#c94d64] uppercase tracking-wider">
