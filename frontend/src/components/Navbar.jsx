@@ -23,6 +23,7 @@ import {
 } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
 import { useCart } from '@/context/CartContext';
+import { ThemeToggle } from './ThemeToggle';
 
 export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen }) {
   const router = useRouter();
@@ -343,6 +344,9 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
               </span>
             </motion.button>
 
+            {/* 3D Glass Light/Dark Mode Theme Toggle */}
+            <ThemeToggle />
+
             {/* User Account / Profile */}
             {user ? (
               <div className="relative">
@@ -498,21 +502,21 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
               </div>
             </div>
 
-            {/* Quick Actions */}
+            {/* Theme Toggle & Quick Actions */}
             <div className="pt-3 border-t border-black/[0.04] dark:border-white/[0.06] flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <ThemeToggle compact />
+                <span className="text-xs font-bold text-slate-700 dark:text-slate-200">Switch Theme</span>
+              </div>
+
               <Link
                 href="/sell"
                 onClick={() => setMobileOpen(false)}
                 className="flex items-center gap-1.5 text-xs text-[#b84357] font-bold"
               >
                 <PlusCircle className="w-4 h-4" />
-                <span>List Your Beauty Items</span>
+                <span>List Your Items</span>
               </Link>
-
-              <div className="flex items-center gap-1 text-[11px] text-slate-500 font-medium">
-                <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />
-                <span>100% Genuine</span>
-              </div>
             </div>
           </motion.div>
         )}

@@ -1,4 +1,5 @@
 import "./globals.css";
+import { ThemeProvider } from "@/context/ThemeContext";
 import { AuthProvider } from "@/context/AuthContext";
 import { ToastProvider } from "@/context/ToastContext";
 import { CartProvider } from "@/context/CartContext";
@@ -17,8 +18,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="light">
+    <html lang="en" suppressHydrationWarning>
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('bnb_theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.classList.add(t);document.documentElement.classList.remove(t==='dark'?'light':'dark');}catch(e){}})();`,
+          }}
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
@@ -41,21 +47,23 @@ export default function RootLayout({ children }) {
           <div className="liquid-glass-blob absolute bottom-12 right-8 w-88 h-80 -rotate-6 opacity-75" />
         </div>
 
-        <AuthProvider>
-          <ToastProvider>
-            <CartProvider>
-              <Navbar />
-              <main className="flex-grow pt-20 sm:pt-24 pb-16 md:pb-0">
-                {children}
-              </main>
-              <FooterTrustStrip />
-              <Footer />
-              <MobileBottomNav />
-              <AiChatbox />
-              <CartDrawer />
-            </CartProvider>
-          </ToastProvider>
-        </AuthProvider>
+        <ThemeProvider>
+          <AuthProvider>
+            <ToastProvider>
+              <CartProvider>
+                <Navbar />
+                <main className="flex-grow pt-20 sm:pt-24 pb-16 md:pb-0">
+                  {children}
+                </main>
+                <FooterTrustStrip />
+                <Footer />
+                <MobileBottomNav />
+                <AiChatbox />
+                <CartDrawer />
+              </CartProvider>
+            </ToastProvider>
+          </AuthProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
