@@ -102,18 +102,18 @@ export function TrendingProducts({ products = [] }) {
     <section className="py-12 md:py-16 relative overflow-hidden">
       <div className="w-[90%] mx-auto px-2 sm:px-4">
         
-        {/* Section Heading with Framer Motion */}
+        {/* Section Heading with Glass Badge */}
         <motion.div 
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-10 sm:mb-12"
+          className="text-center mb-10 sm:mb-12 flex flex-col items-center"
         >
-          <p className="text-[11px] uppercase tracking-[0.22em] text-[#82757a] font-medium mb-1">
+          <span className="px-3.5 py-1 rounded-full text-[10px] sm:text-[11px] uppercase tracking-[0.24em] font-semibold text-[#b84357] dark:text-rose-300 bg-white/50 dark:bg-white/5 backdrop-blur-xl border border-white/60 dark:border-white/10 shadow-xs mb-2.5">
             Iconic Formulations
-          </p>
-          <h2 className="text-2xl sm:text-3xl font-serif text-[#191416] dark:text-white font-normal tracking-tight">
+          </span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-[#191416] dark:text-white font-normal tracking-tight">
             Best Sellers
           </h2>
         </motion.div>
@@ -124,7 +124,7 @@ export function TrendingProducts({ products = [] }) {
           {/* Left Arrow Button */}
           <button
             onClick={() => handleScroll('left')}
-            className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-white dark:bg-[#141114] shadow-sm border border-[#eee7e6] dark:border-white/10 items-center justify-center text-[#191416] dark:text-white hover:border-[#191416] active:scale-95 transition-all"
+            className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/75 dark:bg-[#140c16]/80 backdrop-blur-xl shadow-md border border-white/70 dark:border-white/10 items-center justify-center text-[#191416] dark:text-white hover:border-[#b84357] active:scale-95 transition-all cursor-pointer"
             aria-label="Previous products"
           >
             <ChevronLeft className="w-4 h-4" />
@@ -133,7 +133,7 @@ export function TrendingProducts({ products = [] }) {
           {/* Right Arrow Button */}
           <button
             onClick={() => handleScroll('right')}
-            className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-white dark:bg-[#141114] shadow-sm border border-[#eee7e6] dark:border-white/10 items-center justify-center text-[#191416] dark:text-white hover:border-[#191416] active:scale-95 transition-all"
+            className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/75 dark:bg-[#140c16]/80 backdrop-blur-xl shadow-md border border-white/70 dark:border-white/10 items-center justify-center text-[#191416] dark:text-white hover:border-[#b84357] active:scale-95 transition-all cursor-pointer"
             aria-label="Next products"
           >
             <ChevronRight className="w-4 h-4" />
@@ -154,11 +154,11 @@ export function TrendingProducts({ products = [] }) {
                   viewport={{ once: true, margin: "-40px" }}
                   transition={{ duration: 0.45, delay: idx * 0.08 }}
                   whileHover={{ y: -4 }}
-                  className="snap-item w-[220px] sm:w-[240px] md:w-[260px] flex-shrink-0 bg-white dark:bg-[#141114] rounded-xl overflow-hidden border border-[#eee7e6] dark:border-white/10 p-3 sm:p-3.5 flex flex-col justify-between group/card hover:border-[#d6cecc] dark:hover:border-white/20 transition-all duration-300 shadow-none hover:shadow-md"
+                  className="snap-item w-[220px] sm:w-[240px] md:w-[260px] flex-shrink-0 bg-white/55 dark:bg-[#150d18]/60 backdrop-blur-2xl backdrop-saturate-180 rounded-2xl overflow-hidden border border-white/65 dark:border-white/10 p-3 sm:p-3.5 flex flex-col justify-between group/card hover:border-[#b84357]/40 dark:hover:border-rose-400/40 transition-all duration-300 shadow-[0_8px_25px_rgba(0,0,0,0.03)] hover:shadow-[0_14px_30px_rgba(184,67,87,0.12)]"
                 >
                   <div>
                     {/* Product Image Frame */}
-                    <div className="relative aspect-square w-full rounded-lg overflow-hidden bg-[#faf8f7] dark:bg-white/5 mb-3">
+                    <div className="relative aspect-square w-full rounded-xl overflow-hidden bg-white/40 dark:bg-white/5 backdrop-blur-md border border-white/50 dark:border-white/5 mb-3">
                       <Link href={`/browse?category=${prod.category}`} className="block w-full h-full">
                         <img
                           src={prod.image}
@@ -169,7 +169,7 @@ export function TrendingProducts({ products = [] }) {
 
                       {/* SALE Badge */}
                       {prod.isSale && (
-                        <span className="absolute top-2.5 left-2.5 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider rounded bg-[#191416] text-white">
+                        <span className="absolute top-2.5 left-2.5 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider rounded-md bg-[#191416]/85 dark:bg-white/90 text-white dark:text-[#191416] backdrop-blur-md">
                           SALE
                         </span>
                       )}
@@ -179,8 +179,8 @@ export function TrendingProducts({ products = [] }) {
                         onClick={() => toggleWishlist(prod)}
                         className={`absolute top-2.5 right-2.5 p-1.5 rounded-full backdrop-blur-md transition-all ${
                           isSaved 
-                            ? 'bg-[#c94d64] text-white' 
-                            : 'bg-white/80 dark:bg-black/60 text-slate-600 dark:text-slate-300 hover:text-[#c94d64]'
+                            ? 'bg-[#c94d64] text-white shadow-xs' 
+                            : 'bg-white/70 dark:bg-black/60 text-slate-600 dark:text-slate-300 hover:text-[#c94d64]'
                         }`}
                         title="Save to wishlist"
                       >
@@ -197,7 +197,7 @@ export function TrendingProducts({ products = [] }) {
 
                     {/* Price with Strike-through */}
                     <div className="mt-1 flex items-center gap-2">
-                      <span className="text-xs sm:text-sm font-bold text-[#23171e] dark:text-white">
+                      <span className="text-xs sm:text-sm font-bold text-[#b84357] dark:text-rose-300">
                         {prod.price}
                       </span>
                       {prod.originalPrice && (
@@ -221,10 +221,10 @@ export function TrendingProducts({ products = [] }) {
                   </div>
 
                   {/* Add to Bag Button */}
-                  <div className="mt-3 pt-2 border-t border-[#fae0e4]/60 dark:border-rose-950/40">
+                  <div className="mt-3 pt-2.5 border-t border-rose-200/40 dark:border-white/10">
                     <Link
                       href={`/browse?category=${prod.category}`}
-                      className="w-full py-1.5 text-center text-[11px] font-bold rounded-lg bg-[#fcf2f2] hover:bg-[#c94d64] text-[#c94d64] hover:text-white active:scale-95 transition-all block"
+                      className="w-full py-2 text-center text-xs font-semibold rounded-xl bg-white/60 dark:bg-white/10 hover:bg-[#b84357] text-[#b84357] dark:text-rose-300 hover:text-white border border-white/70 dark:border-white/10 backdrop-blur-md active:scale-95 transition-all block shadow-xs"
                     >
                       View Product
                     </Link>
