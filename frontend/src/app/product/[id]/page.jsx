@@ -235,7 +235,7 @@ export default function ProductDetailPage() {
             <div className="flex items-center justify-between text-xs mb-2">
               <Link
                 href={`/browse?category=${encodeURIComponent(product.category || 'All')}`}
-                className="px-2.5 py-0.5 rounded-full bg-rose-100 dark:bg-rose-950/50 text-rose-700 dark:text-rose-300 font-bold uppercase tracking-wider text-[10px] hover:bg-rose-200 transition-colors"
+                className="px-3 py-1 rounded-full bg-rose-500/10 text-[#c94d64] dark:text-rose-300 font-bold uppercase tracking-wider text-[10px] hover:bg-rose-500/20 transition-colors backdrop-blur-md border border-rose-300/30"
               >
                 {product.brand || product.category}
               </Link>
@@ -252,13 +252,13 @@ export default function ProductDetailPage() {
 
             {product.shade && (
               <p className="text-xs text-slate-600 dark:text-slate-300 mt-2">
-                Shade / Finish: <span className="font-semibold text-rose-600 dark:text-rose-400">{product.shade}</span>
+                Shade / Finish: <span className="font-bold text-[#c94d64] dark:text-rose-400">{product.shade}</span>
               </p>
             )}
           </div>
 
           {/* Pricing Box */}
-          <div className="p-4 rounded-2xl bg-rose-50/50 dark:bg-rose-950/20 border border-rose-100 dark:border-rose-900/40 flex items-baseline gap-3">
+          <div className="p-5 rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl border border-white/60 dark:border-white/10 shadow-[0_10px_30px_rgba(201,77,100,0.06)] flex items-baseline gap-3">
             <span className="text-3xl font-serif font-bold text-slate-900 dark:text-white">
               {formatPrice(product.price)}
             </span>
@@ -275,7 +275,7 @@ export default function ProductDetailPage() {
           {/* Quantity and Action CTAs */}
           <div className="space-y-3 pt-2">
             <div className="flex items-center gap-3">
-              <div className="flex items-center border border-rose-200 dark:border-rose-900/60 rounded-xl overflow-hidden bg-white dark:bg-white/5">
+              <div className="flex items-center border border-white/60 dark:border-white/10 rounded-2xl overflow-hidden bg-white/70 dark:bg-white/5 backdrop-blur-md shadow-xs">
                 <button
                   type="button"
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
@@ -299,7 +299,7 @@ export default function ProductDetailPage() {
                 whileTap={{ scale: 0.96 }}
                 type="button"
                 onClick={() => addToCart(product, quantity)}
-                className="flex-1 py-3 px-4 rounded-xl bg-white dark:bg-white/10 hover:bg-rose-50 dark:hover:bg-white/20 text-[#b84357] dark:text-rose-300 border border-rose-300 dark:border-rose-800 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 active:scale-98 transition-all cursor-pointer shadow-sm"
+                className="flex-1 py-3 px-4 rounded-2xl bg-white/70 dark:bg-white/10 hover:bg-white/90 dark:hover:bg-white/20 text-[#c94d64] dark:text-rose-300 border border-white/60 dark:border-white/15 backdrop-blur-xl font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 active:scale-98 transition-all cursor-pointer shadow-xs"
               >
                 <ShoppingBag className="w-4 h-4" />
                 <span>Add to Bag</span>
@@ -309,7 +309,7 @@ export default function ProductDetailPage() {
             <motion.button
               whileTap={{ scale: 0.97 }}
               onClick={() => setBuyModalOpen(true)}
-              className="w-full btn-rose-primary py-3.5 text-sm font-bold flex items-center justify-center gap-2 shadow-lg shadow-[#b84357]/25 cursor-pointer"
+              className="w-full btn-rose-primary py-3.5 rounded-2xl text-xs uppercase tracking-wider font-bold flex items-center justify-center gap-2 shadow-lg shadow-[#c94d64]/25 cursor-pointer"
             >
               <span>Instant Buy with Cash on Delivery (COD)</span>
             </motion.button>
@@ -317,7 +317,7 @@ export default function ProductDetailPage() {
             <motion.button
               whileTap={{ scale: 0.97 }}
               onClick={openWhatsApp}
-              className="w-full py-3 rounded-xl border border-emerald-500/80 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-950/20 font-semibold text-xs flex items-center justify-center gap-2 transition-colors cursor-pointer"
+              className="w-full py-3 rounded-2xl border border-emerald-500/30 bg-emerald-500/10 dark:bg-emerald-500/10 backdrop-blur-md text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500/20 font-bold text-xs flex items-center justify-center gap-2 transition-all cursor-pointer"
             >
               <MessageCircle className="w-4 h-4" />
               <span>Ask Seller via WhatsApp Direct</span>
@@ -325,17 +325,17 @@ export default function ProductDetailPage() {
           </div>
 
           {/* Courier Delivery Timeline Box */}
-          <div className="p-4 rounded-2xl border border-rose-100 dark:border-rose-900/40 bg-white dark:bg-[#1a0f1c] space-y-3">
-            <div className="flex items-center gap-2 text-xs font-bold text-slate-900 dark:text-white">
-              <Truck className="w-4 h-4 text-rose-500" />
+          <div className="p-5 rounded-3xl border border-white/60 dark:border-white/10 bg-white/60 dark:bg-[#140b17]/60 backdrop-blur-2xl shadow-xs space-y-3">
+            <div className="flex items-center gap-2 text-xs font-bold text-slate-900 dark:text-white font-serif">
+              <Truck className="w-4 h-4 text-[#c94d64]" />
               <span>Courier Delivery Estimates</span>
             </div>
             <div className="grid grid-cols-2 gap-3 text-xs">
-              <div className="p-2.5 rounded-xl bg-rose-50/50 dark:bg-rose-950/30">
+              <div className="p-3 rounded-2xl bg-white/60 dark:bg-white/5 backdrop-blur-md border border-white/40 dark:border-white/10">
                 <span className="font-bold text-slate-800 dark:text-slate-200 block">Inside Dhaka</span>
                 <span className="text-slate-500 text-[11px]">24 - 48 Hours • ৳60</span>
               </div>
-              <div className="p-2.5 rounded-xl bg-rose-50/50 dark:bg-rose-950/30">
+              <div className="p-3 rounded-2xl bg-white/60 dark:bg-white/5 backdrop-blur-md border border-white/40 dark:border-white/10">
                 <span className="font-bold text-slate-800 dark:text-slate-200 block">Outside Dhaka</span>
                 <span className="text-slate-500 text-[11px]">48 - 72 Hours • ৳120</span>
               </div>
@@ -343,9 +343,9 @@ export default function ProductDetailPage() {
           </div>
 
           {/* Seller / Boutique Box */}
-          <div className="p-4 rounded-2xl border border-rose-100 dark:border-rose-900/40 bg-white dark:bg-[#1a0f1c] flex items-center justify-between">
+          <div className="p-5 rounded-3xl border border-white/60 dark:border-white/10 bg-white/60 dark:bg-[#140b17]/60 backdrop-blur-2xl shadow-xs flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-11 h-11 rounded-2xl bg-rose-100 overflow-hidden text-rose-600 flex items-center justify-center font-bold text-sm">
+              <div className="w-12 h-12 rounded-2xl bg-rose-500/15 dark:bg-rose-500/25 border border-rose-300/30 backdrop-blur-md overflow-hidden text-[#c94d64] flex items-center justify-center font-bold text-base">
                 {product.sellerAvatar ? (
                   <img src={product.sellerAvatar} alt={product.sellerName} className="w-full h-full object-cover" />
                 ) : (
@@ -353,12 +353,12 @@ export default function ProductDetailPage() {
                 )}
               </div>
               <div>
-                <h4 className="text-xs font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+                <h4 className="text-xs font-bold font-serif text-slate-900 dark:text-white flex items-center gap-1.5">
                   <span>{product.sellerName || 'Verified Boutique'}</span>
-                  <ShieldCheck className="w-3.5 h-3.5 text-rose-500" />
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#c94d64]" />
                 </h4>
                 <p className="text-[11px] text-slate-500 flex items-center gap-1">
-                  <MapPin className="w-3 h-3 text-rose-400" />
+                  <MapPin className="w-3 h-3 text-[#c94d64]" />
                   <span>{product.location || 'Dhaka, Bangladesh'}</span>
                 </p>
               </div>
@@ -369,7 +369,7 @@ export default function ProductDetailPage() {
                 <Star className="w-3.5 h-3.5 fill-current" />
                 <span>{product.sellerRating || 4.9}</span>
               </span>
-              <span className="text-[10px] text-slate-400">Verified Seller</span>
+              <span className="text-[10px] text-slate-400 font-medium">Verified Seller</span>
             </div>
           </div>
 
