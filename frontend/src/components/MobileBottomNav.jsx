@@ -68,28 +68,28 @@ export function MobileBottomNav({ onOpenCategories }) {
   ];
 
   return (
-    <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/92 dark:bg-[#0c0a0c]/92 backdrop-blur-md border-t border-[#eee7e6] dark:border-white/10 shadow-sm px-2 py-1.5 transition-all">
+    <div className="md:hidden fixed bottom-2 left-3 right-3 z-50 rounded-2xl bg-white/80 dark:bg-[#130a16]/85 backdrop-blur-2xl border border-white/60 dark:border-white/10 shadow-[0_10px_35px_rgba(0,0,0,0.12)] px-2 py-1.5 transition-all">
       <div className="flex items-center justify-around max-w-md mx-auto">
         {navItems.map((item, idx) => {
           const Icon = item.icon;
           const content = (
             <motion.div 
               whileTap={{ scale: 0.88 }}
-              className={`flex flex-col items-center justify-center py-1 px-2.5 rounded-lg transition-colors ${
+              className={`flex flex-col items-center justify-center py-1 px-2.5 rounded-xl transition-all ${
                 item.isActive 
-                  ? 'text-[#191416] dark:text-white font-medium' 
-                  : 'text-[#8a7e84] dark:text-slate-400 hover:text-[#191416]'
+                  ? 'text-[#c94d64] dark:text-rose-400 font-bold bg-rose-50/70 dark:bg-white/10 backdrop-blur-sm' 
+                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
               <div className="relative">
-                <Icon className={`w-4 h-4 sm:w-5 sm:h-5 ${item.isActive ? 'stroke-[2]' : 'stroke-[1.5]'}`} />
+                <Icon className={`w-4 h-4 sm:w-5 sm:h-5 ${item.isActive ? 'stroke-[2.2]' : 'stroke-[1.6]'}`} />
                 {item.badge && (
-                  <span className="absolute -top-1.5 -right-2 bg-[#c94d64] text-white text-[9px] font-bold w-3.5 h-3.5 rounded-full flex items-center justify-center">
+                  <span className="absolute -top-1.5 -right-2 bg-[#c94d64] text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-xs">
                     {item.badge}
                   </span>
                 )}
               </div>
-              <span className="text-[10px] mt-1 tracking-tight">{item.label}</span>
+              <span className="text-[10px] mt-0.5 tracking-tight">{item.label}</span>
             </motion.div>
           );
 
