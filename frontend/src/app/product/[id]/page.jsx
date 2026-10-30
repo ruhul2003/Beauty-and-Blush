@@ -447,7 +447,7 @@ export default function ProductDetailPage() {
       </section>
 
       {/* Customer Reviews Section */}
-      <section className="pt-8 border-t border-rose-100 dark:border-rose-950/40">
+      <section className="pt-10 border-t border-white/50 dark:border-white/10">
         <div className="max-w-4xl mx-auto space-y-6">
           <h2 className="text-xl font-serif font-bold text-slate-900 dark:text-white flex items-center gap-2">
             <Star className="w-5 h-5 text-amber-500 fill-current" />
@@ -455,10 +455,10 @@ export default function ProductDetailPage() {
           </h2>
 
           {/* Leave a Review Form */}
-          <form onSubmit={handlePostReview} className="p-5 rounded-2xl glass-panel space-y-4">
-            <h3 className="text-xs font-bold text-slate-800 dark:text-slate-200">Share your experience with this product</h3>
+          <form onSubmit={handlePostReview} className="p-6 rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl border border-white/60 dark:border-white/10 shadow-[0_15px_35px_rgba(0,0,0,0.04)] space-y-4">
+            <h3 className="text-xs font-bold font-serif text-slate-800 dark:text-slate-200">Share your experience with this product</h3>
             <div className="flex items-center gap-2">
-              <span className="text-xs text-slate-500">Your Rating:</span>
+              <span className="text-xs text-slate-500 font-medium">Your Rating:</span>
               <div className="flex gap-1">
                 {[1, 2, 3, 4, 5].map(star => (
                   <button
@@ -467,7 +467,7 @@ export default function ProductDetailPage() {
                     onClick={() => setNewRating(star)}
                     className="p-1 text-amber-400 hover:scale-110 transition-transform cursor-pointer"
                   >
-                    <Star className={`w-5 h-5 ${star <= newRating ? 'fill-current' : 'text-slate-300'}`} />
+                    <Star className={`w-5 h-5 ${star <= newRating ? 'fill-current' : 'text-slate-300 dark:text-white/20'}`} />
                   </button>
                 ))}
               </div>
@@ -478,13 +478,13 @@ export default function ProductDetailPage() {
               value={newComment}
               onChange={(e) => setNewComment(e.target.value)}
               placeholder="Write your review: texture, scent, skin feel, authenticity verification..."
-              className="w-full p-3 text-xs rounded-xl border border-rose-200 dark:border-rose-900/50 bg-white dark:bg-[#1a0f1c]"
+              className="w-full p-3.5 text-xs rounded-2xl border border-white/60 dark:border-white/10 bg-white/70 dark:bg-white/5 backdrop-blur-md text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-1 focus:ring-[#c94d64]"
             />
 
             <motion.button 
               whileTap={{ scale: 0.94 }}
               type="submit" 
-              className="btn-rose-primary px-5 py-2.5 text-xs font-semibold cursor-pointer"
+              className="btn-rose-primary px-6 py-2.5 rounded-xl text-xs uppercase tracking-wider font-bold cursor-pointer shadow-md shadow-[#c94d64]/20"
             >
               Post Review
             </motion.button>
@@ -493,11 +493,11 @@ export default function ProductDetailPage() {
           {/* Reviews Stream */}
           <div className="space-y-4">
             {reviewsList.map((rev, idx) => (
-              <div key={idx} className="p-4 rounded-2xl border border-rose-100 dark:border-rose-900/40 bg-white dark:bg-[#1a0f1c] space-y-2">
+              <div key={idx} className="p-5 rounded-3xl border border-white/60 dark:border-white/10 bg-white/60 dark:bg-[#140b17]/60 backdrop-blur-2xl shadow-xs space-y-2">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <span className="text-xs font-bold text-slate-900 dark:text-white">{rev.userName}</span>
-                    <span className="px-2 py-0.5 text-[9px] font-bold rounded bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300">
+                    <span className="px-2.5 py-0.5 text-[9px] font-bold rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 backdrop-blur-sm">
                       Verified Purchase
                     </span>
                   </div>
