@@ -42,18 +42,18 @@ export function CategoryShowcase() {
     <section className="py-12 md:py-16 overflow-hidden">
       <div className="w-[90%] mx-auto px-2 sm:px-4">
         
-        {/* Section Heading */}
+        {/* Section Heading with Glass Pill */}
         <motion.div 
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-10 sm:mb-12"
+          className="text-center mb-10 sm:mb-12 flex flex-col items-center"
         >
-          <p className="text-[11px] uppercase tracking-[0.22em] text-[#82757a] font-medium mb-1">
-            Collections
-          </p>
-          <h2 className="text-2xl sm:text-3xl font-serif text-[#191416] dark:text-white font-normal tracking-tight">
+          <span className="px-3.5 py-1 rounded-full text-[10px] sm:text-[11px] uppercase tracking-[0.24em] font-semibold text-[#b84357] dark:text-rose-300 bg-white/50 dark:bg-white/5 backdrop-blur-xl border border-white/60 dark:border-white/10 shadow-xs mb-2.5">
+            Curated Collections
+          </span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-[#191416] dark:text-white font-normal tracking-tight">
             Shop by Category
           </h2>
         </motion.div>
@@ -75,8 +75,8 @@ export function CategoryShowcase() {
                 href={`/browse?category=${cat.slug}`}
                 className="group flex flex-col items-center text-center w-full"
               >
-                {/* Circular Thumbnail Frame */}
-                <div className="relative w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-full overflow-hidden p-1 border border-[#eee7e6] dark:border-white/10 group-hover:border-[#191416] dark:group-hover:border-white bg-[#faf8f7] dark:bg-white/5 transition-all duration-300 shadow-sm group-hover:shadow-md">
+                {/* Circular Glass Thumbnail Frame */}
+                <div className="relative w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-full overflow-hidden p-1.5 border border-white/70 dark:border-white/10 group-hover:border-[#b84357]/60 dark:group-hover:border-rose-400/60 bg-white/50 dark:bg-white/5 backdrop-blur-xl backdrop-saturate-180 transition-all duration-300 shadow-[0_8px_25px_rgba(0,0,0,0.04)] group-hover:shadow-[0_12px_30px_rgba(184,67,87,0.18)]">
                   <div className="w-full h-full rounded-full overflow-hidden">
                     <img
                       src={cat.image}
@@ -87,8 +87,8 @@ export function CategoryShowcase() {
                 </div>
 
                 {/* Title & Link */}
-                <div className="mt-3 space-y-0.5">
-                  <h3 className="text-xs sm:text-[13px] font-medium tracking-wider text-[#191416] dark:text-white uppercase transition-colors">
+                <div className="mt-3.5 space-y-1">
+                  <h3 className="text-xs sm:text-[13px] font-semibold tracking-wider text-[#191416] dark:text-white uppercase group-hover:text-[#b84357] dark:group-hover:text-rose-300 transition-colors">
                     {cat.name}
                   </h3>
                   <p className="text-[11px] text-[#73676c] dark:text-slate-400">
