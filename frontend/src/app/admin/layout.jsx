@@ -31,15 +31,15 @@ export default function AdminLayout({ children }) {
   ];
 
   return (
-    <div className="min-h-screen bg-[#faf4f4] dark:bg-[#0c060d] text-slate-900 dark:text-slate-100 pb-16">
+    <div className="min-h-screen text-slate-900 dark:text-slate-100 pb-16">
       {/* Top Admin Header Bar */}
-      <div className="bg-white/95 dark:bg-[#140b17]/95 border-b border-rose-200/80 dark:border-rose-950/70 sticky top-16 sm:top-20 z-30 backdrop-blur-md">
+      <div className="bg-white/70 dark:bg-[#130a16]/75 border-b border-white/60 dark:border-white/10 sticky top-16 sm:top-20 z-30 backdrop-blur-3xl shadow-xs">
         <div className="w-[90%] mx-auto px-2 sm:px-4 py-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           
           <div className="flex items-center gap-3">
             <Link
               href="/"
-              className="p-1.5 rounded-lg border border-rose-200 dark:border-rose-900/60 text-slate-600 dark:text-slate-300 hover:text-[#c94d64] hover:border-[#c94d64] transition-colors"
+              className="p-2 rounded-xl border border-white/60 dark:border-white/10 bg-white/70 dark:bg-white/5 backdrop-blur-md text-slate-600 dark:text-slate-300 hover:text-[#c94d64] hover:border-[#c94d64] transition-colors shadow-xs"
               title="Return to Store"
             >
               <ArrowLeft className="w-4 h-4" />
@@ -50,7 +50,7 @@ export default function AdminLayout({ children }) {
                 <span className="text-sm sm:text-base font-serif font-bold text-slate-900 dark:text-white">
                   Beauty & Blush Control Portal
                 </span>
-                <span className="px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-[#c94d64] text-white tracking-widest uppercase">
+                <span className="px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-[#c94d64] text-white tracking-widest uppercase shadow-xs">
                   ADMIN
                 </span>
               </div>
@@ -61,15 +61,15 @@ export default function AdminLayout({ children }) {
           </div>
 
           <div className="flex items-center gap-2 self-start sm:self-auto">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 text-xs font-semibold border border-emerald-200 dark:border-emerald-800/40">
-              <ShieldCheck className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 text-xs font-semibold border border-emerald-500/20 backdrop-blur-md">
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
               <span>System Operational</span>
             </div>
 
             <Link
               href="/browse"
               target="_blank"
-              className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold text-[#c94d64] dark:text-[#f4728d] hover:bg-rose-50 dark:hover:bg-rose-950/40 transition-colors"
+              className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold text-[#c94d64] hover:bg-rose-500/10 backdrop-blur-md transition-colors"
             >
               <Store className="w-3.5 h-3.5" />
               <span>View Storefront</span>
@@ -79,7 +79,7 @@ export default function AdminLayout({ children }) {
 
         {/* Tab Navigation Menu */}
         <div className="w-[90%] mx-auto px-2 sm:px-4 overflow-x-auto no-scrollbar">
-          <nav className="flex items-center gap-1 sm:gap-2 border-t border-rose-100 dark:border-rose-950/40 pt-1">
+          <nav className="flex items-center gap-1 sm:gap-2 border-t border-white/40 dark:border-white/10 pt-1 pb-1">
             {navItems.map((item) => {
               const Icon = item.icon;
               const isActive = item.exact 
@@ -90,10 +90,10 @@ export default function AdminLayout({ children }) {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`flex items-center gap-2 px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap shrink-0 ${
+                  className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap shrink-0 ${
                     isActive
                       ? 'bg-[#c94d64] text-white shadow-md shadow-[#c94d64]/20'
-                      : 'text-slate-600 dark:text-slate-400 hover:text-[#c94d64] hover:bg-rose-50 dark:hover:bg-rose-950/30'
+                      : 'text-slate-600 dark:text-slate-400 hover:text-[#c94d64] hover:bg-white/60 dark:hover:bg-white/10 backdrop-blur-sm'
                   }`}
                 >
                   <Icon className={`w-4 h-4 ${isActive ? 'stroke-[2.2]' : 'stroke-[1.8]'}`} />
