@@ -29,25 +29,25 @@ export function InstagramFeed() {
     <section className="py-12 sm:py-16 overflow-hidden">
       <div className="w-[90%] mx-auto px-2 sm:px-4">
         
-        {/* Section Heading */}
+        {/* Section Heading with Glass Badge */}
         <motion.div 
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-8 sm:mb-10"
+          className="text-center mb-8 sm:mb-10 flex flex-col items-center"
         >
-          <p className="text-[11px] uppercase tracking-[0.22em] text-[#82757a] font-medium mb-1">
+          <span className="px-3.5 py-1 rounded-full text-[10px] sm:text-[11px] uppercase tracking-[0.24em] font-semibold text-[#b84357] dark:text-rose-300 bg-white/50 dark:bg-white/5 backdrop-blur-xl border border-white/60 dark:border-white/10 shadow-xs mb-2">
             Community & Journal
-          </p>
+          </span>
           <Link href="/browse" className="group inline-block">
-            <h2 className="text-xl sm:text-2xl font-serif text-[#191416] dark:text-white font-normal tracking-tight">
+            <h2 className="text-xl sm:text-2xl font-serif text-[#191416] dark:text-white font-normal tracking-tight group-hover:text-[#b84357] transition-colors">
               @beautyandblush
             </h2>
           </Link>
         </motion.div>
 
-        {/* 6 Images Grid with Framer Motion */}
+        {/* 6 Images Grid with Framer Motion and Frosted Glass Frames */}
         <div className="flex sm:grid sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 overflow-x-auto pb-4 pt-1 no-scrollbar snap-x snap-mandatory">
           {posts.map((post, idx) => (
             <motion.div
@@ -61,21 +61,23 @@ export function InstagramFeed() {
             >
               <Link
                 href={post.href || '/browse'}
-                className="group relative aspect-square w-full rounded-lg overflow-hidden bg-[#faf8f7] dark:bg-white/5 border border-[#eee7e6] dark:border-white/10 shadow-none block"
+                className="group relative aspect-square w-full rounded-2xl overflow-hidden bg-white/50 dark:bg-white/5 backdrop-blur-xl border border-white/70 dark:border-white/10 shadow-[0_6px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_28px_rgba(184,67,87,0.15)] hover:border-[#b84357]/50 block p-1 transition-all"
                 title={post.alt}
               >
-                <img
-                  src={post.image}
-                  alt={post.alt}
-                  className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500"
-                />
+                <div className="w-full h-full rounded-xl overflow-hidden relative">
+                  <img
+                    src={post.image}
+                    alt={post.alt}
+                    className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500"
+                  />
 
-                {/* Hover Dark Overlay with Instagram Heart */}
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white p-2">
-                  <InstagramIcon className="w-5 h-5 mb-1 text-white/90" />
-                  <div className="flex items-center gap-1 text-xs font-medium">
-                    <Heart className="w-3.5 h-3.5 fill-current text-white" />
-                    <span>{post.likes}</span>
+                  {/* Hover Glassy Blur Dark Overlay with Instagram Heart */}
+                  <div className="absolute inset-0 bg-black/45 backdrop-blur-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white p-2">
+                    <InstagramIcon className="w-5 h-5 mb-1 text-white/90" />
+                    <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-white/20 backdrop-blur-md text-[11px] font-semibold border border-white/30">
+                      <Heart className="w-3.5 h-3.5 fill-current text-rose-300" />
+                      <span>{post.likes}</span>
+                    </div>
                   </div>
                 </div>
               </Link>
