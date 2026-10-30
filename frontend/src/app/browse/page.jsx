@@ -92,9 +92,12 @@ function BrowseContent() {
   return (
     <div className="w-[90%] mx-auto px-2 sm:px-4 py-8">
       {/* Header & Search */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+      <div className="p-6 sm:p-8 rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl border border-white/60 dark:border-white/10 shadow-[0_15px_40px_rgba(0,0,0,0.04)] flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
         <div>
-          <h1 className="text-2xl sm:text-3xl font-serif font-normal text-slate-900 dark:text-white">
+          <span className="text-[11px] font-bold tracking-widest text-[#c94d64] uppercase inline-block mb-1">
+            Curated Beauty Vault
+          </span>
+          <h1 className="text-2xl sm:text-3xl font-serif font-bold text-slate-900 dark:text-white">
             Catalog & Collections
           </h1>
           <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
@@ -110,17 +113,20 @@ function BrowseContent() {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Search by brand, shade, product..."
-              className="w-full pl-9 pr-3 py-2 text-xs rounded-lg border border-[#eee7e6] dark:border-white/10 bg-[#faf8f7] dark:bg-white/5 text-slate-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-black dark:focus:ring-white"
+              className="w-full pl-9 pr-3 py-2.5 text-xs rounded-xl border border-white/60 dark:border-white/10 bg-white/70 dark:bg-white/5 backdrop-blur-xl text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-1 focus:ring-[#c94d64] shadow-xs"
             />
             <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
           </div>
-          <button type="submit" className="px-4 py-2 text-xs font-medium rounded-lg bg-[#191416] hover:bg-black dark:bg-white dark:hover:bg-slate-100 text-white dark:text-black transition-all">
+          <button 
+            type="submit" 
+            className="px-5 py-2.5 text-xs font-bold uppercase tracking-wider rounded-xl bg-[#c94d64] hover:bg-[#b03e54] text-white shadow-md shadow-[#c94d64]/20 transition-all cursor-pointer"
+          >
             Search
           </button>
           <button
             type="button"
             onClick={() => setMobileFilterOpen(!mobileFilterOpen)}
-            className="md:hidden p-2 rounded-lg border border-[#eee7e6] dark:border-white/10 text-slate-700 dark:text-slate-200"
+            className="md:hidden p-2.5 rounded-xl border border-white/60 dark:border-white/10 bg-white/70 dark:bg-white/5 backdrop-blur-md text-slate-700 dark:text-slate-200 cursor-pointer"
           >
             <SlidersHorizontal className="w-4 h-4" />
           </button>
