@@ -26,12 +26,19 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </head>
-      <body className="antialiased min-h-screen flex flex-col justify-between relative selection:bg-[#c94d64]/20 selection:text-[#c94d64]">
-        {/* Minimal Ambient Luminous Background Gradients */}
+      <body className="antialiased min-h-screen flex flex-col justify-between relative selection:bg-[#b84357]/20 selection:text-[#b84357]">
+        {/* Claymorphic Background Ambient Environment & Floating Liquid Glass Droplets */}
         <div className="fixed inset-0 pointer-events-none -z-10 overflow-hidden" aria-hidden="true">
-          <div className="absolute -top-[15%] left-[10%] w-[600px] h-[600px] rounded-full bg-rose-200/25 dark:bg-rose-950/20 blur-[160px]" />
-          <div className="absolute top-[35%] -right-[10%] w-[550px] h-[550px] rounded-full bg-amber-100/30 dark:bg-purple-950/15 blur-[160px]" />
-          <div className="absolute -bottom-[10%] left-[20%] w-[650px] h-[650px] rounded-full bg-rose-100/20 dark:bg-pink-950/15 blur-[180px]" />
+          {/* Ambient luminous glow centers */}
+          <div className="absolute -top-[12%] left-[15%] w-[620px] h-[620px] rounded-full bg-rose-200/20 dark:bg-rose-950/20 blur-[150px]" />
+          <div className="absolute top-[38%] -right-[8%] w-[580px] h-[580px] rounded-full bg-sky-100/25 dark:bg-indigo-950/20 blur-[150px]" />
+          <div className="absolute -bottom-[8%] left-[10%] w-[650px] h-[650px] rounded-full bg-amber-100/25 dark:bg-purple-950/15 blur-[160px]" />
+
+          {/* Organic 3D Liquid Glass Blobs (Reference Image Signature Element) */}
+          <div className="liquid-glass-blob absolute -top-16 -left-16 w-80 h-72 rotate-12 opacity-80" />
+          <div className="liquid-glass-blob absolute top-24 -right-20 w-96 h-88 -rotate-12 opacity-75" />
+          <div className="liquid-glass-blob absolute top-[48%] -left-28 w-[420px] h-[340px] rotate-45 opacity-65" />
+          <div className="liquid-glass-blob absolute bottom-12 right-8 w-88 h-80 -rotate-6 opacity-75" />
         </div>
 
         <AuthProvider>

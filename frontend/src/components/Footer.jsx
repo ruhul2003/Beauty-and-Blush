@@ -7,8 +7,8 @@ import { MapPin, Phone, Mail } from 'lucide-react';
 
 export function Footer() {
   return (
-    <footer className="bg-white/40 dark:bg-[#08040a]/70 backdrop-blur-3xl border-t border-black/[0.05] dark:border-white/[0.08] pt-16 pb-20 md:pb-12 transition-colors">
-      <div className="w-[90%] mx-auto px-2 sm:px-4">
+    <footer className="w-[95%] sm:w-[92%] max-w-[1500px] mx-auto mb-6 sm:mb-8 glass-window p-8 sm:p-12 md:p-16 relative overflow-hidden transition-colors">
+      <div className="w-full">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -19,14 +19,14 @@ export function Footer() {
           {/* Brand Info */}
           <div className="lg:col-span-2 space-y-4">
             <Link href="/" className="flex items-center gap-3 group">
-              <div className="w-10 h-10 rounded-full overflow-hidden border border-black/[0.06] dark:border-white/[0.1] shadow-xs shrink-0 bg-white/80 dark:bg-white/10 backdrop-blur-md">
+              <div className="w-10 h-10 rounded-full overflow-hidden border border-white/80 dark:border-white/10 shadow-xs shrink-0 bg-white/80 dark:bg-white/10 backdrop-blur-md p-0.5">
                 <img
                   src="/images/logo.png"
                   alt="Beauty & Blush Logo"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover rounded-full"
                 />
               </div>
-              <span className="text-xl font-serif text-[#191416] dark:text-white font-medium transition-colors">
+              <span className="text-xl font-serif text-[#181416] dark:text-white font-bold transition-colors">
                 Beauty & Blush
               </span>
             </Link>
@@ -53,7 +53,7 @@ export function Footer() {
 
           {/* Catalog Links */}
           <div>
-            <h4 className="text-xs font-bold uppercase tracking-wider text-[#191416] dark:text-white mb-4">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-[#181416] dark:text-white mb-4">
               Collections
             </h4>
             <ul className="space-y-2.5 text-xs text-slate-600 dark:text-slate-400">
@@ -67,7 +67,7 @@ export function Footer() {
 
           {/* Customer Care */}
           <div>
-            <h4 className="text-xs font-bold uppercase tracking-wider text-[#191416] dark:text-white mb-4">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-[#181416] dark:text-white mb-4">
               Customer Care
             </h4>
             <ul className="space-y-2.5 text-xs text-slate-600 dark:text-slate-400">
@@ -81,7 +81,7 @@ export function Footer() {
 
           {/* Boutique */}
           <div>
-            <h4 className="text-xs font-bold uppercase tracking-wider text-[#191416] dark:text-white mb-4">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-[#181416] dark:text-white mb-4">
               Boutiques
             </h4>
             <ul className="space-y-2.5 text-xs text-slate-600 dark:text-slate-400">
@@ -94,9 +94,9 @@ export function Footer() {
         </motion.div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-black/[0.05] dark:border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400">
+        <div className="pt-6 border-t border-black/[0.04] dark:border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400">
           <p>© {new Date().getFullYear()} Beauty and Blush. All rights reserved.</p>
-          <div className="flex items-center gap-1 text-slate-500 dark:text-slate-400">
+          <div className="flex items-center gap-1 text-slate-500 dark:text-slate-400 font-medium">
             <span>Curated with precision for authentic luxury lovers</span>
           </div>
         </div>

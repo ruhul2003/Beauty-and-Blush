@@ -29,35 +29,32 @@ export function FooterTrustStrip() {
   ];
 
   return (
-    <div className="bg-white/40 dark:bg-[#0c0610]/40 backdrop-blur-xl border-y border-black/[0.05] dark:border-white/[0.08] py-6 transition-colors overflow-hidden">
-      <div className="w-[90%] mx-auto px-2 sm:px-4">
+    <div className="py-8 my-4 overflow-hidden">
+      <div className="w-[95%] sm:w-[92%] max-w-[1500px] mx-auto px-2 sm:px-4">
         <motion.div 
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
         >
           {assurances.map((item, idx) => {
             const Icon = item.icon;
             return (
               <motion.div 
                 key={idx}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: idx * 0.08 }}
-                whileHover={{ y: -2 }}
-                className="flex items-center gap-3 transition-transform"
+                whileHover={{ y: -4 }}
+                transition={{ duration: 0.25 }}
+                className="glass-slab p-4 sm:p-5 flex items-center gap-3.5"
               >
-                <div className="w-9 h-9 rounded-2xl bg-black/[0.02] dark:bg-white/[0.04] backdrop-blur-md border border-black/[0.05] dark:border-white/[0.08] flex items-center justify-center text-[#b84357] dark:text-rose-300 shrink-0 shadow-xs">
-                  <Icon className="w-4 h-4 stroke-[1.8]" />
+                <div className="glass-well w-10 h-10 rounded-2xl flex items-center justify-center text-[#b84357] dark:text-rose-300 shrink-0">
+                  <Icon className="w-4.5 h-4.5 stroke-[1.8]" />
                 </div>
                 <div>
-                  <h4 className="text-[11px] font-bold uppercase tracking-wider text-[#191416] dark:text-white">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-[#181416] dark:text-white">
                     {item.title}
                   </h4>
-                  <p className="text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
                     {item.desc}
                   </p>
                 </div>

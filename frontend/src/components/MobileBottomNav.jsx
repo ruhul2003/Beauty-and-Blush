@@ -67,16 +67,16 @@ export function MobileBottomNav({ onOpenCategories }) {
   ];
 
   return (
-    <div className="md:hidden fixed bottom-2 left-3 right-3 z-50 rounded-2xl bg-white/85 dark:bg-[#130a16]/90 backdrop-blur-2xl border border-black/[0.06] dark:border-white/[0.08] shadow-[0_10px_35px_rgba(0,0,0,0.12)] px-2 py-1.5 transition-all">
+    <div className="md:hidden fixed bottom-3 left-4 right-4 z-50 rounded-full glass-dock px-3 py-2 transition-all">
       <div className="flex items-center justify-around max-w-md mx-auto">
         {navItems.map((item, idx) => {
           const Icon = item.icon;
           const content = (
             <motion.div 
               whileTap={{ scale: 0.88 }}
-              className={`flex flex-col items-center justify-center py-1 px-2.5 rounded-xl transition-all ${
+              className={`flex flex-col items-center justify-center py-1 px-3 rounded-full transition-all ${
                 item.isActive 
-                  ? 'text-[#b84357] dark:text-rose-300 font-bold bg-black/[0.03] dark:bg-white/[0.06] backdrop-blur-sm' 
+                  ? 'text-[#b84357] dark:text-rose-300 font-bold glass-pill shadow-xs' 
                   : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
@@ -88,7 +88,7 @@ export function MobileBottomNav({ onOpenCategories }) {
                   </span>
                 )}
               </div>
-              <span className="text-[10px] mt-0.5 tracking-tight">{item.label}</span>
+              <span className="text-[10px] mt-0.5 tracking-tight font-medium">{item.label}</span>
             </motion.div>
           );
 

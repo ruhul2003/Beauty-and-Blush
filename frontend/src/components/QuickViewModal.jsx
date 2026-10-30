@@ -2,29 +2,22 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { 
-  X, 
-  ShieldCheck, 
-  Star, 
-  ShoppingBag, 
-  Heart, 
-  ArrowRight
-} from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { X, Star, Heart, ShoppingBag, ShieldCheck, ArrowRight, Check } from 'lucide-react';
 import { formatPrice, calculateDiscount } from '@/utils/formatters';
-import { useToast } from '@/context/ToastContext';
 import { useCart } from '@/context/CartContext';
+import { useToast } from '@/context/ToastContext';
 import { BuyModal } from './BuyModal';
 
 export function QuickViewModal({ product, onClose }) {
-  const { showToast } = useToast();
   const { addToCart } = useCart();
+  const { showToast } = useToast();
   const [activeImageIdx, setActiveImageIdx] = useState(0);
   const [buyModalOpen, setBuyModalOpen] = useState(false);
   const [isWishlisted, setIsWishlisted] = useState(() => {
     try {
       const saved = JSON.parse(localStorage.getItem('bnb_wishlist') || '[]');
-      return saved.some(item => (item._id || item.id) === (product._id || product.id));
+      return saved.some(p => (p._id || p.id) === (product._id || product.id));
     } catch (e) {
       return false;
     }
@@ -32,33 +25,31 @@ export function QuickViewModal({ product, onClose }) {
 
   if (!product) return null;
 
-  const images = product.images && product.images.length > 0 
-    ? product.images 
-    : [product.image || 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=800&q=80'];
+  const images = product.images && product.images.length > 0
+    ? product.images
+    : (product.image ? [product.image] : ['/images/serum.jpg']);
 
   const discount = calculateDiscount(product.price, product.originalPrice);
 
   const toggleWishlist = (e) => {
-    e.stopPropagation();
-    try {
-      let list = JSON.parse(localStorage.getItem('bnb_wishlist') || '[]');
-      const prodId = product._id || product.id;
-      const exists = list.some(i => (i._id || i.id) === prodId);
+    e.preventDefault();
+    const nextState = !isWishlisted;
+    setIsWishlisted(nextState);
 
-      if (exists) {
-        list = list.filter(i => (i._id || i.id) !== prodId);
-        setIsWishlisted(false);
-        showToast('Removed from wishlist', 'info');
+    try {
+      const saved = JSON.parse(localStorage.getItem('bnb_wishlist') || '[]');
+      if (nextState) {
+        if (!saved.some(p => (p._id || p.id) === (product._id || product.id))) {
+          saved.push(product);
+          localStorage.setItem('bnb_wishlist', JSON.stringify(saved));
+        }
+        showToast?.('Added to wishlist', 'success');
       } else {
-        list.push(product);
-        setIsWishlisted(true);
-        showToast('Added to wishlist', 'success');
+        const filtered = saved.filter(p => (p._id || p.id) !== (product._id || product.id));
+        localStorage.setItem('bnb_wishlist', JSON.stringify(filtered));
+        showToast?.('Removed from wishlist', 'info');
       }
-      localStorage.setItem('bnb_wishlist', JSON.stringify(list));
-      window.dispatchEvent(new Event('storage'));
-    } catch (err) {
-      console.error(err);
-    }
+    } catch (err) {}
   };
 
   return (
@@ -67,39 +58,38 @@ export function QuickViewModal({ product, onClose }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        transition={{ duration: 0.2 }}
         className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-md"
         onClick={onClose}
       >
         <motion.div 
-          initial={{ opacity: 0, scale: 0.95, y: 16 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.95, y: 16 }}
-          transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-          className="bg-white/85 dark:bg-[#140b17]/90 backdrop-blur-3xl rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-black/[0.06] dark:border-white/[0.08] shadow-[0_25px_60px_rgba(0,0,0,0.25)] p-6 relative"
+          initial={{ scale: 0.94, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0.94, opacity: 0 }}
+          transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          className="relative max-w-2xl w-full glass-slab p-6 sm:p-8 rounded-[36px] shadow-2xl"
           onClick={(e) => e.stopPropagation()}
         >
-          {/* Close button */}
+          {/* Close Button */}
           <motion.button
             whileTap={{ scale: 0.9 }}
             onClick={onClose}
-            className="absolute top-4 right-4 p-2 rounded-full text-slate-400 hover:text-[#191416] dark:hover:text-white bg-black/[0.03] dark:bg-white/[0.05] hover:bg-black/[0.06] backdrop-blur-md border border-black/[0.06] dark:border-white/[0.08] transition-colors z-10 cursor-pointer shadow-xs"
+            className="absolute top-4 right-4 glass-pill w-9 h-9 flex items-center justify-center text-slate-500 hover:text-slate-800 dark:hover:text-white transition-colors cursor-pointer z-10"
             aria-label="Close modal"
           >
-            <X className="w-5 h-5" />
+            <X className="w-4 h-4" />
           </motion.button>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Image Preview Side */}
             <div className="space-y-3">
-              <div className="relative aspect-square rounded-2xl overflow-hidden bg-black/[0.02] dark:bg-white/[0.03] backdrop-blur-md border border-black/[0.05] dark:border-white/[0.08] shadow-xs">
+              <div className="relative aspect-square rounded-[24px] overflow-hidden glass-well">
                 <img
                   src={images[activeImageIdx]}
                   alt={product.title}
-                  className="w-full h-full object-cover transition-all duration-300"
+                  className="w-full h-full object-cover transition-all duration-300 rounded-[24px]"
                 />
                 {discount > 0 && (
-                  <span className="absolute top-3 left-3 bg-[#191416]/90 text-white text-[10px] font-bold px-2 py-0.5 rounded-md backdrop-blur-md">
+                  <span className="glass-pill absolute top-3 left-3 bg-[#181416]/90 text-white text-[10px] font-bold px-2.5 py-0.5 shadow-xs">
                     SAVE {discount}%
                   </span>
                 )}
@@ -114,13 +104,13 @@ export function QuickViewModal({ product, onClose }) {
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       onClick={() => setActiveImageIdx(idx)}
-                      className={`relative w-12 h-12 rounded-xl overflow-hidden border transition-all cursor-pointer ${
+                      className={`relative w-12 h-12 rounded-xl overflow-hidden glass-slab p-0.5 transition-all cursor-pointer ${
                         activeImageIdx === idx 
                           ? 'border-[#b84357] ring-2 ring-[#b84357]/20' 
-                          : 'border-black/[0.06] dark:border-white/[0.08] opacity-70 hover:opacity-100 bg-black/[0.02] dark:bg-white/[0.04] backdrop-blur-sm'
+                          : 'opacity-70 hover:opacity-100'
                       }`}
                     >
-                      <img src={img} alt="" className="w-full h-full object-cover" />
+                      <img src={img} alt="" className="w-full h-full object-cover rounded-lg" />
                     </motion.button>
                   ))}
                 </div>
@@ -131,22 +121,22 @@ export function QuickViewModal({ product, onClose }) {
             <div className="flex flex-col justify-between space-y-4">
               <div>
                 <div className="flex items-center justify-between gap-2">
-                  <span className="text-[11px] uppercase tracking-wider font-bold text-[#b84357] dark:text-rose-300">
+                  <span className="glass-pill px-3 py-0.5 text-[10px] uppercase tracking-wider font-bold text-[#b84357] dark:text-rose-300">
                     {product.brand || 'Luxury Cosmetic'}
                   </span>
-                  <div className="flex items-center gap-1 text-xs text-amber-500 font-semibold px-2 py-0.5 rounded-full bg-amber-500/10 backdrop-blur-sm">
+                  <div className="glass-well flex items-center gap-1 text-xs text-amber-500 font-bold px-2.5 py-1 rounded-full">
                     <Star className="w-3.5 h-3.5 fill-current" />
                     <span>{product.rating || '4.9'}</span>
                   </div>
                 </div>
 
-                <h3 className="text-xl font-serif font-bold text-slate-900 dark:text-white mt-1.5">
+                <h3 className="text-xl font-serif font-bold text-[#181416] dark:text-white mt-2">
                   {product.title}
                 </h3>
 
                 {/* Batch Code Authenticity Pill */}
                 {product.batchCode && (
-                  <div className="inline-flex items-center gap-1.5 mt-2 px-2.5 py-1 rounded-xl bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 text-[11px] font-medium border border-emerald-500/20 backdrop-blur-md">
+                  <div className="inline-flex items-center gap-1.5 mt-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 text-[11px] font-bold border border-emerald-500/20">
                     <ShieldCheck className="w-3.5 h-3.5" />
                     <span>Batch Code: {product.batchCode}</span>
                   </div>
@@ -156,7 +146,7 @@ export function QuickViewModal({ product, onClose }) {
                 {product.shade && (
                   <p className="text-xs text-slate-600 dark:text-slate-300 mt-2.5">
                     <span className="text-slate-400">Shade / Variant: </span>
-                    <strong className="text-slate-800 dark:text-white font-semibold">{product.shade}</strong>
+                    <strong className="text-slate-800 dark:text-white font-bold">{product.shade}</strong>
                   </p>
                 )}
 
@@ -178,7 +168,7 @@ export function QuickViewModal({ product, onClose }) {
                 </p>
               </div>
 
-              {/* Action Buttons with Glass Styling */}
+              {/* Action Buttons with Pill Styling */}
               <div className="space-y-2 pt-2">
                 <div className="flex gap-2">
                   <motion.button
@@ -187,7 +177,7 @@ export function QuickViewModal({ product, onClose }) {
                       addToCart(product);
                       onClose();
                     }}
-                    className="flex-1 py-3 text-xs font-bold rounded-xl bg-black/[0.02] dark:bg-white/[0.04] hover:bg-[#b84357] hover:text-white text-[#191416] dark:text-white border border-black/[0.06] dark:border-white/[0.08] hover:border-[#b84357] flex items-center justify-center gap-2 transition-all shadow-xs backdrop-blur-md cursor-pointer"
+                    className="flex-1 py-3 text-xs font-bold rounded-full glass-pill hover:bg-[#b84357] hover:text-white text-[#181416] dark:text-white hover:border-[#b84357] flex items-center justify-center gap-2 transition-all shadow-xs cursor-pointer"
                   >
                     <ShoppingBag className="w-4 h-4" />
                     <span>Add to Bag</span>
@@ -196,7 +186,7 @@ export function QuickViewModal({ product, onClose }) {
                   <motion.button
                     whileTap={{ scale: 0.96 }}
                     onClick={() => setBuyModalOpen(true)}
-                    className="flex-1 bg-[#b84357] hover:bg-[#a13649] text-white py-3 text-xs font-bold rounded-xl flex items-center justify-center gap-2 shadow-md shadow-[#b84357]/20 cursor-pointer"
+                    className="flex-1 bg-[#b84357] hover:bg-[#a13649] text-white py-3 text-xs font-bold rounded-full flex items-center justify-center gap-2 shadow-md shadow-[#b84357]/20 cursor-pointer"
                   >
                     <span>Instant Order</span>
                   </motion.button>
@@ -204,10 +194,10 @@ export function QuickViewModal({ product, onClose }) {
                   <motion.button
                     whileTap={{ scale: 0.92 }}
                     onClick={toggleWishlist}
-                    className={`p-3 rounded-xl border backdrop-blur-md transition-colors cursor-pointer ${
+                    className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors cursor-pointer ${
                       isWishlisted 
-                        ? 'bg-[#b84357] text-white border-[#b84357]' 
-                        : 'border-black/[0.06] dark:border-white/[0.08] bg-black/[0.02] dark:bg-white/[0.04] text-slate-600 dark:text-slate-300 hover:text-[#b84357]'
+                        ? 'bg-[#b84357] text-white shadow-xs' 
+                        : 'glass-pill text-slate-600 dark:text-slate-300 hover:text-[#b84357]'
                     }`}
                     title={isWishlisted ? "In Wishlist" : "Save to Wishlist"}
                   >
@@ -218,7 +208,7 @@ export function QuickViewModal({ product, onClose }) {
                 <Link
                   href={`/product/${product._id || product.id}`}
                   onClick={onClose}
-                  className="w-full py-2.5 rounded-xl border border-black/[0.06] dark:border-white/[0.08] bg-black/[0.02] dark:bg-white/[0.04] backdrop-blur-md text-xs font-semibold text-center text-slate-700 dark:text-slate-300 hover:text-[#b84357] hover:border-black/20 dark:hover:border-white/20 transition-colors flex items-center justify-center gap-1.5 shadow-xs"
+                  className="w-full py-2.5 rounded-full glass-pill text-xs font-bold text-center text-slate-700 dark:text-slate-300 hover:text-[#b84357] transition-colors flex items-center justify-center gap-1.5 shadow-xs"
                 >
                   <span>View Complete Details & Reviews</span>
                   <ArrowRight className="w-3.5 h-3.5" />

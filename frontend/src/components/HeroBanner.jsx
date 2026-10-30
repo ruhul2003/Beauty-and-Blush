@@ -5,7 +5,8 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   ArrowRight, 
-  Sparkles
+  Sparkles,
+  ShieldCheck
 } from 'lucide-react';
 
 export function HeroBanner() {
@@ -117,124 +118,142 @@ export function HeroBanner() {
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
-      className="relative w-full overflow-hidden bg-[#140c16] -mt-20 sm:-mt-24 pt-20 sm:pt-24 min-h-screen min-h-[100dvh] flex flex-col justify-between items-center border-b border-black/[0.05] dark:border-white/[0.08] select-none touch-pan-y"
+      className="relative w-full pt-3 sm:pt-5 pb-8 sm:pb-12 overflow-hidden select-none touch-pan-y"
     >
-      {/* Full Width Cinematic Background Crossfade Slides */}
-      <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
-        {slides.map((s, idx) => (
-          <div
-            key={s.id}
-            className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out will-change-[opacity] ${
-              currentSlide === idx ? 'opacity-100 z-0' : 'opacity-0 -z-10'
-            }`}
-          >
-            <img
-              src={s.image}
-              alt={s.titleAccent}
-              className={`w-full h-full object-cover object-center transition-transform duration-[6000ms] ease-out will-change-transform ${
-                currentSlide === idx ? 'scale-105' : 'scale-100'
-              }`}
-            />
-          </div>
-        ))}
-        {/* Soft Vignette Overlay to spotlight center content */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/85 z-[1]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-transparent to-black/80 z-[1]" />
-      </div>
-
-      {/* Main Centered Content (Fills available space) */}
-      <div className="relative z-10 w-[92%] sm:w-[90%] max-w-[1500px] mx-auto px-2 sm:px-6 lg:px-8 flex-grow flex items-center justify-center py-6 sm:py-10">
-        <div className="relative flex items-center justify-center w-full">
-
-          {/* ================= CENTER COLUMN: TITLE & CTAs WITH FRAMER MOTION ================= */}
-          <div className="relative z-20 w-full max-w-3xl lg:max-w-4xl flex flex-col items-center text-center space-y-5 sm:space-y-6">
-            
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={slide.id}
-                initial={{ opacity: 0, y: 14 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -14 }}
-                transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-                className="w-full flex flex-col items-center text-center space-y-4 sm:space-y-5"
-              >
-                {/* Tagline & Curated Badge */}
-                <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
-                  <span className="px-3 sm:px-3.5 py-1 rounded-full text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] bg-white/[0.08] text-rose-100 border border-white/[0.12] backdrop-blur-xl shadow-xs">
-                    {slide.tag}
-                  </span>
-                  <span className="px-2.5 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-medium tracking-wider bg-white/[0.05] text-white/90 border border-white/[0.1] backdrop-blur-xl">
-                    {slide.badge}
-                  </span>
-                </div>
-
-                {/* Main Balanced Centered Title */}
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[66px] font-bold text-white leading-[1.12] sm:leading-[1.1] tracking-tight drop-shadow-xl min-h-[100px] sm:min-h-[130px] md:min-h-[160px] flex flex-col justify-center">
-                  <span>{slide.titleLine1}</span>
-                  <span className="font-light text-slate-100">{slide.titleLine2}</span>
-                  <span className="text-[#f4728d] italic drop-shadow-lg mt-0.5">
-                    {slide.titleAccent}
-                  </span>
-                </h1>
-
-                {/* Description */}
-                <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-200/90 max-w-md sm:max-w-xl lg:max-w-2xl mx-auto leading-relaxed font-normal drop-shadow-md min-h-[40px] sm:min-h-[48px]">
-                  {slide.desc}
-                </p>
-              </motion.div>
-            </AnimatePresence>
-
-            {/* Call To Actions */}
-            <motion.div 
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-1 sm:pt-2"
-            >
-              <Link
-                href="/browse"
-                className="px-6 sm:px-8 py-3 sm:py-3.5 text-xs sm:text-sm tracking-[0.18em] uppercase font-bold text-white bg-[#b84357] hover:bg-[#a13649] rounded-xl sm:rounded-2xl flex items-center gap-2 sm:gap-2.5 shadow-lg shadow-[#b84357]/30 hover:shadow-xl hover:shadow-[#b84357]/40 active:scale-98 transition-all"
-              >
-                <span>EXPLORE COLLECTION</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-              
-              <Link
-                href="/browse"
-                className="inline-flex items-center gap-2 px-5 sm:px-7 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold uppercase tracking-wider text-white hover:text-rose-200 transition-colors rounded-xl sm:rounded-2xl border border-white/15 hover:border-white/30 bg-white/[0.06] hover:bg-white/[0.1] backdrop-blur-xl group active:scale-98"
-              >
-                <span>LADIES GLAMOUR</span>
-                <Sparkles className="w-4 h-4 text-rose-300 group-hover:rotate-12 transition-transform" />
-              </Link>
-            </motion.div>
-
-          </div>
-
-        </div>
-      </div>
-
-      {/* Bottom Controls & Indicators */}
-      <div className="relative z-10 w-full flex flex-col items-center justify-center pb-20 sm:pb-8 pt-2 gap-3">
-        {/* Slide Indicator Pills */}
-        <div className="flex items-center justify-center gap-2 sm:gap-2.5">
+      {/* Outer Squircle Glass Window with smooth border and glassy blur effect */}
+      <div className="w-[95%] sm:w-[92%] max-w-[1500px] mx-auto glass-window rounded-[36px] sm:rounded-[44px] min-h-[76vh] sm:min-h-[82vh] relative overflow-hidden flex flex-col justify-between items-center p-6 sm:p-10 md:p-12 shadow-2xl">
+        
+        {/* Full Width Cinematic Background Crossfade Slides */}
+        <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
           {slides.map((s, idx) => (
-            <button
+            <div
               key={s.id}
-              onClick={() => setCurrentSlide(idx)}
-              className={`h-1.5 sm:h-2 rounded-full transition-all duration-400 cursor-pointer ${
-                currentSlide === idx 
-                  ? 'w-8 sm:w-10 bg-white shadow-xs' 
-                  : 'w-2 sm:w-2.5 bg-white/35 hover:bg-white/60'
+              className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out will-change-[opacity] ${
+                currentSlide === idx ? 'opacity-100 z-0' : 'opacity-0 -z-10'
               }`}
-              aria-label={`Go to slide ${idx + 1}`}
-            />
+            >
+              <img
+                src={s.image}
+                alt={s.titleAccent}
+                className={`w-full h-full object-cover object-center transition-transform duration-[6000ms] ease-out will-change-transform ${
+                  currentSlide === idx ? 'scale-105' : 'scale-100'
+                }`}
+              />
+            </div>
           ))}
+
+          {/* Cinematic Glass Vignette & Gradient Overlays */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/85 z-[1] backdrop-blur-[1px]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-transparent to-black/80 z-[1]" />
         </div>
 
-        {/* Subtle Scroll Hint */}
-        <div className="hidden sm:flex items-center gap-1.5 text-[10px] text-white/50 uppercase tracking-[0.25em] font-medium">
-          <span>Scroll to explore</span>
+        {/* Outer Top Bar Window Controls & Verification Badge */}
+        <div className="relative z-10 w-full flex items-center justify-between pb-4 sm:pb-6 border-b border-white/15">
+          <div className="flex items-center gap-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-rose-400/90 shadow-xs" />
+            <span className="w-2.5 h-2.5 rounded-full bg-amber-400/90 shadow-xs" />
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-400/90 shadow-xs" />
+            <span className="text-[10px] font-bold uppercase tracking-[0.24em] text-white/80 ml-2 hidden sm:inline-block">
+              Beauty & Blush • Luxury Atelier Edition
+            </span>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <span className="glass-pill px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider text-white border border-white/20 shadow-xs flex items-center gap-1.5">
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+              <span>100% Genuine Guaranteed</span>
+            </span>
+          </div>
         </div>
+
+        {/* Main Centered Content: Dynamic Animated Titles, Badges & CTAs */}
+        <div className="relative z-20 w-full max-w-3xl lg:max-w-4xl flex flex-col items-center text-center space-y-5 sm:space-y-6 my-auto py-8 sm:py-12">
+          
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={slide.id}
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -14 }}
+              transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+              className="w-full flex flex-col items-center text-center space-y-4 sm:space-y-5"
+            >
+              {/* Tagline & Curated Badge */}
+              <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
+                <span className="px-3.5 sm:px-4 py-1.5 rounded-full text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] bg-white/[0.12] text-rose-100 border border-white/[0.2] backdrop-blur-xl shadow-xs">
+                  {slide.tag}
+                </span>
+                <span className="px-3 sm:px-3.5 py-1.5 rounded-full text-[10px] sm:text-xs font-medium tracking-wider bg-white/[0.08] text-white/90 border border-white/[0.15] backdrop-blur-xl">
+                  {slide.badge}
+                </span>
+              </div>
+
+              {/* Main Balanced Centered Title */}
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[66px] font-bold text-white leading-[1.12] sm:leading-[1.1] tracking-tight drop-shadow-xl min-h-[100px] sm:min-h-[130px] md:min-h-[160px] flex flex-col justify-center font-serif">
+                <span>{slide.titleLine1}</span>
+                <span className="font-light text-slate-100">{slide.titleLine2}</span>
+                <span className="text-[#f4728d] italic drop-shadow-lg mt-0.5">
+                  {slide.titleAccent}
+                </span>
+              </h1>
+
+              {/* Description */}
+              <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-200/90 max-w-md sm:max-w-xl lg:max-w-2xl mx-auto leading-relaxed font-normal drop-shadow-md min-h-[40px] sm:min-h-[48px]">
+                {slide.desc}
+              </p>
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Call To Actions */}
+          <motion.div 
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-1 sm:pt-2"
+          >
+            <Link
+              href="/browse"
+              className="px-7 sm:px-9 py-3.5 sm:py-4 text-xs sm:text-sm tracking-[0.18em] uppercase font-bold text-white bg-[#b84357] hover:bg-[#a13649] rounded-full flex items-center gap-2 sm:gap-2.5 shadow-xl shadow-[#b84357]/35 hover:scale-[1.02] active:scale-98 transition-all"
+            >
+              <span>EXPLORE COLLECTION</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+            
+            <Link
+              href="/browse"
+              className="glass-pill inline-flex items-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 text-xs sm:text-sm font-semibold uppercase tracking-wider text-white hover:text-rose-200 rounded-full border border-white/20 bg-white/[0.08] hover:bg-white/[0.14] backdrop-blur-xl group hover:scale-[1.02] active:scale-98 transition-all shadow-md"
+            >
+              <span>LADIES GLAMOUR</span>
+              <Sparkles className="w-4 h-4 text-rose-300 group-hover:rotate-12 transition-transform" />
+            </Link>
+          </motion.div>
+
+        </div>
+
+        {/* Bottom Controls & Indicators */}
+        <div className="relative z-10 w-full flex flex-col items-center justify-center pt-2 gap-3">
+          {/* Slide Indicator Pills */}
+          <div className="flex items-center justify-center gap-2 sm:gap-2.5">
+            {slides.map((s, idx) => (
+              <button
+                key={s.id}
+                onClick={() => setCurrentSlide(idx)}
+                className={`h-2 sm:h-2.5 rounded-full transition-all duration-400 cursor-pointer ${
+                  currentSlide === idx 
+                    ? 'w-8 sm:w-10 bg-white shadow-md' 
+                    : 'w-2.5 sm:w-3 bg-white/40 hover:bg-white/70'
+                }`}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
+            ))}
+          </div>
+
+          {/* Subtle Scroll Hint */}
+          <div className="hidden sm:flex items-center gap-1.5 text-[10px] text-white/60 uppercase tracking-[0.25em] font-medium">
+            <span>Scroll to explore</span>
+          </div>
+        </div>
+
       </div>
     </section>
   );

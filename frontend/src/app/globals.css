@@ -9,16 +9,17 @@
 
 @layer base {
   :root, html.light {
-    --bg-main: #fcfbf9;
+    --bg-main: #f6f4f0;
+    --canvas-bg: #f9f8f5;
     --text-main: #181416;
     --text-muted: #6e6569;
-    --panel-bg: rgba(255, 255, 255, 0.72);
-    --panel-border: rgba(0, 0, 0, 0.06);
-    --card-bg: rgba(255, 255, 255, 0.60);
-    --card-border: rgba(0, 0, 0, 0.05);
-    --card-hover-bg: rgba(255, 255, 255, 0.82);
-    --surface-subtle: rgba(0, 0, 0, 0.025);
-    --surface-input: rgba(255, 255, 255, 0.70);
+    --panel-bg: rgba(255, 255, 255, 0.82);
+    --panel-border: rgba(255, 255, 255, 0.95);
+    --card-bg: rgba(255, 255, 255, 0.78);
+    --card-border: rgba(255, 255, 255, 0.90);
+    --card-hover-bg: rgba(255, 255, 255, 0.92);
+    --surface-subtle: rgba(245, 242, 237, 0.85);
+    --surface-input: rgba(246, 244, 239, 0.85);
     --accent-rose: #b84357;
     --accent-rose-hover: #a13649;
     --accent-blush: #c94d64;
@@ -29,15 +30,16 @@
 
   html.dark {
     --bg-main: #0c070e;
+    --canvas-bg: #110914;
     --text-main: #f5f2f4;
     --text-muted: #968c92;
-    --panel-bg: rgba(18, 11, 20, 0.75);
-    --panel-border: rgba(255, 255, 255, 0.08);
-    --card-bg: rgba(22, 14, 25, 0.65);
-    --card-border: rgba(255, 255, 255, 0.07);
-    --card-hover-bg: rgba(30, 19, 34, 0.80);
-    --surface-subtle: rgba(255, 255, 255, 0.03);
-    --surface-input: rgba(18, 12, 20, 0.70);
+    --panel-bg: rgba(20, 13, 23, 0.80);
+    --panel-border: rgba(255, 255, 255, 0.12);
+    --card-bg: rgba(24, 16, 28, 0.72);
+    --card-border: rgba(255, 255, 255, 0.10);
+    --card-hover-bg: rgba(32, 21, 37, 0.85);
+    --surface-subtle: rgba(255, 255, 255, 0.04);
+    --surface-input: rgba(14, 9, 16, 0.75);
     --accent-rose: #c94d64;
     --accent-rose-hover: #db5972;
     --accent-blush: #e26982;
@@ -67,8 +69,9 @@
   body {
     background-color: var(--bg-main);
     background-image: 
-      radial-gradient(circle at 50% 0%, rgba(184, 67, 87, 0.04) 0%, transparent 60%),
-      radial-gradient(circle at 100% 40%, rgba(201, 77, 100, 0.025) 0%, transparent 50%);
+      radial-gradient(circle at 15% 10%, rgba(255, 255, 255, 0.7) 0%, transparent 40%),
+      radial-gradient(circle at 85% 20%, rgba(184, 67, 87, 0.035) 0%, transparent 50%),
+      radial-gradient(circle at 50% 80%, rgba(201, 77, 100, 0.025) 0%, transparent 60%);
     color: var(--text-main);
     font-family: 'Bai Jamjuree', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     min-height: 100vh;
@@ -92,76 +95,321 @@
   margin-right: auto !important;
 }
 
-/* Minimal & Professional Glassmorphism Design Tokens */
-.glass-panel {
-  background: var(--panel-bg);
-  backdrop-filter: blur(24px) saturate(160%);
-  -webkit-backdrop-filter: blur(24px) saturate(160%);
-  border: 1px solid var(--panel-border);
+/* ==========================================================================
+   Claymorphic Liquid Glass & Acrylic Morphism Tokens (Reference Image Style)
+   ========================================================================== */
+
+/* 1. Main Frosted Acrylic Window / Outer Container */
+.glass-window {
+  background: var(--canvas-bg);
+  backdrop-filter: blur(36px) saturate(180%);
+  -webkit-backdrop-filter: blur(36px) saturate(180%);
+  border: 1.5px solid rgba(255, 255, 255, 0.95);
+  border-radius: 40px;
   box-shadow: 
-    0 10px 30px -4px rgba(0, 0, 0, 0.03),
-    0 2px 8px -2px rgba(0, 0, 0, 0.02),
-    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+    0 35px 80px -15px rgba(0, 0, 0, 0.14),
+    0 14px 32px -6px rgba(0, 0, 0, 0.08),
+    0 4px 10px 0 rgba(0, 0, 0, 0.04),
+    inset 0 2.5px 2px 0 rgba(255, 255, 255, 1),
+    inset 0 -3px 3px 0 rgba(0, 0, 0, 0.03);
 }
 
-.dark .glass-panel {
+.dark .glass-window {
+  border-color: rgba(255, 255, 255, 0.16);
   box-shadow: 
-    0 15px 40px -8px rgba(0, 0, 0, 0.5),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    0 40px 90px -15px rgba(0, 0, 0, 0.85),
+    0 16px 36px -6px rgba(0, 0, 0, 0.65),
+    inset 0 2px 1.5px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -2.5px 3px 0 rgba(0, 0, 0, 0.6);
+}
+
+/* 2. Thick 3D Frosted Glass Slab (Main Card Style with pronounced 3D Depth) */
+.glass-slab {
+  background: var(--card-bg);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border: 1.5px solid var(--card-border);
+  border-radius: 28px;
+  box-shadow: 
+    0 20px 42px -10px rgba(0, 0, 0, 0.12),
+    0 8px 20px -4px rgba(0, 0, 0, 0.08),
+    0 2px 6px 0 rgba(0, 0, 0, 0.04),
+    inset 0 2px 1.5px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -3px 3px 0 rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dark .glass-slab {
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow: 
+    0 24px 50px -10px rgba(0, 0, 0, 0.8),
+    0 10px 22px -4px rgba(0, 0, 0, 0.6),
+    inset 0 2px 1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 -2.5px 3px 0 rgba(0, 0, 0, 0.6);
+}
+
+.glass-slab-interactive:hover {
+  background: var(--card-hover-bg) !important;
+  border-color: #ffffff !important;
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 
+    0 30px 60px -12px rgba(0, 0, 0, 0.18),
+    0 14px 28px -4px rgba(184, 67, 87, 0.15),
+    0 3px 8px 0 rgba(0, 0, 0, 0.06),
+    inset 0 2px 1.5px 0 #ffffff,
+    inset 0 -3px 3px 0 rgba(0, 0, 0, 0.05);
+}
+
+.dark .glass-slab-interactive:hover {
+  border-color: rgba(255, 255, 255, 0.28) !important;
+  box-shadow: 
+    0 32px 65px -12px rgba(0, 0, 0, 0.9),
+    0 14px 28px -4px rgba(184, 67, 87, 0.35),
+    inset 0 2px 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -2.5px 3px 0 rgba(0, 0, 0, 0.6);
+}
+
+/* 3. Raised 3D Clay-Glass Pill Capsules (Buttons & Floating Badges) */
+.glass-pill {
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid #ffffff;
+  box-shadow: 
+    0 8px 20px -3px rgba(0, 0, 0, 0.12),
+    0 3px 8px -1px rgba(0, 0, 0, 0.08),
+    inset 0 2px 1.5px 0 #ffffff,
+    inset 0 -3px 2px 0 rgba(0, 0, 0, 0.07);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dark .glass-pill {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 
+    0 8px 22px -3px rgba(0, 0, 0, 0.65),
+    0 3px 8px -1px rgba(0, 0, 0, 0.45),
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -2.5px 2px 0 rgba(0, 0, 0, 0.55);
+}
+
+.glass-pill:hover, .glass-pill-hover:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 
+    0 12px 28px -4px rgba(0, 0, 0, 0.18),
+    0 5px 12px -2px rgba(184, 67, 87, 0.15),
+    inset 0 2px 1.5px 0 #ffffff,
+    inset 0 -2.5px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.glass-pill:active, .glass-pill-hover:active {
+  transform: translateY(1.5px) scale(0.98);
+  box-shadow: 
+    0 3px 8px -1px rgba(0, 0, 0, 0.12),
+    inset 0 2px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* 4. Global 3D Tactile Primary Buttons (with colored bottom elevation) */
+button.bg-\[\#b84357\],
+a.bg-\[\#b84357\],
+.btn-primary-3d {
+  background: linear-gradient(180deg, #c74a5f 0%, #b84357 50%, #9e3346 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  box-shadow: 
+    0 12px 26px -3px rgba(184, 67, 87, 0.52),
+    0 4px 10px -1px rgba(184, 67, 87, 0.35),
+    0 1px 3px 0 rgba(0, 0, 0, 0.12),
+    inset 0 2px 1.5px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -3px 2px 0 rgba(0, 0, 0, 0.28) !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+button.bg-\[\#b84357\]:hover,
+a.bg-\[\#b84357\]:hover,
+.btn-primary-3d:hover {
+  background: linear-gradient(180deg, #d45369 0%, #c4475c 50%, #aa374c 100%) !important;
+  transform: translateY(-3px) scale(1.02) !important;
+  box-shadow: 
+    0 16px 34px -4px rgba(184, 67, 87, 0.62),
+    0 6px 14px -2px rgba(184, 67, 87, 0.42),
+    inset 0 2px 1.5px 0 rgba(255, 255, 255, 0.6),
+    inset 0 -3px 2px 0 rgba(0, 0, 0, 0.28) !important;
+}
+
+button.bg-\[\#b84357\]:active,
+a.bg-\[\#b84357\]:active,
+.btn-primary-3d:active {
+  transform: translateY(2px) scale(0.97) !important;
+  box-shadow: 
+    0 3px 8px -1px rgba(184, 67, 87, 0.45),
+    inset 0 2px 4px 0 rgba(0, 0, 0, 0.35) !important;
+}
+
+/* 5. Debossed Concave Glass Well (Search Bar, Inputs, Recessed Wells) */
+.glass-well {
+  background: var(--surface-input);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 
+    inset 0 3px 7px 0 rgba(0, 0, 0, 0.07),
+    inset 0 1px 2px 0 rgba(0, 0, 0, 0.05),
+    inset 0 -1.5px 2px 0 rgba(255, 255, 255, 0.95),
+    0 1.5px 3px 0 rgba(255, 255, 255, 0.9);
+  transition: all 0.2s ease;
+}
+
+.dark .glass-well {
+  border-color: rgba(255, 255, 255, 0.07);
+  box-shadow: 
+    inset 0 3px 8px 0 rgba(0, 0, 0, 0.75),
+    inset 0 1px 2px 0 rgba(0, 0, 0, 0.5),
+    inset 0 -1px 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.glass-well:focus-within {
+  border-color: rgba(184, 67, 87, 0.45);
+  box-shadow: 
+    inset 0 2px 5px 0 rgba(0, 0, 0, 0.05),
+    0 0 0 3.5px rgba(184, 67, 87, 0.16);
+}
+
+/* 6. Luminous Vibrant Gradient Glass Cards (Star Cards from Reference) */
+.glass-gradient-vivid {
+  background: linear-gradient(145deg, #38bdf8 0%, #6366f1 50%, #9333ea 100%);
+  border-radius: 32px;
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 
+    0 24px 55px -8px rgba(99, 102, 241, 0.52),
+    0 8px 20px -2px rgba(56, 189, 248, 0.38),
+    inset 0 2px 1.5px 0 rgba(255, 255, 255, 0.75),
+    inset 0 -3px 3px 0 rgba(0, 0, 0, 0.25);
+  color: #ffffff;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-gradient-vivid:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 
+    0 30px 65px -6px rgba(99, 102, 241, 0.6),
+    inset 0 2.5px 1.5px 0 rgba(255, 255, 255, 0.9);
+}
+
+.glass-gradient-iridescent {
+  background: linear-gradient(135deg, #fb7185 0%, #c084fc 45%, #38bdf8 100%);
+  border-radius: 32px;
+  border: 1.5px solid rgba(255, 255, 255, 0.65);
+  box-shadow: 
+    0 24px 55px -8px rgba(244, 114, 182, 0.48),
+    0 8px 20px -2px rgba(192, 132, 252, 0.38),
+    inset 0 2px 1.5px 0 rgba(255, 255, 255, 0.8),
+    inset 0 -3px 3px 0 rgba(0, 0, 0, 0.2);
+  color: #ffffff;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-gradient-iridescent:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 
+    0 30px 65px -6px rgba(244, 114, 182, 0.55),
+    inset 0 2.5px 1.5px 0 rgba(255, 255, 255, 0.95);
+}
+
+/* 7. Organic Liquid Glass Droplet Blobs */
+.liquid-glass-blob {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1.5px solid rgba(255, 255, 255, 0.75);
+  border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%;
+  box-shadow: 
+    0 25px 60px -10px rgba(0, 0, 0, 0.05),
+    inset 0 2px 3px rgba(255, 255, 255, 0.95),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.02);
+  pointer-events: none;
+}
+
+.dark .liquid-glass-blob {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 25px 60px -10px rgba(0, 0, 0, 0.5),
+    inset 0 1.5px 2px rgba(255, 255, 255, 0.12);
+}
+
+/* 8. Floating Glass Dock / Navbar with 3D Elevation */
+.glass-dock {
+  background: var(--panel-bg);
+  backdrop-filter: blur(32px) saturate(180%);
+  -webkit-backdrop-filter: blur(32px) saturate(180%);
+  border: 1.5px solid var(--panel-border);
+  box-shadow: 
+    0 20px 48px -6px rgba(0, 0, 0, 0.12),
+    0 8px 18px -3px rgba(0, 0, 0, 0.06),
+    0 2px 6px 0 rgba(0, 0, 0, 0.04),
+    inset 0 2px 1.5px 0 #ffffff,
+    inset 0 -2.5px 2px 0 rgba(0, 0, 0, 0.04);
+}
+
+.dark .glass-dock {
+  background: rgba(18, 11, 20, 0.88);
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow: 
+    0 24px 55px rgba(0, 0, 0, 0.75),
+    0 8px 20px rgba(0, 0, 0, 0.5),
+    inset 0 2px 1.5px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -2.5px 2px 0 rgba(0, 0, 0, 0.5);
+}
+
+/* Backward compatibility for previous classes */
+.glass-panel {
+  background: var(--panel-bg);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border: 1px solid var(--panel-border);
+  box-shadow: 
+    0 12px 32px -4px rgba(0, 0, 0, 0.04),
+    inset 0 1.5px 1px 0 #ffffff;
 }
 
 .glass-card {
   background: var(--card-bg);
-  backdrop-filter: blur(20px) saturate(160%);
-  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
   border: 1px solid var(--card-border);
+  border-radius: 28px;
   box-shadow: 
-    0 4px 20px -2px rgba(0, 0, 0, 0.03),
-    0 1px 4px rgba(0, 0, 0, 0.02),
-    inset 0 1px 0 rgba(255, 255, 255, 0.6);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    0 12px 32px -4px rgba(0, 0, 0, 0.04),
+    0 20px 40px -10px rgba(0, 0, 0, 0.04),
+    inset 0 1.5px 1px 0 #ffffff,
+    inset 0 -1px 2px 0 rgba(0, 0, 0, 0.02);
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-card:hover {
   background: var(--card-hover-bg) !important;
-  border-color: rgba(184, 67, 87, 0.25) !important;
-  transform: translateY(-2px);
+  border-color: #ffffff !important;
+  transform: translateY(-3px);
   box-shadow: 
-    0 12px 28px -6px rgba(0, 0, 0, 0.06),
-    0 2px 8px rgba(184, 67, 87, 0.04),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    0 20px 44px -6px rgba(0, 0, 0, 0.07),
+    0 6px 16px -2px rgba(184, 67, 87, 0.05),
+    inset 0 2px 1px 0 #ffffff;
 }
 
-html.dark .glass-card:hover {
-  border-color: rgba(255, 255, 255, 0.16) !important;
+.dark .glass-card:hover {
+  border-color: rgba(255, 255, 255, 0.2) !important;
   box-shadow: 
-    0 14px 35px -8px rgba(0, 0, 0, 0.6),
-    inset 0 1px 0 rgba(255, 255, 255, 0.12);
-}
-
-.glass-dock {
-  background: var(--panel-bg);
-  backdrop-filter: blur(24px) saturate(160%);
-  -webkit-backdrop-filter: blur(24px) saturate(160%);
-  border: 1px solid var(--panel-border);
-  box-shadow: 
-    0 12px 35px -4px rgba(0, 0, 0, 0.04),
-    inset 0 1px 0 rgba(255, 255, 255, 0.7);
-}
-
-html.dark .glass-dock {
-  background: rgba(18, 11, 20, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 
-    0 16px 45px rgba(0, 0, 0, 0.6),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    0 22px 48px -6px rgba(0, 0, 0, 0.65),
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.18);
 }
 
 .glass-input {
   background: var(--surface-input);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--card-border);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 
+    inset 0 2px 4px 0 rgba(0, 0, 0, 0.03),
+    inset 0 -1px 1px 0 rgba(255, 255, 255, 0.8);
   transition: all 0.2s ease;
 }
 
@@ -170,52 +418,59 @@ html.dark .glass-dock {
   box-shadow: 0 0 0 3px rgba(184, 67, 87, 0.12);
 }
 
-/* Minimalist Luxury Primary & Outline Buttons */
+/* Tactile 3D Buttons */
 .btn-rose-primary, .btn-berry-primary {
   background-color: var(--accent-rose);
   color: #ffffff !important;
   font-weight: 600;
-  border-radius: 12px;
-  box-shadow: 0 2px 10px 0 rgba(184, 67, 87, 0.2);
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 9999px;
+  box-shadow: 
+    0 8px 20px -2px rgba(184, 67, 87, 0.35),
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -1px 2px 0 rgba(0, 0, 0, 0.2);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-rose-primary:hover, .btn-berry-primary:hover {
   background-color: var(--accent-rose-hover);
-  box-shadow: 0 4px 16px 0 rgba(184, 67, 87, 0.28);
-  transform: translateY(-1px);
+  box-shadow: 
+    0 12px 26px -2px rgba(184, 67, 87, 0.45),
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
 }
 
 .btn-rose-primary:active, .btn-berry-primary:active {
-  transform: scale(0.98);
+  transform: scale(0.97);
 }
 
 .btn-rose-outline {
   border: 1px solid rgba(184, 67, 87, 0.3);
   color: var(--accent-rose);
-  font-weight: 500;
-  border-radius: 12px;
-  background-color: transparent;
+  font-weight: 600;
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  box-shadow: 
+    0 4px 14px -2px rgba(0, 0, 0, 0.04),
+    inset 0 1px 1px 0 #ffffff;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .dark .btn-rose-outline {
   color: #f38da3;
   border-color: rgba(201, 77, 100, 0.3);
+  background-color: rgba(255, 255, 255, 0.04);
 }
 
 .btn-rose-outline:hover {
-  background-color: rgba(184, 67, 87, 0.05);
+  background-color: rgba(184, 67, 87, 0.08);
   border-color: var(--accent-rose);
+  transform: translateY(-1.5px);
 }
 
 .dark .btn-rose-outline:hover {
-  background-color: rgba(201, 77, 100, 0.1);
+  background-color: rgba(201, 77, 100, 0.15);
   border-color: #f38da3;
-}
-
-.btn-rose-outline:active {
-  transform: scale(0.98);
 }
 
 /* Mobile Smooth Horizontal Scroller with Snap */

@@ -41,6 +41,9 @@ export function saveRecentProduct(product) {
   }
 }
 
+// Export alias so both naming conventions work seamlessly
+export const addRecentProduct = saveRecentProduct;
+
 export function getRecentProducts() {
   if (typeof window === 'undefined') return [];
   try {

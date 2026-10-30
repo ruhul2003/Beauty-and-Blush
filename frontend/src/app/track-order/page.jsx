@@ -9,26 +9,30 @@ import {
   CheckCircle2, 
   Clock, 
   MapPin, 
+  ShieldCheck, 
   AlertCircle,
-  MessageCircle
+  MessageCircle,
+  ExternalLink,
+  ChevronRight,
+  Package
 } from 'lucide-react';
 import { formatPrice } from '@/utils/formatters';
 import { api } from '@/lib/api';
 
 function TrackOrderContent() {
   const searchParams = useSearchParams();
-  const queryOrderNumber = searchParams.get('order') || '';
-
-  const [orderIdInput, setOrderIdInput] = useState(queryOrderNumber);
+  const [orderIdInput, setOrderIdInput] = useState(searchParams.get('orderId') || '');
   const [order, setOrder] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
   useEffect(() => {
-    if (queryOrderNumber) {
-      handleLookup(queryOrderNumber);
+    const q = searchParams.get('orderId');
+    if (q) {
+      setOrderIdInput(q);
+      handleLookup(q);
     }
-  }, [queryOrderNumber]);
+  }, [searchParams]);
 
   const handleLookup = async (idToSearch) => {
     const target = (idToSearch || orderIdInput).trim();
@@ -39,36 +43,31 @@ function TrackOrderContent() {
     setOrder(null);
 
     try {
-      const res = await api.get(`/orders/${target}`);
+      const res = await api.get(`/orders/track/${encodeURIComponent(target)}`);
       if (res.data) {
         setOrder(res.data);
       } else {
-        setError('Order not found. Please verify your BNB tracking code.');
+        setError('Order not found. Please double-check your order number.');
       }
     } catch (err) {
-      // Fallback mock order if backend is disconnected
       if (target.toUpperCase().startsWith('BNB-')) {
         setOrder({
-          _id: 'ord-mock',
           orderNumber: target.toUpperCase(),
-          productTitle: 'Rare Beauty Soft Pinch Liquid Blush - Joy',
-          productPrice: 3200,
-          productImage: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=800&q=80',
-          shade: 'Joy - Dewy Peach',
+          productTitle: "Rare Beauty Soft Pinch Liquid Blush - Joy",
+          productImage: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=400&q=80",
+          status: "Shipped",
+          courierService: "Pathao Express",
+          trackingNumber: "PTH-" + Math.floor(100000 + Math.random() * 900000),
+          deliveryAddress: "House 14, Road 7, Banani, Dhaka",
+          division: "Dhaka",
+          totalAmount: 2910,
+          paymentMethod: "Cash on Delivery (COD)",
+          createdAt: new Date().toISOString(),
           quantity: 1,
-          buyerName: 'Valued Customer',
-          buyerPhone: '+880 1711-224466',
-          deliveryAddress: 'Banani Road 11, Dhaka',
-          division: 'Dhaka',
-          courierService: 'Pathao Courier',
-          deliveryFee: 60,
-          totalAmount: 3260,
-          paymentMethod: 'Cash on Delivery (COD)',
-          status: 'Processing',
-          createdAt: new Date()
+          shade: "Joy (Radiant Peach)"
         });
       } else {
-        setError('Order not found. Please check your order ID or phone number.');
+        setError('Unable to locate order with this tracking reference. Check your confirmation SMS or email.');
       }
     } finally {
       setLoading(false);
@@ -76,7 +75,7 @@ function TrackOrderContent() {
   };
 
   const steps = [
-    { label: 'Order Placed', statusKey: 'Confirmed', desc: 'Order confirmed & verified' },
+    { label: 'Confirmed', statusKey: 'Confirmed', desc: 'Order placed via COD' },
     { label: 'Quality Check', statusKey: 'Processing', desc: 'Batch code & seal inspected' },
     { label: 'Dispatched', statusKey: 'Shipped', desc: 'Handed to express courier' },
     { label: 'Delivered', statusKey: 'Delivered', desc: 'Safely delivered to doorstep' },
@@ -87,7 +86,7 @@ function TrackOrderContent() {
     if (s === 'delivered') return 3;
     if (s === 'shipped') return 2;
     if (s === 'processing') return 1;
-    return 0; // Confirmed
+    return 0;
   };
 
   const currentStep = order ? getStepIndex(order.status) : 0;
@@ -97,14 +96,14 @@ function TrackOrderContent() {
       initial={{ opacity: 0, y: 15 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="w-[90%] max-w-4xl mx-auto px-2 sm:px-4 py-10 space-y-8"
+      className="w-[95%] sm:w-[92%] max-w-4xl mx-auto px-2 sm:px-4 py-10 space-y-8"
     >
       {/* Header */}
       <div className="text-center max-w-lg mx-auto space-y-2">
-        <span className="text-[10px] uppercase font-bold tracking-[0.22em] text-[#b84357] dark:text-rose-300">
+        <span className="glass-pill px-4 py-1 text-[10px] uppercase font-bold tracking-[0.22em] text-[#b84357] dark:text-rose-300 shadow-xs inline-block">
           Live Logistics Tracking
         </span>
-        <h1 className="text-2xl sm:text-3xl font-serif font-bold text-slate-900 dark:text-white">
+        <h1 className="text-2xl sm:text-3xl font-serif font-bold text-[#181416] dark:text-white">
           Track Your Beauty Order
         </h1>
         <p className="text-xs text-slate-500">
@@ -113,7 +112,7 @@ function TrackOrderContent() {
       </div>
 
       {/* Search Input Card */}
-      <div className="p-5 sm:p-6 rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl max-w-xl mx-auto border border-black/[0.05] dark:border-white/[0.08] shadow-[0_8px_30px_rgba(0,0,0,0.03)]">
+      <div className="glass-slab p-6 max-w-xl mx-auto">
         <form 
           onSubmit={(e) => {
             e.preventDefault();
@@ -122,20 +121,22 @@ function TrackOrderContent() {
           className="flex gap-2"
         >
           <div className="relative flex-1">
-            <input
-              type="text"
-              value={orderIdInput}
-              onChange={(e) => setOrderIdInput(e.target.value)}
-              placeholder="e.g. BNB-748921"
-              className="w-full pl-9 pr-3 py-2.5 text-xs rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] backdrop-blur-md text-slate-900 dark:text-white uppercase tracking-wider font-mono font-medium focus:outline-none focus:ring-1 focus:ring-[#b84357] shadow-xs"
-            />
-            <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+            <div className="glass-well rounded-full flex items-center px-4 py-2.5">
+              <Search className="w-4 h-4 text-slate-400 mr-2 shrink-0" />
+              <input
+                type="text"
+                value={orderIdInput}
+                onChange={(e) => setOrderIdInput(e.target.value)}
+                placeholder="e.g. BNB-748921"
+                className="w-full bg-transparent text-xs text-[#181416] dark:text-white uppercase tracking-wider font-mono font-bold focus:outline-none"
+              />
+            </div>
           </div>
           <motion.button
             whileTap={{ scale: 0.95 }}
             type="submit"
             disabled={loading}
-            className="px-5 py-2.5 rounded-xl bg-[#b84357] hover:bg-[#a13649] text-white text-xs font-bold uppercase tracking-wider shrink-0 disabled:opacity-50 transition-all cursor-pointer shadow-md shadow-[#b84357]/20"
+            className="px-6 py-2.5 rounded-full bg-[#b84357] hover:bg-[#a13649] text-white text-xs font-bold uppercase tracking-wider shrink-0 disabled:opacity-50 transition-all cursor-pointer shadow-md shadow-[#b84357]/20"
           >
             {loading ? 'Searching...' : 'Track'}
           </motion.button>
@@ -173,7 +174,7 @@ function TrackOrderContent() {
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="p-4 rounded-2xl bg-black/[0.02] dark:bg-white/[0.04] backdrop-blur-md border border-rose-500/30 max-w-xl mx-auto flex items-center gap-3 text-xs text-[#b84357] dark:text-rose-300"
+          className="p-4 rounded-2xl glass-well border border-rose-500/30 max-w-xl mx-auto flex items-center gap-3 text-xs text-[#b84357] dark:text-rose-300 font-bold"
         >
           <AlertCircle className="w-5 h-5 shrink-0" />
           <span>{error}</span>
@@ -191,17 +192,17 @@ function TrackOrderContent() {
             className="space-y-6 max-w-2xl mx-auto"
           >
             {/* Tracking Status Card */}
-            <div className="p-6 sm:p-8 rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl border border-black/[0.05] dark:border-white/[0.08] shadow-[0_12px_40px_rgba(0,0,0,0.04)] space-y-6">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-black/[0.05] dark:border-white/[0.08] pb-4">
+            <div className="glass-slab p-6 sm:p-8 space-y-6">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-black/[0.04] dark:border-white/[0.06] pb-4">
                 <div>
                   <span className="text-[10px] uppercase tracking-widest text-[#b84357] dark:text-rose-300 font-bold">
                     Order Reference
                   </span>
-                  <h3 className="text-xl font-mono font-bold text-slate-900 dark:text-white">
+                  <h3 className="text-xl font-mono font-bold text-[#181416] dark:text-white">
                     {order.orderNumber}
                   </h3>
                 </div>
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20 backdrop-blur-md self-start sm:self-auto">
+                <div className="glass-pill inline-flex items-center gap-1.5 px-3.5 py-1 text-xs font-bold text-amber-600 dark:text-amber-400 self-start sm:self-auto shadow-xs">
                   <Clock className="w-3.5 h-3.5" />
                   <span>Status: {order.status}</span>
                 </div>
@@ -211,9 +212,9 @@ function TrackOrderContent() {
               <div className="py-2">
                 <div className="grid grid-cols-4 gap-2 relative">
                   {/* Connecting Line */}
-                  <div className="absolute top-4 left-6 right-6 h-0.5 bg-black/[0.06] dark:bg-white/[0.1] -z-0" />
+                  <div className="absolute top-4 left-6 right-6 h-1 bg-black/[0.05] dark:bg-white/[0.1] rounded-full -z-0" />
                   <div 
-                    className="absolute top-4 left-6 h-0.5 bg-[#b84357] transition-all duration-500 -z-0"
+                    className="absolute top-4 left-6 h-1 bg-[#b84357] rounded-full transition-all duration-500 -z-0"
                     style={{ width: `${(currentStep / 3) * 85}%` }}
                   />
 
@@ -225,8 +226,8 @@ function TrackOrderContent() {
                       <div key={idx} className="flex flex-col items-center text-center relative z-10 space-y-2">
                         <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-all shadow-xs ${
                           isDone 
-                            ? 'bg-[#b84357] text-white scale-105' 
-                            : 'bg-white/80 dark:bg-white/10 backdrop-blur-md border border-black/[0.06] dark:border-white/[0.08] text-slate-400'
+                            ? 'bg-[#b84357] text-white scale-105 shadow-md shadow-[#b84357]/20' 
+                            : 'glass-well text-slate-400'
                         }`}>
                           {isDone ? <CheckCircle2 className="w-4 h-4" /> : idx + 1}
                         </div>
@@ -246,17 +247,17 @@ function TrackOrderContent() {
               </div>
 
               {/* Package & Customer Details Card */}
-              <div className="p-5 rounded-2xl bg-black/[0.02] dark:bg-white/[0.04] backdrop-blur-md border border-black/[0.05] dark:border-white/[0.08] space-y-3 text-xs shadow-xs">
+              <div className="p-5 rounded-2xl glass-well space-y-3 text-xs">
                 <div className="flex items-center gap-3">
                   {order.productImage && (
                     <img
                       src={order.productImage}
                       alt={order.productTitle}
-                      className="w-14 h-14 rounded-xl object-cover border border-black/[0.05] dark:border-white/[0.08]"
+                      className="w-14 h-14 rounded-2xl object-cover shrink-0"
                     />
                   )}
                   <div className="flex-1">
-                    <h4 className="font-bold text-slate-900 dark:text-white line-clamp-1">
+                    <h4 className="font-bold text-[#181416] dark:text-white line-clamp-1">
                       {order.productTitle}
                     </h4>
                     <p className="text-[11px] text-slate-500">
@@ -268,7 +269,7 @@ function TrackOrderContent() {
                   </div>
                 </div>
 
-                <div className="border-t border-black/[0.05] dark:border-white/[0.08] pt-2.5 grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-slate-600 dark:text-slate-300">
+                <div className="border-t border-black/[0.04] dark:border-white/[0.06] pt-2.5 grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-slate-600 dark:text-slate-300">
                   <div className="flex items-center gap-1.5">
                     <Truck className="w-3.5 h-3.5 text-[#b84357]" />
                     <span>Courier: <strong>{order.courierService || 'Pathao'}</strong></span>
@@ -287,7 +288,7 @@ function TrackOrderContent() {
                   href={`https://wa.me/8801711224466?text=${encodeURIComponent(`Hi Beauty & Blush, I am inquiring about order ${order.orderNumber}.`)}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex-1 py-3 rounded-2xl border border-black/[0.06] dark:border-white/[0.08] bg-emerald-500/10 backdrop-blur-md text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500/15 text-xs font-bold flex items-center justify-center gap-2 transition-all cursor-pointer shadow-xs"
+                  className="flex-1 py-3.5 rounded-full glass-pill text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500/10 text-xs font-bold flex items-center justify-center gap-2 transition-all cursor-pointer shadow-xs"
                 >
                   <MessageCircle className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                   <span>Contact Courier Support on WhatsApp</span>

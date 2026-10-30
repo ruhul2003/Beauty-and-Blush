@@ -3,99 +3,110 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Sparkles } from 'lucide-react';
 
 export function PromoGrid() {
   return (
     <section className="py-8 sm:py-12 overflow-hidden">
-      <div className="w-[90%] mx-auto px-2 sm:px-4">
+      <div className="w-[95%] sm:w-[92%] max-w-[1500px] mx-auto px-2 sm:px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           
-          {/* Card 1: Special Offer - Skincare */}
+          {/* Card 1: Electric Blue-Violet Frosted Glass Card (Signature Reference Style) */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.5 }}
-            whileHover={{ y: -4 }}
-            className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-white/60 dark:bg-[#140b16]/65 backdrop-blur-2xl border border-black/[0.05] dark:border-white/[0.08] p-6 sm:p-8 flex flex-col justify-between min-h-[230px] sm:min-h-[260px] group shadow-[0_4px_24px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_36px_rgba(0,0,0,0.07)] hover:border-black/15 dark:hover:border-white/20 transition-all"
+            whileHover={{ y: -6 }}
+            className="glass-gradient-vivid relative p-7 sm:p-9 min-h-[260px] sm:min-h-[290px] flex flex-col justify-between overflow-hidden group shadow-2xl"
           >
-            {/* Background Product Image */}
-            <Link href="/browse?category=Skincare" className="absolute right-0 top-0 bottom-0 w-1/2 sm:w-1/2 lg:w-[48%] overflow-hidden opacity-90 group-hover:scale-105 transition-transform duration-700 block">
+            {/* Background Product Image with Gradient Mask */}
+            <div className="absolute right-0 top-0 bottom-0 w-1/2 sm:w-[48%] overflow-hidden opacity-40 group-hover:opacity-50 group-hover:scale-108 transition-all duration-700 pointer-events-none">
               <img
                 src="/images/promo-skincare.jpg"
                 alt="Skincare Special Offer"
                 className="w-full h-full object-cover object-center"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/60 to-transparent dark:from-[#140b16]/95 dark:via-[#140b16]/60" />
-            </Link>
+            </div>
 
-            {/* Left Content */}
-            <div className="relative z-10 max-w-[260px] sm:max-w-[320px] lg:max-w-[360px] space-y-3">
-              <span className="inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] text-[#b84357] dark:text-rose-300 bg-black/[0.02] dark:bg-white/[0.04] backdrop-blur-md border border-black/[0.06] dark:border-white/[0.08] shadow-xs">
-                Curated Offer
+            {/* Glowing Refraction Orb */}
+            <div className="absolute -top-12 -right-12 w-64 h-64 bg-white/20 rounded-full blur-2xl pointer-events-none" />
+
+            {/* Content */}
+            <div className="relative z-10 max-w-[280px] sm:max-w-[340px] space-y-3">
+              <span className="glass-pill inline-block px-3.5 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-indigo-900 bg-white/90 shadow-xs">
+                Clinical Formulations
               </span>
 
-              <Link href="/browse?category=Skincare" className="block">
-                <h3 className="text-xl sm:text-2xl font-serif font-normal text-[#191416] dark:text-white leading-tight transition-colors">
-                  Up To 30% Off <br />
-                  <span className="font-semibold text-[#b84357] dark:text-rose-300">Skincare Essentials</span>
-                </h3>
-              </Link>
+              <h3 className="text-2xl sm:text-3xl font-serif font-bold text-white leading-tight">
+                Up To 30% Off <br />
+                <span className="text-cyan-200">Dewy Barrier Serums</span>
+              </h3>
 
-              <div className="pt-2">
-                <Link
-                  href="/browse?category=Skincare"
-                  className="px-5 py-2.5 text-xs tracking-wider uppercase font-bold rounded-xl bg-[#b84357] hover:bg-[#a13649] text-white inline-flex items-center gap-2 shadow-md shadow-[#b84357]/20 active:scale-95 transition-all"
-                >
-                  <span>SHOP NOW</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </div>
+              <p className="text-xs text-white/85 leading-relaxed">
+                Hyaluronic acid & 10% pure niacinamide for luminous glass skin.
+              </p>
+            </div>
+
+            <div className="pt-4 relative z-10">
+              <Link
+                href="/browse?category=Skincare"
+                className="px-6 py-3.5 text-xs tracking-wider uppercase font-bold rounded-full bg-white text-indigo-700 hover:bg-slate-100 inline-flex items-center gap-2 shadow-[0_12px_24px_-4px_rgba(0,0,0,0.22),0_4px_10px_rgba(0,0,0,0.12),inset_0_2px_1px_#ffffff,inset_0_-2.5px_2px_rgba(0,0,0,0.1)] hover:scale-105 active:scale-95 transition-all"
+              >
+                <span>EXPLORE SKINCARE</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
           </motion.div>
 
-          {/* Card 2: New Arrivals - Makeup */}
+          {/* Card 2: Iridescent Rose-Lilac-Cyan Frosted Glass Card (Signature Reference Style) */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            whileHover={{ y: -4 }}
-            className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-white/60 dark:bg-[#140b16]/65 backdrop-blur-2xl border border-black/[0.05] dark:border-white/[0.08] p-6 sm:p-8 flex flex-col justify-between min-h-[230px] sm:min-h-[260px] group shadow-[0_4px_24px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_36px_rgba(0,0,0,0.07)] hover:border-black/15 dark:hover:border-white/20 transition-all"
+            whileHover={{ y: -6 }}
+            className="glass-gradient-iridescent relative p-7 sm:p-9 min-h-[260px] sm:min-h-[290px] flex flex-col justify-between overflow-hidden group shadow-2xl"
           >
-            {/* Background Product Image */}
-            <Link href="/browse?category=Makeup" className="absolute right-0 top-0 bottom-0 w-1/2 sm:w-1/2 lg:w-[48%] overflow-hidden opacity-90 group-hover:scale-105 transition-transform duration-700 block">
+            {/* Floating Accent Dots from Reference Image */}
+            <div className="absolute top-4 right-4 w-3.5 h-3.5 rounded-full bg-amber-300 border border-white shadow-md z-20" />
+            
+            {/* Background Product Image with Gradient Mask */}
+            <div className="absolute right-0 top-0 bottom-0 w-1/2 sm:w-[48%] overflow-hidden opacity-40 group-hover:opacity-50 group-hover:scale-108 transition-all duration-700 pointer-events-none">
               <img
                 src="/images/promo-makeup.jpg"
                 alt="Makeup New Arrivals"
                 className="w-full h-full object-cover object-center"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/60 to-transparent dark:from-[#140b16]/95 dark:via-[#140b16]/60" />
-            </Link>
+            </div>
 
-            {/* Left Content */}
-            <div className="relative z-10 max-w-[260px] sm:max-w-[320px] lg:max-w-[360px] space-y-3">
-              <span className="inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] text-[#b84357] dark:text-rose-300 bg-black/[0.02] dark:bg-white/[0.04] backdrop-blur-md border border-black/[0.06] dark:border-white/[0.08] shadow-xs">
-                New Arrivals
+            {/* Diagonal Ribbon Highlight */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-white/30 to-transparent opacity-60 pointer-events-none transform -skew-y-6" />
+
+            {/* Content */}
+            <div className="relative z-10 max-w-[280px] sm:max-w-[340px] space-y-3">
+              <span className="glass-pill inline-block px-3.5 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-rose-900 bg-white/90 shadow-xs">
+                Trending Rouge
               </span>
 
-              <Link href="/browse?category=Makeup" className="block">
-                <h3 className="text-xl sm:text-2xl font-serif font-normal text-[#191416] dark:text-white leading-tight transition-colors">
-                  Radiant Glow <br />
-                  <span className="font-semibold text-[#b84357] dark:text-rose-300">Makeup Palette</span>
-                </h3>
-              </Link>
+              <h3 className="text-2xl sm:text-3xl font-serif font-bold text-white leading-tight">
+                Radiant Velvet <br />
+                <span className="text-pink-100">Blushes & Palettes</span>
+              </h3>
 
-              <div className="pt-2">
-                <Link
-                  href="/browse?category=Makeup"
-                  className="px-5 py-2.5 text-xs tracking-wider uppercase font-bold rounded-xl bg-[#b84357] hover:bg-[#a13649] text-white inline-flex items-center gap-2 shadow-md shadow-[#b84357]/20 active:scale-95 transition-all"
-                >
-                  <span>SHOP NOW</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </div>
+              <p className="text-xs text-white/85 leading-relaxed">
+                Rare Beauty Soft Pinch, Dior Addict & designer cosmetic palettes.
+              </p>
+            </div>
+
+            <div className="pt-4 relative z-10">
+              <Link
+                href="/browse?category=Makeup"
+                className="px-6 py-3.5 text-xs tracking-wider uppercase font-bold rounded-full bg-white text-rose-700 hover:bg-slate-100 inline-flex items-center gap-2 shadow-[0_12px_24px_-4px_rgba(0,0,0,0.22),0_4px_10px_rgba(0,0,0,0.12),inset_0_2px_1px_#ffffff,inset_0_-2.5px_2px_rgba(0,0,0,0.1)] hover:scale-105 active:scale-95 transition-all"
+              >
+                <span>SHOP MAKEUP</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
           </motion.div>
 
