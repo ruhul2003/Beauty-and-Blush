@@ -178,18 +178,18 @@ export default function ProductDetailPage() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
         {/* Left Column: Image Gallery (6 cols) */}
         <div className="lg:col-span-6 space-y-4">
-          <div className="aspect-square rounded-2xl overflow-hidden border border-[#eee7e6] dark:border-white/10 relative bg-[#faf8f7] dark:bg-white/5">
+          <div className="aspect-square rounded-3xl overflow-hidden border border-white/60 dark:border-white/10 relative bg-white/50 dark:bg-white/5 backdrop-blur-2xl shadow-[0_15px_35px_rgba(0,0,0,0.06)]">
             <img
               src={images[activeImageIndex]}
               alt={product.title}
               className="w-full h-full object-cover transition-all duration-300"
             />
             {discount > 0 && (
-              <span className="absolute top-4 left-4 px-2.5 py-1 rounded text-[10px] font-semibold uppercase tracking-wider bg-[#191416] text-white">
+              <span className="absolute top-4 left-4 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#c94d64]/90 text-white backdrop-blur-md shadow-xs">
                 -{discount}% OFF
               </span>
             )}
-            <span className="absolute top-4 right-4 px-2.5 py-1 rounded text-[10px] font-medium bg-white/95 dark:bg-[#141114]/95 text-slate-800 dark:text-white backdrop-blur-md border border-[#eee7e6] dark:border-white/10">
+            <span className="absolute top-4 right-4 px-3 py-1 rounded-full text-[10px] font-bold bg-white/80 dark:bg-[#140b17]/80 text-slate-800 dark:text-white backdrop-blur-xl border border-white/60 dark:border-white/10 shadow-xs">
               {product.condition}
             </span>
           </div>
@@ -203,8 +203,10 @@ export default function ProductDetailPage() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => setActiveImageIndex(idx)}
-                  className={`w-16 h-16 rounded-xl overflow-hidden border transition-all shrink-0 cursor-pointer ${
-                    activeImageIndex === idx ? 'border-[#191416] dark:border-white ring-1 ring-black dark:ring-white' : 'border-[#eee7e6] dark:border-white/10 opacity-70 hover:opacity-100'
+                  className={`w-16 h-16 rounded-2xl overflow-hidden border transition-all shrink-0 cursor-pointer backdrop-blur-md ${
+                    activeImageIndex === idx 
+                      ? 'border-[#c94d64] ring-2 ring-[#c94d64]/50 scale-105' 
+                      : 'border-white/60 dark:border-white/10 opacity-70 hover:opacity-100 bg-white/40 dark:bg-white/5'
                   }`}
                 >
                   <img src={img} alt="Thumb" className="w-full h-full object-cover" />
@@ -214,14 +216,14 @@ export default function ProductDetailPage() {
           )}
 
           {/* Authenticity Guarantee Card */}
-          <div className="p-4 rounded-xl bg-[#faf8f7] dark:bg-white/5 border border-[#eee7e6] dark:border-white/10 flex items-start gap-3">
+          <div className="p-4 rounded-2xl bg-white/60 dark:bg-[#140c17]/60 backdrop-blur-2xl border border-white/60 dark:border-white/10 shadow-xs flex items-start gap-3">
             <ShieldCheck className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
             <div>
-              <h4 className="text-xs font-semibold text-slate-900 dark:text-white">
+              <h4 className="text-xs font-bold font-serif text-slate-900 dark:text-white">
                 Authenticity Guarantee
               </h4>
               <p className="text-[11px] text-slate-600 dark:text-slate-400 mt-0.5 leading-relaxed">
-                Batch code <strong className="font-mono bg-white dark:bg-black/40 px-1 py-0.5 rounded border border-[#eee7e6] dark:border-white/10">{product.batchCode || '3K01'}</strong> verified against manufacturer records.
+                Batch code <strong className="font-mono bg-white/80 dark:bg-white/10 px-1.5 py-0.5 rounded-lg border border-white/60 dark:border-white/15 text-[#c94d64]">{product.batchCode || '3K01'}</strong> verified against manufacturer records.
               </p>
             </div>
           </div>
