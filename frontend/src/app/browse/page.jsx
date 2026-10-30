@@ -136,16 +136,16 @@ function BrowseContent() {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* Desktop Sidebar Filters */}
         <aside className="hidden md:block space-y-6">
-          <div className="bg-white dark:bg-[#141114] p-5 rounded-xl border border-[#eee7e6] dark:border-white/10 space-y-5">
-            <div className="flex items-center justify-between pb-3 border-b border-[#eee7e6] dark:border-white/10">
-              <span className="font-semibold text-xs uppercase tracking-wider text-slate-900 dark:text-white flex items-center gap-1.5">
-                <Filter className="w-3.5 h-3.5 text-slate-400" />
+          <div className="bg-white/60 dark:bg-[#140c17]/65 backdrop-blur-2xl p-5 rounded-3xl border border-white/60 dark:border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.04)] space-y-5">
+            <div className="flex items-center justify-between pb-3 border-b border-white/40 dark:border-white/10">
+              <span className="font-bold text-xs uppercase tracking-wider text-slate-900 dark:text-white flex items-center gap-1.5 font-serif">
+                <Filter className="w-3.5 h-3.5 text-[#c94d64]" />
                 <span>Filters</span>
               </span>
               <button
                 type="button"
                 onClick={resetFilters}
-                className="text-[11px] text-slate-500 hover:text-black dark:hover:text-white transition-colors"
+                className="text-[11px] font-medium text-slate-500 hover:text-[#c94d64] dark:hover:text-rose-400 transition-colors cursor-pointer"
               >
                 Reset All
               </button>
@@ -153,7 +153,7 @@ function BrowseContent() {
 
             {/* Category Filter */}
             <div>
-              <label className="text-xs font-semibold text-slate-800 dark:text-slate-200 block mb-2">Category</label>
+              <label className="text-xs font-bold text-slate-800 dark:text-slate-200 block mb-2 font-serif">Category</label>
               <div className="space-y-1 text-xs">
                 {['All', 'Skincare', 'Makeup', 'Haircare', 'Fragrance', 'Bath & Body', 'Tools & Brushes'].map(cat => (
                   <button
@@ -163,10 +163,10 @@ function BrowseContent() {
                       setCategory(cat);
                       setMobileFilterOpen(false);
                     }}
-                    className={`block w-full text-left px-2.5 py-1.5 rounded-md transition-colors ${
+                    className={`block w-full text-left px-3 py-1.5 rounded-xl transition-all cursor-pointer ${
                       category === cat
-                        ? 'bg-[#191416] dark:bg-white text-white dark:text-black font-medium'
-                        : 'text-slate-600 dark:text-slate-300 hover:bg-[#faf8f7] dark:hover:bg-white/5'
+                        ? 'bg-[#c94d64] text-white font-semibold shadow-xs'
+                        : 'text-slate-600 dark:text-slate-300 hover:bg-white/70 dark:hover:bg-white/10'
                     }`}
                   >
                     {cat}
@@ -177,57 +177,57 @@ function BrowseContent() {
 
             {/* Brand Filter */}
             <div>
-              <label className="text-xs font-bold text-slate-800 dark:text-slate-200 block mb-2">Brand</label>
+              <label className="text-xs font-bold text-slate-800 dark:text-slate-200 block mb-2 font-serif">Brand</label>
               <select
                 value={brand}
                 onChange={(e) => setBrand(e.target.value)}
-                className="w-full text-xs p-2 rounded-xl border border-rose-200 dark:border-rose-900/50 bg-white dark:bg-[#1a0f1c]"
+                className="w-full text-xs p-2.5 rounded-xl border border-white/60 dark:border-white/10 bg-white/70 dark:bg-white/5 backdrop-blur-md text-slate-800 dark:text-white focus:outline-none focus:ring-1 focus:ring-[#c94d64]"
               >
                 {popularBrands.map(b => (
-                  <option key={b} value={b}>{b === 'All' ? 'All Brands' : b}</option>
+                  <option key={b} value={b} className="bg-white dark:bg-[#140c17] text-slate-900 dark:text-white">{b === 'All' ? 'All Brands' : b}</option>
                 ))}
               </select>
             </div>
 
             {/* Condition Filter */}
             <div>
-              <label className="text-xs font-bold text-slate-800 dark:text-slate-200 block mb-2">Condition</label>
+              <label className="text-xs font-bold text-slate-800 dark:text-slate-200 block mb-2 font-serif">Condition</label>
               <select
                 value={condition}
                 onChange={(e) => setCondition(e.target.value)}
-                className="w-full text-xs p-2 rounded-xl border border-rose-200 dark:border-rose-900/50 bg-white dark:bg-[#1a0f1c]"
+                className="w-full text-xs p-2.5 rounded-xl border border-white/60 dark:border-white/10 bg-white/70 dark:bg-white/5 backdrop-blur-md text-slate-800 dark:text-white focus:outline-none focus:ring-1 focus:ring-[#c94d64]"
               >
-                <option value="All">All Conditions</option>
-                <option value="Brand New & Boxed">Brand New & Boxed</option>
-                <option value="Sealed">Sealed</option>
-                <option value="Swatched Once">Swatched Once</option>
-                <option value="Authentic Pre-loved">Authentic Pre-loved</option>
+                <option value="All" className="bg-white dark:bg-[#140c17] text-slate-900 dark:text-white">All Conditions</option>
+                <option value="Brand New & Boxed" className="bg-white dark:bg-[#140c17] text-slate-900 dark:text-white">Brand New & Boxed</option>
+                <option value="Sealed" className="bg-white dark:bg-[#140c17] text-slate-900 dark:text-white">Sealed</option>
+                <option value="Swatched Once" className="bg-white dark:bg-[#140c17] text-slate-900 dark:text-white">Swatched Once</option>
+                <option value="Authentic Pre-loved" className="bg-white dark:bg-[#140c17] text-slate-900 dark:text-white">Authentic Pre-loved</option>
               </select>
             </div>
 
             {/* Skin Type Filter */}
             <div>
-              <label className="text-xs font-bold text-slate-800 dark:text-slate-200 block mb-2">Skin Type</label>
+              <label className="text-xs font-bold text-slate-800 dark:text-slate-200 block mb-2 font-serif">Skin Type</label>
               <select
                 value={skinType}
                 onChange={(e) => setSkinType(e.target.value)}
-                className="w-full text-xs p-2 rounded-xl border border-rose-200 dark:border-rose-900/50 bg-white dark:bg-[#1a0f1c]"
+                className="w-full text-xs p-2.5 rounded-xl border border-white/60 dark:border-white/10 bg-white/70 dark:bg-white/5 backdrop-blur-md text-slate-800 dark:text-white focus:outline-none focus:ring-1 focus:ring-[#c94d64]"
               >
-                <option value="All">All Skin Types</option>
-                <option value="Oily">Oily / Combination</option>
-                <option value="Dry">Dry / Sensitive</option>
-                <option value="Normal">Normal</option>
+                <option value="All" className="bg-white dark:bg-[#140c17] text-slate-900 dark:text-white">All Skin Types</option>
+                <option value="Oily" className="bg-white dark:bg-[#140c17] text-slate-900 dark:text-white">Oily / Combination</option>
+                <option value="Dry" className="bg-white dark:bg-[#140c17] text-slate-900 dark:text-white">Dry / Sensitive</option>
+                <option value="Normal" className="bg-white dark:bg-[#140c17] text-slate-900 dark:text-white">Normal</option>
               </select>
             </div>
 
             {/* In-Stock Toggle */}
-            <div className="pt-2 border-t border-rose-100 dark:border-rose-950/40">
-              <label className="flex items-center gap-2 cursor-pointer text-xs font-semibold text-slate-700 dark:text-slate-200">
+            <div className="pt-3 border-t border-white/40 dark:border-white/10">
+              <label className="flex items-center gap-2.5 cursor-pointer text-xs font-semibold text-slate-700 dark:text-slate-200">
                 <input
                   type="checkbox"
                   checked={onlyInStock}
                   onChange={(e) => setOnlyInStock(e.target.checked)}
-                  className="rounded text-rose-500 focus:ring-rose-400 accent-rose-500"
+                  className="rounded text-[#c94d64] focus:ring-rose-400 accent-[#c94d64]"
                 />
                 <span>In-Stock Only</span>
               </label>
@@ -235,8 +235,8 @@ function BrowseContent() {
 
             {/* Max Price Filter */}
             <div>
-              <label className="text-xs font-bold text-slate-800 dark:text-slate-200 block mb-2">
-                Max Budget: {maxPrice ? `৳${maxPrice}` : 'Any'}
+              <label className="text-xs font-bold text-slate-800 dark:text-slate-200 block mb-2 font-serif">
+                Max Budget: <span className="text-[#c94d64]">{maxPrice ? `৳${maxPrice}` : 'Any'}</span>
               </label>
               <input
                 type="range"
@@ -245,7 +245,7 @@ function BrowseContent() {
                 step="500"
                 value={maxPrice || 25000}
                 onChange={(e) => setMaxPrice(e.target.value)}
-                className="w-full accent-rose-500"
+                className="w-full accent-[#c94d64] cursor-pointer"
               />
               <div className="flex justify-between text-[10px] text-slate-400 mt-1">
                 <span>৳1,000</span>
