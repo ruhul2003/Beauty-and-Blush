@@ -12,13 +12,13 @@
     --bg-main: #faf9f8;
     --text-main: #191416;
     --text-muted: #73676c;
-    --panel-bg: rgba(255, 255, 255, 0.92);
-    --panel-border: #eee7e6;
-    --card-bg: #ffffff;
-    --card-border: #f0eae9;
-    --card-hover-bg: #fdfbfb;
-    --surface-subtle: #f5f2f1;
-    --surface-input: #ffffff;
+    --panel-bg: rgba(255, 255, 255, 0.68);
+    --panel-border: rgba(255, 255, 255, 0.65);
+    --card-bg: rgba(255, 255, 255, 0.58);
+    --card-border: rgba(255, 255, 255, 0.55);
+    --card-hover-bg: rgba(255, 255, 255, 0.78);
+    --surface-subtle: rgba(245, 242, 241, 0.6);
+    --surface-input: rgba(255, 255, 255, 0.65);
     --accent-rose: #b84357;
     --accent-rose-hover: #a13649;
     --accent-blush: #c94d64;
@@ -31,13 +31,13 @@
     --bg-main: #0c0a0c;
     --text-main: #f5f3f4;
     --text-muted: #9e9398;
-    --panel-bg: rgba(18, 15, 18, 0.92);
-    --panel-border: rgba(255, 255, 255, 0.08);
-    --card-bg: #141114;
-    --card-border: #221c21;
-    --card-hover-bg: #1b161c;
-    --surface-subtle: #1c171d;
-    --surface-input: #120f13;
+    --panel-bg: rgba(18, 12, 20, 0.72);
+    --panel-border: rgba(255, 255, 255, 0.12);
+    --card-bg: rgba(22, 14, 24, 0.62);
+    --card-border: rgba(255, 255, 255, 0.10);
+    --card-hover-bg: rgba(28, 18, 30, 0.75);
+    --surface-subtle: rgba(28, 23, 29, 0.6);
+    --surface-input: rgba(18, 15, 19, 0.65);
     --accent-rose: #c94d64;
     --accent-rose-hover: #db5972;
     --accent-blush: #e26982;
@@ -66,7 +66,7 @@
 
   body {
     background-color: var(--bg-main);
-    background-image: radial-gradient(circle at 50% 0%, rgba(201, 77, 100, 0.06), transparent 45%);
+    background-image: radial-gradient(circle at 50% 0%, rgba(201, 77, 100, 0.08), transparent 45%);
     color: var(--text-main);
     font-family: 'Bai Jamjuree', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     min-height: 100vh;
@@ -90,31 +90,65 @@
   margin-right: auto !important;
 }
 
-/* Glassmorphism Classes */
+/* Premium Glassmorphism Classes */
 .glass-panel {
   background: var(--panel-bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
   border: 1px solid var(--panel-border);
+  box-shadow: 0 12px 35px -8px rgba(0, 0, 0, 0.06), inset 0 1px 1px rgba(255, 255, 255, 0.6);
+}
+
+.dark .glass-panel {
+  box-shadow: 0 15px 40px -8px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.08);
 }
 
 .glass-card {
   background: var(--card-bg);
-  backdrop-filter: blur(14px);
+  backdrop-filter: blur(20px) saturate(170%);
+  -webkit-backdrop-filter: blur(20px) saturate(170%);
   border: 1px solid var(--card-border);
+  box-shadow: 0 8px 25px -6px rgba(0, 0, 0, 0.04), inset 0 1px 1px rgba(255, 255, 255, 0.5);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-card:hover {
-  border-color: #d8ced0 !important;
   background: var(--card-hover-bg) !important;
+  border-color: rgba(184, 67, 87, 0.3) !important;
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px -8px rgba(25, 20, 22, 0.08);
+  box-shadow: 0 14px 30px -8px rgba(184, 67, 87, 0.12), inset 0 1px 1px rgba(255, 255, 255, 0.7);
 }
 
 html.dark .glass-card:hover {
-  border-color: rgba(255, 255, 255, 0.16) !important;
-  box-shadow: 0 10px 24px -8px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 14px 30px -8px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.12);
+}
+
+.glass-dock {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(25px) saturate(190%);
+  -webkit-backdrop-filter: blur(25px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06), inset 0 1px 1px rgba(255, 255, 255, 0.7);
+}
+
+html.dark .glass-dock {
+  background: rgba(16, 10, 18, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.65), inset 0 1px 1px rgba(255, 255, 255, 0.08);
+}
+
+.glass-input {
+  background: var(--surface-input);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--card-border);
+  transition: all 0.2s ease;
+}
+
+.glass-input:focus {
+  border-color: var(--accent-rose);
+  box-shadow: 0 0 0 3px rgba(184, 67, 87, 0.15);
 }
 
 /* Minimalist Luxury Primary & Outline Buttons */
