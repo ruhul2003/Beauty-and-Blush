@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Sparkles } from 'lucide-react';
 
 export function PromoGrid() {
   return (
@@ -18,7 +18,7 @@ export function PromoGrid() {
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.5 }}
             whileHover={{ y: -4 }}
-            className="relative rounded-xl overflow-hidden bg-[#faf8f7] dark:bg-[#141114] border border-[#eee7e6] dark:border-white/10 p-6 sm:p-8 flex flex-col justify-between min-h-[220px] sm:min-h-[250px] group shadow-none hover:shadow-md transition-shadow"
+            className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-white/50 dark:bg-[#140c16]/55 backdrop-blur-2xl backdrop-saturate-180 border border-white/70 dark:border-white/10 p-6 sm:p-8 flex flex-col justify-between min-h-[230px] sm:min-h-[260px] group shadow-[0_10px_35px_rgba(0,0,0,0.04)] hover:shadow-[0_18px_45px_rgba(184,67,87,0.12)] hover:border-[#b84357]/40 transition-all"
           >
             {/* Background Product Image */}
             <Link href="/browse?category=Skincare" className="absolute right-0 top-0 bottom-0 w-1/2 sm:w-1/2 lg:w-[48%] overflow-hidden opacity-90 group-hover:scale-105 transition-transform duration-700 block">
@@ -27,28 +27,29 @@ export function PromoGrid() {
                 alt="Skincare Special Offer"
                 className="w-full h-full object-cover object-center"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-[#faf8f7] via-[#faf8f7]/60 to-transparent dark:from-[#141114] dark:via-[#141114]/60" />
+              <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/50 to-transparent dark:from-[#140c16]/95 dark:via-[#140c16]/60" />
             </Link>
 
             {/* Left Content */}
-            <div className="relative z-10 max-w-[260px] sm:max-w-[320px] lg:max-w-[360px] space-y-2.5">
-              <Link href="/browse?category=Skincare" className="block">
-                <span className="text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.22em] text-[#82757a]">
-                  Curated Offer
-                </span>
+            <div className="relative z-10 max-w-[260px] sm:max-w-[320px] lg:max-w-[360px] space-y-3">
+              <span className="inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] text-[#b84357] dark:text-rose-300 bg-white/60 dark:bg-white/10 backdrop-blur-md border border-white/70 dark:border-white/10 shadow-xs">
+                Curated Offer
+              </span>
 
+              <Link href="/browse?category=Skincare" className="block">
                 <h3 className="text-xl sm:text-2xl font-serif font-normal text-[#191416] dark:text-white leading-tight transition-colors">
                   Up To 30% Off <br />
-                  <span className="text-[#191416] dark:text-white">Skincare Essentials</span>
+                  <span className="font-semibold text-[#b84357] dark:text-rose-300">Skincare Essentials</span>
                 </h3>
               </Link>
 
               <div className="pt-2">
                 <Link
                   href="/browse?category=Skincare"
-                  className="px-5 py-2 text-[11px] tracking-widest uppercase font-medium rounded-md bg-[#191416] hover:bg-black dark:bg-white dark:hover:bg-slate-100 text-white dark:text-black inline-flex items-center gap-1.5 active:scale-95 transition-all"
+                  className="px-5 py-2.5 text-xs tracking-wider uppercase font-bold rounded-xl bg-[#b84357] hover:bg-[#a13649] text-white inline-flex items-center gap-2 shadow-md shadow-[#b84357]/25 active:scale-95 transition-all"
                 >
                   <span>SHOP NOW</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
             </div>
@@ -61,7 +62,7 @@ export function PromoGrid() {
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.5, delay: 0.1 }}
             whileHover={{ y: -4 }}
-            className="relative rounded-xl overflow-hidden bg-[#faf8f7] dark:bg-[#141114] border border-[#eee7e6] dark:border-white/10 p-6 sm:p-8 flex flex-col justify-between min-h-[220px] sm:min-h-[250px] group shadow-none hover:shadow-md transition-shadow"
+            className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-white/50 dark:bg-[#140c16]/55 backdrop-blur-2xl backdrop-saturate-180 border border-white/70 dark:border-white/10 p-6 sm:p-8 flex flex-col justify-between min-h-[230px] sm:min-h-[260px] group shadow-[0_10px_35px_rgba(0,0,0,0.04)] hover:shadow-[0_18px_45px_rgba(184,67,87,0.12)] hover:border-[#b84357]/40 transition-all"
           >
             {/* Background Product Image */}
             <Link href="/browse?category=Makeup" className="absolute right-0 top-0 bottom-0 w-1/2 sm:w-1/2 lg:w-[48%] overflow-hidden opacity-90 group-hover:scale-105 transition-transform duration-700 block">
@@ -70,28 +71,29 @@ export function PromoGrid() {
                 alt="Makeup New Arrivals"
                 className="w-full h-full object-cover object-center"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-[#faf8f7] via-[#faf8f7]/60 to-transparent dark:from-[#141114] dark:via-[#141114]/60" />
+              <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/50 to-transparent dark:from-[#140c16]/95 dark:via-[#140c16]/60" />
             </Link>
 
             {/* Left Content */}
-            <div className="relative z-10 max-w-[260px] sm:max-w-[320px] lg:max-w-[360px] space-y-2.5">
-              <Link href="/browse?category=Makeup" className="block">
-                <span className="text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.22em] text-[#82757a]">
-                  New Arrivals
-                </span>
+            <div className="relative z-10 max-w-[260px] sm:max-w-[320px] lg:max-w-[360px] space-y-3">
+              <span className="inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] text-[#b84357] dark:text-rose-300 bg-white/60 dark:bg-white/10 backdrop-blur-md border border-white/70 dark:border-white/10 shadow-xs">
+                New Arrivals
+              </span>
 
+              <Link href="/browse?category=Makeup" className="block">
                 <h3 className="text-xl sm:text-2xl font-serif font-normal text-[#191416] dark:text-white leading-tight transition-colors">
                   Radiant Glow <br />
-                  <span className="text-[#191416] dark:text-white">Makeup Palette</span>
+                  <span className="font-semibold text-[#b84357] dark:text-rose-300">Makeup Palette</span>
                 </h3>
               </Link>
 
               <div className="pt-2">
                 <Link
                   href="/browse?category=Makeup"
-                  className="px-5 py-2 text-[11px] tracking-widest uppercase font-medium rounded-md bg-[#191416] hover:bg-black dark:bg-white dark:hover:bg-slate-100 text-white dark:text-black inline-flex items-center gap-1.5 active:scale-95 transition-all"
+                  className="px-5 py-2.5 text-xs tracking-wider uppercase font-bold rounded-xl bg-[#b84357] hover:bg-[#a13649] text-white inline-flex items-center gap-2 shadow-md shadow-[#b84357]/25 active:scale-95 transition-all"
                 >
                   <span>SHOP NOW</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
             </div>
