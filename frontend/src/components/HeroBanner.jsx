@@ -117,7 +117,7 @@ export function HeroBanner() {
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
-      className="relative w-full overflow-hidden bg-[#140c16] -mt-20 sm:-mt-24 pt-20 sm:pt-24 min-h-screen min-h-[100dvh] flex flex-col justify-between items-center border-b border-[#eee7e6]/40 dark:border-white/10 select-none touch-pan-y"
+      className="relative w-full overflow-hidden bg-[#140c16] -mt-20 sm:-mt-24 pt-20 sm:pt-24 min-h-screen min-h-[100dvh] flex flex-col justify-between items-center border-b border-black/[0.05] dark:border-white/[0.08] select-none touch-pan-y"
     >
       {/* Full Width Cinematic Background Crossfade Slides */}
       <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
@@ -160,10 +160,10 @@ export function HeroBanner() {
               >
                 {/* Tagline & Curated Badge */}
                 <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
-                  <span className="px-3 sm:px-3.5 py-1 rounded-full text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] bg-white/10 text-rose-200 border border-white/20 backdrop-blur-md shadow-sm">
+                  <span className="px-3 sm:px-3.5 py-1 rounded-full text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] bg-white/[0.08] text-rose-100 border border-white/[0.12] backdrop-blur-xl shadow-xs">
                     {slide.tag}
                   </span>
-                  <span className="px-2.5 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-medium tracking-wider bg-rose-500/20 text-rose-200 border border-rose-500/30 backdrop-blur-md">
+                  <span className="px-2.5 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-medium tracking-wider bg-white/[0.05] text-white/90 border border-white/[0.1] backdrop-blur-xl">
                     {slide.badge}
                   </span>
                 </div>
@@ -193,7 +193,7 @@ export function HeroBanner() {
             >
               <Link
                 href="/browse"
-                className="px-6 sm:px-8 py-3 sm:py-3.5 text-xs sm:text-sm tracking-[0.18em] uppercase font-bold text-white bg-[#b84357] hover:bg-[#a13346] rounded-xl sm:rounded-2xl flex items-center gap-2 sm:gap-2.5 shadow-lg shadow-[#b84357]/30 hover:shadow-xl hover:shadow-[#b84357]/40 active:scale-98 transition-all"
+                className="px-6 sm:px-8 py-3 sm:py-3.5 text-xs sm:text-sm tracking-[0.18em] uppercase font-bold text-white bg-[#b84357] hover:bg-[#a13649] rounded-xl sm:rounded-2xl flex items-center gap-2 sm:gap-2.5 shadow-lg shadow-[#b84357]/30 hover:shadow-xl hover:shadow-[#b84357]/40 active:scale-98 transition-all"
               >
                 <span>EXPLORE COLLECTION</span>
                 <ArrowRight className="w-4 h-4" />
@@ -201,7 +201,7 @@ export function HeroBanner() {
               
               <Link
                 href="/browse"
-                className="inline-flex items-center gap-2 px-5 sm:px-7 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold uppercase tracking-wider text-white hover:text-rose-300 transition-colors rounded-xl sm:rounded-2xl border border-white/20 hover:border-rose-400/50 bg-white/10 backdrop-blur-md group active:scale-98"
+                className="inline-flex items-center gap-2 px-5 sm:px-7 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold uppercase tracking-wider text-white hover:text-rose-200 transition-colors rounded-xl sm:rounded-2xl border border-white/15 hover:border-white/30 bg-white/[0.06] hover:bg-white/[0.1] backdrop-blur-xl group active:scale-98"
               >
                 <span>LADIES GLAMOUR</span>
                 <Sparkles className="w-4 h-4 text-rose-300 group-hover:rotate-12 transition-transform" />
@@ -223,7 +223,7 @@ export function HeroBanner() {
               onClick={() => setCurrentSlide(idx)}
               className={`h-1.5 sm:h-2 rounded-full transition-all duration-400 cursor-pointer ${
                 currentSlide === idx 
-                  ? 'w-8 sm:w-10 bg-rose-400 shadow-md shadow-rose-500/50' 
+                  ? 'w-8 sm:w-10 bg-white shadow-xs' 
                   : 'w-2 sm:w-2.5 bg-white/35 hover:bg-white/60'
               }`}
               aria-label={`Go to slide ${idx + 1}`}

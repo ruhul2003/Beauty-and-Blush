@@ -3,7 +3,7 @@
 import React, { useRef, useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Crown, ChevronLeft, ChevronRight, Star, Heart, ArrowRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Star, Heart } from 'lucide-react';
 import { useToast } from '@/context/ToastContext';
 
 export function TrendingProducts({ products = [] }) {
@@ -102,7 +102,7 @@ export function TrendingProducts({ products = [] }) {
     <section className="py-12 md:py-16 relative overflow-hidden">
       <div className="w-[90%] mx-auto px-2 sm:px-4">
         
-        {/* Section Heading with Glass Badge */}
+        {/* Section Heading with Minimal Glass Badge */}
         <motion.div 
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -110,7 +110,7 @@ export function TrendingProducts({ products = [] }) {
           transition={{ duration: 0.5 }}
           className="text-center mb-10 sm:mb-12 flex flex-col items-center"
         >
-          <span className="px-3.5 py-1 rounded-full text-[10px] sm:text-[11px] uppercase tracking-[0.24em] font-semibold text-[#b84357] dark:text-rose-300 bg-white/50 dark:bg-white/5 backdrop-blur-xl border border-white/60 dark:border-white/10 shadow-xs mb-2.5">
+          <span className="px-3.5 py-1 rounded-full text-[10px] sm:text-[11px] uppercase tracking-[0.24em] font-semibold text-[#b84357] dark:text-rose-300 bg-black/[0.02] dark:bg-white/[0.04] backdrop-blur-xl border border-black/[0.05] dark:border-white/[0.08] shadow-xs mb-2.5">
             Iconic Formulations
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-[#191416] dark:text-white font-normal tracking-tight">
@@ -124,7 +124,7 @@ export function TrendingProducts({ products = [] }) {
           {/* Left Arrow Button */}
           <button
             onClick={() => handleScroll('left')}
-            className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/75 dark:bg-[#140c16]/80 backdrop-blur-xl shadow-md border border-white/70 dark:border-white/10 items-center justify-center text-[#191416] dark:text-white hover:border-[#b84357] active:scale-95 transition-all cursor-pointer"
+            className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/80 dark:bg-[#140b17]/85 backdrop-blur-xl shadow-xs border border-black/[0.06] dark:border-white/[0.08] items-center justify-center text-[#191416] dark:text-white hover:border-[#b84357] active:scale-95 transition-all cursor-pointer"
             aria-label="Previous products"
           >
             <ChevronLeft className="w-4 h-4" />
@@ -133,7 +133,7 @@ export function TrendingProducts({ products = [] }) {
           {/* Right Arrow Button */}
           <button
             onClick={() => handleScroll('right')}
-            className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/75 dark:bg-[#140c16]/80 backdrop-blur-xl shadow-md border border-white/70 dark:border-white/10 items-center justify-center text-[#191416] dark:text-white hover:border-[#b84357] active:scale-95 transition-all cursor-pointer"
+            className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/80 dark:bg-[#140b17]/85 backdrop-blur-xl shadow-xs border border-black/[0.06] dark:border-white/[0.08] items-center justify-center text-[#191416] dark:text-white hover:border-[#b84357] active:scale-95 transition-all cursor-pointer"
             aria-label="Next products"
           >
             <ChevronRight className="w-4 h-4" />
@@ -154,11 +154,11 @@ export function TrendingProducts({ products = [] }) {
                   viewport={{ once: true, margin: "-40px" }}
                   transition={{ duration: 0.45, delay: idx * 0.08 }}
                   whileHover={{ y: -4 }}
-                  className="snap-item w-[220px] sm:w-[240px] md:w-[260px] flex-shrink-0 bg-white/55 dark:bg-[#150d18]/60 backdrop-blur-2xl backdrop-saturate-180 rounded-2xl overflow-hidden border border-white/65 dark:border-white/10 p-3 sm:p-3.5 flex flex-col justify-between group/card hover:border-[#b84357]/40 dark:hover:border-rose-400/40 transition-all duration-300 shadow-[0_8px_25px_rgba(0,0,0,0.03)] hover:shadow-[0_14px_30px_rgba(184,67,87,0.12)]"
+                  className="snap-item w-[220px] sm:w-[240px] md:w-[260px] flex-shrink-0 bg-white/60 dark:bg-[#140b16]/65 backdrop-blur-2xl rounded-2xl overflow-hidden border border-black/[0.05] dark:border-white/[0.08] p-3 sm:p-3.5 flex flex-col justify-between group/card hover:border-black/15 dark:hover:border-white/20 transition-all duration-300 shadow-[0_8px_24px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.07)]"
                 >
                   <div>
                     {/* Product Image Frame */}
-                    <div className="relative aspect-square w-full rounded-xl overflow-hidden bg-white/40 dark:bg-white/5 backdrop-blur-md border border-white/50 dark:border-white/5 mb-3">
+                    <div className="relative aspect-square w-full rounded-xl overflow-hidden bg-black/[0.02] dark:bg-white/[0.03] backdrop-blur-md border border-black/[0.04] dark:border-white/[0.06] mb-3">
                       <Link href={`/browse?category=${prod.category}`} className="block w-full h-full">
                         <img
                           src={prod.image}
@@ -169,7 +169,7 @@ export function TrendingProducts({ products = [] }) {
 
                       {/* SALE Badge */}
                       {prod.isSale && (
-                        <span className="absolute top-2.5 left-2.5 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider rounded-md bg-[#191416]/85 dark:bg-white/90 text-white dark:text-[#191416] backdrop-blur-md">
+                        <span className="absolute top-2.5 left-2.5 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider rounded-md bg-[#191416]/90 dark:bg-white/90 text-white dark:text-[#191416] backdrop-blur-md">
                           SALE
                         </span>
                       )}
@@ -177,10 +177,10 @@ export function TrendingProducts({ products = [] }) {
                       {/* Wishlist Heart */}
                       <button
                         onClick={() => toggleWishlist(prod)}
-                        className={`absolute top-2.5 right-2.5 p-1.5 rounded-full backdrop-blur-md transition-all ${
+                        className={`absolute top-2.5 right-2.5 p-1.5 rounded-full backdrop-blur-md border border-black/[0.06] dark:border-white/[0.08] transition-all cursor-pointer ${
                           isSaved 
-                            ? 'bg-[#c94d64] text-white shadow-xs' 
-                            : 'bg-white/70 dark:bg-black/60 text-slate-600 dark:text-slate-300 hover:text-[#c94d64]'
+                            ? 'bg-[#b84357] text-white shadow-xs' 
+                            : 'bg-white/80 dark:bg-black/60 text-slate-600 dark:text-slate-300 hover:text-[#b84357]'
                         }`}
                         title="Save to wishlist"
                       >
@@ -190,7 +190,7 @@ export function TrendingProducts({ products = [] }) {
 
                     {/* Product Info */}
                     <Link href={`/browse?category=${prod.category}`} className="block">
-                      <h3 className="font-semibold text-xs sm:text-sm text-[#23171e] dark:text-white truncate group-hover/card:text-[#c94d64] transition-colors">
+                      <h3 className="font-semibold text-xs sm:text-sm text-[#23171e] dark:text-white truncate group-hover/card:text-[#b84357] transition-colors">
                         {prod.title}
                       </h3>
                     </Link>
@@ -221,10 +221,10 @@ export function TrendingProducts({ products = [] }) {
                   </div>
 
                   {/* Add to Bag Button */}
-                  <div className="mt-3 pt-2.5 border-t border-rose-200/40 dark:border-white/10">
+                  <div className="mt-3 pt-2.5 border-t border-black/[0.05] dark:border-white/[0.08]">
                     <Link
                       href={`/browse?category=${prod.category}`}
-                      className="w-full py-2 text-center text-xs font-semibold rounded-xl bg-white/60 dark:bg-white/10 hover:bg-[#b84357] text-[#b84357] dark:text-rose-300 hover:text-white border border-white/70 dark:border-white/10 backdrop-blur-md active:scale-95 transition-all block shadow-xs"
+                      className="w-full py-2 text-center text-xs font-semibold rounded-xl bg-black/[0.02] dark:bg-white/[0.04] hover:bg-[#b84357] text-[#191416] dark:text-white hover:text-white border border-black/[0.06] dark:border-white/[0.08] hover:border-[#b84357] backdrop-blur-md active:scale-95 transition-all block shadow-xs"
                     >
                       View Product
                     </Link>

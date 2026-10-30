@@ -115,7 +115,7 @@ export default function AdminReviewsPage() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl sm:text-3xl font-serif font-bold text-slate-900 dark:text-white">
+          <h1 className="text-2xl sm:text-3xl font-serif font-bold text-[#191416] dark:text-white">
             Customer Reviews & Q&A Moderation
           </h1>
           <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
@@ -125,7 +125,7 @@ export default function AdminReviewsPage() {
 
         <button
           onClick={fetchContent}
-          className="btn-rose-primary px-4 py-2 text-xs font-bold flex items-center gap-2 self-start sm:self-auto"
+          className="px-4 py-2 text-xs font-semibold rounded-2xl bg-[#b84357] hover:bg-[#a13649] text-white flex items-center gap-2 self-start sm:self-auto shadow-sm shadow-[#b84357]/20 transition-all"
         >
           <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
           <span>Refresh Feed</span>
@@ -136,24 +136,24 @@ export default function AdminReviewsPage() {
         {/* Left Column: Verified Customer Reviews */}
         <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <h2 className="text-lg font-serif font-bold text-slate-900 dark:text-white flex items-center gap-2">
+            <h2 className="text-lg font-serif font-bold text-[#191416] dark:text-white flex items-center gap-2">
               <Star className="w-4 h-4 text-amber-500 fill-current" />
               <span>Customer Reviews ({reviews.length})</span>
             </h2>
-            <span className="text-xs text-slate-500">Public ratings & comments</span>
+            <span className="text-xs text-slate-500 dark:text-slate-400">Public ratings & comments</span>
           </div>
 
           <div className="space-y-3">
             {reviews.map((rev) => (
               <div 
                 key={rev._id}
-                className="p-5 rounded-3xl glass-card border border-rose-200/80 dark:border-rose-950/60 shadow-sm space-y-2.5"
+                className="p-5 rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl border border-black/[0.05] dark:border-white/[0.08] shadow-sm space-y-2.5"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <span className="font-bold text-xs text-slate-900 dark:text-white">{rev.userName}</span>
+                    <span className="font-bold text-xs text-[#191416] dark:text-white">{rev.userName}</span>
                     {rev.isVerifiedPurchase && (
-                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 text-[10px] font-bold border border-emerald-200 dark:border-emerald-800/40">
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 text-[10px] font-bold border border-emerald-500/20">
                         <ShieldCheck className="w-3 h-3" />
                         <span>Verified Buyer</span>
                       </span>
@@ -168,7 +168,7 @@ export default function AdminReviewsPage() {
                 </div>
 
                 {rev.productTitle && (
-                  <p className="text-[11px] text-[#c94d64] font-semibold">
+                  <p className="text-[11px] text-[#b84357] dark:text-rose-300 font-semibold">
                     Product: {rev.productTitle}
                   </p>
                 )}
@@ -177,11 +177,11 @@ export default function AdminReviewsPage() {
                   "{rev.comment}"
                 </p>
 
-                <div className="pt-2 border-t border-rose-100 dark:border-rose-950/50 flex items-center justify-between text-[11px] text-slate-400">
+                <div className="pt-2 border-t border-black/[0.05] dark:border-white/[0.06] flex items-center justify-between text-[11px] text-slate-400">
                   <span>Batch verification positive</span>
                   <button
                     onClick={() => handleDeleteReview(rev._id)}
-                    className="text-rose-500 hover:text-rose-700 flex items-center gap-1 font-semibold"
+                    className="text-rose-500 hover:text-rose-600 dark:text-rose-400 flex items-center gap-1 font-semibold transition-colors"
                   >
                     <Trash2 className="w-3.5 h-3.5" />
                     <span>Delete</span>
@@ -195,24 +195,24 @@ export default function AdminReviewsPage() {
         {/* Right Column: Community Q&A & Inquiries */}
         <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <h2 className="text-lg font-serif font-bold text-slate-900 dark:text-white flex items-center gap-2">
-              <HelpCircle className="w-4 h-4 text-[#c94d64]" />
+            <h2 className="text-lg font-serif font-bold text-[#191416] dark:text-white flex items-center gap-2">
+              <HelpCircle className="w-4 h-4 text-[#b84357] dark:text-rose-300" />
               <span>Boutique Q&A Inquiries ({qaList.length})</span>
             </h2>
-            <span className="text-xs text-slate-500">Customer beauty questions</span>
+            <span className="text-xs text-slate-500 dark:text-slate-400">Customer beauty questions</span>
           </div>
 
           <div className="space-y-4">
             {qaList.map((qa, idx) => (
               <div 
                 key={idx}
-                className="p-5 rounded-3xl glass-card border border-rose-200/80 dark:border-rose-950/60 shadow-sm space-y-3"
+                className="p-5 rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl border border-black/[0.05] dark:border-white/[0.08] shadow-sm space-y-3"
               >
                 <div>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#c94d64]">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#b84357] dark:text-rose-300">
                     Item: {qa.productTitle}
                   </span>
-                  <h4 className="text-xs font-bold text-slate-900 dark:text-white mt-0.5">
+                  <h4 className="text-xs font-bold text-[#191416] dark:text-white mt-0.5">
                     Q: "{qa.question}"
                   </h4>
                   <p className="text-[10px] text-slate-400 mt-0.5">
@@ -221,7 +221,7 @@ export default function AdminReviewsPage() {
                 </div>
 
                 {qa.answer ? (
-                  <div className="p-3 rounded-2xl bg-emerald-50/60 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800/40 text-xs text-slate-800 dark:text-slate-200 space-y-1">
+                  <div className="p-3 rounded-2xl bg-emerald-500/5 dark:bg-emerald-500/10 border border-emerald-500/20 text-xs text-slate-800 dark:text-slate-200 space-y-1">
                     <p className="font-semibold text-emerald-800 dark:text-emerald-300 text-[11px]">
                       A (Official Response):
                     </p>
@@ -235,12 +235,12 @@ export default function AdminReviewsPage() {
                         value={replyInput[idx] || ''}
                         onChange={(e) => setReplyInput({ ...replyInput, [idx]: e.target.value })}
                         placeholder="Write official boutique response..."
-                        className="flex-1 p-2 text-xs rounded-xl border border-rose-200 dark:border-rose-900/50 bg-white dark:bg-[#120a14]"
+                        className="flex-1 p-2 text-xs rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-[#191416] dark:text-white focus:outline-none focus:border-[#b84357]/50"
                       />
                       <button
                         type="button"
                         onClick={() => handleSendAnswer(qa, idx)}
-                        className="btn-rose-primary px-3 py-2 text-xs font-bold flex items-center gap-1.5 shrink-0"
+                        className="px-3 py-2 text-xs font-bold rounded-xl bg-[#b84357] hover:bg-[#a13649] text-white flex items-center gap-1.5 shrink-0 transition-all shadow-sm shadow-[#b84357]/20"
                       >
                         <Send className="w-3 h-3" />
                         <span>Publish</span>

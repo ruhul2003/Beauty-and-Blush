@@ -13,8 +13,7 @@ import {
   Settings, 
   Store, 
   ArrowLeft,
-  ShieldCheck,
-  Sparkles
+  ShieldCheck
 } from 'lucide-react';
 
 export default function AdminLayout({ children }) {
@@ -33,13 +32,13 @@ export default function AdminLayout({ children }) {
   return (
     <div className="min-h-screen text-slate-900 dark:text-slate-100 pb-16">
       {/* Top Admin Header Bar */}
-      <div className="bg-white/70 dark:bg-[#130a16]/75 border-b border-white/60 dark:border-white/10 sticky top-16 sm:top-20 z-30 backdrop-blur-3xl shadow-xs">
+      <div className="bg-white/75 dark:bg-[#130a16]/85 border-b border-black/[0.05] dark:border-white/[0.08] sticky top-16 sm:top-20 z-30 backdrop-blur-3xl shadow-xs">
         <div className="w-[90%] mx-auto px-2 sm:px-4 py-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           
           <div className="flex items-center gap-3">
             <Link
               href="/"
-              className="p-2 rounded-xl border border-white/60 dark:border-white/10 bg-white/70 dark:bg-white/5 backdrop-blur-md text-slate-600 dark:text-slate-300 hover:text-[#c94d64] hover:border-[#c94d64] transition-colors shadow-xs"
+              className="p-2 rounded-xl border border-black/[0.06] dark:border-white/[0.08] bg-black/[0.02] dark:bg-white/[0.04] backdrop-blur-md text-slate-600 dark:text-slate-300 hover:text-[#b84357] hover:border-black/20 dark:hover:border-white/20 transition-colors shadow-xs"
               title="Return to Store"
             >
               <ArrowLeft className="w-4 h-4" />
@@ -50,7 +49,7 @@ export default function AdminLayout({ children }) {
                 <span className="text-sm sm:text-base font-serif font-bold text-slate-900 dark:text-white">
                   Beauty & Blush Control Portal
                 </span>
-                <span className="px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-[#c94d64] text-white tracking-widest uppercase shadow-xs">
+                <span className="px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-[#b84357] text-white tracking-widest uppercase shadow-xs">
                   ADMIN
                 </span>
               </div>
@@ -69,7 +68,7 @@ export default function AdminLayout({ children }) {
             <Link
               href="/browse"
               target="_blank"
-              className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold text-[#c94d64] hover:bg-rose-500/10 backdrop-blur-md transition-colors"
+              className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold text-[#b84357] dark:text-rose-300 hover:bg-black/[0.03] dark:hover:bg-white/[0.05] backdrop-blur-md transition-colors"
             >
               <Store className="w-3.5 h-3.5" />
               <span>View Storefront</span>
@@ -79,7 +78,7 @@ export default function AdminLayout({ children }) {
 
         {/* Tab Navigation Menu */}
         <div className="w-[90%] mx-auto px-2 sm:px-4 overflow-x-auto no-scrollbar">
-          <nav className="flex items-center gap-1 sm:gap-2 border-t border-white/40 dark:border-white/10 pt-1 pb-1">
+          <nav className="flex items-center gap-1 sm:gap-2 border-t border-black/[0.05] dark:border-white/[0.08] pt-1 pb-1">
             {navItems.map((item) => {
               const Icon = item.icon;
               const isActive = item.exact 
@@ -92,8 +91,8 @@ export default function AdminLayout({ children }) {
                   href={item.href}
                   className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap shrink-0 ${
                     isActive
-                      ? 'bg-[#c94d64] text-white shadow-md shadow-[#c94d64]/20'
-                      : 'text-slate-600 dark:text-slate-400 hover:text-[#c94d64] hover:bg-white/60 dark:hover:bg-white/10 backdrop-blur-sm'
+                      ? 'bg-[#b84357] text-white shadow-md shadow-[#b84357]/20'
+                      : 'text-slate-600 dark:text-slate-400 hover:text-[#b84357] hover:bg-black/[0.03] dark:hover:bg-white/[0.05] backdrop-blur-sm'
                   }`}
                 >
                   <Icon className={`w-4 h-4 ${isActive ? 'stroke-[2.2]' : 'stroke-[1.8]'}`} />

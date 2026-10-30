@@ -29,7 +29,7 @@ export function FooterTrustStrip() {
   ];
 
   return (
-    <div className="bg-white/40 dark:bg-[#100813]/40 backdrop-blur-xl border-y border-white/50 dark:border-white/10 py-6 transition-colors overflow-hidden">
+    <div className="bg-white/40 dark:bg-[#0c0610]/40 backdrop-blur-xl border-y border-black/[0.05] dark:border-white/[0.08] py-6 transition-colors overflow-hidden">
       <div className="w-[90%] mx-auto px-2 sm:px-4">
         <motion.div 
           initial={{ opacity: 0, y: 15 }}
@@ -50,7 +50,7 @@ export function FooterTrustStrip() {
                 whileHover={{ y: -2 }}
                 className="flex items-center gap-3 transition-transform"
               >
-                <div className="w-9 h-9 rounded-2xl bg-white/70 dark:bg-white/10 backdrop-blur-md border border-white/60 dark:border-white/10 flex items-center justify-center text-[#c94d64] dark:text-rose-300 shrink-0 shadow-xs">
+                <div className="w-9 h-9 rounded-2xl bg-black/[0.02] dark:bg-white/[0.04] backdrop-blur-md border border-black/[0.05] dark:border-white/[0.08] flex items-center justify-center text-[#b84357] dark:text-rose-300 shrink-0 shadow-xs">
                   <Icon className="w-4 h-4 stroke-[1.8]" />
                 </div>
                 <div>

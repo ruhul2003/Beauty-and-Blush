@@ -5,13 +5,7 @@ import {
   Tag, 
   PlusCircle, 
   Trash2, 
-  Check, 
-  Sparkles, 
-  Percent, 
-  Clock, 
-  AlertCircle,
   Copy,
-  RefreshCw,
   X
 } from 'lucide-react';
 import { useToast } from '@/context/ToastContext';
@@ -107,7 +101,6 @@ export default function AdminCouponsPage() {
       setShowCreateModal(false);
       resetForm();
     } catch (err) {
-      // Optimistic create
       const newCpn = {
         _id: 'cpn-' + Date.now(),
         code: code.trim().toUpperCase(),
@@ -180,7 +173,7 @@ export default function AdminCouponsPage() {
 
         <button
           onClick={() => setShowCreateModal(true)}
-          className="btn-rose-primary px-4 py-2.5 text-xs font-bold flex items-center gap-2 self-start sm:self-auto shadow-sm"
+          className="bg-[#b84357] hover:bg-[#a13649] text-white px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center gap-2 self-start sm:self-auto shadow-md shadow-[#b84357]/20 cursor-pointer"
         >
           <PlusCircle className="w-4 h-4" />
           <span>Create New Coupon</span>
@@ -192,22 +185,22 @@ export default function AdminCouponsPage() {
         {coupons.map((cpn) => (
           <div 
             key={cpn._id}
-            className={`p-5 rounded-3xl glass-card border transition-all relative ${
+            className={`p-5 rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl border transition-all relative ${
               cpn.isActive 
-                ? 'border-rose-200 dark:border-rose-950/60 shadow-sm' 
-                : 'border-slate-200 dark:border-slate-800 opacity-60'
+                ? 'border-black/[0.05] dark:border-white/[0.08] shadow-xs' 
+                : 'border-black/[0.03] dark:border-white/[0.04] opacity-60'
             }`}
           >
             <div className="flex items-center justify-between">
               <span className="font-mono text-base font-bold text-slate-900 dark:text-white tracking-wider flex items-center gap-1.5">
-                <Tag className="w-4 h-4 text-[#c94d64]" />
+                <Tag className="w-4 h-4 text-[#b84357] dark:text-rose-300" />
                 <span>{cpn.code}</span>
               </span>
 
               <button
                 type="button"
                 onClick={() => copyCode(cpn.code)}
-                className="p-1 text-slate-400 hover:text-slate-700 dark:hover:text-white"
+                className="p-1 text-slate-400 hover:text-slate-700 dark:hover:text-white cursor-pointer"
                 title="Copy code"
               >
                 <Copy className="w-3.5 h-3.5" />
@@ -215,7 +208,7 @@ export default function AdminCouponsPage() {
             </div>
 
             <div className="mt-3 space-y-1">
-              <div className="flex items-baseline gap-1 text-2xl font-serif font-bold text-[#c94d64] dark:text-[#f4728d]">
+              <div className="flex items-baseline gap-1 text-2xl font-serif font-bold text-[#b84357] dark:text-rose-300">
                 {cpn.discountType === 'percentage' && <span>{cpn.discountValue}% OFF</span>}
                 {cpn.discountType === 'fixed' && <span>৳{cpn.discountValue} FLAT OFF</span>}
                 {cpn.discountType === 'shipping' && <span>FREE SHIPPING</span>}
@@ -225,7 +218,7 @@ export default function AdminCouponsPage() {
               </p>
             </div>
 
-            <div className="mt-4 pt-3 border-t border-rose-100 dark:border-rose-950/60 flex items-center justify-between text-xs">
+            <div className="mt-4 pt-3 border-t border-black/[0.05] dark:border-white/[0.08] flex items-center justify-between text-xs">
               <div className="text-[11px] text-slate-500">
                 Used: <strong className="text-slate-800 dark:text-slate-200 font-bold">{cpn.usageCount || 0} times</strong>
               </div>
@@ -234,10 +227,10 @@ export default function AdminCouponsPage() {
                 <button
                   type="button"
                   onClick={() => handleToggleActive(cpn._id)}
-                  className={`px-2.5 py-1 rounded-full text-[10px] font-bold transition-colors ${
+                  className={`px-2.5 py-1 rounded-full text-[10px] font-bold transition-colors cursor-pointer ${
                     cpn.isActive 
-                      ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-300' 
-                      : 'bg-slate-200 text-slate-700 dark:bg-slate-800 dark:text-slate-300'
+                      ? 'bg-emerald-500/10 text-emerald-800 dark:text-emerald-300 border border-emerald-500/20' 
+                      : 'bg-black/[0.03] text-slate-700 dark:bg-white/[0.05] dark:text-slate-300'
                   }`}
                 >
                   {cpn.isActive ? 'Active' : 'Disabled'}
@@ -246,7 +239,7 @@ export default function AdminCouponsPage() {
                 <button
                   type="button"
                   onClick={() => handleDeleteCoupon(cpn._id, cpn.code)}
-                  className="p-1 text-rose-500 hover:text-rose-700"
+                  className="p-1 text-slate-400 hover:text-[#b84357] transition-colors cursor-pointer"
                   title="Delete Coupon"
                 >
                   <Trash2 className="w-3.5 h-3.5" />
@@ -259,11 +252,11 @@ export default function AdminCouponsPage() {
 
       {/* Create Modal */}
       {showCreateModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
-          <div className="bg-white dark:bg-[#180e1a] rounded-3xl max-w-md w-full p-6 border border-rose-200 dark:border-rose-900/60 shadow-2xl relative space-y-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-md animate-fade-in">
+          <div className="bg-white/85 dark:bg-[#140b17]/90 backdrop-blur-3xl rounded-3xl max-w-md w-full p-6 border border-black/[0.06] dark:border-white/[0.08] shadow-[0_25px_60px_rgba(0,0,0,0.25)] relative space-y-4">
             <button
               onClick={() => setShowCreateModal(false)}
-              className="absolute top-4 right-4 p-1.5 rounded-full text-slate-400 hover:text-slate-600"
+              className="absolute top-4 right-4 p-1.5 rounded-full text-slate-400 hover:text-slate-600 dark:hover:text-white cursor-pointer"
             >
               <X className="w-4 h-4" />
             </button>
@@ -287,7 +280,7 @@ export default function AdminCouponsPage() {
                   value={code}
                   onChange={(e) => setCode(e.target.value.toUpperCase())}
                   placeholder="BLUSH25"
-                  className="w-full p-2.5 rounded-xl border border-rose-200 dark:border-rose-900/50 bg-white dark:bg-[#120a14] uppercase font-mono font-bold"
+                  className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-slate-900 dark:text-white uppercase font-mono font-bold"
                   required
                 />
               </div>
@@ -300,11 +293,11 @@ export default function AdminCouponsPage() {
                   <select
                     value={discountType}
                     onChange={(e) => setDiscountType(e.target.value)}
-                    className="w-full p-2.5 rounded-xl border border-rose-200 dark:border-rose-900/50 bg-white dark:bg-[#120a14]"
+                    className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-slate-900 dark:text-white"
                   >
-                    <option value="percentage">Percentage (%)</option>
-                    <option value="fixed">Fixed Amount (৳)</option>
-                    <option value="shipping">Free Shipping</option>
+                    <option value="percentage" className="bg-white dark:bg-[#140b17]">Percentage (%)</option>
+                    <option value="fixed" className="bg-white dark:bg-[#140b17]">Fixed Amount (৳)</option>
+                    <option value="shipping" className="bg-white dark:bg-[#140b17]">Free Shipping</option>
                   </select>
                 </div>
 
@@ -317,7 +310,7 @@ export default function AdminCouponsPage() {
                     value={discountValue}
                     onChange={(e) => setDiscountValue(e.target.value)}
                     placeholder={discountType === 'percentage' ? '15' : '500'}
-                    className="w-full p-2.5 rounded-xl border border-rose-200 dark:border-rose-900/50 bg-white dark:bg-[#120a14]"
+                    className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-slate-900 dark:text-white"
                     required
                   />
                 </div>
@@ -332,7 +325,7 @@ export default function AdminCouponsPage() {
                   value={minPurchase}
                   onChange={(e) => setMinPurchase(e.target.value)}
                   placeholder="1500"
-                  className="w-full p-2.5 rounded-xl border border-rose-200 dark:border-rose-900/50 bg-white dark:bg-[#120a14]"
+                  className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-slate-900 dark:text-white"
                 />
               </div>
 
@@ -345,7 +338,7 @@ export default function AdminCouponsPage() {
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
                   placeholder="15% discount on all orders over ৳1,500"
-                  className="w-full p-2.5 rounded-xl border border-rose-200 dark:border-rose-900/50 bg-white dark:bg-[#120a14]"
+                  className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-slate-900 dark:text-white"
                 />
               </div>
 
@@ -353,14 +346,14 @@ export default function AdminCouponsPage() {
                 <button
                   type="button"
                   onClick={() => setShowCreateModal(false)}
-                  className="flex-1 py-2.5 rounded-xl border border-rose-200 text-slate-700 dark:text-slate-300 font-semibold"
+                  className="flex-1 py-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] text-slate-700 dark:text-slate-300 font-semibold cursor-pointer"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="flex-1 btn-rose-primary py-2.5 font-bold"
+                  className="flex-1 bg-[#b84357] hover:bg-[#a13649] text-white py-2.5 rounded-xl font-bold cursor-pointer shadow-md shadow-[#b84357]/20"
                 >
                   {submitting ? 'Creating...' : 'Publish Voucher'}
                 </button>

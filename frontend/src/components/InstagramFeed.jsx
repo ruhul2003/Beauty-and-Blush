@@ -29,7 +29,7 @@ export function InstagramFeed() {
     <section className="py-12 sm:py-16 overflow-hidden">
       <div className="w-[90%] mx-auto px-2 sm:px-4">
         
-        {/* Section Heading with Glass Badge */}
+        {/* Section Heading with Minimal Glass Badge */}
         <motion.div 
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -37,7 +37,7 @@ export function InstagramFeed() {
           transition={{ duration: 0.5 }}
           className="text-center mb-8 sm:mb-10 flex flex-col items-center"
         >
-          <span className="px-3.5 py-1 rounded-full text-[10px] sm:text-[11px] uppercase tracking-[0.24em] font-semibold text-[#b84357] dark:text-rose-300 bg-white/50 dark:bg-white/5 backdrop-blur-xl border border-white/60 dark:border-white/10 shadow-xs mb-2">
+          <span className="px-3.5 py-1 rounded-full text-[10px] sm:text-[11px] uppercase tracking-[0.24em] font-semibold text-[#b84357] dark:text-rose-300 bg-black/[0.02] dark:bg-white/[0.04] backdrop-blur-xl border border-black/[0.05] dark:border-white/[0.08] shadow-xs mb-2">
             Community & Journal
           </span>
           <Link href="/browse" className="group inline-block">
@@ -47,7 +47,7 @@ export function InstagramFeed() {
           </Link>
         </motion.div>
 
-        {/* 6 Images Grid with Framer Motion and Frosted Glass Frames */}
+        {/* 6 Images Grid with Framer Motion and Minimal Frosted Glass Frames */}
         <div className="flex sm:grid sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 overflow-x-auto pb-4 pt-1 no-scrollbar snap-x snap-mandatory">
           {posts.map((post, idx) => (
             <motion.div
@@ -61,7 +61,7 @@ export function InstagramFeed() {
             >
               <Link
                 href={post.href || '/browse'}
-                className="group relative aspect-square w-full rounded-2xl overflow-hidden bg-white/50 dark:bg-white/5 backdrop-blur-xl border border-white/70 dark:border-white/10 shadow-[0_6px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_28px_rgba(184,67,87,0.15)] hover:border-[#b84357]/50 block p-1 transition-all"
+                className="group relative aspect-square w-full rounded-2xl overflow-hidden bg-white/60 dark:bg-white/[0.03] backdrop-blur-xl border border-black/[0.05] dark:border-white/[0.08] shadow-[0_4px_16px_rgba(0,0,0,0.02)] hover:border-black/20 dark:hover:border-white/20 block p-1 transition-all"
                 title={post.alt}
               >
                 <div className="w-full h-full rounded-xl overflow-hidden relative">
@@ -74,7 +74,7 @@ export function InstagramFeed() {
                   {/* Hover Glassy Blur Dark Overlay with Instagram Heart */}
                   <div className="absolute inset-0 bg-black/45 backdrop-blur-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white p-2">
                     <InstagramIcon className="w-5 h-5 mb-1 text-white/90" />
-                    <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-white/20 backdrop-blur-md text-[11px] font-semibold border border-white/30">
+                    <div className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/20 backdrop-blur-md text-[11px] font-semibold border border-white/30">
                       <Heart className="w-3.5 h-3.5 fill-current text-rose-300" />
                       <span>{post.likes}</span>
                     </div>

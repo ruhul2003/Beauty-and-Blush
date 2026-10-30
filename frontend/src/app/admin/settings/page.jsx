@@ -74,7 +74,7 @@ export default function AdminSettingsPage() {
     <div className="space-y-6 max-w-4xl animate-fade-in">
       {/* Header */}
       <div>
-        <h1 className="text-2xl sm:text-3xl font-serif font-bold text-slate-900 dark:text-white">
+        <h1 className="text-2xl sm:text-3xl font-serif font-bold text-[#191416] dark:text-white">
           Store Operations & System Settings
         </h1>
         <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
@@ -84,132 +84,132 @@ export default function AdminSettingsPage() {
 
       <form onSubmit={handleSave} className="space-y-6 text-xs">
         {/* Section 1: Store Brand Info */}
-        <div className="p-6 rounded-3xl glass-card border border-rose-200/80 dark:border-rose-950/60 shadow-sm space-y-4">
-          <div className="flex items-center gap-2 border-b border-rose-100 dark:border-rose-950/60 pb-3">
-            <Store className="w-4 h-4 text-[#c94d64]" />
-            <h3 className="text-sm font-bold text-slate-900 dark:text-white">
+        <div className="p-6 rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl border border-black/[0.05] dark:border-white/[0.08] shadow-sm space-y-4">
+          <div className="flex items-center gap-2 border-b border-black/[0.05] dark:border-white/[0.06] pb-3 text-[#b84357] dark:text-rose-300">
+            <Store className="w-4 h-4" />
+            <h3 className="text-sm font-bold text-[#191416] dark:text-white">
               Boutique Brand Identity
             </h3>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
+              <label className="font-bold text-[#191416] dark:text-slate-300 block mb-1">
                 Store Name
               </label>
               <input
                 type="text"
                 value={storeName}
                 onChange={(e) => setStoreName(e.target.value)}
-                className="w-full p-2.5 rounded-xl border border-rose-200 dark:border-rose-900/50 bg-white dark:bg-[#120a14]"
+                className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-[#191416] dark:text-white focus:outline-none focus:border-[#b84357]/50"
                 required
               />
             </div>
 
             <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
+              <label className="font-bold text-[#191416] dark:text-slate-300 block mb-1">
                 Store Tagline
               </label>
               <input
                 type="text"
                 value={tagline}
                 onChange={(e) => setTagline(e.target.value)}
-                className="w-full p-2.5 rounded-xl border border-rose-200 dark:border-rose-900/50 bg-white dark:bg-[#120a14]"
+                className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-[#191416] dark:text-white focus:outline-none focus:border-[#b84357]/50"
               />
             </div>
 
             <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
+              <label className="font-bold text-[#191416] dark:text-slate-300 block mb-1">
                 Official WhatsApp Helpline
               </label>
               <input
                 type="text"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                className="w-full p-2.5 rounded-xl border border-rose-200 dark:border-rose-900/50 bg-white dark:bg-[#120a14]"
+                className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-[#191416] dark:text-white focus:outline-none focus:border-[#b84357]/50"
               />
             </div>
 
             <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
+              <label className="font-bold text-[#191416] dark:text-slate-300 block mb-1">
                 Support Email
               </label>
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full p-2.5 rounded-xl border border-rose-200 dark:border-rose-900/50 bg-white dark:bg-[#120a14]"
+                className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-[#191416] dark:text-white focus:outline-none focus:border-[#b84357]/50"
               />
             </div>
           </div>
         </div>
 
         {/* Section 2: Delivery & Courier Rates */}
-        <div className="p-6 rounded-3xl glass-card border border-rose-200/80 dark:border-rose-950/60 shadow-sm space-y-4">
-          <div className="flex items-center gap-2 border-b border-rose-100 dark:border-rose-950/60 pb-3">
-            <Truck className="w-4 h-4 text-[#c94d64]" />
-            <h3 className="text-sm font-bold text-slate-900 dark:text-white">
+        <div className="p-6 rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl border border-black/[0.05] dark:border-white/[0.08] shadow-sm space-y-4">
+          <div className="flex items-center gap-2 border-b border-black/[0.05] dark:border-white/[0.06] pb-3 text-[#b84357] dark:text-rose-300">
+            <Truck className="w-4 h-4" />
+            <h3 className="text-sm font-bold text-[#191416] dark:text-white">
               Nationwide Delivery & Courier Charges
             </h3>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
+              <label className="font-bold text-[#191416] dark:text-slate-300 block mb-1">
                 Inside Dhaka Rate (BDT ৳)
               </label>
               <input
                 type="number"
                 value={dhakaFee}
                 onChange={(e) => setDhakaFee(e.target.value)}
-                className="w-full p-2.5 rounded-xl border border-rose-200 dark:border-rose-900/50 bg-white dark:bg-[#120a14]"
+                className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-[#191416] dark:text-white focus:outline-none focus:border-[#b84357]/50"
               />
             </div>
 
             <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
+              <label className="font-bold text-[#191416] dark:text-slate-300 block mb-1">
                 Outside Dhaka Rate (BDT ৳)
               </label>
               <input
                 type="number"
                 value={outsideFee}
                 onChange={(e) => setOutsideFee(e.target.value)}
-                className="w-full p-2.5 rounded-xl border border-rose-200 dark:border-rose-900/50 bg-white dark:bg-[#120a14]"
+                className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-[#191416] dark:text-white focus:outline-none focus:border-[#b84357]/50"
               />
             </div>
 
             <div>
-              <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
+              <label className="font-bold text-[#191416] dark:text-slate-300 block mb-1">
                 Free Shipping Threshold (BDT ৳)
               </label>
               <input
                 type="number"
                 value={freeShippingThreshold}
                 onChange={(e) => setFreeShippingThreshold(e.target.value)}
-                className="w-full p-2.5 rounded-xl border border-rose-200 dark:border-rose-900/50 bg-white dark:bg-[#120a14]"
+                className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-[#191416] dark:text-white focus:outline-none focus:border-[#b84357]/50"
               />
             </div>
           </div>
         </div>
 
         {/* Section 3: Announcement Banner */}
-        <div className="p-6 rounded-3xl glass-card border border-rose-200/80 dark:border-rose-950/60 shadow-sm space-y-4">
-          <div className="flex items-center gap-2 border-b border-rose-100 dark:border-rose-950/60 pb-3">
-            <Bell className="w-4 h-4 text-[#c94d64]" />
-            <h3 className="text-sm font-bold text-slate-900 dark:text-white">
+        <div className="p-6 rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl border border-black/[0.05] dark:border-white/[0.08] shadow-sm space-y-4">
+          <div className="flex items-center gap-2 border-b border-black/[0.05] dark:border-white/[0.06] pb-3 text-[#b84357] dark:text-rose-300">
+            <Bell className="w-4 h-4" />
+            <h3 className="text-sm font-bold text-[#191416] dark:text-white">
               Top Announcement Banner Message
             </h3>
           </div>
 
           <div>
-            <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">
+            <label className="font-bold text-[#191416] dark:text-slate-300 block mb-1">
               Top Header Strip Headline
             </label>
             <input
               type="text"
               value={announcement}
               onChange={(e) => setAnnouncement(e.target.value)}
-              className="w-full p-2.5 rounded-xl border border-rose-200 dark:border-rose-900/50 bg-white dark:bg-[#120a14]"
+              className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-[#191416] dark:text-white focus:outline-none focus:border-[#b84357]/50"
             />
             <p className="text-[10px] text-slate-400 mt-1">
               Displayed prominently across the website header for promotional campaigns.
@@ -222,7 +222,7 @@ export default function AdminSettingsPage() {
           <button
             type="submit"
             disabled={saving}
-            className="btn-rose-primary px-6 py-3 text-xs font-bold flex items-center gap-2 shadow-lg"
+            className="px-6 py-3 text-xs font-bold rounded-2xl bg-[#b84357] hover:bg-[#a13649] text-white flex items-center gap-2 shadow-lg shadow-[#b84357]/20 transition-all"
           >
             <Save className="w-4 h-4" />
             <span>{saving ? 'Saving...' : 'Save Configuration'}</span>

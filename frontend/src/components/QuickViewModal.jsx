@@ -2,16 +2,14 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { 
   X, 
   ShieldCheck, 
   Star, 
   ShoppingBag, 
   Heart, 
-  ArrowRight, 
-  Sparkles,
-  Check
+  ArrowRight
 } from 'lucide-react';
 import { formatPrice, calculateDiscount } from '@/utils/formatters';
 import { useToast } from '@/context/ToastContext';
@@ -45,7 +43,7 @@ export function QuickViewModal({ product, onClose }) {
     try {
       let list = JSON.parse(localStorage.getItem('bnb_wishlist') || '[]');
       const prodId = product._id || product.id;
-      const exists = list.some(i => (i._id || i.id) !== prodId);
+      const exists = list.some(i => (i._id || i.id) === prodId);
 
       if (exists) {
         list = list.filter(i => (i._id || i.id) !== prodId);
@@ -70,7 +68,7 @@ export function QuickViewModal({ product, onClose }) {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.2 }}
-        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/45 backdrop-blur-md"
+        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-md"
         onClick={onClose}
       >
         <motion.div 
@@ -78,14 +76,14 @@ export function QuickViewModal({ product, onClose }) {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 16 }}
           transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-          className="bg-white/75 dark:bg-[#140b17]/85 backdrop-blur-3xl backdrop-saturate-190 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-white/70 dark:border-white/15 shadow-[0_25px_60px_rgba(0,0,0,0.2),inset_0_1px_1px_rgba(255,255,255,0.7)] p-6 relative"
+          className="bg-white/85 dark:bg-[#140b17]/90 backdrop-blur-3xl rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-black/[0.06] dark:border-white/[0.08] shadow-[0_25px_60px_rgba(0,0,0,0.25)] p-6 relative"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Close button */}
           <motion.button
             whileTap={{ scale: 0.9 }}
             onClick={onClose}
-            className="absolute top-4 right-4 p-2 rounded-full text-slate-400 hover:text-[#191416] dark:hover:text-white bg-white/40 dark:bg-white/5 hover:bg-white/70 backdrop-blur-md border border-white/60 dark:border-white/10 transition-colors z-10 cursor-pointer shadow-xs"
+            className="absolute top-4 right-4 p-2 rounded-full text-slate-400 hover:text-[#191416] dark:hover:text-white bg-black/[0.03] dark:bg-white/[0.05] hover:bg-black/[0.06] backdrop-blur-md border border-black/[0.06] dark:border-white/[0.08] transition-colors z-10 cursor-pointer shadow-xs"
             aria-label="Close modal"
           >
             <X className="w-5 h-5" />
@@ -94,7 +92,7 @@ export function QuickViewModal({ product, onClose }) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Image Preview Side */}
             <div className="space-y-3">
-              <div className="relative aspect-square rounded-2xl overflow-hidden bg-white/40 dark:bg-white/5 backdrop-blur-md border border-white/60 dark:border-white/10 shadow-xs">
+              <div className="relative aspect-square rounded-2xl overflow-hidden bg-black/[0.02] dark:bg-white/[0.03] backdrop-blur-md border border-black/[0.05] dark:border-white/[0.08] shadow-xs">
                 <img
                   src={images[activeImageIdx]}
                   alt={product.title}
@@ -118,8 +116,8 @@ export function QuickViewModal({ product, onClose }) {
                       onClick={() => setActiveImageIdx(idx)}
                       className={`relative w-12 h-12 rounded-xl overflow-hidden border transition-all cursor-pointer ${
                         activeImageIdx === idx 
-                          ? 'border-[#b84357] dark:border-rose-400 ring-2 ring-[#b84357]/30' 
-                          : 'border-white/60 dark:border-white/10 opacity-70 hover:opacity-100 bg-white/40 dark:bg-white/5 backdrop-blur-sm'
+                          ? 'border-[#b84357] ring-2 ring-[#b84357]/20' 
+                          : 'border-black/[0.06] dark:border-white/[0.08] opacity-70 hover:opacity-100 bg-black/[0.02] dark:bg-white/[0.04] backdrop-blur-sm'
                       }`}
                     >
                       <img src={img} alt="" className="w-full h-full object-cover" />
@@ -148,7 +146,7 @@ export function QuickViewModal({ product, onClose }) {
 
                 {/* Batch Code Authenticity Pill */}
                 {product.batchCode && (
-                  <div className="inline-flex items-center gap-1.5 mt-2 px-2.5 py-1 rounded-xl bg-emerald-500/10 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 text-[11px] font-medium border border-emerald-500/30 backdrop-blur-md">
+                  <div className="inline-flex items-center gap-1.5 mt-2 px-2.5 py-1 rounded-xl bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 text-[11px] font-medium border border-emerald-500/20 backdrop-blur-md">
                     <ShieldCheck className="w-3.5 h-3.5" />
                     <span>Batch Code: {product.batchCode}</span>
                   </div>
@@ -180,7 +178,7 @@ export function QuickViewModal({ product, onClose }) {
                 </p>
               </div>
 
-              {/* Action Buttons with Glass Stying */}
+              {/* Action Buttons with Glass Styling */}
               <div className="space-y-2 pt-2">
                 <div className="flex gap-2">
                   <motion.button
@@ -189,7 +187,7 @@ export function QuickViewModal({ product, onClose }) {
                       addToCart(product);
                       onClose();
                     }}
-                    className="flex-1 py-3 text-xs font-bold rounded-xl bg-white/70 dark:bg-white/10 hover:bg-rose-50 dark:hover:bg-white/20 text-[#b84357] dark:text-rose-300 border border-rose-300/60 dark:border-rose-800/60 flex items-center justify-center gap-2 transition-all shadow-xs backdrop-blur-md cursor-pointer"
+                    className="flex-1 py-3 text-xs font-bold rounded-xl bg-black/[0.02] dark:bg-white/[0.04] hover:bg-[#b84357] hover:text-white text-[#191416] dark:text-white border border-black/[0.06] dark:border-white/[0.08] hover:border-[#b84357] flex items-center justify-center gap-2 transition-all shadow-xs backdrop-blur-md cursor-pointer"
                   >
                     <ShoppingBag className="w-4 h-4" />
                     <span>Add to Bag</span>
@@ -198,7 +196,7 @@ export function QuickViewModal({ product, onClose }) {
                   <motion.button
                     whileTap={{ scale: 0.96 }}
                     onClick={() => setBuyModalOpen(true)}
-                    className="flex-1 btn-rose-primary py-3 text-xs font-bold flex items-center justify-center gap-2 shadow-md shadow-[#b84357]/25 cursor-pointer"
+                    className="flex-1 bg-[#b84357] hover:bg-[#a13649] text-white py-3 text-xs font-bold rounded-xl flex items-center justify-center gap-2 shadow-md shadow-[#b84357]/20 cursor-pointer"
                   >
                     <span>Instant Order</span>
                   </motion.button>
@@ -208,8 +206,8 @@ export function QuickViewModal({ product, onClose }) {
                     onClick={toggleWishlist}
                     className={`p-3 rounded-xl border backdrop-blur-md transition-colors cursor-pointer ${
                       isWishlisted 
-                        ? 'bg-rose-50/80 border-rose-400 text-rose-600 dark:bg-rose-950/50 dark:border-rose-700' 
-                        : 'border-white/70 dark:border-white/10 bg-white/40 dark:bg-white/5 text-slate-600 dark:text-slate-300 hover:text-rose-500'
+                        ? 'bg-[#b84357] text-white border-[#b84357]' 
+                        : 'border-black/[0.06] dark:border-white/[0.08] bg-black/[0.02] dark:bg-white/[0.04] text-slate-600 dark:text-slate-300 hover:text-[#b84357]'
                     }`}
                     title={isWishlisted ? "In Wishlist" : "Save to Wishlist"}
                   >
@@ -220,7 +218,7 @@ export function QuickViewModal({ product, onClose }) {
                 <Link
                   href={`/product/${product._id || product.id}`}
                   onClick={onClose}
-                  className="w-full py-2.5 rounded-xl border border-white/70 dark:border-white/10 bg-white/40 dark:bg-white/5 backdrop-blur-md text-xs font-semibold text-center text-slate-700 dark:text-slate-300 hover:text-[#b84357] hover:border-rose-300/60 transition-colors flex items-center justify-center gap-1.5 shadow-xs"
+                  className="w-full py-2.5 rounded-xl border border-black/[0.06] dark:border-white/[0.08] bg-black/[0.02] dark:bg-white/[0.04] backdrop-blur-md text-xs font-semibold text-center text-slate-700 dark:text-slate-300 hover:text-[#b84357] hover:border-black/20 dark:hover:border-white/20 transition-colors flex items-center justify-center gap-1.5 shadow-xs"
                 >
                   <span>View Complete Details & Reviews</span>
                   <ArrowRight className="w-3.5 h-3.5" />

@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { X, CheckCircle2, Truck, ShieldCheck, ShoppingBag, Tag, Check, Sparkles } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { X, CheckCircle2, ShoppingBag, Tag, Sparkles } from 'lucide-react';
 import { formatPrice } from '@/utils/formatters';
 import { useAuth } from '@/context/AuthContext';
 import { useToast } from '@/context/ToastContext';
@@ -126,7 +126,7 @@ export function BuyModal({ product, onClose }) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.2 }}
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/45 backdrop-blur-md"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-md"
       onClick={onClose}
     >
       <motion.div 
@@ -134,14 +134,14 @@ export function BuyModal({ product, onClose }) {
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 16 }}
         transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-        className="bg-white/80 dark:bg-[#140b17]/85 backdrop-blur-3xl backdrop-saturate-190 rounded-3xl max-w-lg w-full max-h-[90vh] overflow-y-auto border border-white/70 dark:border-white/15 shadow-[0_25px_60px_rgba(0,0,0,0.25),inset_0_1px_1px_rgba(255,255,255,0.7)] p-6 relative"
+        className="bg-white/85 dark:bg-[#140b17]/90 backdrop-blur-3xl rounded-3xl max-w-lg w-full max-h-[90vh] overflow-y-auto border border-black/[0.06] dark:border-white/[0.08] shadow-[0_25px_60px_rgba(0,0,0,0.25)] p-6 relative"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <motion.button
           whileTap={{ scale: 0.9 }}
           onClick={onClose}
-          className="absolute top-5 right-5 p-2 rounded-full text-slate-400 hover:text-[#191416] dark:hover:text-white bg-white/40 dark:bg-white/5 hover:bg-white/70 backdrop-blur-md border border-white/60 dark:border-white/10 transition-colors cursor-pointer shadow-xs"
+          className="absolute top-5 right-5 p-2 rounded-full text-slate-400 hover:text-[#191416] dark:hover:text-white bg-black/[0.03] dark:bg-white/[0.05] hover:bg-black/[0.06] backdrop-blur-md border border-black/[0.06] dark:border-white/[0.08] transition-colors cursor-pointer shadow-xs"
         >
           <X className="w-5 h-5" />
         </motion.button>
@@ -153,7 +153,7 @@ export function BuyModal({ product, onClose }) {
             animate={{ opacity: 1, scale: 1 }}
             className="text-center py-6 space-y-4"
           >
-            <div className="w-14 h-14 rounded-2xl bg-emerald-500/10 text-emerald-600 dark:bg-emerald-950/40 dark:text-emerald-400 flex items-center justify-center mx-auto border border-emerald-400/30 backdrop-blur-md shadow-xs">
+            <div className="w-14 h-14 rounded-2xl bg-emerald-500/10 text-emerald-600 dark:bg-emerald-950/40 dark:text-emerald-400 flex items-center justify-center mx-auto border border-emerald-500/20 backdrop-blur-md shadow-xs">
               <CheckCircle2 className="w-7 h-7" />
             </div>
 
@@ -165,7 +165,7 @@ export function BuyModal({ product, onClose }) {
               Your order reference is <strong className="font-mono text-[#b84357] dark:text-rose-300 font-semibold">{orderResult.orderNumber}</strong>. The boutique is preparing your item.
             </p>
 
-            <div className="p-4 rounded-2xl bg-white/50 dark:bg-white/5 backdrop-blur-xl text-left text-xs space-y-2 border border-white/60 dark:border-white/10 shadow-xs">
+            <div className="p-4 rounded-2xl bg-black/[0.02] dark:bg-white/[0.04] backdrop-blur-xl text-left text-xs space-y-2 border border-black/[0.05] dark:border-white/[0.08] shadow-xs">
               <div className="flex justify-between">
                 <span className="text-slate-500">Item:</span>
                 <span className="font-medium text-slate-900 dark:text-white">{orderResult.productTitle}</span>
@@ -187,7 +187,7 @@ export function BuyModal({ product, onClose }) {
             <motion.button
               whileTap={{ scale: 0.96 }}
               onClick={onClose}
-              className="w-full btn-rose-primary py-3 text-xs font-bold rounded-xl shadow-md shadow-[#b84357]/25 cursor-pointer"
+              className="w-full bg-[#b84357] hover:bg-[#a13649] text-white py-3 text-xs font-bold rounded-xl shadow-md shadow-[#b84357]/20 cursor-pointer"
             >
               Done & Return
             </motion.button>
@@ -205,11 +205,11 @@ export function BuyModal({ product, onClose }) {
             </div>
 
             {/* Product Summary */}
-            <div className="flex items-center gap-3 p-3 rounded-2xl bg-white/50 dark:bg-white/5 backdrop-blur-xl border border-white/60 dark:border-white/10 shadow-xs">
+            <div className="flex items-center gap-3 p-3 rounded-2xl bg-black/[0.02] dark:bg-white/[0.04] backdrop-blur-xl border border-black/[0.05] dark:border-white/[0.08] shadow-xs">
               <img
                 src={product.images && product.images[0] ? product.images[0] : ''}
                 alt={product.title}
-                className="w-12 h-12 object-cover rounded-xl shrink-0 border border-white/40"
+                className="w-12 h-12 object-cover rounded-xl shrink-0 border border-black/[0.05] dark:border-white/[0.08]"
               />
               <div className="flex-1 min-w-0">
                 <h4 className="text-xs font-semibold text-slate-900 dark:text-white truncate">{product.title}</h4>
@@ -223,7 +223,7 @@ export function BuyModal({ product, onClose }) {
                   whileTap={{ scale: 0.9 }}
                   type="button"
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                  className="w-7 h-7 rounded-lg border border-white/70 dark:border-white/10 bg-white/60 dark:bg-white/5 text-xs font-bold flex items-center justify-center hover:bg-white transition-colors cursor-pointer"
+                  className="w-7 h-7 rounded-lg border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-xs font-bold flex items-center justify-center hover:bg-black/[0.05] dark:hover:bg-white/[0.08] transition-colors cursor-pointer"
                 >
                   -
                 </motion.button>
@@ -232,7 +232,7 @@ export function BuyModal({ product, onClose }) {
                   whileTap={{ scale: 0.9 }}
                   type="button"
                   onClick={() => setQuantity(quantity + 1)}
-                  className="w-7 h-7 rounded-lg border border-white/70 dark:border-white/10 bg-white/60 dark:bg-white/5 text-xs font-bold flex items-center justify-center hover:bg-white transition-colors cursor-pointer"
+                  className="w-7 h-7 rounded-lg border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-xs font-bold flex items-center justify-center hover:bg-black/[0.05] dark:hover:bg-white/[0.08] transition-colors cursor-pointer"
                 >
                   +
                 </motion.button>
@@ -249,7 +249,7 @@ export function BuyModal({ product, onClose }) {
                   value={buyerName}
                   onChange={(e) => setBuyerName(e.target.value)}
                   placeholder="e.g. Nusrat Jahan"
-                  className="w-full text-xs p-2.5 rounded-xl border border-white/70 dark:border-white/10 bg-white/60 dark:bg-white/5 backdrop-blur-md focus:outline-none focus:ring-1 focus:ring-[#b84357]"
+                  className="w-full text-xs p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] backdrop-blur-md text-slate-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-[#b84357]"
                 />
               </div>
 
@@ -261,7 +261,7 @@ export function BuyModal({ product, onClose }) {
                   value={buyerPhone}
                   onChange={(e) => setBuyerPhone(e.target.value)}
                   placeholder="e.g. 01700-112233"
-                  className="w-full text-xs p-2.5 rounded-xl border border-white/70 dark:border-white/10 bg-white/60 dark:bg-white/5 backdrop-blur-md focus:outline-none focus:ring-1 focus:ring-[#b84357]"
+                  className="w-full text-xs p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] backdrop-blur-md text-slate-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-[#b84357]"
                 />
               </div>
 
@@ -273,7 +273,7 @@ export function BuyModal({ product, onClose }) {
                   value={buyerAddress}
                   onChange={(e) => setBuyerAddress(e.target.value)}
                   placeholder="House, Road, Area (e.g. House 14, Road 7, Banani, Dhaka)"
-                  className="w-full text-xs p-2.5 rounded-xl border border-white/70 dark:border-white/10 bg-white/60 dark:bg-white/5 backdrop-blur-md focus:outline-none focus:ring-1 focus:ring-[#b84357]"
+                  className="w-full text-xs p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] backdrop-blur-md text-slate-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-[#b84357]"
                 />
               </div>
 
@@ -284,16 +284,16 @@ export function BuyModal({ product, onClose }) {
                   <select
                     value={division}
                     onChange={(e) => setDivision(e.target.value)}
-                    className="w-full text-xs p-2.5 rounded-xl border border-white/70 dark:border-white/10 bg-white/60 dark:bg-white/5 backdrop-blur-md focus:outline-none"
+                    className="w-full text-xs p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] backdrop-blur-md text-slate-900 dark:text-white focus:outline-none"
                   >
-                    <option value="Dhaka">Dhaka (৳60)</option>
-                    <option value="Chittagong">Chittagong (৳120)</option>
-                    <option value="Sylhet">Sylhet (৳120)</option>
-                    <option value="Rajshahi">Rajshahi (৳120)</option>
-                    <option value="Khulna">Khulna (৳120)</option>
-                    <option value="Barisal">Barisal (৳120)</option>
-                    <option value="Rangpur">Rangpur (৳120)</option>
-                    <option value="Mymensingh">Mymensingh (৳120)</option>
+                    <option value="Dhaka" className="bg-white dark:bg-[#140b17]">Dhaka (৳60)</option>
+                    <option value="Chittagong" className="bg-white dark:bg-[#140b17]">Chittagong (৳120)</option>
+                    <option value="Sylhet" className="bg-white dark:bg-[#140b17]">Sylhet (৳120)</option>
+                    <option value="Rajshahi" className="bg-white dark:bg-[#140b17]">Rajshahi (৳120)</option>
+                    <option value="Khulna" className="bg-white dark:bg-[#140b17]">Khulna (৳120)</option>
+                    <option value="Barisal" className="bg-white dark:bg-[#140b17]">Barisal (৳120)</option>
+                    <option value="Rangpur" className="bg-white dark:bg-[#140b17]">Rangpur (৳120)</option>
+                    <option value="Mymensingh" className="bg-white dark:bg-[#140b17]">Mymensingh (৳120)</option>
                   </select>
                 </div>
 
@@ -302,12 +302,12 @@ export function BuyModal({ product, onClose }) {
                   <select
                     value={courier}
                     onChange={(e) => setCourier(e.target.value)}
-                    className="w-full text-xs p-2.5 rounded-xl border border-white/70 dark:border-white/10 bg-white/60 dark:bg-white/5 backdrop-blur-md focus:outline-none"
+                    className="w-full text-xs p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] backdrop-blur-md text-slate-900 dark:text-white focus:outline-none"
                   >
-                    <option value="Pathao Courier">Pathao Courier</option>
-                    <option value="Steadfast Courier">Steadfast Courier</option>
-                    <option value="RedX">RedX Express</option>
-                    <option value="Sundarban Courier">Sundarban Courier</option>
+                    <option value="Pathao Courier" className="bg-white dark:bg-[#140b17]">Pathao Courier</option>
+                    <option value="Steadfast Courier" className="bg-white dark:bg-[#140b17]">Steadfast Courier</option>
+                    <option value="RedX" className="bg-white dark:bg-[#140b17]">RedX Express</option>
+                    <option value="Sundarban Courier" className="bg-white dark:bg-[#140b17]">Sundarban Courier</option>
                   </select>
                 </div>
               </div>
@@ -322,8 +322,8 @@ export function BuyModal({ product, onClose }) {
                   onClick={() => setPaymentMethod('Cash on Delivery (COD)')}
                   className={`p-3 rounded-xl border text-left font-semibold transition-all cursor-pointer backdrop-blur-md ${
                     paymentMethod === 'Cash on Delivery (COD)'
-                      ? 'border-[#b84357] bg-[#b84357]/15 text-[#b84357] dark:text-rose-300 shadow-xs'
-                      : 'border-white/70 dark:border-white/10 bg-white/40 dark:bg-white/5'
+                      ? 'border-[#b84357] bg-[#b84357]/10 text-[#b84357] dark:text-rose-300 shadow-xs'
+                      : 'border-black/[0.06] dark:border-white/[0.08] bg-black/[0.02] dark:bg-white/[0.04]'
                   }`}
                 >
                   Cash on Delivery (COD)
@@ -333,8 +333,8 @@ export function BuyModal({ product, onClose }) {
                   onClick={() => setPaymentMethod('bKash / Nagad')}
                   className={`p-3 rounded-xl border text-left font-semibold transition-all cursor-pointer backdrop-blur-md ${
                     paymentMethod === 'bKash / Nagad'
-                      ? 'border-[#b84357] bg-[#b84357]/15 text-[#b84357] dark:text-rose-300 shadow-xs'
-                      : 'border-white/70 dark:border-white/10 bg-white/40 dark:bg-white/5'
+                      ? 'border-[#b84357] bg-[#b84357]/10 text-[#b84357] dark:text-rose-300 shadow-xs'
+                      : 'border-black/[0.06] dark:border-white/[0.08] bg-black/[0.02] dark:bg-white/[0.04]'
                   }`}
                 >
                   bKash / Nagad
@@ -348,7 +348,7 @@ export function BuyModal({ product, onClose }) {
                 Have a Promo Voucher?
               </label>
               {appliedCoupon ? (
-                <div className="flex items-center justify-between p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-400/30 text-xs backdrop-blur-md">
+                <div className="flex items-center justify-between p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-xs backdrop-blur-md">
                   <div className="flex items-center gap-2">
                     <Sparkles className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                     <div>
@@ -363,7 +363,7 @@ export function BuyModal({ product, onClose }) {
                   <button
                     type="button"
                     onClick={handleRemoveCoupon}
-                    className="text-xs font-semibold text-rose-500 hover:text-rose-700 dark:hover:text-rose-400 px-2 py-1 cursor-pointer"
+                    className="text-xs font-semibold text-[#b84357] hover:text-[#a13649] px-2 py-1 cursor-pointer"
                   >
                     Remove
                   </button>
@@ -376,16 +376,16 @@ export function BuyModal({ product, onClose }) {
                       value={couponInput}
                       onChange={(e) => setCouponInput(e.target.value.toUpperCase())}
                       placeholder="Try BLUSH15 or GLOW20"
-                      className="w-full pl-8 pr-3 py-2 text-xs rounded-xl border border-white/70 dark:border-white/10 bg-white/60 dark:bg-white/5 uppercase font-mono tracking-wider backdrop-blur-md"
+                      className="w-full pl-8 pr-3 py-2 text-xs rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-slate-900 dark:text-white uppercase font-mono tracking-wider backdrop-blur-md"
                     />
-                    <Tag className="w-3.5 h-3.5 text-rose-400 absolute left-2.5 top-1/2 -translate-y-1/2" />
+                    <Tag className="w-3.5 h-3.5 text-slate-400 absolute left-2.5 top-1/2 -translate-y-1/2" />
                   </div>
                   <motion.button
                     whileTap={{ scale: 0.94 }}
                     type="button"
                     onClick={handleApplyCoupon}
                     disabled={couponLoading || !couponInput.trim()}
-                    className="btn-rose-primary px-4 py-2 text-xs font-semibold shrink-0 disabled:opacity-50 cursor-pointer shadow-xs"
+                    className="bg-[#b84357] hover:bg-[#a13649] text-white px-4 py-2 text-xs font-semibold rounded-xl shrink-0 disabled:opacity-50 cursor-pointer shadow-xs"
                   >
                     {couponLoading ? 'Checking...' : 'Apply'}
                   </motion.button>
@@ -394,7 +394,7 @@ export function BuyModal({ product, onClose }) {
             </div>
 
             {/* Bill Summary */}
-            <div className="p-3.5 rounded-2xl bg-white/60 dark:bg-white/5 border border-white/70 dark:border-white/10 backdrop-blur-xl space-y-1.5 text-xs shadow-xs">
+            <div className="p-3.5 rounded-2xl bg-black/[0.02] dark:bg-white/[0.04] border border-black/[0.05] dark:border-white/[0.08] backdrop-blur-xl space-y-1.5 text-xs shadow-xs">
               <div className="flex justify-between text-slate-600 dark:text-slate-300">
                 <span>Subtotal ({quantity} item{quantity > 1 ? 's' : ''}):</span>
                 <span>{formatPrice(subtotal)}</span>
@@ -409,7 +409,7 @@ export function BuyModal({ product, onClose }) {
                 <span>Nationwide Courier Fee ({division}):</span>
                 <span>{appliedCoupon && appliedCoupon.discountType === 'shipping' ? <span className="text-emerald-600 font-semibold">FREE (Waived)</span> : formatPrice(deliveryFee)}</span>
               </div>
-              <div className="flex justify-between text-sm font-bold text-slate-900 dark:text-white pt-1.5 border-t border-rose-200/40 dark:border-white/10">
+              <div className="flex justify-between text-sm font-bold text-slate-900 dark:text-white pt-1.5 border-t border-black/[0.05] dark:border-white/[0.08]">
                 <span>Total Amount:</span>
                 <span className="text-[#b84357] dark:text-rose-300">{formatPrice(totalAmount)}</span>
               </div>
@@ -419,7 +419,7 @@ export function BuyModal({ product, onClose }) {
               whileTap={{ scale: 0.97 }}
               type="submit"
               disabled={submitting}
-              className="w-full btn-rose-primary py-3.5 text-xs font-bold flex items-center justify-center gap-2 shadow-md shadow-[#b84357]/25 cursor-pointer rounded-xl"
+              className="w-full bg-[#b84357] hover:bg-[#a13649] text-white py-3.5 text-xs font-bold flex items-center justify-center gap-2 shadow-md shadow-[#b84357]/20 cursor-pointer rounded-xl"
             >
               <ShoppingBag className="w-4 h-4" />
               <span>{submitting ? 'Placing Order...' : 'Confirm Order with Cash on Delivery'}</span>

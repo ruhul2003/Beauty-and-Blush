@@ -27,12 +27,11 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="antialiased min-h-screen flex flex-col justify-between relative selection:bg-[#c94d64]/20 selection:text-[#c94d64]">
-        {/* Ambient Glowing Glass Blur Background Orbs */}
+        {/* Minimal Ambient Luminous Background Gradients */}
         <div className="fixed inset-0 pointer-events-none -z-10 overflow-hidden" aria-hidden="true">
-          <div className="absolute -top-[10%] -left-[10%] w-[550px] h-[550px] rounded-full bg-rose-400/18 dark:bg-rose-900/25 blur-[130px]" />
-          <div className="absolute top-[20%] -right-[8%] w-[500px] h-[500px] rounded-full bg-pink-300/16 dark:bg-pink-950/20 blur-[130px]" />
-          <div className="absolute top-[55%] left-[20%] w-[600px] h-[600px] rounded-full bg-rose-300/12 dark:bg-purple-950/20 blur-[150px]" />
-          <div className="absolute -bottom-[8%] -right-[10%] w-[550px] h-[550px] rounded-full bg-amber-200/12 dark:bg-amber-950/15 blur-[140px]" />
+          <div className="absolute -top-[15%] left-[10%] w-[600px] h-[600px] rounded-full bg-rose-200/25 dark:bg-rose-950/20 blur-[160px]" />
+          <div className="absolute top-[35%] -right-[10%] w-[550px] h-[550px] rounded-full bg-amber-100/30 dark:bg-purple-950/15 blur-[160px]" />
+          <div className="absolute -bottom-[10%] left-[20%] w-[650px] h-[650px] rounded-full bg-rose-100/20 dark:bg-pink-950/15 blur-[180px]" />
         </div>
 
         <AuthProvider>

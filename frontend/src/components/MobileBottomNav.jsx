@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { Home, Heart, User, ShoppingBag, LayoutGrid, Compass } from 'lucide-react';
+import { Home, Heart, User, ShoppingBag, Compass } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 
 export function MobileBottomNav({ onOpenCategories }) {
@@ -39,7 +39,6 @@ export function MobileBottomNav({ onOpenCategories }) {
   const isHome = pathname === '/';
   const isShop = Boolean(pathname && pathname.startsWith('/browse'));
   const isWishlist = pathname === '/wishlist';
-  const isAdmin = Boolean(pathname && pathname.startsWith('/admin'));
   const isAccount = Boolean(pathname && (pathname.startsWith('/dashboard') || pathname.startsWith('/auth')));
 
   const navItems = [
@@ -68,7 +67,7 @@ export function MobileBottomNav({ onOpenCategories }) {
   ];
 
   return (
-    <div className="md:hidden fixed bottom-2 left-3 right-3 z-50 rounded-2xl bg-white/80 dark:bg-[#130a16]/85 backdrop-blur-2xl border border-white/60 dark:border-white/10 shadow-[0_10px_35px_rgba(0,0,0,0.12)] px-2 py-1.5 transition-all">
+    <div className="md:hidden fixed bottom-2 left-3 right-3 z-50 rounded-2xl bg-white/85 dark:bg-[#130a16]/90 backdrop-blur-2xl border border-black/[0.06] dark:border-white/[0.08] shadow-[0_10px_35px_rgba(0,0,0,0.12)] px-2 py-1.5 transition-all">
       <div className="flex items-center justify-around max-w-md mx-auto">
         {navItems.map((item, idx) => {
           const Icon = item.icon;
@@ -77,14 +76,14 @@ export function MobileBottomNav({ onOpenCategories }) {
               whileTap={{ scale: 0.88 }}
               className={`flex flex-col items-center justify-center py-1 px-2.5 rounded-xl transition-all ${
                 item.isActive 
-                  ? 'text-[#c94d64] dark:text-rose-400 font-bold bg-rose-50/70 dark:bg-white/10 backdrop-blur-sm' 
+                  ? 'text-[#b84357] dark:text-rose-300 font-bold bg-black/[0.03] dark:bg-white/[0.06] backdrop-blur-sm' 
                   : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
               <div className="relative">
                 <Icon className={`w-4 h-4 sm:w-5 sm:h-5 ${item.isActive ? 'stroke-[2.2]' : 'stroke-[1.6]'}`} />
                 {item.badge && (
-                  <span className="absolute -top-1.5 -right-2 bg-[#c94d64] text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-xs">
+                  <span className="absolute -top-1.5 -right-2 bg-[#b84357] text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-xs">
                     {item.badge}
                   </span>
                 )}
@@ -102,7 +101,7 @@ export function MobileBottomNav({ onOpenCategories }) {
           }
 
           return (
-            <Link key={idx} href={item.href} className="focus:outline-none">
+            <Link key={idx} href={item.href}>
               {content}
             </Link>
           );

@@ -10,10 +10,8 @@ import {
   MapPin, 
   Truck, 
   Heart, 
-  Share2, 
   MessageCircle, 
   Sparkles, 
-  CheckCircle2, 
   HelpCircle,
   ShoppingBag,
   Send
@@ -135,7 +133,7 @@ export default function ProductDetailPage() {
   if (loading) {
     return (
       <div className="w-[90%] mx-auto px-2 sm:px-4 py-20 text-center">
-        <Sparkles className="w-8 h-8 text-[#c94d64] animate-spin mx-auto mb-3" />
+        <Sparkles className="w-8 h-8 text-[#b84357] animate-spin mx-auto mb-3" />
         <p className="text-xs text-slate-500">Loading authentic beauty listing...</p>
       </div>
     );
@@ -145,7 +143,7 @@ export default function ProductDetailPage() {
     return (
       <div className="w-[90%] mx-auto px-2 sm:px-4 py-20 text-center">
         <h2 className="text-xl font-bold">Listing Not Found</h2>
-        <Link href="/browse" className="mt-4 inline-block btn-rose-primary px-4 py-2 text-xs">
+        <Link href="/browse" className="mt-4 inline-block bg-[#b84357] hover:bg-[#a13649] text-white px-4 py-2 text-xs rounded-xl shadow-xs">
           Return to Catalog
         </Link>
       </div>
@@ -167,9 +165,9 @@ export default function ProductDetailPage() {
     >
       {/* Top Breadcrumb */}
       <nav className="text-xs text-slate-500 flex items-center gap-2">
-        <Link href="/" className="hover:text-rose-600">Home</Link>
+        <Link href="/" className="hover:text-[#b84357]">Home</Link>
         <span>/</span>
-        <Link href={`/browse?category=${product.category}`} className="hover:text-rose-600">{product.category}</Link>
+        <Link href={`/browse?category=${product.category}`} className="hover:text-[#b84357]">{product.category}</Link>
         <span>/</span>
         <span className="text-slate-800 dark:text-slate-200 font-semibold truncate max-w-xs">{product.title}</span>
       </nav>
@@ -178,18 +176,18 @@ export default function ProductDetailPage() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
         {/* Left Column: Image Gallery (6 cols) */}
         <div className="lg:col-span-6 space-y-4">
-          <div className="aspect-square rounded-3xl overflow-hidden border border-white/60 dark:border-white/10 relative bg-white/50 dark:bg-white/5 backdrop-blur-2xl shadow-[0_15px_35px_rgba(0,0,0,0.06)]">
+          <div className="aspect-square rounded-3xl overflow-hidden border border-black/[0.05] dark:border-white/[0.08] relative bg-white/50 dark:bg-white/[0.03] backdrop-blur-2xl shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
             <img
               src={images[activeImageIndex]}
               alt={product.title}
               className="w-full h-full object-cover transition-all duration-300"
             />
             {discount > 0 && (
-              <span className="absolute top-4 left-4 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#c94d64]/90 text-white backdrop-blur-md shadow-xs">
+              <span className="absolute top-4 left-4 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#191416]/90 text-white backdrop-blur-md shadow-xs">
                 -{discount}% OFF
               </span>
             )}
-            <span className="absolute top-4 right-4 px-3 py-1 rounded-full text-[10px] font-bold bg-white/80 dark:bg-[#140b17]/80 text-slate-800 dark:text-white backdrop-blur-xl border border-white/60 dark:border-white/10 shadow-xs">
+            <span className="absolute top-4 right-4 px-3 py-1 rounded-full text-[10px] font-bold bg-white/85 dark:bg-[#140b17]/85 text-slate-800 dark:text-white backdrop-blur-xl border border-black/[0.05] dark:border-white/[0.08] shadow-xs">
               {product.condition}
             </span>
           </div>
@@ -205,8 +203,8 @@ export default function ProductDetailPage() {
                   onClick={() => setActiveImageIndex(idx)}
                   className={`w-16 h-16 rounded-2xl overflow-hidden border transition-all shrink-0 cursor-pointer backdrop-blur-md ${
                     activeImageIndex === idx 
-                      ? 'border-[#c94d64] ring-2 ring-[#c94d64]/50 scale-105' 
-                      : 'border-white/60 dark:border-white/10 opacity-70 hover:opacity-100 bg-white/40 dark:bg-white/5'
+                      ? 'border-[#b84357] ring-2 ring-[#b84357]/20 scale-105' 
+                      : 'border-black/[0.06] dark:border-white/[0.08] opacity-70 hover:opacity-100 bg-black/[0.02] dark:bg-white/[0.04]'
                   }`}
                 >
                   <img src={img} alt="Thumb" className="w-full h-full object-cover" />
@@ -216,14 +214,14 @@ export default function ProductDetailPage() {
           )}
 
           {/* Authenticity Guarantee Card */}
-          <div className="p-4 rounded-2xl bg-white/60 dark:bg-[#140c17]/60 backdrop-blur-2xl border border-white/60 dark:border-white/10 shadow-xs flex items-start gap-3">
+          <div className="p-4 rounded-2xl bg-white/60 dark:bg-[#140c17]/60 backdrop-blur-2xl border border-black/[0.05] dark:border-white/[0.08] shadow-xs flex items-start gap-3">
             <ShieldCheck className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
             <div>
               <h4 className="text-xs font-bold font-serif text-slate-900 dark:text-white">
                 Authenticity Guarantee
               </h4>
               <p className="text-[11px] text-slate-600 dark:text-slate-400 mt-0.5 leading-relaxed">
-                Batch code <strong className="font-mono bg-white/80 dark:bg-white/10 px-1.5 py-0.5 rounded-lg border border-white/60 dark:border-white/15 text-[#c94d64]">{product.batchCode || '3K01'}</strong> verified against manufacturer records.
+                Batch code <strong className="font-mono bg-black/[0.04] dark:bg-white/[0.06] px-1.5 py-0.5 rounded-lg border border-black/[0.06] dark:border-white/[0.1] text-[#b84357] dark:text-rose-300">{product.batchCode || '3K01'}</strong> verified against manufacturer records.
               </p>
             </div>
           </div>
@@ -235,7 +233,7 @@ export default function ProductDetailPage() {
             <div className="flex items-center justify-between text-xs mb-2">
               <Link
                 href={`/browse?category=${encodeURIComponent(product.category || 'All')}`}
-                className="px-3 py-1 rounded-full bg-rose-500/10 text-[#c94d64] dark:text-rose-300 font-bold uppercase tracking-wider text-[10px] hover:bg-rose-500/20 transition-colors backdrop-blur-md border border-rose-300/30"
+                className="px-3 py-1 rounded-full bg-black/[0.03] dark:bg-white/[0.05] text-[#b84357] dark:text-rose-300 font-bold uppercase tracking-wider text-[10px] hover:bg-black/[0.06] transition-colors backdrop-blur-md border border-black/[0.05] dark:border-white/[0.08]"
               >
                 {product.brand || product.category}
               </Link>
@@ -252,13 +250,13 @@ export default function ProductDetailPage() {
 
             {product.shade && (
               <p className="text-xs text-slate-600 dark:text-slate-300 mt-2">
-                Shade / Finish: <span className="font-bold text-[#c94d64] dark:text-rose-400">{product.shade}</span>
+                Shade / Finish: <span className="font-bold text-[#b84357] dark:text-rose-300">{product.shade}</span>
               </p>
             )}
           </div>
 
           {/* Pricing Box */}
-          <div className="p-5 rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl border border-white/60 dark:border-white/10 shadow-[0_10px_30px_rgba(201,77,100,0.06)] flex items-baseline gap-3">
+          <div className="p-5 rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl border border-black/[0.05] dark:border-white/[0.08] shadow-xs flex items-baseline gap-3">
             <span className="text-3xl font-serif font-bold text-slate-900 dark:text-white">
               {formatPrice(product.price)}
             </span>
@@ -275,11 +273,11 @@ export default function ProductDetailPage() {
           {/* Quantity and Action CTAs */}
           <div className="space-y-3 pt-2">
             <div className="flex items-center gap-3">
-              <div className="flex items-center border border-white/60 dark:border-white/10 rounded-2xl overflow-hidden bg-white/70 dark:bg-white/5 backdrop-blur-md shadow-xs">
+              <div className="flex items-center border border-black/[0.08] dark:border-white/[0.1] rounded-2xl overflow-hidden bg-black/[0.02] dark:bg-white/[0.04] backdrop-blur-md shadow-xs">
                 <button
                   type="button"
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                  className="px-3.5 py-2.5 text-slate-600 dark:text-slate-300 hover:bg-rose-50 dark:hover:bg-rose-950/40 text-sm font-bold transition-colors cursor-pointer"
+                  className="px-3.5 py-2.5 text-slate-600 dark:text-slate-300 hover:bg-black/[0.05] dark:hover:bg-white/[0.08] text-sm font-bold transition-colors cursor-pointer"
                 >
                   -
                 </button>
@@ -289,7 +287,7 @@ export default function ProductDetailPage() {
                 <button
                   type="button"
                   onClick={() => setQuantity(quantity + 1)}
-                  className="px-3.5 py-2.5 text-slate-600 dark:text-slate-300 hover:bg-rose-50 dark:hover:bg-rose-950/40 text-sm font-bold transition-colors cursor-pointer"
+                  className="px-3.5 py-2.5 text-slate-600 dark:text-slate-300 hover:bg-black/[0.05] dark:hover:bg-white/[0.08] text-sm font-bold transition-colors cursor-pointer"
                 >
                   +
                 </button>
@@ -299,7 +297,7 @@ export default function ProductDetailPage() {
                 whileTap={{ scale: 0.96 }}
                 type="button"
                 onClick={() => addToCart(product, quantity)}
-                className="flex-1 py-3 px-4 rounded-2xl bg-white/70 dark:bg-white/10 hover:bg-white/90 dark:hover:bg-white/20 text-[#c94d64] dark:text-rose-300 border border-white/60 dark:border-white/15 backdrop-blur-xl font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 active:scale-98 transition-all cursor-pointer shadow-xs"
+                className="flex-1 py-3 px-4 rounded-2xl bg-black/[0.02] dark:bg-white/[0.04] hover:bg-[#b84357] hover:text-white text-[#191416] dark:text-white border border-black/[0.06] dark:border-white/[0.08] hover:border-[#b84357] backdrop-blur-xl font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 active:scale-98 transition-all cursor-pointer shadow-xs"
               >
                 <ShoppingBag className="w-4 h-4" />
                 <span>Add to Bag</span>
@@ -309,7 +307,7 @@ export default function ProductDetailPage() {
             <motion.button
               whileTap={{ scale: 0.97 }}
               onClick={() => setBuyModalOpen(true)}
-              className="w-full btn-rose-primary py-3.5 rounded-2xl text-xs uppercase tracking-wider font-bold flex items-center justify-center gap-2 shadow-lg shadow-[#c94d64]/25 cursor-pointer"
+              className="w-full bg-[#b84357] hover:bg-[#a13649] text-white py-3.5 rounded-2xl text-xs uppercase tracking-wider font-bold flex items-center justify-center gap-2 shadow-md shadow-[#b84357]/20 cursor-pointer"
             >
               <span>Instant Buy with Cash on Delivery (COD)</span>
             </motion.button>
@@ -317,7 +315,7 @@ export default function ProductDetailPage() {
             <motion.button
               whileTap={{ scale: 0.97 }}
               onClick={openWhatsApp}
-              className="w-full py-3 rounded-2xl border border-emerald-500/30 bg-emerald-500/10 dark:bg-emerald-500/10 backdrop-blur-md text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500/20 font-bold text-xs flex items-center justify-center gap-2 transition-all cursor-pointer"
+              className="w-full py-3 rounded-2xl border border-black/[0.06] dark:border-white/[0.08] bg-emerald-500/10 backdrop-blur-md text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500/15 font-bold text-xs flex items-center justify-center gap-2 transition-all cursor-pointer"
             >
               <MessageCircle className="w-4 h-4" />
               <span>Ask Seller via WhatsApp Direct</span>
@@ -325,17 +323,17 @@ export default function ProductDetailPage() {
           </div>
 
           {/* Courier Delivery Timeline Box */}
-          <div className="p-5 rounded-3xl border border-white/60 dark:border-white/10 bg-white/60 dark:bg-[#140b17]/60 backdrop-blur-2xl shadow-xs space-y-3">
+          <div className="p-5 rounded-3xl border border-black/[0.05] dark:border-white/[0.08] bg-white/60 dark:bg-[#140b17]/60 backdrop-blur-2xl shadow-xs space-y-3">
             <div className="flex items-center gap-2 text-xs font-bold text-slate-900 dark:text-white font-serif">
-              <Truck className="w-4 h-4 text-[#c94d64]" />
+              <Truck className="w-4 h-4 text-[#b84357]" />
               <span>Courier Delivery Estimates</span>
             </div>
             <div className="grid grid-cols-2 gap-3 text-xs">
-              <div className="p-3 rounded-2xl bg-white/60 dark:bg-white/5 backdrop-blur-md border border-white/40 dark:border-white/10">
+              <div className="p-3 rounded-2xl bg-black/[0.02] dark:bg-white/[0.04] backdrop-blur-md border border-black/[0.04] dark:border-white/[0.06]">
                 <span className="font-bold text-slate-800 dark:text-slate-200 block">Inside Dhaka</span>
                 <span className="text-slate-500 text-[11px]">24 - 48 Hours • ৳60</span>
               </div>
-              <div className="p-3 rounded-2xl bg-white/60 dark:bg-white/5 backdrop-blur-md border border-white/40 dark:border-white/10">
+              <div className="p-3 rounded-2xl bg-black/[0.02] dark:bg-white/[0.04] backdrop-blur-md border border-black/[0.04] dark:border-white/[0.06]">
                 <span className="font-bold text-slate-800 dark:text-slate-200 block">Outside Dhaka</span>
                 <span className="text-slate-500 text-[11px]">48 - 72 Hours • ৳120</span>
               </div>
@@ -343,9 +341,9 @@ export default function ProductDetailPage() {
           </div>
 
           {/* Seller / Boutique Box */}
-          <div className="p-5 rounded-3xl border border-white/60 dark:border-white/10 bg-white/60 dark:bg-[#140b17]/60 backdrop-blur-2xl shadow-xs flex items-center justify-between">
+          <div className="p-5 rounded-3xl border border-black/[0.05] dark:border-white/[0.08] bg-white/60 dark:bg-[#140b17]/60 backdrop-blur-2xl shadow-xs flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-2xl bg-rose-500/15 dark:bg-rose-500/25 border border-rose-300/30 backdrop-blur-md overflow-hidden text-[#c94d64] flex items-center justify-center font-bold text-base">
+              <div className="w-12 h-12 rounded-2xl bg-black/[0.03] dark:bg-white/[0.06] border border-black/[0.06] dark:border-white/[0.08] backdrop-blur-md overflow-hidden text-[#b84357] dark:text-rose-300 flex items-center justify-center font-bold text-base">
                 {product.sellerAvatar ? (
                   <img src={product.sellerAvatar} alt={product.sellerName} className="w-full h-full object-cover" />
                 ) : (
@@ -355,10 +353,10 @@ export default function ProductDetailPage() {
               <div>
                 <h4 className="text-xs font-bold font-serif text-slate-900 dark:text-white flex items-center gap-1.5">
                   <span>{product.sellerName || 'Verified Boutique'}</span>
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#c94d64]" />
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#b84357]" />
                 </h4>
                 <p className="text-[11px] text-slate-500 flex items-center gap-1">
-                  <MapPin className="w-3 h-3 text-[#c94d64]" />
+                  <MapPin className="w-3 h-3 text-[#b84357]" />
                   <span>{product.location || 'Dhaka, Bangladesh'}</span>
                 </p>
               </div>
@@ -386,12 +384,12 @@ export default function ProductDetailPage() {
       </div>
 
       {/* Community Q&A Section */}
-      <section className="pt-10 border-t border-white/50 dark:border-white/10">
+      <section className="pt-10 border-t border-black/[0.05] dark:border-white/[0.08]">
         <div className="max-w-4xl mx-auto space-y-6">
           <div className="flex items-center justify-between">
             <div>
               <h2 className="text-xl font-serif font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                <HelpCircle className="w-5 h-5 text-[#c94d64]" />
+                <HelpCircle className="w-5 h-5 text-[#b84357]" />
                 <span>Customer Questions & Answers</span>
               </h2>
               <p className="text-xs text-slate-500">Ask the boutique seller directly about shades, skin suitability or authenticity.</p>
@@ -405,12 +403,12 @@ export default function ProductDetailPage() {
               value={questionInput}
               onChange={(e) => setQuestionInput(e.target.value)}
               placeholder="Ask a question about this product..."
-              className="flex-1 p-3.5 text-xs rounded-2xl border border-white/60 dark:border-white/10 bg-white/70 dark:bg-white/5 backdrop-blur-md text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-1 focus:ring-[#c94d64]"
+              className="flex-1 p-3.5 text-xs rounded-2xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] backdrop-blur-md text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-1 focus:ring-[#b84357]"
             />
             <motion.button 
               whileTap={{ scale: 0.94 }}
               type="submit" 
-              className="btn-rose-primary px-6 py-3 rounded-2xl text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 cursor-pointer shadow-md shadow-[#c94d64]/20"
+              className="bg-[#b84357] hover:bg-[#a13649] text-white px-6 py-3 rounded-2xl text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 cursor-pointer shadow-md shadow-[#b84357]/20"
             >
               <Send className="w-3.5 h-3.5" />
               <span>Ask</span>
@@ -423,13 +421,13 @@ export default function ProductDetailPage() {
               <p className="text-xs text-slate-400 italic">No community questions asked yet. Be the first to ask!</p>
             ) : (
               qaList.map((item, idx) => (
-                <div key={idx} className="p-5 rounded-3xl bg-white/60 dark:bg-[#140b17]/60 backdrop-blur-2xl border border-white/60 dark:border-white/10 shadow-xs space-y-2.5">
+                <div key={idx} className="p-5 rounded-3xl bg-white/60 dark:bg-[#140b17]/60 backdrop-blur-2xl border border-black/[0.05] dark:border-white/[0.08] shadow-xs space-y-2.5">
                   <div className="flex items-center gap-2 text-xs font-bold text-slate-900 dark:text-white">
-                    <span className="text-[#c94d64] font-extrabold">Q:</span>
+                    <span className="text-[#b84357] font-extrabold">Q:</span>
                     <span>{item.question}</span>
                   </div>
                   {item.answer ? (
-                    <div className="flex items-start gap-2.5 text-xs text-slate-600 dark:text-slate-300 pl-4 border-l-2 border-[#c94d64]">
+                    <div className="flex items-start gap-2.5 text-xs text-slate-600 dark:text-slate-300 pl-4 border-l-2 border-[#b84357]">
                       <span className="text-emerald-500 font-bold">A:</span>
                       <div>
                         <p>{item.answer}</p>
@@ -447,7 +445,7 @@ export default function ProductDetailPage() {
       </section>
 
       {/* Customer Reviews Section */}
-      <section className="pt-10 border-t border-white/50 dark:border-white/10">
+      <section className="pt-10 border-t border-black/[0.05] dark:border-white/[0.08]">
         <div className="max-w-4xl mx-auto space-y-6">
           <h2 className="text-xl font-serif font-bold text-slate-900 dark:text-white flex items-center gap-2">
             <Star className="w-5 h-5 text-amber-500 fill-current" />
@@ -455,7 +453,7 @@ export default function ProductDetailPage() {
           </h2>
 
           {/* Leave a Review Form */}
-          <form onSubmit={handlePostReview} className="p-6 rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl border border-white/60 dark:border-white/10 shadow-[0_15px_35px_rgba(0,0,0,0.04)] space-y-4">
+          <form onSubmit={handlePostReview} className="p-6 rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl border border-black/[0.05] dark:border-white/[0.08] shadow-xs space-y-4">
             <h3 className="text-xs font-bold font-serif text-slate-800 dark:text-slate-200">Share your experience with this product</h3>
             <div className="flex items-center gap-2">
               <span className="text-xs text-slate-500 font-medium">Your Rating:</span>
@@ -478,13 +476,13 @@ export default function ProductDetailPage() {
               value={newComment}
               onChange={(e) => setNewComment(e.target.value)}
               placeholder="Write your review: texture, scent, skin feel, authenticity verification..."
-              className="w-full p-3.5 text-xs rounded-2xl border border-white/60 dark:border-white/10 bg-white/70 dark:bg-white/5 backdrop-blur-md text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-1 focus:ring-[#c94d64]"
+              className="w-full p-3.5 text-xs rounded-2xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] backdrop-blur-md text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-1 focus:ring-[#b84357]"
             />
 
             <motion.button 
               whileTap={{ scale: 0.94 }}
               type="submit" 
-              className="btn-rose-primary px-6 py-2.5 rounded-xl text-xs uppercase tracking-wider font-bold cursor-pointer shadow-md shadow-[#c94d64]/20"
+              className="bg-[#b84357] hover:bg-[#a13649] text-white px-6 py-2.5 rounded-xl text-xs uppercase tracking-wider font-bold cursor-pointer shadow-md shadow-[#b84357]/20"
             >
               Post Review
             </motion.button>
@@ -493,7 +491,7 @@ export default function ProductDetailPage() {
           {/* Reviews Stream */}
           <div className="space-y-4">
             {reviewsList.map((rev, idx) => (
-              <div key={idx} className="p-5 rounded-3xl border border-white/60 dark:border-white/10 bg-white/60 dark:bg-[#140b17]/60 backdrop-blur-2xl shadow-xs space-y-2">
+              <div key={idx} className="p-5 rounded-3xl border border-black/[0.05] dark:border-white/[0.08] bg-white/60 dark:bg-[#140b17]/60 backdrop-blur-2xl shadow-xs space-y-2">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <span className="text-xs font-bold text-slate-900 dark:text-white">{rev.userName}</span>
@@ -518,10 +516,10 @@ export default function ProductDetailPage() {
 
       {/* Recently Viewed Products */}
       {recentItems.length > 0 && (
-        <section className="pt-10 border-t border-white/50 dark:border-white/10 space-y-5">
+        <section className="pt-10 border-t border-black/[0.05] dark:border-white/[0.08] space-y-5">
           <div className="flex items-center justify-between">
             <div>
-              <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[#c94d64] uppercase tracking-wider">
+              <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[#b84357] uppercase tracking-wider">
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>Browsing History</span>
               </div>
@@ -531,7 +529,7 @@ export default function ProductDetailPage() {
             </div>
             <Link
               href="/browse"
-              className="text-xs font-bold text-[#c94d64] hover:underline"
+              className="text-xs font-bold text-[#b84357] hover:underline"
             >
               Explore All Catalog
             </Link>

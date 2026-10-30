@@ -3,20 +3,11 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { 
-  ShoppingBag, 
   Search, 
-  Truck, 
-  Clock, 
-  CheckCircle2, 
-  AlertCircle, 
-  MapPin, 
-  Phone, 
-  Eye, 
-  RefreshCw,
-  ExternalLink,
-  MessageCircle,
-  X,
-  FileText
+  RefreshCw, 
+  MessageCircle, 
+  X, 
+  FileText 
 } from 'lucide-react';
 import { formatPrice } from '@/utils/formatters';
 import { useToast } from '@/context/ToastContext';
@@ -57,7 +48,6 @@ export default function AdminOrdersPage() {
       }
       showToast(`Order status updated to ${newStatus}`, 'success');
     } catch (err) {
-      // Optimistic update
       setOrders(prev => prev.map(o => 
         (o._id === orderId || o.orderNumber === orderId) ? { ...o, status: newStatus } : o
       ));
@@ -92,7 +82,7 @@ export default function AdminOrdersPage() {
 
         <button
           onClick={fetchOrders}
-          className="btn-rose-primary px-4 py-2 text-xs font-bold flex items-center gap-2 self-start sm:self-auto"
+          className="bg-[#b84357] hover:bg-[#a13649] text-white px-4 py-2 text-xs font-bold rounded-xl flex items-center gap-2 self-start sm:self-auto shadow-md shadow-[#b84357]/20 cursor-pointer"
         >
           <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
           <span>Refresh Orders</span>
@@ -100,17 +90,17 @@ export default function AdminOrdersPage() {
       </div>
 
       {/* Filter and Status Tab Bar */}
-      <div className="p-4 rounded-3xl glass-card border border-rose-200/80 dark:border-rose-950/60 space-y-4">
+      <div className="p-4 rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl border border-black/[0.05] dark:border-white/[0.08] space-y-4 shadow-xs">
         {/* Status Chips */}
         <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
           {statuses.map(st => (
             <button
               key={st}
               onClick={() => setStatusFilter(st)}
-              className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap ${
+              className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
                 statusFilter === st
-                  ? 'bg-[#c94d64] text-white shadow-sm'
-                  : 'bg-rose-50/70 dark:bg-rose-950/30 text-slate-600 dark:text-slate-300 hover:bg-rose-100'
+                  ? 'bg-[#b84357] text-white shadow-xs'
+                  : 'bg-black/[0.03] dark:bg-white/[0.05] text-slate-600 dark:text-slate-300 hover:bg-black/[0.05]'
               }`}
             >
               {st} {st !== 'All' ? `(${orders.filter(o => o.status === st).length})` : `(${orders.length})`}
@@ -125,14 +115,14 @@ export default function AdminOrdersPage() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search by order number (BNB-...), customer name, or phone number..."
-            className="w-full pl-9 pr-3 py-2 text-xs rounded-xl border border-rose-200 dark:border-rose-900/50 bg-white dark:bg-[#120a14]"
+            className="w-full pl-9 pr-3 py-2 text-xs rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-slate-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-[#b84357]"
           />
-          <Search className="w-4 h-4 text-rose-400 absolute left-3 top-1/2 -translate-y-1/2" />
+          <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
         </div>
       </div>
 
       {/* Orders Table */}
-      <div className="rounded-3xl glass-card border border-rose-200/80 dark:border-rose-950/60 overflow-hidden shadow-sm">
+      <div className="rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl border border-black/[0.05] dark:border-white/[0.08] overflow-hidden shadow-xs">
         {filteredOrders.length === 0 ? (
           <div className="p-12 text-center text-xs text-slate-400">
             No orders found under current filter criteria.
@@ -140,20 +130,20 @@ export default function AdminOrdersPage() {
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs">
-              <thead className="bg-rose-50/50 dark:bg-rose-950/30 border-b border-rose-100 dark:border-rose-950/60 text-slate-600 dark:text-slate-400">
+              <thead className="bg-black/[0.015] dark:bg-white/[0.02] border-b border-black/[0.05] dark:border-white/[0.08] text-slate-600 dark:text-slate-400">
                 <tr>
-                  <th className="py-3 px-4 font-semibold">Order Ref</th>
-                  <th className="py-3 px-4 font-semibold">Customer & Contact</th>
-                  <th className="py-3 px-4 font-semibold">Ordered Product</th>
-                  <th className="py-3 px-4 font-semibold">Payable</th>
-                  <th className="py-3 px-4 font-semibold">Courier & Division</th>
-                  <th className="py-3 px-4 font-semibold">Live Status</th>
-                  <th className="py-3 px-4 font-semibold text-right">Actions</th>
+                  <th className="py-3 px-4 font-semibold font-serif">Order Ref</th>
+                  <th className="py-3 px-4 font-semibold font-serif">Customer & Contact</th>
+                  <th className="py-3 px-4 font-semibold font-serif">Ordered Product</th>
+                  <th className="py-3 px-4 font-semibold font-serif">Payable</th>
+                  <th className="py-3 px-4 font-semibold font-serif">Courier & Division</th>
+                  <th className="py-3 px-4 font-semibold font-serif">Live Status</th>
+                  <th className="py-3 px-4 font-semibold font-serif text-right">Actions</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-rose-100/60 dark:divide-rose-950/40">
+              <tbody className="divide-y divide-black/[0.04] dark:divide-white/[0.05]">
                 {filteredOrders.map(ord => (
-                  <tr key={ord._id || ord.orderNumber} className="hover:bg-rose-50/30 dark:hover:bg-rose-950/20 transition-colors">
+                  <tr key={ord._id || ord.orderNumber} className="hover:bg-black/[0.02] dark:hover:bg-white/[0.03] transition-colors">
                     <td className="py-3.5 px-4 font-mono font-bold text-slate-900 dark:text-white">
                       {ord.orderNumber}
                     </td>
@@ -167,7 +157,7 @@ export default function AdminOrdersPage() {
                           <img
                             src={ord.productImage}
                             alt=""
-                            className="w-8 h-8 rounded-lg object-cover shrink-0 border border-rose-100 dark:border-rose-900/40"
+                            className="w-8 h-8 rounded-lg object-cover shrink-0 border border-black/[0.05] dark:border-white/[0.08]"
                           />
                         )}
                         <div className="truncate">
@@ -176,7 +166,7 @@ export default function AdminOrdersPage() {
                         </div>
                       </div>
                     </td>
-                    <td className="py-3.5 px-4 font-bold text-[#c94d64] dark:text-[#f4728d]">
+                    <td className="py-3.5 px-4 font-bold text-[#b84357] dark:text-rose-300 font-serif">
                       {formatPrice(ord.totalAmount)}
                     </td>
                     <td className="py-3.5 px-4 text-slate-600 dark:text-slate-300">
@@ -189,12 +179,12 @@ export default function AdminOrdersPage() {
                         onChange={(e) => handleUpdateStatus(ord._id || ord.orderNumber, e.target.value)}
                         className={`text-[11px] font-bold px-2 py-1 rounded-xl border transition-colors ${
                           ord.status === 'Delivered'
-                            ? 'bg-emerald-50 text-emerald-800 border-emerald-300 dark:bg-emerald-950/40 dark:text-emerald-300'
+                            ? 'bg-emerald-500/10 text-emerald-800 border-emerald-500/20 dark:bg-emerald-950/40 dark:text-emerald-300'
                             : ord.status === 'Shipped'
-                            ? 'bg-purple-50 text-purple-800 border-purple-300 dark:bg-purple-950/40 dark:text-purple-300'
+                            ? 'bg-purple-500/10 text-purple-800 border-purple-500/20 dark:bg-purple-950/40 dark:text-purple-300'
                             : ord.status === 'Processing'
-                            ? 'bg-blue-50 text-blue-800 border-blue-300 dark:bg-blue-950/40 dark:text-blue-300'
-                            : 'bg-amber-50 text-amber-800 border-amber-300 dark:bg-amber-950/40 dark:text-amber-300'
+                            ? 'bg-blue-500/10 text-blue-800 border-blue-500/20 dark:bg-blue-950/40 dark:text-blue-300'
+                            : 'bg-amber-500/10 text-amber-800 border-amber-500/20 dark:bg-amber-950/40 dark:text-amber-300'
                         }`}
                       >
                         <option value="Confirmed">Confirmed</option>
@@ -209,7 +199,7 @@ export default function AdminOrdersPage() {
                         <button
                           type="button"
                           onClick={() => setActiveModalOrder(ord)}
-                          className="p-1.5 rounded-lg text-slate-500 hover:text-[#c94d64] hover:bg-rose-50 dark:hover:bg-rose-950/40"
+                          className="p-1.5 rounded-lg text-slate-500 hover:text-[#b84357] hover:bg-black/[0.04] transition-colors cursor-pointer"
                           title="View Invoice & Full Details"
                         >
                           <FileText className="w-3.5 h-3.5" />
@@ -219,7 +209,7 @@ export default function AdminOrdersPage() {
                           href={`https://wa.me/${(ord.buyerPhone || '8801700000000').replace(/[^0-9]/g, '')}?text=${encodeURIComponent(`Hi ${ord.buyerName}, your Beauty & Blush order ${ord.orderNumber} is currently: ${ord.status}. Delivery via ${ord.courierService || 'Express Courier'}.`)}`}
                           target="_blank"
                           rel="noreferrer"
-                          className="p-1.5 rounded-lg text-emerald-600 hover:bg-emerald-50 dark:hover:bg-emerald-950/40"
+                          className="p-1.5 rounded-lg text-emerald-600 hover:bg-emerald-500/10 transition-colors"
                           title="Notify on WhatsApp"
                         >
                           <MessageCircle className="w-3.5 h-3.5" />
@@ -236,17 +226,17 @@ export default function AdminOrdersPage() {
 
       {/* Order Detail Modal */}
       {activeModalOrder && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
-          <div className="bg-white dark:bg-[#180e1a] rounded-3xl max-w-lg w-full p-6 border border-rose-200 dark:border-rose-900/60 shadow-2xl relative space-y-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-md animate-fade-in">
+          <div className="bg-white/85 dark:bg-[#140b17]/90 backdrop-blur-3xl rounded-3xl max-w-lg w-full p-6 border border-black/[0.06] dark:border-white/[0.08] shadow-[0_25px_60px_rgba(0,0,0,0.25)] relative space-y-4">
             <button
               onClick={() => setActiveModalOrder(null)}
-              className="absolute top-4 right-4 p-1.5 rounded-full text-slate-400 hover:text-slate-600"
+              className="absolute top-4 right-4 p-1.5 rounded-full text-slate-400 hover:text-slate-600 dark:hover:text-white cursor-pointer"
             >
               <X className="w-4 h-4" />
             </button>
 
-            <div className="border-b border-rose-100 dark:border-rose-950/60 pb-3">
-              <span className="text-[10px] uppercase tracking-wider font-bold text-[#c94d64]">
+            <div className="border-b border-black/[0.05] dark:border-white/[0.08] pb-3">
+              <span className="text-[10px] uppercase tracking-wider font-bold text-[#b84357] dark:text-rose-300">
                 Order Details & Invoice
               </span>
               <h3 className="text-xl font-mono font-bold text-slate-900 dark:text-white mt-0.5">
@@ -255,32 +245,32 @@ export default function AdminOrdersPage() {
             </div>
 
             <div className="space-y-3 text-xs">
-              <div className="p-3 rounded-2xl bg-rose-50/60 dark:bg-rose-950/30 border border-rose-100 dark:border-rose-900/40 space-y-1">
+              <div className="p-3 rounded-2xl bg-black/[0.02] dark:bg-white/[0.04] border border-black/[0.05] dark:border-white/[0.08] space-y-1">
                 <p className="font-bold text-slate-900 dark:text-white">Customer Information:</p>
                 <p className="text-slate-600 dark:text-slate-300">Name: {activeModalOrder.buyerName}</p>
                 <p className="text-slate-600 dark:text-slate-300">Phone: {activeModalOrder.buyerPhone}</p>
                 <p className="text-slate-600 dark:text-slate-300">Address: {activeModalOrder.deliveryAddress} ({activeModalOrder.division})</p>
               </div>
 
-              <div className="p-3 rounded-2xl bg-rose-50/60 dark:bg-rose-950/30 border border-rose-100 dark:border-rose-900/40 space-y-1">
+              <div className="p-3 rounded-2xl bg-black/[0.02] dark:bg-white/[0.04] border border-black/[0.05] dark:border-white/[0.08] space-y-1">
                 <p className="font-bold text-slate-900 dark:text-white">Courier & Fulfillment:</p>
                 <p className="text-slate-600 dark:text-slate-300">Courier Partner: {activeModalOrder.courierService || 'Pathao Courier'}</p>
                 <p className="text-slate-600 dark:text-slate-300">Payment: {activeModalOrder.paymentMethod} (৳{activeModalOrder.totalAmount})</p>
-                <p className="text-slate-600 dark:text-slate-300">Status: <strong className="text-[#c94d64]">{activeModalOrder.status}</strong></p>
+                <p className="text-slate-600 dark:text-slate-300">Status: <strong className="text-[#b84357] dark:text-rose-300">{activeModalOrder.status}</strong></p>
               </div>
 
               <div className="pt-2 flex gap-2">
                 <Link
                   href={`/track-order?order=${activeModalOrder.orderNumber}`}
                   target="_blank"
-                  className="flex-1 py-2.5 rounded-xl border border-rose-200 text-center font-bold text-slate-700 dark:text-slate-300 hover:text-[#c94d64]"
+                  className="flex-1 py-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] text-center font-bold text-slate-700 dark:text-slate-300 hover:text-[#b84357]"
                 >
                   Open Live Tracker
                 </Link>
 
                 <button
                   onClick={() => setActiveModalOrder(null)}
-                  className="flex-1 btn-rose-primary py-2.5 font-bold"
+                  className="flex-1 bg-[#b84357] hover:bg-[#a13649] text-white py-2.5 rounded-xl font-bold cursor-pointer shadow-xs"
                 >
                   Done
                 </button>

@@ -8,17 +8,9 @@ import {
   DollarSign, 
   RefreshCw, 
   ArrowUpRight, 
-  ShoppingBag, 
-  Package, 
-  Users, 
   CheckCircle2, 
   Clock, 
-  Filter, 
-  Search,
-  Sparkles,
-  ArrowRight,
-  ShieldCheck,
-  AlertCircle
+  Search
 } from 'lucide-react';
 import { formatPrice } from '@/utils/formatters';
 import { api } from '@/lib/api';
@@ -88,7 +80,7 @@ export default function AdminCartAnalyticsPage() {
       {/* Header and Actions */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[#c94d64] uppercase tracking-widest mb-1">
+          <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[#b84357] uppercase tracking-widest mb-1">
             <ShoppingCart className="w-3.5 h-3.5" />
             <span>Customer Intent & Cart Metrics</span>
           </div>
@@ -103,16 +95,16 @@ export default function AdminCartAnalyticsPage() {
         <div className="flex items-center gap-2 self-start sm:self-auto">
           <button
             onClick={fetchCartAnalytics}
-            className="p-2.5 rounded-xl border border-white/60 dark:border-white/10 bg-white/70 dark:bg-white/5 backdrop-blur-md text-slate-700 dark:text-slate-300 hover:text-[#c94d64] hover:bg-white/90 transition-all cursor-pointer shadow-xs"
+            className="p-2.5 rounded-xl border border-black/[0.06] dark:border-white/[0.08] bg-black/[0.02] dark:bg-white/[0.04] backdrop-blur-md text-slate-700 dark:text-slate-300 hover:text-[#b84357] hover:bg-black/[0.05] transition-all cursor-pointer shadow-xs"
             title="Refresh Cart Data"
           >
-            <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin text-[#c94d64]' : ''}`} />
+            <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin text-[#b84357]' : ''}`} />
           </button>
 
           <Link
             href="/browse"
             target="_blank"
-            className="px-4 py-2.5 rounded-xl border border-white/60 dark:border-white/10 bg-white/70 dark:bg-white/5 backdrop-blur-md text-xs font-bold text-slate-700 dark:text-slate-200 hover:text-[#c94d64] transition-all flex items-center gap-1.5 shadow-xs"
+            className="px-4 py-2.5 rounded-xl border border-black/[0.06] dark:border-white/[0.08] bg-black/[0.02] dark:bg-white/[0.04] backdrop-blur-md text-xs font-bold text-slate-700 dark:text-slate-200 hover:text-[#b84357] transition-all flex items-center gap-1.5 shadow-xs"
           >
             <span>View Live Catalog</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
@@ -123,10 +115,10 @@ export default function AdminCartAnalyticsPage() {
       {/* KPI Cards Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         {/* KPI 1: Total Additions */}
-        <div className="p-6 rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl border border-white/60 dark:border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.04)] relative overflow-hidden">
+        <div className="p-6 rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl border border-black/[0.05] dark:border-white/[0.08] shadow-xs relative overflow-hidden">
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold uppercase tracking-wider text-slate-500 font-serif">Total Items Added</span>
-            <div className="w-9 h-9 rounded-xl bg-rose-500/15 dark:bg-rose-500/20 text-[#c94d64] flex items-center justify-center border border-rose-300/30">
+            <div className="w-9 h-9 rounded-xl bg-black/[0.03] dark:bg-white/[0.06] text-[#b84357] dark:text-rose-300 flex items-center justify-center border border-black/[0.06] dark:border-white/[0.08]">
               <ShoppingCart className="w-5 h-5" />
             </div>
           </div>
@@ -142,10 +134,10 @@ export default function AdminCartAnalyticsPage() {
         </div>
 
         {/* KPI 2: Gross Cart Pipeline Valuation */}
-        <div className="p-6 rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl border border-white/60 dark:border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.04)] relative overflow-hidden">
+        <div className="p-6 rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl border border-black/[0.05] dark:border-white/[0.08] shadow-xs relative overflow-hidden">
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold uppercase tracking-wider text-slate-500 font-serif">Cart Pipeline Value</span>
-            <div className="w-9 h-9 rounded-xl bg-purple-500/15 dark:bg-purple-500/20 text-purple-600 dark:text-purple-400 flex items-center justify-center border border-purple-300/30">
+            <div className="w-9 h-9 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center border border-purple-500/20">
               <DollarSign className="w-5 h-5" />
             </div>
           </div>
@@ -160,10 +152,10 @@ export default function AdminCartAnalyticsPage() {
         </div>
 
         {/* KPI 3: Cart Conversion Rate */}
-        <div className="p-6 rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl border border-white/60 dark:border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.04)] relative overflow-hidden">
+        <div className="p-6 rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl border border-black/[0.05] dark:border-white/[0.08] shadow-xs relative overflow-hidden">
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold uppercase tracking-wider text-slate-500 font-serif">Conversion Rate</span>
-            <div className="w-9 h-9 rounded-xl bg-emerald-500/15 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center border border-emerald-300/30">
+            <div className="w-9 h-9 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center border border-emerald-500/20">
               <CheckCircle2 className="w-5 h-5" />
             </div>
           </div>
@@ -178,10 +170,10 @@ export default function AdminCartAnalyticsPage() {
         </div>
 
         {/* KPI 4: Abandonment & Active Carts */}
-        <div className="p-6 rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl border border-white/60 dark:border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.04)] relative overflow-hidden">
+        <div className="p-6 rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl border border-black/[0.05] dark:border-white/[0.08] shadow-xs relative overflow-hidden">
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold uppercase tracking-wider text-slate-500 font-serif">Active vs Abandoned</span>
-            <div className="w-9 h-9 rounded-xl bg-amber-500/15 dark:bg-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center border border-amber-300/30">
+            <div className="w-9 h-9 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center border border-amber-500/20">
               <Clock className="w-5 h-5" />
             </div>
           </div>
@@ -197,7 +189,7 @@ export default function AdminCartAnalyticsPage() {
       </div>
 
       {/* Category Breakdown Bar */}
-      <div className="p-6 rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl border border-white/60 dark:border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.04)] space-y-3">
+      <div className="p-6 rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl border border-black/[0.05] dark:border-white/[0.08] shadow-xs space-y-3">
         <h3 className="text-xs font-bold uppercase tracking-widest text-slate-500 font-serif">
           Cart Additions by Beauty Category
         </h3>
@@ -208,13 +200,13 @@ export default function AdminCartAnalyticsPage() {
             { category: 'Lipstick', count: 28, percentage: 20 },
             { category: 'Fragrance', count: 18, percentage: 12 }
           ]).map((cat) => (
-            <div key={cat.category} className="p-4 rounded-2xl bg-white/60 dark:bg-white/5 backdrop-blur-md border border-white/40 dark:border-white/10">
+            <div key={cat.category} className="p-4 rounded-2xl bg-black/[0.02] dark:bg-white/[0.04] backdrop-blur-md border border-black/[0.04] dark:border-white/[0.06]">
               <div className="flex justify-between items-center text-xs font-semibold mb-1.5">
                 <span>{cat.category}</span>
-                <span className="text-[#c94d64] font-bold">{cat.count} adds</span>
+                <span className="text-[#b84357] font-bold">{cat.count} adds</span>
               </div>
-              <div className="w-full bg-slate-200/50 dark:bg-white/10 h-1.5 rounded-full overflow-hidden">
-                <div className="bg-[#c94d64] h-full rounded-full" style={{ width: `${cat.percentage}%` }} />
+              <div className="w-full bg-black/[0.06] dark:bg-white/10 h-1.5 rounded-full overflow-hidden">
+                <div className="bg-[#b84357] h-full rounded-full" style={{ width: `${cat.percentage}%` }} />
               </div>
             </div>
           ))}
@@ -222,7 +214,7 @@ export default function AdminCartAnalyticsPage() {
       </div>
 
       {/* Top Added Beauty Products Section */}
-      <div className="p-6 sm:p-8 rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl border border-white/60 dark:border-white/10 shadow-[0_15px_40px_rgba(0,0,0,0.04)] space-y-5">
+      <div className="p-6 sm:p-8 rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl border border-black/[0.05] dark:border-white/[0.08] shadow-xs space-y-5">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
             <h3 className="text-lg font-serif font-bold text-slate-900 dark:text-white">
@@ -242,7 +234,7 @@ export default function AdminCartAnalyticsPage() {
                 placeholder="Search products..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-8 pr-3 py-1.5 text-xs rounded-xl border border-white/60 dark:border-white/10 bg-white/70 dark:bg-white/5 backdrop-blur-md focus:outline-none focus:ring-1 focus:ring-[#c94d64] text-slate-800 dark:text-slate-100 w-44 sm:w-52 shadow-xs"
+                className="pl-8 pr-3 py-1.5 text-xs rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] backdrop-blur-md focus:outline-none focus:ring-1 focus:ring-[#b84357] text-slate-800 dark:text-slate-100 w-44 sm:w-52 shadow-xs"
               />
             </div>
 
@@ -253,8 +245,8 @@ export default function AdminCartAnalyticsPage() {
                   onClick={() => setCategoryFilter(cat)}
                   className={`px-3 py-1 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
                     categoryFilter === cat
-                      ? 'bg-[#c94d64] text-white shadow-xs'
-                      : 'border border-white/60 dark:border-white/10 bg-white/60 dark:bg-white/5 text-slate-600 dark:text-slate-400 hover:text-[#c94d64]'
+                      ? 'bg-[#b84357] text-white shadow-xs'
+                      : 'border border-black/[0.06] dark:border-white/[0.08] bg-black/[0.02] dark:bg-white/[0.04] text-slate-600 dark:text-slate-400 hover:text-[#b84357]'
                   }`}
                 >
                   {cat}
@@ -268,7 +260,7 @@ export default function AdminCartAnalyticsPage() {
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs border-collapse">
             <thead>
-              <tr className="border-b border-white/40 dark:border-white/10 text-slate-400 uppercase tracking-wider text-[10px]">
+              <tr className="border-b border-black/[0.05] dark:border-white/[0.08] text-slate-400 uppercase tracking-wider text-[10px]">
                 <th className="py-3 px-3 font-serif">Product</th>
                 <th className="py-3 px-3 font-serif">Category</th>
                 <th className="py-3 px-3 font-serif">Price</th>
@@ -279,7 +271,7 @@ export default function AdminCartAnalyticsPage() {
                 <th className="py-3 px-3 font-serif text-right">Action</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-white/20 dark:divide-white/5">
+            <tbody className="divide-y divide-black/[0.04] dark:divide-white/[0.05]">
               {((analytics?.topAddedProducts && analytics.topAddedProducts.length > 0)
                 ? analytics.topAddedProducts
                 : [
@@ -346,7 +338,7 @@ export default function AdminCartAnalyticsPage() {
                 return matchesSearch && matchesCategory;
               })
               .map((prod, index) => (
-                <tr key={prod.productId || index} className="hover:bg-white/50 dark:hover:bg-white/5 transition-colors">
+                <tr key={prod.productId || index} className="hover:bg-black/[0.02] dark:hover:bg-white/[0.03] transition-colors">
                   <td className="py-3.5 px-3">
                     <div className="flex items-center gap-3">
                       <span className="text-[11px] font-bold text-slate-400 w-4">
@@ -355,7 +347,7 @@ export default function AdminCartAnalyticsPage() {
                       <img 
                         src={prod.productImage || "/images/serum.jpg"} 
                         alt={prod.productTitle} 
-                        className="w-10 h-10 rounded-xl object-cover border border-white/60 dark:border-white/10"
+                        className="w-10 h-10 rounded-xl object-cover border border-black/[0.05] dark:border-white/[0.08]"
                       />
                       <span className="font-semibold text-slate-800 dark:text-white line-clamp-1 max-w-[200px] sm:max-w-xs">
                         {prod.productTitle}
@@ -363,7 +355,7 @@ export default function AdminCartAnalyticsPage() {
                     </div>
                   </td>
                   <td className="py-3.5 px-3">
-                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-rose-500/10 text-[#c94d64] border border-rose-300/30">
+                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-black/[0.03] dark:bg-white/[0.05] text-[#b84357] dark:text-rose-300 border border-black/[0.06] dark:border-white/[0.08]">
                       {prod.category || 'Beauty'}
                     </span>
                   </td>
@@ -371,14 +363,14 @@ export default function AdminCartAnalyticsPage() {
                     {formatPrice(prod.productPrice)}
                   </td>
                   <td className="py-3.5 px-3 text-center">
-                    <span className="font-bold text-slate-900 dark:text-white px-2.5 py-1 rounded-lg bg-white/70 dark:bg-white/10 border border-white/60 dark:border-white/10">
+                    <span className="font-bold text-slate-900 dark:text-white px-2.5 py-1 rounded-lg bg-black/[0.02] dark:bg-white/[0.04] border border-black/[0.06] dark:border-white/[0.08]">
                       {prod.totalAdds}
                     </span>
                   </td>
                   <td className="py-3.5 px-3 text-center font-semibold text-slate-700 dark:text-slate-300">
                     {prod.totalQuantity || prod.totalAdds}
                   </td>
-                  <td className="py-3.5 px-3 font-bold text-[#c94d64] font-serif">
+                  <td className="py-3.5 px-3 font-bold text-[#b84357] font-serif">
                     {formatPrice(prod.totalRevenueValue || (prod.productPrice * prod.totalAdds))}
                   </td>
                   <td className="py-3.5 px-3 text-center">
@@ -390,7 +382,7 @@ export default function AdminCartAnalyticsPage() {
                     <Link
                       href={`/browse`}
                       target="_blank"
-                      className="p-1.5 rounded-xl border border-white/60 dark:border-white/10 hover:text-[#c94d64] text-slate-500 hover:bg-white/80 transition-colors inline-block"
+                      className="p-1.5 rounded-xl border border-black/[0.06] dark:border-white/[0.08] hover:text-[#b84357] text-slate-500 hover:bg-black/[0.04] transition-colors inline-block"
                       title="View in Store"
                     >
                       <ArrowUpRight className="w-3.5 h-3.5" />
@@ -404,7 +396,7 @@ export default function AdminCartAnalyticsPage() {
       </div>
 
       {/* Real-Time Live Cart Activity Stream */}
-      <div className="p-6 sm:p-8 rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl border border-white/60 dark:border-white/10 shadow-[0_15px_40px_rgba(0,0,0,0.04)] space-y-4">
+      <div className="p-6 sm:p-8 rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl border border-black/[0.05] dark:border-white/[0.08] shadow-xs space-y-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2.5">
             <span className="relative flex h-3 w-3">
@@ -421,12 +413,12 @@ export default function AdminCartAnalyticsPage() {
             </div>
           </div>
 
-          <span className="text-[11px] font-mono text-slate-500 bg-white/70 dark:bg-white/5 px-2.5 py-1 rounded-xl border border-white/60 dark:border-white/10">
+          <span className="text-[11px] font-mono text-slate-500 bg-black/[0.02] dark:bg-white/[0.04] px-2.5 py-1 rounded-xl border border-black/[0.06] dark:border-white/[0.08]">
             Realtime Synced
           </span>
         </div>
 
-        <div className="divide-y divide-white/20 dark:divide-white/5">
+        <div className="divide-y divide-black/[0.04] dark:divide-white/[0.05]">
           {(analytics?.recentEvents && analytics.recentEvents.length > 0
             ? analytics.recentEvents
             : [
@@ -503,9 +495,9 @@ export default function AdminCartAnalyticsPage() {
             })();
 
             return (
-              <div key={evt._id} className="py-3.5 sm:py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-white/50 dark:hover:bg-white/5 px-3 rounded-2xl transition-colors">
+              <div key={evt._id} className="py-3.5 sm:py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-black/[0.02] dark:hover:bg-white/[0.03] px-3 rounded-2xl transition-colors">
                 <div className="flex items-center gap-3">
-                  <div className="w-11 h-11 rounded-xl overflow-hidden bg-white/70 dark:bg-white/5 border border-white/60 dark:border-white/10 shrink-0">
+                  <div className="w-11 h-11 rounded-xl overflow-hidden bg-black/[0.02] dark:bg-white/[0.04] border border-black/[0.05] dark:border-white/[0.08] shrink-0">
                     <img 
                       src={evt.productImage || "/images/serum.jpg"} 
                       alt={evt.productTitle} 
@@ -518,7 +510,7 @@ export default function AdminCartAnalyticsPage() {
                         {evt.productTitle}
                       </span>
                       {evt.quantity > 1 && (
-                        <span className="px-1.5 py-0.2 rounded bg-slate-200 dark:bg-white/10 text-[10px] font-bold">
+                        <span className="px-1.5 py-0.2 rounded bg-black/[0.04] dark:bg-white/10 text-[10px] font-bold">
                           x{evt.quantity}
                         </span>
                       )}
@@ -534,7 +526,7 @@ export default function AdminCartAnalyticsPage() {
                     evt.status === 'converted'
                       ? 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20'
                       : evt.status === 'abandoned'
-                      ? 'bg-rose-500/10 text-[#c94d64] dark:text-rose-400 border border-rose-300/30'
+                      ? 'bg-black/[0.03] dark:bg-white/[0.05] text-[#b84357] dark:text-rose-400 border border-black/[0.06] dark:border-white/[0.08]'
                       : 'bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20'
                   }`}>
                     {evt.status === 'converted' ? 'Converted to Order' : evt.status === 'abandoned' ? 'Abandoned in Bag' : 'Active in Bag'}
