@@ -48,12 +48,12 @@ export function CartDrawer() {
                 animate={{ x: 0 }}
                 exit={{ x: '100%' }}
                 transition={{ type: 'spring', damping: 28, stiffness: 300 }}
-                className="w-screen max-w-md bg-white dark:bg-[#140e16] text-slate-900 dark:text-white shadow-2xl flex flex-col border-l border-rose-100 dark:border-rose-950/60 pointer-events-auto"
+                className="w-screen max-w-md bg-white/85 dark:bg-[#130a16]/85 backdrop-blur-3xl text-slate-900 dark:text-white shadow-[0_20px_60px_rgba(0,0,0,0.3)] flex flex-col border-l border-white/60 dark:border-white/10 pointer-events-auto"
               >
                 {/* Drawer Header */}
-                <div className="p-4 sm:p-5 border-b border-rose-100 dark:border-rose-950/60 flex items-center justify-between">
+                <div className="p-4 sm:p-5 border-b border-white/40 dark:border-white/10 bg-white/40 dark:bg-white/[0.03] backdrop-blur-xl flex items-center justify-between">
                   <div className="flex items-center gap-2.5">
-                    <div className="w-9 h-9 rounded-xl bg-rose-50 dark:bg-rose-950/40 text-[#c94d64] flex items-center justify-center">
+                    <div className="w-9 h-9 rounded-xl bg-rose-500/10 dark:bg-rose-500/20 text-[#c94d64] flex items-center justify-center backdrop-blur-md border border-rose-300/30 dark:border-rose-500/20">
                       <ShoppingBag className="w-5 h-5" />
                     </div>
                     <div>
@@ -76,7 +76,7 @@ export function CartDrawer() {
                 </div>
 
                 {/* Free Delivery Incentive Progress Bar */}
-                <div className="bg-rose-50/70 dark:bg-rose-950/30 px-5 py-3 border-b border-rose-100/70 dark:border-rose-950/40">
+                <div className="bg-rose-50/60 dark:bg-rose-950/20 backdrop-blur-xl px-5 py-3 border-b border-white/40 dark:border-white/10">
                   <div className="flex items-center justify-between text-[11px] mb-1.5 font-medium">
                     {remainingForFreeShipping > 0 ? (
                       <span className="text-slate-700 dark:text-slate-300">
@@ -126,7 +126,7 @@ export function CartDrawer() {
                     cartItems.map((item) => (
                       <div 
                         key={`${item.id}-${item.shade}`}
-                        className="flex gap-3.5 p-3 rounded-2xl border border-rose-100/80 dark:border-rose-950/50 bg-white/70 dark:bg-white/5 relative group"
+                        className="flex gap-3.5 p-3 rounded-2xl border border-white/60 dark:border-white/10 bg-white/60 dark:bg-white/5 backdrop-blur-md shadow-xs relative group transition-all hover:bg-white/80 dark:hover:bg-white/[0.08] hover:border-rose-200/50 dark:hover:border-rose-500/20"
                       >
                         {/* Thumbnail */}
                         <div className="w-20 h-20 rounded-xl overflow-hidden bg-rose-50 dark:bg-white/5 shrink-0 border border-rose-100/50 dark:border-white/10">
@@ -196,7 +196,7 @@ export function CartDrawer() {
 
                 {/* Footer Subtotal & Checkout */}
                 {cartItems.length > 0 && (
-                  <div className="p-4 sm:p-5 border-t border-rose-100 dark:border-rose-950/60 bg-rose-50/30 dark:bg-white/[0.02] space-y-3">
+                  <div className="p-4 sm:p-5 border-t border-white/50 dark:border-white/10 bg-white/70 dark:bg-[#130a16]/70 backdrop-blur-2xl space-y-3">
                     <div className="space-y-1.5 text-xs text-slate-600 dark:text-slate-300">
                       <div className="flex justify-between">
                         <span>Items Subtotal</span>
