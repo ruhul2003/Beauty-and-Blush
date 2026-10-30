@@ -258,22 +258,22 @@ function BrowseContent() {
         {/* Products Grid */}
         <div className="md:col-span-3 space-y-6">
           {/* Top Sort Bar */}
-          <div className="flex items-center justify-between text-xs pb-3 border-b border-rose-100 dark:border-rose-950/40">
-            <span className="text-slate-500">
-              {products.length} products found
+          <div className="flex items-center justify-between text-xs p-3.5 rounded-2xl bg-white/50 dark:bg-white/5 backdrop-blur-xl border border-white/60 dark:border-white/10 shadow-xs">
+            <span className="text-slate-600 dark:text-slate-300 font-medium">
+              <strong className="text-slate-900 dark:text-white">{products.length}</strong> products found
             </span>
             <div className="flex items-center gap-2">
-              <span className="text-slate-500">Sort by:</span>
+              <span className="text-slate-500 font-medium">Sort by:</span>
               <select
                 value={sort}
                 onChange={(e) => setSort(e.target.value)}
-                className="text-xs p-1.5 rounded-lg border border-rose-200 dark:border-rose-900/50 bg-white dark:bg-[#1a0f1c]"
+                className="text-xs p-1.5 px-3 rounded-xl border border-white/60 dark:border-white/10 bg-white/70 dark:bg-[#140c17] backdrop-blur-md text-slate-800 dark:text-white focus:outline-none focus:ring-1 focus:ring-[#c94d64]"
               >
-                <option value="newest">Newest First</option>
-                <option value="price_asc">Price: Low to High</option>
-                <option value="price_desc">Price: High to Low</option>
-                <option value="rating">Highest Rated</option>
-                <option value="popular">Most Popular</option>
+                <option value="newest" className="bg-white dark:bg-[#140c17]">Newest First</option>
+                <option value="price_asc" className="bg-white dark:bg-[#140c17]">Price: Low to High</option>
+                <option value="price_desc" className="bg-white dark:bg-[#140c17]">Price: High to Low</option>
+                <option value="rating" className="bg-white dark:bg-[#140c17]">Highest Rated</option>
+                <option value="popular" className="bg-white dark:bg-[#140c17]">Most Popular</option>
               </select>
             </div>
           </div>
@@ -282,21 +282,21 @@ function BrowseContent() {
           {loading ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {[1, 2, 3, 4, 5, 6].map(n => (
-                <div key={n} className="animate-pulse glass-card rounded-2xl h-80 p-4 bg-rose-50/20" />
+                <div key={n} className="animate-pulse rounded-3xl h-80 p-4 bg-white/40 dark:bg-white/5 backdrop-blur-xl border border-white/60 dark:border-white/10" />
               ))}
             </div>
           ) : products.length === 0 ? (
-            <div className="text-center py-20 bg-white/40 dark:bg-rose-950/10 rounded-3xl border border-rose-100 dark:border-rose-900/30">
-              <Sparkles className="w-8 h-8 text-rose-400 mx-auto mb-3" />
-              <h3 className="text-base font-bold text-slate-800 dark:text-slate-200">No matching cosmetics found</h3>
-              <p className="text-xs text-slate-500 mt-1">Try resetting your filters or adjusting your search keywords.</p>
-              <Link
-                href="/browse"
+            <div className="text-center py-20 bg-white/60 dark:bg-[#140c17]/65 backdrop-blur-2xl rounded-3xl border border-white/60 dark:border-white/10 shadow-sm">
+              <Sparkles className="w-8 h-8 text-[#c94d64] mx-auto mb-3" />
+              <h3 className="text-base font-serif font-bold text-slate-800 dark:text-slate-200">No matching cosmetics found</h3>
+              <p className="text-xs text-slate-500 mt-1 max-w-sm mx-auto">Try resetting your filters or adjusting your search keywords to browse our collection.</p>
+              <button
+                type="button"
                 onClick={resetFilters}
-                className="mt-4 btn-rose-primary px-4 py-2 text-xs inline-block"
+                className="mt-5 px-6 py-2.5 rounded-xl bg-[#c94d64] hover:bg-[#b03e54] text-white text-xs font-bold uppercase tracking-wider inline-block shadow-md shadow-[#c94d64]/20 transition-all cursor-pointer"
               >
                 Clear Filters
-              </Link>
+              </button>
             </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
