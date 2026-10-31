@@ -74,7 +74,7 @@ export function InstagramFeed() {
                   {/* Hover Glassy Blur Dark Overlay with Instagram Heart */}
                   <div className="absolute inset-0 bg-black/45 backdrop-blur-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white p-2">
                     <InstagramIcon className="w-5 h-5 mb-1 text-white/90" />
-                    <div className="glass-pill px-3 py-1 flex items-center gap-1.5 text-[11px] font-bold text-white bg-white/20 border-white/40">
+                    <div className="px-3 py-1 rounded-full flex items-center gap-1.5 text-[11px] font-bold text-white bg-black/60 backdrop-blur-md border border-white/30 shadow-md">
                       <Heart className="w-3.5 h-3.5 fill-current text-rose-300" />
                       <span>{post.likes}</span>
                     </div>

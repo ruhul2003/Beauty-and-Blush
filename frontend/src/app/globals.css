@@ -173,6 +173,7 @@
 .glass-pill {
   border-radius: 9999px;
   background: rgba(255, 255, 255, 0.92);
+  color: #1e293b;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1.5px solid #ffffff;
@@ -186,6 +187,7 @@
 
 .dark .glass-pill {
   background: rgba(255, 255, 255, 0.12);
+  color: #f8fafc;
   border-color: rgba(255, 255, 255, 0.22);
   box-shadow: 
     0 8px 22px -3px rgba(0, 0, 0, 0.65),

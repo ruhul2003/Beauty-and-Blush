@@ -159,8 +159,8 @@ export function HeroBanner() {
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="glass-pill px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider text-white border border-white/20 shadow-xs flex items-center gap-1.5">
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+            <span className="glass-pill px-3.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider text-slate-800 dark:text-white border border-white/60 dark:border-white/20 shadow-xs flex items-center gap-1.5">
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
               <span>100% Genuine Guaranteed</span>
             </span>
           </div>
