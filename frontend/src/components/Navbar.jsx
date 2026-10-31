@@ -16,6 +16,7 @@ import {
   LogOut, 
   Store, 
   ChevronDown, 
+  ChevronRight,
   ShieldCheck, 
   ArrowRight, 
   Truck, 
@@ -211,59 +212,45 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 8, scale: 0.96 }}
                     transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                    className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[500px] z-50 pointer-events-auto"
+                    className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[440px] z-50 pointer-events-auto"
                     onMouseEnter={handleCategoryEnter}
                     onMouseLeave={handleCategoryLeave}
                   >
-                    <div className="glass-dropdown p-5 space-y-3.5 shadow-2xl">
+                    <div className="glass-dropdown p-4 space-y-3 shadow-2xl">
                       
-                      <div className="flex items-center justify-between px-2 pt-0.5 pb-2 border-b border-black/[0.04] dark:border-white/[0.06]">
+                      <div className="px-2 pt-0.5 pb-2 border-b border-black/[0.04] dark:border-white/[0.06]">
                         <span className="text-[10px] uppercase font-bold tracking-[0.2em] text-[#b84357] dark:text-rose-300">
-                          Boutique Collections
-                        </span>
-                        <span className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
-                          7 Curated Departments
+                          Categories
                         </span>
                       </div>
 
-                      {/* 2-Column Grid of Categories */}
+                      {/* 2-Column Grid of Category Titles Only */}
                       <div className="grid grid-cols-2 gap-2">
                         {categories.map((cat, idx) => (
                           <Link
                             key={idx}
                             href={cat.href}
                             onClick={() => setCategoryDropdown(false)}
-                            className="p-3 rounded-2xl border border-white/60 dark:border-white/[0.08] bg-white/60 dark:bg-white/[0.05] hover:bg-white dark:hover:bg-white/[0.12] hover:shadow-xs transition-all flex flex-col group/cat backdrop-blur-md"
+                            className="px-3.5 py-2.5 rounded-2xl border border-white/60 dark:border-white/[0.08] bg-white/60 dark:bg-white/[0.05] hover:bg-white dark:hover:bg-white/[0.12] hover:shadow-xs transition-all flex items-center justify-between group/cat backdrop-blur-md"
                           >
-                            <div className="flex items-center justify-between">
-                              <span className="text-xs font-bold text-slate-800 dark:text-slate-100 group-hover/cat:text-[#b84357] dark:group-hover/cat:text-rose-300 transition-colors">
-                                {cat.name}
-                              </span>
-                              <span className="text-[9px] uppercase font-bold px-2 py-0.5 rounded-full bg-black/[0.03] dark:bg-white/[0.08] text-slate-600 dark:text-slate-300 group-hover/cat:text-[#b84357]">
-                                {cat.tag}
-                              </span>
-                            </div>
-                            <span className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5 line-clamp-1">
-                              {cat.desc}
+                            <span className="text-xs font-bold text-slate-800 dark:text-slate-100 group-hover/cat:text-[#b84357] dark:group-hover/cat:text-rose-300 transition-colors">
+                              {cat.name}
                             </span>
+                            <ChevronRight className="w-3.5 h-3.5 text-slate-400 group-hover/cat:text-[#b84357] dark:group-hover/cat:text-rose-300 group-hover/cat:translate-x-0.5 transition-all" />
                           </Link>
                         ))}
                       </div>
 
                       {/* Bottom Footer Strip */}
-                      <div className="pt-2 border-t border-black/[0.04] dark:border-white/[0.06] px-2 flex items-center justify-between">
+                      <div className="pt-2 border-t border-black/[0.04] dark:border-white/[0.06] px-1 flex items-center justify-between">
                         <Link
                           href="/browse"
                           onClick={() => setCategoryDropdown(false)}
                           className="inline-flex items-center gap-1.5 text-xs font-bold text-[#b84357] dark:text-rose-300 hover:underline"
                         >
-                          <span>Explore Full Catalogue</span>
+                          <span>Explore All Products</span>
                           <ArrowRight className="w-3.5 h-3.5" />
                         </Link>
-                        <div className="flex items-center gap-1 text-[11px] text-slate-500 dark:text-slate-400 font-medium">
-                          <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />
-                          <span>100% Genuine</span>
-                        </div>
                       </div>
 
                     </div>
@@ -476,7 +463,7 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
                     className="p-3 rounded-2xl border border-white/60 dark:border-white/[0.05] bg-white/60 dark:bg-white/[0.03] hover:bg-white dark:hover:bg-white/10 hover:text-[#b84357] dark:hover:text-rose-300 transition-colors flex items-center justify-between"
                   >
                     <span className="font-bold text-slate-800 dark:text-slate-200">{cat.name}</span>
-                    <span className="text-[9px] text-[#b84357] font-bold">{cat.tag}</span>
+                    <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
                   </Link>
                 ))}
               </div>
