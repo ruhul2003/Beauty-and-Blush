@@ -41,7 +41,7 @@ export function InstagramFeed() {
             Community & Journal
           </span>
           <Link href="/browse" className="group inline-block">
-            <h2 className="text-xl sm:text-2xl font-serif text-[#181416] dark:text-white font-bold tracking-tight group-hover:text-[#b84357] transition-colors">
+            <h2 className="text-xl sm:text-2xl font-serif text-[#181416] dark:text-white font-bold tracking-tight group-hover:text-[#b84357] dark:group-hover:text-rose-300 transition-colors">
               @beautyandblush
             </h2>
           </Link>

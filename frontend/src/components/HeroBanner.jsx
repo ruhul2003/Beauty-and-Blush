@@ -221,7 +221,7 @@ export function HeroBanner() {
             
             <Link
               href="/browse"
-              className="glass-pill inline-flex items-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 text-xs sm:text-sm font-semibold uppercase tracking-wider text-white hover:text-rose-200 rounded-full border border-white/20 bg-white/[0.08] hover:bg-white/[0.14] backdrop-blur-xl group hover:scale-[1.02] active:scale-98 transition-all shadow-md"
+              className="inline-flex items-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 text-xs sm:text-sm font-semibold uppercase tracking-wider text-white hover:text-rose-200 rounded-full border border-white/20 bg-white/[0.08] hover:bg-white/[0.18] backdrop-blur-xl group hover:scale-[1.02] active:scale-98 transition-all shadow-md"
             >
               <span>LADIES GLAMOUR</span>
               <Sparkles className="w-4 h-4 text-rose-300 group-hover:rotate-12 transition-transform" />

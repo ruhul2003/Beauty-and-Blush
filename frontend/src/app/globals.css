@@ -246,6 +246,55 @@ a.bg-\[\#b84357\]:active,
     inset 0 2px 4px 0 rgba(0, 0, 0, 0.35) !important;
 }
 
+/* Hover Contrast Fixes: Ensure any button/pill with crimson hover shows crisp white text over rich crimson */
+.glass-pill[class*="hover:bg-[#b84357]"]:hover,
+.glass-pill.hover\:bg-\[\#b84357\]:hover,
+a.glass-pill[class*="hover:bg-[#b84357]"]:hover,
+button.glass-pill[class*="hover:bg-[#b84357]"]:hover,
+[class*="hover:bg-[#b84357]"]:hover {
+  background: linear-gradient(180deg, #c74a5f 0%, #b84357 50%, #9e3346 100%) !important;
+  color: #ffffff !important;
+  border-color: #b84357 !important;
+  box-shadow: 
+    0 12px 26px -3px rgba(184, 67, 87, 0.52),
+    0 4px 10px -1px rgba(184, 67, 87, 0.35),
+    inset 0 2px 1.5px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -2.5px 2px 0 rgba(0, 0, 0, 0.2) !important;
+}
+
+.glass-pill[class*="hover:bg-[#b84357]"]:hover *,
+[class*="hover:bg-[#b84357]"]:hover * {
+  color: #ffffff !important;
+}
+
+.dark .glass-pill[class*="hover:bg-[#b84357]"]:hover,
+.dark .glass-pill.hover\:bg-\[\#b84357\]:hover,
+.dark a.glass-pill[class*="hover:bg-[#b84357]"]:hover,
+.dark button.glass-pill[class*="hover:bg-[#b84357]"]:hover,
+.dark [class*="hover:bg-[#b84357]"]:hover {
+  background: linear-gradient(180deg, #c74a5f 0%, #b84357 50%, #9e3346 100%) !important;
+  color: #ffffff !important;
+  border-color: #b84357 !important;
+  box-shadow: 
+    0 12px 26px -3px rgba(184, 67, 87, 0.6),
+    0 4px 10px -1px rgba(184, 67, 87, 0.4) !important;
+}
+
+.dark .glass-pill[class*="hover:bg-[#b84357]"]:hover *,
+.dark [class*="hover:bg-[#b84357]"]:hover * {
+  color: #ffffff !important;
+}
+
+/* Dark mode text hover visibility safeguards */
+.dark [class*="hover:text-[#b84357]"]:hover,
+.dark .hover\:text-\[\#b84357\]:hover {
+  color: #fda4af !important;
+}
+
+.dark [class*="group"]:hover [class*="group-hover:text-[#b84357]"] {
+  color: #fda4af !important;
+}
+
 /* 5. Debossed Concave Glass Well (Search Bar, Inputs, Recessed Wells) */
 .glass-well {
   background: var(--surface-input);

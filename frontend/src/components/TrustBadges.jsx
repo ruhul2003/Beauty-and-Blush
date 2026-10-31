@@ -54,7 +54,7 @@ export function TrustBadges() {
                   <Icon className="w-5 h-5 stroke-[1.8]" />
                 </div>
                 <div className="flex flex-col justify-center min-w-0 flex-1">
-                  <h3 className="text-xs sm:text-[13px] font-bold tracking-wider text-[#181416] dark:text-white uppercase font-serif leading-snug">
+                  <h3 className="text-xs sm:text-[13px] font-bold tracking-wider text-[#181416] dark:text-white group-hover:text-[#b84357] dark:group-hover:text-rose-300 uppercase font-serif leading-snug transition-colors">
                     {item.title}
                   </h3>
                   <p className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 mt-1 leading-normal">

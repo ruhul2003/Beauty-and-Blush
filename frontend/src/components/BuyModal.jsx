@@ -252,7 +252,7 @@ export function BuyModal({ product, onClose }) {
                   whileTap={{ scale: 0.9 }}
                   type="button"
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                  className="w-6 h-6 rounded-full flex items-center justify-center hover:bg-white text-xs font-bold cursor-pointer"
+                  className="w-6 h-6 rounded-full flex items-center justify-center hover:bg-white dark:hover:bg-white/20 text-[#181416] dark:text-white hover:text-black dark:hover:text-white text-xs font-bold transition-colors cursor-pointer"
                 >
                   -
                 </motion.button>
@@ -261,7 +261,7 @@ export function BuyModal({ product, onClose }) {
                   whileTap={{ scale: 0.9 }}
                   type="button"
                   onClick={() => setQuantity(quantity + 1)}
-                  className="w-6 h-6 rounded-full flex items-center justify-center hover:bg-white text-xs font-bold cursor-pointer"
+                  className="w-6 h-6 rounded-full flex items-center justify-center hover:bg-white dark:hover:bg-white/20 text-[#181416] dark:text-white hover:text-black dark:hover:text-white text-xs font-bold transition-colors cursor-pointer"
                 >
                   +
                 </motion.button>

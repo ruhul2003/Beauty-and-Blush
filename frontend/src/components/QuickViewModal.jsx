@@ -197,7 +197,7 @@ export function QuickViewModal({ product, onClose }) {
                     className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors cursor-pointer ${
                       isWishlisted 
                         ? 'bg-[#b84357] text-white shadow-xs' 
-                        : 'glass-pill text-slate-600 dark:text-slate-300 hover:text-[#b84357]'
+                        : 'glass-pill text-slate-600 dark:text-slate-300 hover:text-[#b84357] dark:hover:text-rose-300'
                     }`}
                     title={isWishlisted ? "In Wishlist" : "Save to Wishlist"}
                   >
@@ -208,7 +208,7 @@ export function QuickViewModal({ product, onClose }) {
                 <Link
                   href={`/product/${product._id || product.id}`}
                   onClick={onClose}
-                  className="w-full py-2.5 rounded-full glass-pill text-xs font-bold text-center text-slate-700 dark:text-slate-300 hover:text-[#b84357] transition-colors flex items-center justify-center gap-1.5 shadow-xs"
+                  className="w-full py-2.5 rounded-full glass-pill text-xs font-bold text-center text-slate-700 dark:text-slate-300 hover:text-[#b84357] dark:hover:text-rose-300 transition-colors flex items-center justify-center gap-1.5 shadow-xs"
                 >
                   <span>View Complete Details & Reviews</span>
                   <ArrowRight className="w-3.5 h-3.5" />

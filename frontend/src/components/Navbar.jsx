@@ -473,7 +473,7 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
                     key={idx}
                     href={cat.href}
                     onClick={() => setMobileOpen(false)}
-                    className="p-3 rounded-2xl border border-white/60 dark:border-white/[0.05] bg-white/60 dark:bg-white/[0.03] hover:bg-white transition-colors flex items-center justify-between"
+                    className="p-3 rounded-2xl border border-white/60 dark:border-white/[0.05] bg-white/60 dark:bg-white/[0.03] hover:bg-white dark:hover:bg-white/10 hover:text-[#b84357] dark:hover:text-rose-300 transition-colors flex items-center justify-between"
                   >
                     <span className="font-bold text-slate-800 dark:text-slate-200">{cat.name}</span>
                     <span className="text-[9px] text-[#b84357] font-bold">{cat.tag}</span>
@@ -493,7 +493,7 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
                     key={idx}
                     href={item.href}
                     onClick={() => setMobileOpen(false)}
-                    className="p-3 rounded-2xl border border-white/60 dark:border-white/[0.05] bg-white/60 dark:bg-white/[0.03] text-slate-800 dark:text-slate-100 hover:bg-white active:scale-95 transition-all flex items-center justify-between"
+                    className="p-3 rounded-2xl border border-white/60 dark:border-white/[0.05] bg-white/60 dark:bg-white/[0.03] text-slate-800 dark:text-slate-100 hover:bg-white dark:hover:bg-white/10 hover:text-[#b84357] dark:hover:text-rose-300 active:scale-95 transition-all flex items-center justify-between"
                   >
                     <span>{item.label}</span>
                     <ArrowRight className="w-3.5 h-3.5 text-slate-400" />

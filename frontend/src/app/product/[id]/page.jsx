@@ -184,9 +184,9 @@ export default function ProductDetailPage() {
     >
       {/* Top Breadcrumb */}
       <nav className="text-xs text-slate-500 flex items-center gap-2">
-        <Link href="/" className="hover:text-[#b84357]">Home</Link>
+        <Link href="/" className="hover:text-[#b84357] dark:hover:text-rose-300 transition-colors">Home</Link>
         <span>/</span>
-        <Link href={`/browse?category=${product.category}`} className="hover:text-[#b84357]">{product.category}</Link>
+        <Link href={`/browse?category=${product.category}`} className="hover:text-[#b84357] dark:hover:text-rose-300 transition-colors">{product.category}</Link>
         <span>/</span>
         <span className="text-[#181416] dark:text-slate-200 font-bold truncate max-w-xs">{product.title}</span>
       </nav>

@@ -203,7 +203,7 @@ export function TrendingProducts({ products = [] }) {
                         className={`absolute top-2.5 right-2.5 w-8 h-8 rounded-full flex items-center justify-center transition-all cursor-pointer ${
                           isSaved 
                             ? 'bg-[#b84357] text-white shadow-xs' 
-                            : 'glass-pill text-slate-600 dark:text-slate-300 hover:text-[#b84357]'
+                            : 'glass-pill text-slate-600 dark:text-slate-300 hover:text-[#b84357] dark:hover:text-rose-300'
                         }`}
                         title="Save to wishlist"
                       >
@@ -213,7 +213,7 @@ export function TrendingProducts({ products = [] }) {
 
                     {/* Product Info */}
                     <Link href={`/browse?category=${prod.category}`} className="block">
-                      <h3 className="font-bold text-xs sm:text-sm text-[#181416] dark:text-white truncate group-hover/card:text-[#b84357] transition-colors">
+                      <h3 className="font-bold text-xs sm:text-sm text-[#181416] dark:text-white truncate group-hover/card:text-[#b84357] dark:group-hover/card:text-rose-300 transition-colors">
                         {prod.title}
                       </h3>
                     </Link>

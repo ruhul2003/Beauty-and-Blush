@@ -150,8 +150,8 @@ export function ProductCard({ product }) {
               </div>
             </div>
 
-            <Link href={`/product/${product._id || product.id}`} className="block group-hover:text-[#b84357] transition-colors">
-              <h3 className="font-bold text-sm text-[#181416] dark:text-white line-clamp-1">
+            <Link href={`/product/${product._id || product.id}`} className="block">
+              <h3 className="font-bold text-sm text-[#181416] dark:text-white group-hover:text-[#b84357] dark:group-hover:text-rose-300 line-clamp-1 transition-colors">
                 {product.title}
               </h3>
             </Link>

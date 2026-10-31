@@ -155,7 +155,7 @@ export function CartDrawer() {
                               <button
                                 type="button"
                                 onClick={() => updateQuantity(item.id, item.shade, (item.quantity || 1) - 1)}
-                                className="w-6 h-6 rounded-full flex items-center justify-center hover:bg-white text-slate-600 dark:text-slate-300 transition-colors cursor-pointer"
+                                className="w-6 h-6 rounded-full flex items-center justify-center hover:bg-white dark:hover:bg-white/20 text-slate-600 dark:text-slate-300 hover:text-black dark:hover:text-white transition-colors cursor-pointer"
                                 aria-label="Decrease quantity"
                               >
                                 <Minus className="w-3 h-3" />
@@ -166,7 +166,7 @@ export function CartDrawer() {
                               <button
                                 type="button"
                                 onClick={() => updateQuantity(item.id, item.shade, (item.quantity || 1) + 1)}
-                                className="w-6 h-6 rounded-full flex items-center justify-center hover:bg-white text-slate-600 dark:text-slate-300 transition-colors cursor-pointer"
+                                className="w-6 h-6 rounded-full flex items-center justify-center hover:bg-white dark:hover:bg-white/20 text-slate-600 dark:text-slate-300 hover:text-black dark:hover:text-white transition-colors cursor-pointer"
                                 aria-label="Increase quantity"
                               >
                                 <Plus className="w-3 h-3" />
