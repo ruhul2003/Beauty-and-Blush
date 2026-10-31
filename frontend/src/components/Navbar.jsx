@@ -215,7 +215,7 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
                     onMouseEnter={handleCategoryEnter}
                     onMouseLeave={handleCategoryLeave}
                   >
-                    <div className="glass-slab p-5 space-y-3.5 shadow-2xl">
+                    <div className="glass-dropdown p-5 space-y-3.5 shadow-2xl">
                       
                       <div className="flex items-center justify-between px-2 pt-0.5 pb-2 border-b border-black/[0.04] dark:border-white/[0.06]">
                         <span className="text-[10px] uppercase font-bold tracking-[0.2em] text-[#b84357] dark:text-rose-300">
@@ -233,7 +233,7 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
                             key={idx}
                             href={cat.href}
                             onClick={() => setCategoryDropdown(false)}
-                            className="p-3 rounded-2xl border border-white/60 dark:border-white/[0.06] bg-white/50 dark:bg-white/[0.03] hover:bg-white/90 dark:hover:bg-white/[0.08] hover:shadow-xs transition-all flex flex-col group/cat"
+                            className="p-3 rounded-2xl border border-white/60 dark:border-white/[0.08] bg-white/60 dark:bg-white/[0.05] hover:bg-white dark:hover:bg-white/[0.12] hover:shadow-xs transition-all flex flex-col group/cat backdrop-blur-md"
                           >
                             <div className="flex items-center justify-between">
                               <span className="text-xs font-bold text-slate-800 dark:text-slate-100 group-hover/cat:text-[#b84357] dark:group-hover/cat:text-rose-300 transition-colors">
@@ -373,7 +373,7 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 8, scale: 0.95 }}
                       transition={{ duration: 0.18 }}
-                      className="absolute right-0 mt-2.5 w-56 rounded-3xl glass-slab shadow-2xl py-2.5 z-50 text-xs"
+                      className="absolute right-0 mt-2.5 w-56 rounded-3xl glass-dropdown shadow-2xl py-2.5 z-50 text-xs overflow-hidden"
                       onClick={() => setUserDropdown(false)}
                     >
                       <div className="px-4 py-2 border-b border-black/[0.04] dark:border-white/[0.06]">

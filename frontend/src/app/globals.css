@@ -169,6 +169,32 @@
     inset 0 -2.5px 3px 0 rgba(0, 0, 0, 0.6);
 }
 
+/* 2b. Ultra-Frosted Glass Dropdown (Deep Blur & Anti-Bleed Opacity) */
+.glass-dropdown {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(52px) saturate(210%);
+  -webkit-backdrop-filter: blur(52px) saturate(210%);
+  border: 1.5px solid rgba(255, 255, 255, 0.95);
+  border-radius: 28px;
+  box-shadow: 
+    0 28px 65px -12px rgba(0, 0, 0, 0.22),
+    0 14px 28px -6px rgba(0, 0, 0, 0.12),
+    inset 0 2px 1.5px 0 #ffffff,
+    inset 0 -2.5px 2px 0 rgba(0, 0, 0, 0.04);
+}
+
+.dark .glass-dropdown {
+  background: rgba(16, 10, 18, 0.94);
+  border-color: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(52px) saturate(210%);
+  -webkit-backdrop-filter: blur(52px) saturate(210%);
+  box-shadow: 
+    0 36px 80px -10px rgba(0, 0, 0, 0.95),
+    0 18px 36px -4px rgba(0, 0, 0, 0.82),
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.24),
+    inset 0 -2px 2px 0 rgba(0, 0, 0, 0.75);
+}
+
 /* 3. Raised 3D Clay-Glass Pill Capsules (Buttons & Floating Badges) */
 .glass-pill {
   border-radius: 9999px;
