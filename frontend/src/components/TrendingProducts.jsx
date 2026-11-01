@@ -220,11 +220,11 @@ export function TrendingProducts({ products = [] }) {
 
                     {/* Price with Strike-through */}
                     <div className="mt-1 flex items-center gap-2">
-                      <span className="text-xs sm:text-sm font-bold text-[#b84357] dark:text-rose-300">
+                      <span className="text-base sm:text-lg font-black text-[#b84357] dark:text-rose-300">
                         {prod.price}
                       </span>
                       {prod.originalPrice && (
-                        <span className="text-[11px] text-slate-400 line-through">
+                        <span className="text-xs sm:text-sm text-slate-400 line-through">
                           {prod.originalPrice}
                         </span>
                       )}
@@ -234,10 +234,10 @@ export function TrendingProducts({ products = [] }) {
                     <div className="mt-1.5 flex items-center gap-1.5 text-amber-500">
                       <div className="flex items-center">
                         {[...Array(prod.rating)].map((_, i) => (
-                          <Star key={i} className="w-3 h-3 fill-current" />
+                          <Star key={i} className="w-3.5 h-3.5 fill-current" />
                         ))}
                       </div>
-                      <span className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
+                      <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">
                         ({prod.reviewsCount})
                       </span>
                     </div>
@@ -247,7 +247,7 @@ export function TrendingProducts({ products = [] }) {
                   <div className="mt-3 pt-3 border-t border-black/[0.04] dark:border-white/[0.06]">
                     <Link
                       href={`/browse?category=${prod.category}`}
-                      className="w-full py-2 text-center text-xs font-bold rounded-full glass-pill hover:bg-[#b84357] text-[#181416] dark:text-white hover:text-white hover:border-[#b84357] active:scale-95 transition-all block"
+                      className="w-full py-2.5 text-center text-sm font-bold rounded-full glass-pill hover:bg-[#b84357] text-[#181416] dark:text-white hover:text-white hover:border-[#b84357] active:scale-95 transition-all block"
                     >
                       View Product
                     </Link>
