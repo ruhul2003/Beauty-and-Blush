@@ -133,10 +133,10 @@ export function TrendingProducts({ products = [] }) {
           transition={{ duration: 0.5 }}
           className="text-center mb-10 sm:mb-12 flex flex-col items-center"
         >
-          <span className="glass-pill px-4 py-1.5 text-[10px] sm:text-[11px] uppercase tracking-[0.24em] font-bold text-[#b84357] dark:text-rose-300 shadow-xs mb-3">
+          <span className="glass-pill px-4.5 py-1.5 text-xs sm:text-sm uppercase tracking-[0.24em] font-extrabold text-[#b84357] dark:text-rose-300 shadow-xs mb-3">
             Iconic Formulations
           </span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-[#181416] dark:text-white font-bold tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-[#181416] dark:text-white font-bold tracking-tight">
             Best Sellers
           </h2>
         </motion.div>
@@ -213,7 +213,7 @@ export function TrendingProducts({ products = [] }) {
 
                     {/* Product Info */}
                     <Link href={`/browse?category=${prod.category}`} className="block">
-                      <h3 className="font-bold text-xs sm:text-sm text-[#181416] dark:text-white truncate group-hover/card:text-[#b84357] dark:group-hover/card:text-rose-300 transition-colors">
+                      <h3 className="font-bold text-sm sm:text-base text-[#181416] dark:text-white truncate group-hover/card:text-[#b84357] dark:group-hover/card:text-rose-300 transition-colors">
                         {prod.title}
                       </h3>
                     </Link>
