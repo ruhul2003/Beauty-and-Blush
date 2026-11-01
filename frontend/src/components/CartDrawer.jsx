@@ -57,10 +57,10 @@ export function CartDrawer() {
                       <ShoppingBag className="w-5 h-5" />
                     </div>
                     <div>
-                      <h2 className="text-base font-serif font-bold text-[#181416] dark:text-white">
+                      <h2 className="text-lg sm:text-xl font-serif font-bold text-[#181416] dark:text-white">
                         Your Beauty Bag
                       </h2>
-                      <p className="text-[11px] text-slate-500">
+                      <p className="text-xs sm:text-sm text-slate-500">
                         {cartCount} item{cartCount === 1 ? '' : 's'} selected
                       </p>
                     </div>
@@ -68,7 +68,7 @@ export function CartDrawer() {
 
                   <button
                     onClick={closeCart}
-                    className="glass-pill w-9 h-9 flex items-center justify-center text-slate-500 hover:text-slate-800 dark:hover:text-white transition-colors cursor-pointer"
+                    className="glass-pill w-9.5 h-9.5 flex items-center justify-center text-slate-500 hover:text-slate-800 dark:hover:text-white transition-colors cursor-pointer"
                     aria-label="Close cart"
                   >
                     <X className="w-4 h-4" />
@@ -77,7 +77,7 @@ export function CartDrawer() {
 
                 {/* Free Delivery Incentive Progress Bar */}
                 <div className="px-5 py-3 border-b border-black/[0.04] dark:border-white/[0.06]">
-                  <div className="flex items-center justify-between text-[11px] mb-1.5 font-medium">
+                  <div className="flex items-center justify-between text-xs sm:text-sm mb-1.5 font-medium">
                     {remainingForFreeShipping > 0 ? (
                       <span className="text-slate-700 dark:text-slate-300">
                         Add <strong className="text-[#b84357] font-bold">{formatPrice(remainingForFreeShipping)}</strong> for <strong>Free Shipping</strong>
@@ -88,7 +88,7 @@ export function CartDrawer() {
                         <span>Unlocked Free Express Shipping!</span>
                       </span>
                     )}
-                    <span className="text-[10px] text-slate-400 font-bold">{progressPercent}%</span>
+                    <span className="text-xs text-slate-400 font-bold">{progressPercent}%</span>
                   </div>
                   <div className="w-full h-2 rounded-full glass-well p-0.5 overflow-hidden">
                     <div 
@@ -139,13 +139,13 @@ export function CartDrawer() {
 
                         {/* Details */}
                         <div className="flex-1 min-w-0 pr-6">
-                          <h4 className="text-xs sm:text-sm font-bold text-[#181416] dark:text-white truncate">
+                          <h4 className="text-sm sm:text-base font-bold text-[#181416] dark:text-white truncate">
                             {item.title}
                           </h4>
-                          <p className="text-[11px] text-[#b84357] dark:text-rose-300 font-bold mt-0.5">
+                          <p className="text-xs text-[#b84357] dark:text-rose-300 font-bold mt-0.5">
                             {item.shade}
                           </p>
-                          <div className="text-xs font-bold text-slate-800 dark:text-slate-200 mt-1">
+                          <div className="text-sm sm:text-base font-extrabold text-slate-800 dark:text-slate-200 mt-1">
                             {formatPrice(item.price)}
                           </div>
 
@@ -155,25 +155,25 @@ export function CartDrawer() {
                               <button
                                 type="button"
                                 onClick={() => updateQuantity(item.id, item.shade, (item.quantity || 1) - 1)}
-                                className="w-6 h-6 rounded-full flex items-center justify-center hover:bg-white dark:hover:bg-white/20 text-slate-600 dark:text-slate-300 hover:text-black dark:hover:text-white transition-colors cursor-pointer"
+                                className="w-6.5 h-6.5 rounded-full flex items-center justify-center hover:bg-white dark:hover:bg-white/20 text-slate-600 dark:text-slate-300 hover:text-black dark:hover:text-white transition-colors cursor-pointer"
                                 aria-label="Decrease quantity"
                               >
-                                <Minus className="w-3 h-3" />
+                                <Minus className="w-3.5 h-3.5" />
                               </button>
-                              <span className="px-2 text-xs font-bold min-w-[20px] text-center">
+                              <span className="px-2.5 text-sm font-bold min-w-[22px] text-center">
                                 {item.quantity || 1}
                               </span>
                               <button
                                 type="button"
                                 onClick={() => updateQuantity(item.id, item.shade, (item.quantity || 1) + 1)}
-                                className="w-6 h-6 rounded-full flex items-center justify-center hover:bg-white dark:hover:bg-white/20 text-slate-600 dark:text-slate-300 hover:text-black dark:hover:text-white transition-colors cursor-pointer"
+                                className="w-6.5 h-6.5 rounded-full flex items-center justify-center hover:bg-white dark:hover:bg-white/20 text-slate-600 dark:text-slate-300 hover:text-black dark:hover:text-white transition-colors cursor-pointer"
                                 aria-label="Increase quantity"
                               >
-                                <Plus className="w-3 h-3" />
+                                <Plus className="w-3.5 h-3.5" />
                               </button>
                             </div>
 
-                            <span className="text-[11px] text-slate-400">
+                            <span className="text-xs text-slate-400">
                               Total: <strong className="text-slate-700 dark:text-slate-300 font-bold">{formatPrice(item.price * (item.quantity || 1))}</strong>
                             </span>
                           </div>
@@ -197,7 +197,7 @@ export function CartDrawer() {
                 {/* Footer Subtotal & Checkout */}
                 {cartItems.length > 0 && (
                   <div className="p-5 border-t border-black/[0.04] dark:border-white/[0.06] space-y-3.5">
-                    <div className="space-y-1.5 text-xs text-slate-600 dark:text-slate-300">
+                    <div className="space-y-2 text-sm text-slate-600 dark:text-slate-300">
                       <div className="flex justify-between">
                         <span>Items Subtotal</span>
                         <span className="font-bold text-[#181416] dark:text-white">{formatPrice(cartTotal)}</span>
@@ -212,9 +212,9 @@ export function CartDrawer() {
                           )}
                         </span>
                       </div>
-                      <div className="border-t border-black/[0.04] dark:border-white/[0.06] pt-2 flex justify-between text-sm font-bold text-[#181416] dark:text-white">
+                      <div className="border-t border-black/[0.04] dark:border-white/[0.06] pt-2 flex justify-between text-base font-bold text-[#181416] dark:text-white">
                         <span>Estimated Total</span>
-                        <span className="text-[#b84357] dark:text-rose-300 text-base">
+                        <span className="text-[#b84357] dark:text-rose-300 text-lg font-black">
                           {formatPrice(cartTotal + (cartTotal >= freeShippingThreshold ? 0 : 60))}
                         </span>
                       </div>
@@ -239,9 +239,9 @@ export function CartDrawer() {
                           });
                         }
                       }}
-                      className="w-full py-3.5 px-4 rounded-full bg-[#b84357] hover:bg-[#a13649] text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-[#b84357]/25 active:scale-98 transition-all cursor-pointer"
+                      className="w-full py-4 px-4 rounded-full bg-[#b84357] hover:bg-[#a13649] text-white font-bold text-sm uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-[#b84357]/25 active:scale-98 transition-all cursor-pointer"
                     >
-                      <ShoppingBag className="w-4 h-4" />
+                      <ShoppingBag className="w-4.5 h-4.5" />
                       <span>Proceed to Checkout (COD)</span>
                     </button>
 
