@@ -37,11 +37,11 @@ export function InstagramFeed() {
           transition={{ duration: 0.5 }}
           className="text-center mb-8 sm:mb-10 flex flex-col items-center"
         >
-          <span className="glass-pill px-4 py-1.5 text-[10px] sm:text-[11px] uppercase tracking-[0.24em] font-bold text-[#b84357] dark:text-rose-300 shadow-xs mb-3">
+          <span className="glass-pill px-4.5 py-1.5 text-xs sm:text-sm uppercase tracking-[0.24em] font-extrabold text-[#b84357] dark:text-rose-300 shadow-xs mb-3">
             Community & Journal
           </span>
           <Link href="/browse" className="group inline-block">
-            <h2 className="text-xl sm:text-2xl font-serif text-[#181416] dark:text-white font-bold tracking-tight group-hover:text-[#b84357] dark:group-hover:text-rose-300 transition-colors">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-[#181416] dark:text-white font-bold tracking-tight group-hover:text-[#b84357] dark:group-hover:text-rose-300 transition-colors">
               @beautyandblush
             </h2>
           </Link>
