@@ -180,17 +180,17 @@ export function HeroBanner() {
               className="w-full flex flex-col items-center text-center space-y-4 sm:space-y-5"
             >
               {/* Tagline & Curated Badge */}
-              <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
-                <span className="px-3.5 sm:px-4 py-1.5 rounded-full text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] bg-white/[0.12] text-rose-100 border border-white/[0.2] backdrop-blur-xl shadow-xs">
+              <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+                <span className="px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-bold uppercase tracking-[0.22em] bg-white/[0.14] text-rose-100 border border-white/[0.25] backdrop-blur-xl shadow-xs">
                   {slide.tag}
                 </span>
-                <span className="px-3 sm:px-3.5 py-1.5 rounded-full text-[10px] sm:text-xs font-medium tracking-wider bg-white/[0.08] text-white/90 border border-white/[0.15] backdrop-blur-xl">
+                <span className="px-4 sm:px-4.5 py-2 rounded-full text-xs sm:text-sm font-semibold tracking-wider bg-white/[0.1] text-white border border-white/[0.2] backdrop-blur-xl">
                   {slide.badge}
                 </span>
               </div>
 
               {/* Main Balanced Centered Title */}
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[66px] font-bold text-white leading-[1.12] sm:leading-[1.1] tracking-tight drop-shadow-xl min-h-[100px] sm:min-h-[130px] md:min-h-[160px] flex flex-col justify-center font-serif">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[76px] font-bold text-white leading-[1.08] tracking-tight drop-shadow-xl min-h-[110px] sm:min-h-[145px] md:min-h-[180px] flex flex-col justify-center font-serif">
                 <span>{slide.titleLine1}</span>
                 <span className="font-light text-slate-100">{slide.titleLine2}</span>
                 <span className="text-[#f4728d] italic drop-shadow-lg mt-0.5">
