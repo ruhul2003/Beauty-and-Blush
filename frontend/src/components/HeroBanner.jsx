@@ -142,9 +142,10 @@ export function HeroBanner() {
             </div>
           ))}
 
-          {/* Cinematic Glass Vignette & Gradient Overlays */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/85 z-[1] backdrop-blur-[1px]" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-transparent to-black/80 z-[1]" />
+          {/* Light Pink Blush Glass Vignette & Gradient Overlays */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#2a131b]/80 via-[#3a1b26]/50 to-[#2a131b]/80 z-[1] backdrop-blur-[1px]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#220d15]/60 via-pink-500/10 to-[#1e0a12]/85 z-[1]" />
+          <div className="absolute inset-0 bg-radial from-pink-400/15 via-transparent to-transparent pointer-events-none z-[1]" />
         </div>
 
         {/* Outer Top Bar Window Controls & Verification Badge */}
