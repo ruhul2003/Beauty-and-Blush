@@ -50,10 +50,10 @@ export function CategoryShowcase() {
           transition={{ duration: 0.5 }}
           className="text-center mb-10 sm:mb-12 flex flex-col items-center"
         >
-          <span className="glass-pill px-4 py-1.5 text-[10px] sm:text-[11px] uppercase tracking-[0.24em] font-bold text-[#b84357] dark:text-rose-300 shadow-xs mb-3">
+          <span className="glass-pill px-4.5 py-1.5 text-xs sm:text-sm uppercase tracking-[0.24em] font-extrabold text-[#b84357] dark:text-rose-300 shadow-xs mb-3">
             Curated Collections
           </span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-[#181416] dark:text-white font-bold tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-[#181416] dark:text-white font-bold tracking-tight">
             Shop by Category
           </h2>
         </motion.div>
@@ -88,10 +88,10 @@ export function CategoryShowcase() {
 
                 {/* Title & Link */}
                 <div className="mt-3.5 space-y-1">
-                  <h3 className="text-xs sm:text-[13px] font-bold tracking-wider text-[#181416] dark:text-white uppercase group-hover:text-[#b84357] dark:group-hover:text-rose-300 transition-colors font-serif">
+                  <h3 className="text-sm sm:text-base font-bold tracking-wider text-[#181416] dark:text-white uppercase group-hover:text-[#b84357] dark:group-hover:text-rose-300 transition-colors font-serif">
                     {cat.name}
                   </h3>
-                  <p className="text-[11px] text-slate-500 dark:text-slate-400">
+                  <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
                     {cat.desc}
                   </p>
                 </div>
