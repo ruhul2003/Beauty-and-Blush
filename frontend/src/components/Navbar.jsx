@@ -131,7 +131,7 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
     { label: 'Home', href: '/' },
     { label: 'Shop', href: '/browse' },
     { label: 'Track Order', href: '/track-order' },
-    { label: 'About', href: '/#about' },
+    { label: 'About', href: '/about' },
     { label: 'Contact', href: '/#contact' },
   ];
 
@@ -267,7 +267,7 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
             </Link>
 
             <Link
-              href="/#about"
+              href="/about"
               className="px-4 py-2 rounded-full border border-transparent hover:border-white/80 dark:hover:border-white/15 hover:bg-white/80 dark:hover:bg-white/[0.08] text-slate-700 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white hover:shadow-xs transition-all"
             >
               About

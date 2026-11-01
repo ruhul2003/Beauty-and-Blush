@@ -71,11 +71,11 @@ export function Footer() {
               Customer Care
             </h4>
             <ul className="space-y-2.5 text-xs text-slate-600 dark:text-slate-400">
-              <li><Link href="/browse" className="hover:text-[#b84357] dark:hover:text-rose-300 transition-colors">Authenticity Promise</Link></li>
-              <li><Link href="/browse" className="hover:text-[#b84357] dark:hover:text-rose-300 transition-colors">Shipping & Returns</Link></li>
-              <li><Link href="/browse" className="hover:text-[#b84357] dark:hover:text-rose-300 transition-colors">Batch Code Check</Link></li>
+              <li><Link href="/about" className="hover:text-[#b84357] dark:hover:text-rose-300 transition-colors">About Our Atelier</Link></li>
+              <li><Link href="/about" className="hover:text-[#b84357] dark:hover:text-rose-300 transition-colors">Authenticity Promise</Link></li>
+              <li><Link href="/track-order" className="hover:text-[#b84357] dark:hover:text-rose-300 transition-colors">Shipping & Returns</Link></li>
               <li><Link href="/wishlist" className="hover:text-[#b84357] dark:hover:text-rose-300 transition-colors">Saved Wishlist</Link></li>
-              <li><Link href="/browse" className="hover:text-[#b84357] dark:hover:text-rose-300 transition-colors">Support Concierge</Link></li>
+              <li><Link href="/about" className="hover:text-[#b84357] dark:hover:text-rose-300 transition-colors">Support Concierge</Link></li>
             </ul>
           </div>
 
