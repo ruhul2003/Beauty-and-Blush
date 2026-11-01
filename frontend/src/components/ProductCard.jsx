@@ -102,7 +102,7 @@ export function ProductCard({ product }) {
                 e.stopPropagation();
                 setQuickViewOpen(true);
               }}
-              className="absolute inset-x-4 top-1/2 -translate-y-1/2 py-2.5 px-3 rounded-full glass-pill text-[#181416] dark:text-white font-bold text-sm shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-200 flex items-center justify-center gap-2 hover:bg-[#b84357] hover:text-white dark:hover:bg-[#b84357] dark:hover:text-white z-20 cursor-pointer"
+              className="absolute inset-x-4 top-1/2 -translate-y-1/2 py-2 px-3 rounded-full glass-pill text-[#181416] dark:text-white font-bold text-xs shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-200 flex items-center justify-center gap-1.5 hover:bg-[#b84357] hover:text-white dark:hover:bg-[#b84357] dark:hover:text-white z-20 cursor-pointer"
             >
               <Eye className="w-3.5 h-3.5" />
               <span>Quick View</span>
@@ -137,38 +137,38 @@ export function ProductCard({ product }) {
 
           {/* Content Body */}
           <div className="px-1 space-y-1">
-            <div className="flex items-center justify-between text-xs sm:text-sm">
+            <div className="flex items-center justify-between text-xs">
               <Link
                 href={`/browse?category=${encodeURIComponent(product.category || 'All')}`}
-                className="text-xs font-extrabold uppercase tracking-wider text-[#b84357] dark:text-rose-300 hover:underline"
+                className="text-[10px] font-bold uppercase tracking-wider text-[#b84357] dark:text-rose-300 hover:underline"
               >
                 {product.brand || product.category}
               </Link>
-              <div className="flex items-center gap-1 text-xs text-slate-400">
-                <MapPin className="w-3.5 h-3.5 text-[#b84357]" />
+              <div className="flex items-center gap-1 text-[11px] text-slate-400">
+                <MapPin className="w-3 h-3 text-[#b84357]" />
                 <span>{product.location || 'Dhaka'}</span>
               </div>
             </div>
 
             <Link href={`/product/${product._id || product.id}`} className="block">
-              <h3 className="font-bold text-base sm:text-[17px] text-[#181416] dark:text-white group-hover:text-[#b84357] dark:group-hover:text-rose-300 line-clamp-1 transition-colors">
+              <h3 className="font-bold text-sm text-[#181416] dark:text-white group-hover:text-[#b84357] dark:group-hover:text-rose-300 line-clamp-1 transition-colors">
                 {product.title}
               </h3>
             </Link>
 
             {product.shade && (
-              <p className="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">
+              <p className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-1">
                 Shade: <span className="text-slate-800 dark:text-slate-200 font-medium">{product.shade}</span>
               </p>
             )}
 
             {/* Pricing */}
             <div className="pt-1 flex items-baseline gap-2">
-              <span className="text-lg sm:text-xl font-extrabold text-[#b84357] dark:text-rose-300">
+              <span className="text-base font-bold text-[#b84357] dark:text-rose-300">
                 {formatPrice(product.price)}
               </span>
               {product.originalPrice > product.price && (
-                <span className="text-xs sm:text-sm text-slate-400 line-through">
+                <span className="text-xs text-slate-400 line-through">
                   {formatPrice(product.originalPrice)}
                 </span>
               )}
@@ -180,7 +180,7 @@ export function ProductCard({ product }) {
         <div className="pt-3 mt-3 flex items-center gap-2 border-t border-black/[0.04] dark:border-white/[0.06]">
           <Link
             href={`/product/${product._id || product.id}`}
-            className="flex-1 py-2.5 text-center text-sm font-bold rounded-full glass-pill hover:bg-[#b84357] hover:text-white text-[#181416] dark:text-white hover:border-[#b84357] active:scale-98 transition-all"
+            className="flex-1 py-2 text-center text-xs font-bold rounded-full glass-pill hover:bg-[#b84357] hover:text-white text-[#181416] dark:text-white hover:border-[#b84357] active:scale-98 transition-all"
           >
             View Details
           </Link>

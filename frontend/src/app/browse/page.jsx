@@ -100,13 +100,13 @@ function BrowsePageContent() {
       {/* Header & Search Hero Slab */}
       <div className="glass-slab p-6 sm:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
         <div>
-          <span className="glass-pill inline-block px-3.5 py-1 text-xs font-bold tracking-widest text-[#b84357] dark:text-rose-300 uppercase mb-2">
+          <span className="glass-pill inline-block px-3 py-1 text-[10px] font-bold tracking-widest text-[#b84357] dark:text-rose-300 uppercase mb-2">
             Curated Beauty Vault
           </span>
-          <h1 className="text-3xl sm:text-4xl font-serif font-bold text-[#181416] dark:text-white">
+          <h1 className="text-2xl sm:text-3xl font-serif font-bold text-[#181416] dark:text-white">
             Catalog & Collections
           </h1>
-          <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
+          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
             Showing {products.length} authenticated beauty listings with batch code guarantee
           </p>
         </div>
@@ -121,13 +121,13 @@ function BrowsePageContent() {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="Search by brand, shade, product..."
-                className="w-full bg-transparent text-sm text-[#181416] dark:text-white placeholder:text-slate-400 focus:outline-none"
+                className="w-full bg-transparent text-xs text-[#181416] dark:text-white placeholder:text-slate-400 focus:outline-none"
               />
             </div>
           </div>
           <button 
             type="submit" 
-            className="px-6 py-2.5 text-sm font-bold uppercase tracking-wider rounded-full bg-[#181416] hover:bg-black dark:bg-white dark:hover:bg-slate-100 text-white dark:text-[#181416] shadow-md transition-all cursor-pointer"
+            className="px-6 py-2.5 text-xs font-bold uppercase tracking-wider rounded-full bg-[#181416] hover:bg-black dark:bg-white dark:hover:bg-slate-100 text-white dark:text-[#181416] shadow-md transition-all cursor-pointer"
           >
             Search
           </button>
@@ -146,14 +146,14 @@ function BrowsePageContent() {
         <aside className="hidden md:block space-y-6">
           <div className="glass-slab p-5 space-y-5">
             <div className="flex items-center justify-between pb-3 border-b border-black/[0.04] dark:border-white/[0.06]">
-              <span className="font-bold text-sm uppercase tracking-wider text-[#181416] dark:text-white flex items-center gap-1.5 font-serif">
+              <span className="font-bold text-xs uppercase tracking-wider text-[#181416] dark:text-white flex items-center gap-1.5 font-serif">
                 <Filter className="w-3.5 h-3.5 text-[#b84357]" />
                 <span>Filters</span>
               </span>
               <button
                 type="button"
                 onClick={resetFilters}
-                className="text-xs font-bold text-slate-500 hover:text-[#b84357] dark:hover:text-rose-400 transition-colors cursor-pointer"
+                className="text-[11px] font-bold text-slate-500 hover:text-[#b84357] dark:hover:text-rose-400 transition-colors cursor-pointer"
               >
                 Reset All
               </button>
@@ -161,8 +161,8 @@ function BrowsePageContent() {
 
             {/* Category Filter */}
             <div>
-              <label className="text-sm font-bold text-[#181416] dark:text-slate-200 block mb-2 font-serif">Category</label>
-              <div className="space-y-1 text-sm">
+              <label className="text-xs font-bold text-[#181416] dark:text-slate-200 block mb-2 font-serif">Category</label>
+              <div className="space-y-1 text-xs">
                 {['All', 'Skincare', 'Makeup', 'Haircare', 'Fragrance', 'Bath & Body', 'Tools & Brushes'].map(cat => (
                   <button
                     key={cat}
@@ -185,12 +185,12 @@ function BrowsePageContent() {
 
             {/* Brand Filter */}
             <div>
-              <label className="text-sm font-bold text-[#181416] dark:text-slate-200 block mb-2 font-serif">Brand</label>
+              <label className="text-xs font-bold text-[#181416] dark:text-slate-200 block mb-2 font-serif">Brand</label>
               <div className="glass-well rounded-2xl p-1">
                 <select
                   value={brand}
                   onChange={(e) => setBrand(e.target.value)}
-                  className="w-full text-sm p-2 bg-transparent text-[#181416] dark:text-white focus:outline-none"
+                  className="w-full text-xs p-2 bg-transparent text-[#181416] dark:text-white focus:outline-none"
                 >
                   {popularBrands.map(b => (
                     <option key={b} value={b} className="bg-white dark:bg-[#140c17] text-[#181416] dark:text-white">{b === 'All' ? 'All Brands' : b}</option>
@@ -201,12 +201,12 @@ function BrowsePageContent() {
 
             {/* Condition Filter */}
             <div>
-              <label className="text-sm font-bold text-[#181416] dark:text-slate-200 block mb-2 font-serif">Condition</label>
+              <label className="text-xs font-bold text-[#181416] dark:text-slate-200 block mb-2 font-serif">Condition</label>
               <div className="glass-well rounded-2xl p-1">
                 <select
                   value={condition}
                   onChange={(e) => setCondition(e.target.value)}
-                  className="w-full text-sm p-2 bg-transparent text-[#181416] dark:text-white focus:outline-none"
+                  className="w-full text-xs p-2 bg-transparent text-[#181416] dark:text-white focus:outline-none"
                 >
                   <option value="All" className="bg-white dark:bg-[#140c17] text-[#181416] dark:text-white">All Conditions</option>
                   <option value="Brand New & Boxed" className="bg-white dark:bg-[#140c17] text-[#181416] dark:text-white">Brand New & Boxed</option>
@@ -219,12 +219,12 @@ function BrowsePageContent() {
 
             {/* Skin Type Filter */}
             <div>
-              <label className="text-sm font-bold text-[#181416] dark:text-slate-200 block mb-2 font-serif">Skin Type</label>
+              <label className="text-xs font-bold text-[#181416] dark:text-slate-200 block mb-2 font-serif">Skin Type</label>
               <div className="glass-well rounded-2xl p-1">
                 <select
                   value={skinType}
                   onChange={(e) => setSkinType(e.target.value)}
-                  className="w-full text-sm p-2 bg-transparent text-[#181416] dark:text-white focus:outline-none"
+                  className="w-full text-xs p-2 bg-transparent text-[#181416] dark:text-white focus:outline-none"
                 >
                   <option value="All" className="bg-white dark:bg-[#140c17] text-[#181416] dark:text-white">All Skin Types</option>
                   <option value="Oily" className="bg-white dark:bg-[#140c17] text-[#181416] dark:text-white">Oily / Combination</option>
@@ -236,7 +236,7 @@ function BrowsePageContent() {
 
             {/* In-Stock Toggle */}
             <div className="pt-3 border-t border-black/[0.04] dark:border-white/[0.06]">
-              <label className="flex items-center gap-2.5 cursor-pointer text-sm font-bold text-[#181416] dark:text-slate-200">
+              <label className="flex items-center gap-2.5 cursor-pointer text-xs font-bold text-[#181416] dark:text-slate-200">
                 <input
                   type="checkbox"
                   checked={onlyInStock}
@@ -249,7 +249,7 @@ function BrowsePageContent() {
 
             {/* Max Price Filter */}
             <div>
-              <label className="text-sm font-bold text-[#181416] dark:text-slate-200 block mb-2 font-serif">
+              <label className="text-xs font-bold text-[#181416] dark:text-slate-200 block mb-2 font-serif">
                 Max Budget: <span className="text-[#b84357] dark:text-rose-300">{maxPrice ? `৳${maxPrice}` : 'Any'}</span>
               </label>
               <input
@@ -261,7 +261,7 @@ function BrowsePageContent() {
                 onChange={(e) => setMaxPrice(e.target.value)}
                 className="w-full accent-[#b84357] cursor-pointer"
               />
-              <div className="flex justify-between text-xs text-slate-400 mt-1">
+              <div className="flex justify-between text-[10px] text-slate-400 mt-1">
                 <span>৳1,000</span>
                 <span>৳25,000+</span>
               </div>
@@ -272,7 +272,7 @@ function BrowsePageContent() {
         {/* Products Grid */}
         <div className="md:col-span-3 space-y-6">
           {/* Top Sort Bar */}
-          <div className="glass-slab px-5 py-3 flex items-center justify-between text-sm">
+          <div className="glass-slab px-5 py-3 flex items-center justify-between text-xs">
             <span className="text-slate-500 font-medium">
               Showing <strong className="text-[#181416] dark:text-white font-bold">{products.length}</strong> items
             </span>
@@ -283,7 +283,7 @@ function BrowsePageContent() {
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
-                  className="bg-transparent text-sm text-[#181416] dark:text-white focus:outline-none cursor-pointer"
+                  className="bg-transparent text-xs text-[#181416] dark:text-white focus:outline-none cursor-pointer"
                 >
                   <option value="newest" className="bg-white dark:bg-[#140c17] text-[#181416] dark:text-white">Newest First</option>
                   <option value="price_low" className="bg-white dark:bg-[#140c17] text-[#181416] dark:text-white">Price: Low to High</option>

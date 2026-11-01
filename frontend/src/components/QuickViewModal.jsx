@@ -121,30 +121,30 @@ export function QuickViewModal({ product, onClose }) {
             <div className="flex flex-col justify-between space-y-4">
               <div>
                 <div className="flex items-center justify-between gap-2">
-                  <span className="glass-pill px-3.5 py-1 text-xs uppercase tracking-wider font-extrabold text-[#b84357] dark:text-rose-300">
+                  <span className="glass-pill px-3 py-0.5 text-[10px] uppercase tracking-wider font-bold text-[#b84357] dark:text-rose-300">
                     {product.brand || 'Luxury Cosmetic'}
                   </span>
-                  <div className="glass-well flex items-center gap-1 text-sm text-amber-500 font-bold px-3 py-1 rounded-full">
-                    <Star className="w-4 h-4 fill-current" />
+                  <div className="glass-well flex items-center gap-1 text-xs text-amber-500 font-bold px-2.5 py-1 rounded-full">
+                    <Star className="w-3.5 h-3.5 fill-current" />
                     <span>{product.rating || '4.9'}</span>
                   </div>
                 </div>
 
-                <h3 className="text-2xl sm:text-3xl font-serif font-bold text-[#181416] dark:text-white mt-2">
+                <h3 className="text-xl font-serif font-bold text-[#181416] dark:text-white mt-2">
                   {product.title}
                 </h3>
 
                 {/* Batch Code Authenticity Pill */}
                 {product.batchCode && (
-                  <div className="inline-flex items-center gap-1.5 mt-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 text-xs font-bold border border-emerald-500/20">
-                    <ShieldCheck className="w-4 h-4" />
+                  <div className="inline-flex items-center gap-1.5 mt-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 text-[11px] font-bold border border-emerald-500/20">
+                    <ShieldCheck className="w-3.5 h-3.5" />
                     <span>Batch Code: {product.batchCode}</span>
                   </div>
                 )}
 
                 {/* Shade / Variation */}
                 {product.shade && (
-                  <p className="text-sm text-slate-600 dark:text-slate-300 mt-2.5">
+                  <p className="text-xs text-slate-600 dark:text-slate-300 mt-2.5">
                     <span className="text-slate-400">Shade / Variant: </span>
                     <strong className="text-slate-800 dark:text-white font-bold">{product.shade}</strong>
                   </p>
@@ -152,24 +152,24 @@ export function QuickViewModal({ product, onClose }) {
 
                 {/* Price Display */}
                 <div className="flex items-baseline gap-2 mt-3">
-                  <span className="text-3xl font-extrabold font-serif text-[#b84357] dark:text-rose-300">
+                  <span className="text-2xl font-bold font-serif text-[#b84357] dark:text-rose-300">
                     {formatPrice(product.price)}
                   </span>
                   {product.originalPrice && product.originalPrice > product.price && (
-                    <span className="text-base line-through text-slate-400 font-medium">
+                    <span className="text-sm line-through text-slate-400 font-medium">
                       {formatPrice(product.originalPrice)}
                     </span>
                   )}
                 </div>
 
                 {/* Description Snippet */}
-                <p className="text-sm text-slate-600 dark:text-slate-300 line-clamp-3 mt-3 leading-relaxed">
+                <p className="text-xs text-slate-600 dark:text-slate-300 line-clamp-3 mt-3 leading-relaxed">
                   {product.description || 'Authentic luxury beauty product with guaranteed provenance and secure nationwide courier delivery.'}
                 </p>
               </div>
 
               {/* Action Buttons with Pill Styling */}
-              <div className="space-y-2.5 pt-2">
+              <div className="space-y-2 pt-2">
                 <div className="flex gap-2">
                   <motion.button
                     whileTap={{ scale: 0.96 }}
@@ -177,7 +177,7 @@ export function QuickViewModal({ product, onClose }) {
                       addToCart(product);
                       onClose();
                     }}
-                    className="flex-1 py-3.5 text-sm font-bold rounded-full glass-pill hover:bg-[#b84357] hover:text-white text-[#181416] dark:text-white hover:border-[#b84357] flex items-center justify-center gap-2 transition-all shadow-xs cursor-pointer"
+                    className="flex-1 py-3 text-xs font-bold rounded-full glass-pill hover:bg-[#b84357] hover:text-white text-[#181416] dark:text-white hover:border-[#b84357] flex items-center justify-center gap-2 transition-all shadow-xs cursor-pointer"
                   >
                     <ShoppingBag className="w-4 h-4" />
                     <span>Add to Bag</span>
@@ -186,7 +186,7 @@ export function QuickViewModal({ product, onClose }) {
                   <motion.button
                     whileTap={{ scale: 0.96 }}
                     onClick={() => setBuyModalOpen(true)}
-                    className="flex-1 bg-[#b84357] hover:bg-[#a13649] text-white py-3.5 text-sm font-bold rounded-full flex items-center justify-center gap-2 shadow-md shadow-[#b84357]/20 cursor-pointer"
+                    className="flex-1 bg-[#b84357] hover:bg-[#a13649] text-white py-3 text-xs font-bold rounded-full flex items-center justify-center gap-2 shadow-md shadow-[#b84357]/20 cursor-pointer"
                   >
                     <span>Instant Order</span>
                   </motion.button>
@@ -194,24 +194,24 @@ export function QuickViewModal({ product, onClose }) {
                   <motion.button
                     whileTap={{ scale: 0.92 }}
                     onClick={toggleWishlist}
-                    className={`w-11 h-11 rounded-full flex items-center justify-center transition-colors cursor-pointer ${
+                    className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors cursor-pointer ${
                       isWishlisted 
                         ? 'bg-[#b84357] text-white shadow-xs' 
                         : 'glass-pill text-slate-600 dark:text-slate-300 hover:text-[#b84357] dark:hover:text-rose-300'
                     }`}
                     title={isWishlisted ? "In Wishlist" : "Save to Wishlist"}
                   >
-                    <Heart className={`w-4.5 h-4.5 ${isWishlisted ? 'fill-current' : ''}`} />
+                    <Heart className={`w-4 h-4 ${isWishlisted ? 'fill-current' : ''}`} />
                   </motion.button>
                 </div>
 
                 <Link
                   href={`/product/${product._id || product.id}`}
                   onClick={onClose}
-                  className="w-full py-3 rounded-full glass-pill text-sm font-bold text-center text-slate-700 dark:text-slate-300 hover:text-[#b84357] dark:hover:text-rose-300 transition-colors flex items-center justify-center gap-1.5 shadow-xs"
+                  className="w-full py-2.5 rounded-full glass-pill text-xs font-bold text-center text-slate-700 dark:text-slate-300 hover:text-[#b84357] dark:hover:text-rose-300 transition-colors flex items-center justify-center gap-1.5 shadow-xs"
                 >
                   <span>View Complete Details & Reviews</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
             </div>

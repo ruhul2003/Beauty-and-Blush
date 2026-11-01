@@ -33,17 +33,17 @@ export function PromoGrid() {
             <div className="absolute -top-12 -right-12 w-64 h-64 bg-white/20 rounded-full blur-2xl pointer-events-none" />
 
             {/* Content */}
-            <div className="relative z-10 max-w-[300px] sm:max-w-[360px] space-y-3">
-              <span className="glass-pill inline-block px-4 py-1.5 text-xs font-extrabold uppercase tracking-[0.22em] text-indigo-900 bg-white/95 shadow-xs">
+            <div className="relative z-10 max-w-[280px] sm:max-w-[340px] space-y-3">
+              <span className="glass-pill inline-block px-3.5 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-indigo-900 bg-white/90 shadow-xs">
                 Clinical Formulations
               </span>
 
-              <h3 className="text-3xl sm:text-4xl font-serif font-bold text-white leading-tight">
+              <h3 className="text-2xl sm:text-3xl font-serif font-bold text-white leading-tight">
                 Up To 30% Off <br />
                 <span className="text-cyan-200">Dewy Barrier Serums</span>
               </h3>
 
-              <p className="text-sm sm:text-base text-white/90 leading-relaxed">
+              <p className="text-xs text-white/85 leading-relaxed">
                 Hyaluronic acid & 10% pure niacinamide for luminous glass skin.
               </p>
             </div>
@@ -51,7 +51,7 @@ export function PromoGrid() {
             <div className="pt-4 relative z-10">
               <Link
                 href="/browse?category=Skincare"
-                className="px-7 py-4 text-sm tracking-wider uppercase font-bold rounded-full bg-white text-indigo-700 hover:bg-slate-100 inline-flex items-center gap-2 shadow-[0_12px_24px_-4px_rgba(0,0,0,0.22),0_4px_10px_rgba(0,0,0,0.12),inset_0_2px_1px_#ffffff,inset_0_-2.5px_2px_rgba(0,0,0,0.1)] hover:scale-105 active:scale-95 transition-all"
+                className="px-6 py-3.5 text-xs tracking-wider uppercase font-bold rounded-full bg-white text-indigo-700 hover:bg-slate-100 inline-flex items-center gap-2 shadow-[0_12px_24px_-4px_rgba(0,0,0,0.22),0_4px_10px_rgba(0,0,0,0.12),inset_0_2px_1px_#ffffff,inset_0_-2.5px_2px_rgba(0,0,0,0.1)] hover:scale-105 active:scale-95 transition-all"
               >
                 <span>EXPLORE SKINCARE</span>
                 <ArrowRight className="w-4 h-4" />
@@ -84,17 +84,17 @@ export function PromoGrid() {
             <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-white/30 to-transparent opacity-60 pointer-events-none transform -skew-y-6" />
 
             {/* Content */}
-            <div className="relative z-10 max-w-[300px] sm:max-w-[360px] space-y-3">
-              <span className="glass-pill inline-block px-4 py-1.5 text-xs font-extrabold uppercase tracking-[0.22em] text-rose-900 bg-white/95 shadow-xs">
+            <div className="relative z-10 max-w-[280px] sm:max-w-[340px] space-y-3">
+              <span className="glass-pill inline-block px-3.5 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-rose-900 bg-white/90 shadow-xs">
                 Trending Rouge
               </span>
 
-              <h3 className="text-3xl sm:text-4xl font-serif font-bold text-white leading-tight">
+              <h3 className="text-2xl sm:text-3xl font-serif font-bold text-white leading-tight">
                 Radiant Velvet <br />
                 <span className="text-pink-100">Blushes & Palettes</span>
               </h3>
 
-              <p className="text-sm sm:text-base text-white/90 leading-relaxed">
+              <p className="text-xs text-white/85 leading-relaxed">
                 Rare Beauty Soft Pinch, Dior Addict & designer cosmetic palettes.
               </p>
             </div>
@@ -102,7 +102,7 @@ export function PromoGrid() {
             <div className="pt-4 relative z-10">
               <Link
                 href="/browse?category=Makeup"
-                className="px-7 py-4 text-sm tracking-wider uppercase font-bold rounded-full bg-white text-rose-700 hover:bg-slate-100 inline-flex items-center gap-2 shadow-[0_12px_24px_-4px_rgba(0,0,0,0.22),0_4px_10px_rgba(0,0,0,0.12),inset_0_2px_1px_#ffffff,inset_0_-2.5px_2px_rgba(0,0,0,0.1)] hover:scale-105 active:scale-95 transition-all"
+                className="px-6 py-3.5 text-xs tracking-wider uppercase font-bold rounded-full bg-white text-rose-700 hover:bg-slate-100 inline-flex items-center gap-2 shadow-[0_12px_24px_-4px_rgba(0,0,0,0.22),0_4px_10px_rgba(0,0,0,0.12),inset_0_2px_1px_#ffffff,inset_0_-2.5px_2px_rgba(0,0,0,0.1)] hover:scale-105 active:scale-95 transition-all"
               >
                 <span>SHOP MAKEUP</span>
                 <ArrowRight className="w-4 h-4" />

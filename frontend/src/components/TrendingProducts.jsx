@@ -133,10 +133,10 @@ export function TrendingProducts({ products = [] }) {
           transition={{ duration: 0.5 }}
           className="text-center mb-10 sm:mb-12 flex flex-col items-center"
         >
-          <span className="glass-pill px-4.5 py-1.5 text-xs sm:text-sm uppercase tracking-[0.24em] font-extrabold text-[#b84357] dark:text-rose-300 shadow-xs mb-3">
+          <span className="glass-pill px-4 py-1.5 text-[10px] sm:text-[11px] uppercase tracking-[0.24em] font-bold text-[#b84357] dark:text-rose-300 shadow-xs mb-3">
             Iconic Formulations
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-[#181416] dark:text-white font-bold tracking-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-[#181416] dark:text-white font-bold tracking-tight">
             Best Sellers
           </h2>
         </motion.div>
@@ -213,18 +213,18 @@ export function TrendingProducts({ products = [] }) {
 
                     {/* Product Info */}
                     <Link href={`/browse?category=${prod.category}`} className="block">
-                      <h3 className="font-bold text-sm sm:text-base text-[#181416] dark:text-white truncate group-hover/card:text-[#b84357] dark:group-hover/card:text-rose-300 transition-colors">
+                      <h3 className="font-bold text-xs sm:text-sm text-[#181416] dark:text-white truncate group-hover/card:text-[#b84357] dark:group-hover/card:text-rose-300 transition-colors">
                         {prod.title}
                       </h3>
                     </Link>
 
                     {/* Price with Strike-through */}
                     <div className="mt-1 flex items-center gap-2">
-                      <span className="text-base sm:text-lg font-black text-[#b84357] dark:text-rose-300">
+                      <span className="text-xs sm:text-sm font-bold text-[#b84357] dark:text-rose-300">
                         {prod.price}
                       </span>
                       {prod.originalPrice && (
-                        <span className="text-xs sm:text-sm text-slate-400 line-through">
+                        <span className="text-[11px] text-slate-400 line-through">
                           {prod.originalPrice}
                         </span>
                       )}
@@ -234,10 +234,10 @@ export function TrendingProducts({ products = [] }) {
                     <div className="mt-1.5 flex items-center gap-1.5 text-amber-500">
                       <div className="flex items-center">
                         {[...Array(prod.rating)].map((_, i) => (
-                          <Star key={i} className="w-3.5 h-3.5 fill-current" />
+                          <Star key={i} className="w-3 h-3 fill-current" />
                         ))}
                       </div>
-                      <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">
+                      <span className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
                         ({prod.reviewsCount})
                       </span>
                     </div>
@@ -247,7 +247,7 @@ export function TrendingProducts({ products = [] }) {
                   <div className="mt-3 pt-3 border-t border-black/[0.04] dark:border-white/[0.06]">
                     <Link
                       href={`/browse?category=${prod.category}`}
-                      className="w-full py-2.5 text-center text-sm font-bold rounded-full glass-pill hover:bg-[#b84357] text-[#181416] dark:text-white hover:text-white hover:border-[#b84357] active:scale-95 transition-all block"
+                      className="w-full py-2 text-center text-xs font-bold rounded-full glass-pill hover:bg-[#b84357] text-[#181416] dark:text-white hover:text-white hover:border-[#b84357] active:scale-95 transition-all block"
                     >
                       View Product
                     </Link>

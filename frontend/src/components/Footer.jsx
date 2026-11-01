@@ -26,26 +26,26 @@ export function Footer() {
                   className="w-full h-full object-cover rounded-full"
                 />
               </div>
-              <span className="text-2xl font-serif text-[#181416] dark:text-white font-bold transition-colors">
+              <span className="text-xl font-serif text-[#181416] dark:text-white font-bold transition-colors">
                 Beauty & Blush
               </span>
             </Link>
 
-            <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed max-w-sm">
+            <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed max-w-sm">
               Authentic luxury cosmetics, clinical skincare, and verified designer fragrances. Guaranteed genuine with physical batch inspection.
             </p>
 
-            <div className="pt-2 space-y-2 text-sm text-slate-600 dark:text-slate-400">
+            <div className="pt-2 space-y-2 text-xs text-slate-600 dark:text-slate-400">
               <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-[#b84357] shrink-0" />
+                <MapPin className="w-3.5 h-3.5 text-[#b84357] shrink-0" />
                 <span>Gulshan-1 & Banani, Dhaka, Bangladesh</span>
               </div>
               <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-[#b84357] shrink-0" />
+                <Phone className="w-3.5 h-3.5 text-[#b84357] shrink-0" />
                 <span>+880 1711-224466 (Concierge Support)</span>
               </div>
               <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-[#b84357] shrink-0" />
+                <Mail className="w-3.5 h-3.5 text-[#b84357] shrink-0" />
                 <span>support@beautyandblush.com</span>
               </div>
             </div>
@@ -53,10 +53,10 @@ export function Footer() {
 
           {/* Catalog Links */}
           <div>
-            <h4 className="text-sm font-extrabold uppercase tracking-wider text-[#181416] dark:text-white mb-4">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-[#181416] dark:text-white mb-4">
               Collections
             </h4>
-            <ul className="space-y-3 text-sm text-slate-600 dark:text-slate-400">
+            <ul className="space-y-2.5 text-xs text-slate-600 dark:text-slate-400">
               <li><Link href="/browse?category=Skincare" className="hover:text-[#b84357] dark:hover:text-rose-300 transition-colors">Skincare & Serums</Link></li>
               <li><Link href="/browse?category=Makeup" className="hover:text-[#b84357] dark:hover:text-rose-300 transition-colors">Luxury Makeup</Link></li>
               <li><Link href="/browse?category=Fragrance" className="hover:text-[#b84357] dark:hover:text-rose-300 transition-colors">Designer Fragrances</Link></li>
@@ -67,10 +67,10 @@ export function Footer() {
 
           {/* Customer Care */}
           <div>
-            <h4 className="text-sm font-extrabold uppercase tracking-wider text-[#181416] dark:text-white mb-4">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-[#181416] dark:text-white mb-4">
               Customer Care
             </h4>
-            <ul className="space-y-3 text-sm text-slate-600 dark:text-slate-400">
+            <ul className="space-y-2.5 text-xs text-slate-600 dark:text-slate-400">
               <li><Link href="/browse" className="hover:text-[#b84357] dark:hover:text-rose-300 transition-colors">Authenticity Promise</Link></li>
               <li><Link href="/browse" className="hover:text-[#b84357] dark:hover:text-rose-300 transition-colors">Shipping & Returns</Link></li>
               <li><Link href="/browse" className="hover:text-[#b84357] dark:hover:text-rose-300 transition-colors">Batch Code Check</Link></li>
@@ -81,10 +81,10 @@ export function Footer() {
 
           {/* Boutique */}
           <div>
-            <h4 className="text-sm font-extrabold uppercase tracking-wider text-[#181416] dark:text-white mb-4">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-[#181416] dark:text-white mb-4">
               Boutiques
             </h4>
-            <ul className="space-y-3 text-sm text-slate-600 dark:text-slate-400">
+            <ul className="space-y-2.5 text-xs text-slate-600 dark:text-slate-400">
               <li><Link href="/sell" className="hover:text-[#b84357] dark:hover:text-rose-300 transition-colors">List a Product</Link></li>
               <li><Link href="/dashboard" className="hover:text-[#b84357] dark:hover:text-rose-300 transition-colors">Seller Dashboard</Link></li>
               <li><Link href="/auth/register" className="hover:text-[#b84357] dark:hover:text-rose-300 transition-colors">MUA Verification</Link></li>
@@ -94,7 +94,7 @@ export function Footer() {
         </motion.div>
 
         {/* Bottom Bar */}
-        <div className="pt-6 border-t border-black/[0.04] dark:border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-slate-500 dark:text-slate-400">
+        <div className="pt-6 border-t border-black/[0.04] dark:border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400">
           <p>© {new Date().getFullYear()} Beauty and Blush. All rights reserved.</p>
           <div className="flex items-center gap-1 text-slate-500 dark:text-slate-400 font-medium">
             <span>Curated with precision for authentic luxury lovers</span>

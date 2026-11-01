@@ -159,24 +159,24 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
               <span className="text-lg sm:text-xl font-serif tracking-tight text-[#181416] dark:text-white font-bold transition-colors">
                 Beauty & Blush
               </span>
-              <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.24em] text-[#b84357] dark:text-rose-300 font-bold -mt-0.5 hidden sm:block">
+              <span className="text-[9px] uppercase tracking-[0.24em] text-[#b84357] dark:text-rose-300 font-bold -mt-0.5 hidden sm:block">
                 Luxury Cosmetics
               </span>
             </div>
           </Link>
 
           {/* Centered Desktop Menu Links (Clay-Glass Capsule Buttons) */}
-          <nav className="hidden lg:flex items-center gap-1 xl:gap-2 text-[14px] sm:text-sm font-bold tracking-tight">
+          <nav className="hidden lg:flex items-center gap-1 xl:gap-1.5 text-xs font-bold">
             <Link
               href="/"
-              className="px-4.5 py-2 rounded-full border border-transparent hover:border-white/80 dark:hover:border-white/15 hover:bg-white/80 dark:hover:bg-white/[0.08] text-slate-700 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white hover:shadow-xs transition-all"
+              className="px-4 py-2 rounded-full border border-transparent hover:border-white/80 dark:hover:border-white/15 hover:bg-white/80 dark:hover:bg-white/[0.08] text-slate-700 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white hover:shadow-xs transition-all"
             >
               Home
             </Link>
 
             <Link
               href="/browse"
-              className="px-4.5 py-2 rounded-full border border-transparent hover:border-white/80 dark:hover:border-white/15 hover:bg-white/80 dark:hover:bg-white/[0.08] text-slate-700 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white hover:shadow-xs transition-all"
+              className="px-4 py-2 rounded-full border border-transparent hover:border-white/80 dark:hover:border-white/15 hover:bg-white/80 dark:hover:bg-white/[0.08] text-slate-700 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white hover:shadow-xs transition-all"
             >
               Shop
             </Link>
@@ -189,7 +189,7 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
             >
               <button
                 type="button"
-                className={`px-4.5 py-2 rounded-full border transition-all duration-200 flex items-center gap-1.5 cursor-pointer text-[14px] sm:text-sm ${
+                className={`px-4 py-2 rounded-full border transition-all duration-200 flex items-center gap-1.5 cursor-pointer ${
                   categoryDropdown
                     ? 'bg-white/90 dark:bg-white/[0.12] text-[#b84357] dark:text-rose-300 border-white/90 dark:border-white/20 shadow-xs'
                     : 'border-transparent hover:border-white/80 dark:hover:border-white/15 hover:bg-white/80 dark:hover:bg-white/[0.08] text-slate-700 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white'
@@ -219,7 +219,7 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
                     <div className="glass-dropdown p-4 space-y-3 shadow-2xl">
                       
                       <div className="px-2 pt-0.5 pb-2 border-b border-black/[0.04] dark:border-white/[0.06]">
-                        <span className="text-xs uppercase font-extrabold tracking-[0.2em] text-[#b84357] dark:text-rose-300">
+                        <span className="text-[10px] uppercase font-bold tracking-[0.2em] text-[#b84357] dark:text-rose-300">
                           Categories
                         </span>
                       </div>
@@ -231,25 +231,25 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
                             key={idx}
                             href={cat.href}
                             onClick={() => setCategoryDropdown(false)}
-                            className="px-4 py-3 rounded-2xl border border-white/60 dark:border-white/[0.08] bg-white/60 dark:bg-white/[0.05] hover:bg-white dark:hover:bg-white/[0.12] hover:shadow-xs transition-all flex items-center justify-between group/cat backdrop-blur-md"
+                            className="px-3.5 py-2.5 rounded-2xl border border-white/60 dark:border-white/[0.08] bg-white/60 dark:bg-white/[0.05] hover:bg-white dark:hover:bg-white/[0.12] hover:shadow-xs transition-all flex items-center justify-between group/cat backdrop-blur-md"
                           >
-                            <span className="text-sm font-bold text-slate-800 dark:text-slate-100 group-hover/cat:text-[#b84357] dark:group-hover/cat:text-rose-300 transition-colors">
+                            <span className="text-xs font-bold text-slate-800 dark:text-slate-100 group-hover/cat:text-[#b84357] dark:group-hover/cat:text-rose-300 transition-colors">
                               {cat.name}
                             </span>
-                            <ChevronRight className="w-4 h-4 text-slate-400 group-hover/cat:text-[#b84357] dark:group-hover/cat:text-rose-300 group-hover/cat:translate-x-0.5 transition-all" />
+                            <ChevronRight className="w-3.5 h-3.5 text-slate-400 group-hover/cat:text-[#b84357] dark:group-hover/cat:text-rose-300 group-hover/cat:translate-x-0.5 transition-all" />
                           </Link>
                         ))}
                       </div>
 
                       {/* Bottom Footer Strip */}
-                      <div className="pt-2.5 border-t border-black/[0.04] dark:border-white/[0.06] px-1 flex items-center justify-between">
+                      <div className="pt-2 border-t border-black/[0.04] dark:border-white/[0.06] px-1 flex items-center justify-between">
                         <Link
                           href="/browse"
                           onClick={() => setCategoryDropdown(false)}
-                          className="inline-flex items-center gap-1.5 text-sm font-bold text-[#b84357] dark:text-rose-300 hover:underline"
+                          className="inline-flex items-center gap-1.5 text-xs font-bold text-[#b84357] dark:text-rose-300 hover:underline"
                         >
                           <span>Explore All Products</span>
-                          <ArrowRight className="w-4 h-4" />
+                          <ArrowRight className="w-3.5 h-3.5" />
                         </Link>
                       </div>
 
@@ -261,14 +261,14 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
 
             <Link
               href="/track-order"
-              className="px-4.5 py-2 rounded-full border border-transparent hover:border-white/80 dark:hover:border-white/15 hover:bg-white/80 dark:hover:bg-white/[0.08] text-slate-700 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white hover:shadow-xs transition-all"
+              className="px-4 py-2 rounded-full border border-transparent hover:border-white/80 dark:hover:border-white/15 hover:bg-white/80 dark:hover:bg-white/[0.08] text-slate-700 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white hover:shadow-xs transition-all"
             >
               Track Order
             </Link>
 
             <Link
               href="/#about"
-              className="px-4.5 py-2 rounded-full border border-transparent hover:border-white/80 dark:hover:border-white/15 hover:bg-white/80 dark:hover:bg-white/[0.08] text-slate-700 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white hover:shadow-xs transition-all"
+              className="px-4 py-2 rounded-full border border-transparent hover:border-white/80 dark:hover:border-white/15 hover:bg-white/80 dark:hover:bg-white/[0.08] text-slate-700 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white hover:shadow-xs transition-all"
             >
               About
             </Link>
@@ -286,7 +286,7 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   placeholder="Search beauty..."
-                  className="w-full bg-transparent text-sm text-[#181416] dark:text-white placeholder:text-slate-400 focus:outline-none"
+                  className="w-full bg-transparent text-xs text-[#181416] dark:text-white placeholder:text-slate-400 focus:outline-none"
                 />
               </div>
             </form>
@@ -444,26 +444,26 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   placeholder="Search beauty products & brands..."
-                  className="w-full bg-transparent text-sm text-[#181416] dark:text-white placeholder:text-slate-400 focus:outline-none"
+                  className="w-full bg-transparent text-xs text-[#181416] dark:text-white placeholder:text-slate-400 focus:outline-none"
                 />
               </div>
             </form>
 
             {/* Categories Quick Showcase */}
             <div className="space-y-2">
-              <span className="text-xs uppercase font-extrabold tracking-widest text-slate-400">
+              <span className="text-[10px] uppercase font-bold tracking-widest text-slate-400">
                 Shop by Category
               </span>
-              <div className="grid grid-cols-2 gap-2 text-sm">
+              <div className="grid grid-cols-2 gap-2 text-xs">
                 {categories.map((cat, idx) => (
                   <Link
                     key={idx}
                     href={cat.href}
                     onClick={() => setMobileOpen(false)}
-                    className="p-3.5 rounded-2xl border border-white/60 dark:border-white/[0.05] bg-white/60 dark:bg-white/[0.03] hover:bg-white dark:hover:bg-white/10 hover:text-[#b84357] dark:hover:text-rose-300 transition-colors flex items-center justify-between"
+                    className="p-3 rounded-2xl border border-white/60 dark:border-white/[0.05] bg-white/60 dark:bg-white/[0.03] hover:bg-white dark:hover:bg-white/10 hover:text-[#b84357] dark:hover:text-rose-300 transition-colors flex items-center justify-between"
                   >
                     <span className="font-bold text-slate-800 dark:text-slate-200">{cat.name}</span>
-                    <ChevronRight className="w-4 h-4 text-slate-400" />
+                    <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
                   </Link>
                 ))}
               </div>
@@ -471,19 +471,19 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
 
             {/* Navigation Links Grid */}
             <div className="pt-2 border-t border-black/[0.04] dark:border-white/[0.06]">
-              <span className="text-xs uppercase font-extrabold tracking-widest text-slate-400 block mb-2">
+              <span className="text-[10px] uppercase font-bold tracking-widest text-slate-400 block mb-2">
                 Quick Navigation
               </span>
-              <div className="grid grid-cols-2 gap-2 text-sm font-bold">
+              <div className="grid grid-cols-2 gap-2 text-xs font-bold">
                 {mainNavLinks.map((item, idx) => (
                   <Link
                     key={idx}
                     href={item.href}
                     onClick={() => setMobileOpen(false)}
-                    className="p-3.5 rounded-2xl border border-white/60 dark:border-white/[0.05] bg-white/60 dark:bg-white/[0.03] text-slate-800 dark:text-slate-100 hover:bg-white dark:hover:bg-white/10 hover:text-[#b84357] dark:hover:text-rose-300 active:scale-95 transition-all flex items-center justify-between"
+                    className="p-3 rounded-2xl border border-white/60 dark:border-white/[0.05] bg-white/60 dark:bg-white/[0.03] text-slate-800 dark:text-slate-100 hover:bg-white dark:hover:bg-white/10 hover:text-[#b84357] dark:hover:text-rose-300 active:scale-95 transition-all flex items-center justify-between"
                   >
                     <span>{item.label}</span>
-                    <ArrowRight className="w-4 h-4 text-slate-400" />
+                    <ArrowRight className="w-3.5 h-3.5 text-slate-400" />
                   </Link>
                 ))}
               </div>
@@ -493,15 +493,15 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
             <div className="pt-3 border-t border-black/[0.04] dark:border-white/[0.06] flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <ThemeToggle compact />
-                <span className="text-sm font-bold text-slate-700 dark:text-slate-200">Switch Theme</span>
+                <span className="text-xs font-bold text-slate-700 dark:text-slate-200">Switch Theme</span>
               </div>
 
               <Link
                 href="/sell"
                 onClick={() => setMobileOpen(false)}
-                className="flex items-center gap-1.5 text-sm text-[#b84357] font-bold"
+                className="flex items-center gap-1.5 text-xs text-[#b84357] font-bold"
               >
-                <PlusCircle className="w-4.5 h-4.5" />
+                <PlusCircle className="w-4 h-4" />
                 <span>List Your Items</span>
               </Link>
             </div>

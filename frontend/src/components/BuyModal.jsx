@@ -225,10 +225,10 @@ export function BuyModal({ product, onClose }) {
           /* Order Placement Form */
           <form onSubmit={handleSubmitOrder} className="space-y-5">
             <div>
-              <span className="glass-pill px-3.5 py-1 text-xs uppercase font-extrabold tracking-widest text-[#b84357] dark:text-rose-300 inline-block mb-1">
+              <span className="glass-pill px-3 py-0.5 text-[10px] uppercase font-bold tracking-widest text-[#b84357] dark:text-rose-300 inline-block mb-1">
                 Express Checkout
               </span>
-              <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#181416] dark:text-white">
+              <h2 className="text-xl font-serif font-bold text-[#181416] dark:text-white">
                 Complete Your Order
               </h2>
             </div>
@@ -241,9 +241,9 @@ export function BuyModal({ product, onClose }) {
                 className="w-12 h-12 object-cover rounded-xl shrink-0"
               />
               <div className="flex-1 min-w-0">
-                <h4 className="text-sm sm:text-base font-bold text-[#181416] dark:text-white truncate">{product.title}</h4>
+                <h4 className="text-xs font-bold text-[#181416] dark:text-white truncate">{product.title}</h4>
                 <p className="text-[11px] text-slate-500">{product.shade || product.condition}</p>
-                <p className="text-sm sm:text-base font-extrabold text-[#b84357] dark:text-rose-300 mt-0.5">{formatPrice(product.price)}</p>
+                <p className="text-xs font-bold text-[#b84357] dark:text-rose-300 mt-0.5">{formatPrice(product.price)}</p>
               </div>
 
               {/* Quantity Selector */}
@@ -454,7 +454,7 @@ export function BuyModal({ product, onClose }) {
               whileTap={{ scale: 0.97 }}
               type="submit"
               disabled={submitting}
-              className="w-full bg-[#b84357] hover:bg-[#a13649] text-white py-4 text-sm font-bold flex items-center justify-center gap-2 shadow-lg shadow-[#b84357]/25 cursor-pointer rounded-full"
+              className="w-full bg-[#b84357] hover:bg-[#a13649] text-white py-3.5 text-xs font-bold flex items-center justify-center gap-2 shadow-lg shadow-[#b84357]/25 cursor-pointer rounded-full"
             >
               <ShoppingBag className="w-4 h-4" />
               <span>{submitting ? 'Placing Order...' : 'Confirm Order with Cash on Delivery'}</span>

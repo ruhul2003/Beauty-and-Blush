@@ -183,7 +183,7 @@ export default function ProductDetailPage() {
       className="w-[95%] sm:w-[92%] max-w-[1500px] mx-auto px-2 sm:px-4 py-8 space-y-12"
     >
       {/* Top Breadcrumb */}
-      <nav className="text-sm text-slate-500 flex items-center gap-2">
+      <nav className="text-xs text-slate-500 flex items-center gap-2">
         <Link href="/" className="hover:text-[#b84357] dark:hover:text-rose-300 transition-colors">Home</Link>
         <span>/</span>
         <Link href={`/browse?category=${product.category}`} className="hover:text-[#b84357] dark:hover:text-rose-300 transition-colors">{product.category}</Link>
@@ -267,12 +267,12 @@ export default function ProductDetailPage() {
               </div>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#181416] dark:text-white leading-tight">
+            <h1 className="text-2xl sm:text-3xl font-serif font-bold text-[#181416] dark:text-white leading-tight">
               {product.title}
             </h1>
 
             {product.shade && (
-              <p className="text-sm text-slate-600 dark:text-slate-300 mt-2">
+              <p className="text-xs text-slate-600 dark:text-slate-300 mt-2">
                 Shade / Finish: <span className="font-bold text-[#b84357] dark:text-rose-300">{product.shade}</span>
               </p>
             )}
@@ -280,15 +280,15 @@ export default function ProductDetailPage() {
 
           {/* Pricing Box */}
           <div className="p-5 rounded-3xl glass-slab flex items-baseline gap-3">
-            <span className="text-4xl font-serif font-extrabold text-[#181416] dark:text-white">
+            <span className="text-3xl font-serif font-bold text-[#181416] dark:text-white">
               {formatPrice(product.price)}
             </span>
             {product.originalPrice > product.price && (
-              <span className="text-base text-slate-400 line-through">
+              <span className="text-sm text-slate-400 line-through">
                 {formatPrice(product.originalPrice)}
               </span>
             )}
-            <span className="ml-auto text-sm font-bold text-emerald-600 dark:text-emerald-400">
+            <span className="ml-auto text-xs font-bold text-emerald-600 dark:text-emerald-400">
               In Stock & Ready to Dispatch
             </span>
           </div>
@@ -320,7 +320,7 @@ export default function ProductDetailPage() {
                 whileTap={{ scale: 0.96 }}
                 type="button"
                 onClick={() => addToCart(product, quantity)}
-                className="flex-1 py-3.5 px-6 rounded-full glass-pill hover:bg-[#b84357] hover:text-white text-[#181416] dark:text-white hover:border-[#b84357] font-bold text-sm uppercase tracking-wider flex items-center justify-center gap-2 active:scale-98 transition-all cursor-pointer shadow-sm"
+                className="flex-1 py-3.5 px-6 rounded-full glass-pill hover:bg-[#b84357] hover:text-white text-[#181416] dark:text-white hover:border-[#b84357] font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 active:scale-98 transition-all cursor-pointer shadow-sm"
               >
                 <ShoppingBag className="w-4 h-4" />
                 <span>Add to Bag</span>
@@ -330,7 +330,7 @@ export default function ProductDetailPage() {
             <motion.button
               whileTap={{ scale: 0.97 }}
               onClick={() => setBuyModalOpen(true)}
-              className="w-full bg-[#b84357] hover:bg-[#a13649] text-white py-4 rounded-full text-sm uppercase tracking-wider font-bold flex items-center justify-center gap-2 shadow-lg shadow-[#b84357]/25 cursor-pointer"
+              className="w-full bg-[#b84357] hover:bg-[#a13649] text-white py-3.5 rounded-full text-xs uppercase tracking-wider font-bold flex items-center justify-center gap-2 shadow-lg shadow-[#b84357]/25 cursor-pointer"
             >
               <span>Instant Buy with Cash on Delivery (COD)</span>
             </motion.button>
@@ -338,7 +338,7 @@ export default function ProductDetailPage() {
             <motion.button
               whileTap={{ scale: 0.97 }}
               onClick={openWhatsApp}
-              className="w-full py-3.5 rounded-full glass-pill text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500/10 font-bold text-sm flex items-center justify-center gap-2 transition-all cursor-pointer"
+              className="w-full py-3 rounded-full glass-pill text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500/10 font-bold text-xs flex items-center justify-center gap-2 transition-all cursor-pointer"
             >
               <MessageCircle className="w-4 h-4" />
               <span>Ask Seller via WhatsApp Direct</span>

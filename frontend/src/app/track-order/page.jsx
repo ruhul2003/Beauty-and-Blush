@@ -100,13 +100,13 @@ function TrackOrderContent() {
     >
       {/* Header */}
       <div className="text-center max-w-lg mx-auto space-y-2">
-        <span className="glass-pill px-4 py-1 text-xs uppercase font-extrabold tracking-[0.22em] text-[#b84357] dark:text-rose-300 shadow-xs inline-block">
+        <span className="glass-pill px-4 py-1 text-[10px] uppercase font-bold tracking-[0.22em] text-[#b84357] dark:text-rose-300 shadow-xs inline-block">
           Live Logistics Tracking
         </span>
-        <h1 className="text-3xl sm:text-4xl font-serif font-bold text-[#181416] dark:text-white">
+        <h1 className="text-2xl sm:text-3xl font-serif font-bold text-[#181416] dark:text-white">
           Track Your Beauty Order
         </h1>
-        <p className="text-sm text-slate-500">
+        <p className="text-xs text-slate-500">
           Enter your order reference number (e.g. BNB-123456) to view live courier milestones.
         </p>
       </div>
@@ -128,7 +128,7 @@ function TrackOrderContent() {
                 value={orderIdInput}
                 onChange={(e) => setOrderIdInput(e.target.value)}
                 placeholder="e.g. BNB-748921"
-                className="w-full bg-transparent text-sm text-[#181416] dark:text-white uppercase tracking-wider font-mono font-bold focus:outline-none"
+                className="w-full bg-transparent text-xs text-[#181416] dark:text-white uppercase tracking-wider font-mono font-bold focus:outline-none"
               />
             </div>
           </div>
@@ -136,14 +136,14 @@ function TrackOrderContent() {
             whileTap={{ scale: 0.95 }}
             type="submit"
             disabled={loading}
-            className="px-6 py-2.5 rounded-full bg-[#b84357] hover:bg-[#a13649] text-white text-sm font-bold uppercase tracking-wider shrink-0 disabled:opacity-50 transition-all cursor-pointer shadow-md shadow-[#b84357]/20"
+            className="px-6 py-2.5 rounded-full bg-[#b84357] hover:bg-[#a13649] text-white text-xs font-bold uppercase tracking-wider shrink-0 disabled:opacity-50 transition-all cursor-pointer shadow-md shadow-[#b84357]/20"
           >
             {loading ? 'Searching...' : 'Track'}
           </motion.button>
         </form>
 
         {/* Demo Quick Taps */}
-        <div className="mt-3 flex items-center gap-2 text-xs text-slate-500">
+        <div className="mt-3 flex items-center gap-2 text-[11px] text-slate-500">
           <span>Quick Try:</span>
           <button
             type="button"
@@ -195,14 +195,14 @@ function TrackOrderContent() {
             <div className="glass-slab p-6 sm:p-8 space-y-6">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-black/[0.04] dark:border-white/[0.06] pb-4">
                 <div>
-                  <span className="text-xs uppercase tracking-widest text-[#b84357] dark:text-rose-300 font-bold">
+                  <span className="text-[10px] uppercase tracking-widest text-[#b84357] dark:text-rose-300 font-bold">
                     Order Reference
                   </span>
-                  <h3 className="text-2xl font-mono font-bold text-[#181416] dark:text-white">
+                  <h3 className="text-xl font-mono font-bold text-[#181416] dark:text-white">
                     {order.orderNumber}
                   </h3>
                 </div>
-                <div className="glass-pill inline-flex items-center gap-1.5 px-3.5 py-1 text-sm font-bold text-amber-600 dark:text-amber-400 self-start sm:self-auto shadow-xs">
+                <div className="glass-pill inline-flex items-center gap-1.5 px-3.5 py-1 text-xs font-bold text-amber-600 dark:text-amber-400 self-start sm:self-auto shadow-xs">
                   <Clock className="w-3.5 h-3.5" />
                   <span>Status: {order.status}</span>
                 </div>
@@ -224,7 +224,7 @@ function TrackOrderContent() {
 
                     return (
                       <div key={idx} className="flex flex-col items-center text-center relative z-10 space-y-2">
-                        <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-all shadow-xs ${
+                        <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-all shadow-xs ${
                           isDone 
                             ? 'bg-[#b84357] text-white scale-105 shadow-md shadow-[#b84357]/20' 
                             : 'glass-well text-slate-400'
@@ -233,10 +233,10 @@ function TrackOrderContent() {
                         </div>
 
                         <div>
-                          <p className={`text-xs sm:text-sm font-bold ${isCurrent ? 'text-[#b84357] dark:text-rose-300' : 'text-slate-800 dark:text-slate-200'}`}>
+                          <p className={`text-[11px] font-bold ${isCurrent ? 'text-[#b84357] dark:text-rose-300' : 'text-slate-800 dark:text-slate-200'}`}>
                             {step.label}
                           </p>
-                          <p className="text-[11px] text-slate-500 hidden sm:block max-w-[90px] mx-auto mt-0.5">
+                          <p className="text-[9px] text-slate-500 hidden sm:block max-w-[90px] mx-auto mt-0.5">
                             {step.desc}
                           </p>
                         </div>
@@ -247,7 +247,7 @@ function TrackOrderContent() {
               </div>
 
               {/* Package & Customer Details Card */}
-              <div className="p-5 rounded-2xl glass-well space-y-3 text-sm">
+              <div className="p-5 rounded-2xl glass-well space-y-3 text-xs">
                 <div className="flex items-center gap-3">
                   {order.productImage && (
                     <img
