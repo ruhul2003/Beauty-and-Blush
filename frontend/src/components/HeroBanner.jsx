@@ -199,7 +199,7 @@ export function HeroBanner() {
               </h1>
 
               {/* Description */}
-              <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-200/90 max-w-md sm:max-w-xl lg:max-w-2xl mx-auto leading-relaxed font-normal drop-shadow-md min-h-[40px] sm:min-h-[48px]">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-100/95 max-w-md sm:max-w-xl lg:max-w-2xl mx-auto leading-relaxed font-normal drop-shadow-md min-h-[44px] sm:min-h-[52px]">
                 {slide.desc}
               </p>
             </motion.div>
@@ -214,18 +214,18 @@ export function HeroBanner() {
           >
             <Link
               href="/browse"
-              className="px-7 sm:px-9 py-3.5 sm:py-4 text-xs sm:text-sm tracking-[0.18em] uppercase font-bold text-white bg-[#b84357] hover:bg-[#a13649] rounded-full flex items-center gap-2 sm:gap-2.5 shadow-xl shadow-[#b84357]/35 hover:scale-[1.02] active:scale-98 transition-all"
+              className="px-8 sm:px-10 py-4 sm:py-4.5 text-sm sm:text-base tracking-[0.16em] uppercase font-bold text-white bg-[#b84357] hover:bg-[#a13649] rounded-full flex items-center gap-2 sm:gap-2.5 shadow-xl shadow-[#b84357]/35 hover:scale-[1.02] active:scale-98 transition-all"
             >
               <span>EXPLORE COLLECTION</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4.5 h-4.5" />
             </Link>
             
             <Link
               href="/browse"
-              className="inline-flex items-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 text-xs sm:text-sm font-semibold uppercase tracking-wider text-white hover:text-rose-200 rounded-full border border-white/20 bg-white/[0.08] hover:bg-white/[0.18] backdrop-blur-xl group hover:scale-[1.02] active:scale-98 transition-all shadow-md"
+              className="inline-flex items-center gap-2 px-7 sm:px-9 py-4 sm:py-4.5 text-sm sm:text-base font-semibold uppercase tracking-wider text-white hover:text-rose-200 rounded-full border border-white/20 bg-white/[0.08] hover:bg-white/[0.18] backdrop-blur-xl group hover:scale-[1.02] active:scale-98 transition-all shadow-md"
             >
               <span>LADIES GLAMOUR</span>
-              <Sparkles className="w-4 h-4 text-rose-300 group-hover:rotate-12 transition-transform" />
+              <Sparkles className="w-4.5 h-4.5 text-rose-300 group-hover:rotate-12 transition-transform" />
             </Link>
           </motion.div>
 
