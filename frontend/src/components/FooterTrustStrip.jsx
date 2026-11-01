@@ -51,10 +51,10 @@ export function FooterTrustStrip() {
                   <Icon className="w-5 h-5 stroke-[1.8]" />
                 </div>
                 <div className="flex flex-col justify-center min-w-0 flex-1">
-                  <h4 className="text-xs sm:text-[13px] font-bold uppercase tracking-wider text-[#181416] dark:text-white leading-snug">
+                  <h4 className="text-sm sm:text-base font-bold uppercase tracking-wider text-[#181416] dark:text-white leading-snug">
                     {item.title}
                   </h4>
-                  <p className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 mt-1 leading-normal">
+                  <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1 leading-normal">
                     {item.desc}
                   </p>
                 </div>
