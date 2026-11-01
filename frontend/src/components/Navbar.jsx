@@ -166,17 +166,17 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
           </Link>
 
           {/* Centered Desktop Menu Links (Clay-Glass Capsule Buttons) */}
-          <nav className="hidden lg:flex items-center gap-1 xl:gap-1.5 text-xs font-bold">
+          <nav className="hidden lg:flex items-center gap-1 xl:gap-2 text-[14px] sm:text-sm font-bold tracking-tight">
             <Link
               href="/"
-              className="px-4 py-2 rounded-full border border-transparent hover:border-white/80 dark:hover:border-white/15 hover:bg-white/80 dark:hover:bg-white/[0.08] text-slate-700 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white hover:shadow-xs transition-all"
+              className="px-4.5 py-2 rounded-full border border-transparent hover:border-white/80 dark:hover:border-white/15 hover:bg-white/80 dark:hover:bg-white/[0.08] text-slate-700 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white hover:shadow-xs transition-all"
             >
               Home
             </Link>
 
             <Link
               href="/browse"
-              className="px-4 py-2 rounded-full border border-transparent hover:border-white/80 dark:hover:border-white/15 hover:bg-white/80 dark:hover:bg-white/[0.08] text-slate-700 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white hover:shadow-xs transition-all"
+              className="px-4.5 py-2 rounded-full border border-transparent hover:border-white/80 dark:hover:border-white/15 hover:bg-white/80 dark:hover:bg-white/[0.08] text-slate-700 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white hover:shadow-xs transition-all"
             >
               Shop
             </Link>
@@ -189,7 +189,7 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
             >
               <button
                 type="button"
-                className={`px-4 py-2 rounded-full border transition-all duration-200 flex items-center gap-1.5 cursor-pointer ${
+                className={`px-4.5 py-2 rounded-full border transition-all duration-200 flex items-center gap-1.5 cursor-pointer text-[14px] sm:text-sm ${
                   categoryDropdown
                     ? 'bg-white/90 dark:bg-white/[0.12] text-[#b84357] dark:text-rose-300 border-white/90 dark:border-white/20 shadow-xs'
                     : 'border-transparent hover:border-white/80 dark:hover:border-white/15 hover:bg-white/80 dark:hover:bg-white/[0.08] text-slate-700 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white'
@@ -261,14 +261,14 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
 
             <Link
               href="/track-order"
-              className="px-4 py-2 rounded-full border border-transparent hover:border-white/80 dark:hover:border-white/15 hover:bg-white/80 dark:hover:bg-white/[0.08] text-slate-700 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white hover:shadow-xs transition-all"
+              className="px-4.5 py-2 rounded-full border border-transparent hover:border-white/80 dark:hover:border-white/15 hover:bg-white/80 dark:hover:bg-white/[0.08] text-slate-700 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white hover:shadow-xs transition-all"
             >
               Track Order
             </Link>
 
             <Link
               href="/#about"
-              className="px-4 py-2 rounded-full border border-transparent hover:border-white/80 dark:hover:border-white/15 hover:bg-white/80 dark:hover:bg-white/[0.08] text-slate-700 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white hover:shadow-xs transition-all"
+              className="px-4.5 py-2 rounded-full border border-transparent hover:border-white/80 dark:hover:border-white/15 hover:bg-white/80 dark:hover:bg-white/[0.08] text-slate-700 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white hover:shadow-xs transition-all"
             >
               About
             </Link>
