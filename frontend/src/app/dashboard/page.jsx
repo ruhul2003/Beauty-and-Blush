@@ -67,19 +67,19 @@ export default function DashboardPage() {
       {/* Header */}
       <div className="glass-slab p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <div className="glass-pill inline-flex items-center gap-1.5 px-3 py-1 text-xs font-bold text-[#b84357] uppercase tracking-widest mb-2 shadow-xs">
+          <div className="glass-pill inline-flex items-center gap-1.5 px-3.5 py-1 text-sm font-extrabold text-[#b84357] uppercase tracking-widest mb-2 shadow-xs">
             <Store className="w-3.5 h-3.5" />
             <span>Merchant Overview</span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-serif font-bold text-[#181416] dark:text-white">
+          <h1 className="text-3xl sm:text-4xl font-serif font-bold text-[#181416] dark:text-white">
             {user ? `${user.name}'s Boutique Dashboard` : 'Seller Boutique Dashboard'}
           </h1>
-          <p className="text-xs text-slate-500 mt-1">Manage your active beauty inventory, customer orders, and store profile.</p>
+          <p className="text-sm text-slate-500 mt-1">Manage your active beauty inventory, customer orders, and store profile.</p>
         </div>
 
         <Link
           href="/sell"
-          className="bg-[#b84357] hover:bg-[#a13649] text-white px-7 py-3 rounded-full text-xs uppercase tracking-wider font-bold flex items-center gap-2 self-start sm:self-center shadow-lg shadow-[#b84357]/25 cursor-pointer"
+          className="bg-[#b84357] hover:bg-[#a13649] text-white px-7 py-3 rounded-full text-sm uppercase tracking-wider font-bold flex items-center gap-2 self-start sm:self-center shadow-lg shadow-[#b84357]/25 cursor-pointer"
         >
           <PlusCircle className="w-4 h-4" />
           <span>Add New Product</span>
@@ -89,8 +89,8 @@ export default function DashboardPage() {
       {/* Metrics Row */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
         <div className="glass-slab p-6 space-y-2">
-          <span className="text-xs text-slate-500 font-bold uppercase tracking-wider">Active Listings</span>
-          <div className="text-3xl font-bold font-serif text-[#181416] dark:text-white flex items-center justify-between">
+          <span className="text-sm text-slate-500 font-bold uppercase tracking-wider">Active Listings</span>
+          <div className="text-4xl font-bold font-serif text-[#181416] dark:text-white flex items-center justify-between">
             <span>{myProducts.length}</span>
             <div className="w-12 h-12 rounded-2xl glass-well text-[#b84357] dark:text-rose-300 flex items-center justify-center">
               <Sparkles className="w-6 h-6" />
@@ -99,8 +99,8 @@ export default function DashboardPage() {
         </div>
 
         <div className="glass-slab p-6 space-y-2">
-          <span className="text-xs text-slate-500 font-bold uppercase tracking-wider">Customer Orders</span>
-          <div className="text-3xl font-bold font-serif text-[#181416] dark:text-white flex items-center justify-between">
+          <span className="text-sm text-slate-500 font-bold uppercase tracking-wider">Customer Orders</span>
+          <div className="text-4xl font-bold font-serif text-[#181416] dark:text-white flex items-center justify-between">
             <span>{myOrders.length}</span>
             <div className="w-12 h-12 rounded-2xl glass-well text-amber-500 flex items-center justify-center">
               <ShoppingBag className="w-6 h-6" />
@@ -109,8 +109,8 @@ export default function DashboardPage() {
         </div>
 
         <div className="glass-slab p-6 space-y-2">
-          <span className="text-xs text-slate-500 font-bold uppercase tracking-wider">Store Reputation</span>
-          <div className="text-3xl font-bold font-serif text-[#181416] dark:text-white flex items-center justify-between">
+          <span className="text-sm text-slate-500 font-bold uppercase tracking-wider">Store Reputation</span>
+          <div className="text-4xl font-bold font-serif text-[#181416] dark:text-white flex items-center justify-between">
             <span>4.95 / 5.0</span>
             <div className="w-12 h-12 rounded-2xl glass-well text-amber-400 flex items-center justify-center">
               <Star className="w-6 h-6 fill-current" />
@@ -121,12 +121,12 @@ export default function DashboardPage() {
 
       {/* Product Listings Table */}
       <div className="glass-slab p-6 sm:p-8 space-y-4">
-        <h2 className="text-lg font-serif font-bold text-[#181416] dark:text-white">
+        <h2 className="text-2xl font-serif font-bold text-[#181416] dark:text-white">
           Your Beauty Catalog Listings
         </h2>
 
         {myProducts.length === 0 ? (
-          <div className="text-center py-12 text-slate-500 text-xs">
+          <div className="text-center py-12 text-slate-500 text-sm">
             <p>You have not listed any cosmetics or perfumes yet.</p>
             <Link href="/sell" className="mt-3 inline-block text-[#b84357] font-bold hover:underline">
               Publish your first listing →
@@ -134,7 +134,7 @@ export default function DashboardPage() {
           </div>
         ) : (
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs">
+            <table className="w-full text-left text-sm">
               <thead className="border-b border-black/[0.04] dark:border-white/[0.06] text-slate-400">
                 <tr>
                   <th className="pb-3 font-bold font-serif">Product</th>
