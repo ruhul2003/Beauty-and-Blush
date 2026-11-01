@@ -159,7 +159,7 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
               <span className="text-lg sm:text-xl font-serif tracking-tight text-[#181416] dark:text-white font-bold transition-colors">
                 Beauty & Blush
               </span>
-              <span className="text-[9px] uppercase tracking-[0.24em] text-[#b84357] dark:text-rose-300 font-bold -mt-0.5 hidden sm:block">
+              <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.24em] text-[#b84357] dark:text-rose-300 font-bold -mt-0.5 hidden sm:block">
                 Luxury Cosmetics
               </span>
             </div>
@@ -286,7 +286,7 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   placeholder="Search beauty..."
-                  className="w-full bg-transparent text-xs text-[#181416] dark:text-white placeholder:text-slate-400 focus:outline-none"
+                  className="w-full bg-transparent text-sm text-[#181416] dark:text-white placeholder:text-slate-400 focus:outline-none"
                 />
               </div>
             </form>
@@ -444,26 +444,26 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   placeholder="Search beauty products & brands..."
-                  className="w-full bg-transparent text-xs text-[#181416] dark:text-white placeholder:text-slate-400 focus:outline-none"
+                  className="w-full bg-transparent text-sm text-[#181416] dark:text-white placeholder:text-slate-400 focus:outline-none"
                 />
               </div>
             </form>
 
             {/* Categories Quick Showcase */}
             <div className="space-y-2">
-              <span className="text-[10px] uppercase font-bold tracking-widest text-slate-400">
+              <span className="text-xs uppercase font-extrabold tracking-widest text-slate-400">
                 Shop by Category
               </span>
-              <div className="grid grid-cols-2 gap-2 text-xs">
+              <div className="grid grid-cols-2 gap-2 text-sm">
                 {categories.map((cat, idx) => (
                   <Link
                     key={idx}
                     href={cat.href}
                     onClick={() => setMobileOpen(false)}
-                    className="p-3 rounded-2xl border border-white/60 dark:border-white/[0.05] bg-white/60 dark:bg-white/[0.03] hover:bg-white dark:hover:bg-white/10 hover:text-[#b84357] dark:hover:text-rose-300 transition-colors flex items-center justify-between"
+                    className="p-3.5 rounded-2xl border border-white/60 dark:border-white/[0.05] bg-white/60 dark:bg-white/[0.03] hover:bg-white dark:hover:bg-white/10 hover:text-[#b84357] dark:hover:text-rose-300 transition-colors flex items-center justify-between"
                   >
                     <span className="font-bold text-slate-800 dark:text-slate-200">{cat.name}</span>
-                    <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+                    <ChevronRight className="w-4 h-4 text-slate-400" />
                   </Link>
                 ))}
               </div>
@@ -471,19 +471,19 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
 
             {/* Navigation Links Grid */}
             <div className="pt-2 border-t border-black/[0.04] dark:border-white/[0.06]">
-              <span className="text-[10px] uppercase font-bold tracking-widest text-slate-400 block mb-2">
+              <span className="text-xs uppercase font-extrabold tracking-widest text-slate-400 block mb-2">
                 Quick Navigation
               </span>
-              <div className="grid grid-cols-2 gap-2 text-xs font-bold">
+              <div className="grid grid-cols-2 gap-2 text-sm font-bold">
                 {mainNavLinks.map((item, idx) => (
                   <Link
                     key={idx}
                     href={item.href}
                     onClick={() => setMobileOpen(false)}
-                    className="p-3 rounded-2xl border border-white/60 dark:border-white/[0.05] bg-white/60 dark:bg-white/[0.03] text-slate-800 dark:text-slate-100 hover:bg-white dark:hover:bg-white/10 hover:text-[#b84357] dark:hover:text-rose-300 active:scale-95 transition-all flex items-center justify-between"
+                    className="p-3.5 rounded-2xl border border-white/60 dark:border-white/[0.05] bg-white/60 dark:bg-white/[0.03] text-slate-800 dark:text-slate-100 hover:bg-white dark:hover:bg-white/10 hover:text-[#b84357] dark:hover:text-rose-300 active:scale-95 transition-all flex items-center justify-between"
                   >
                     <span>{item.label}</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-slate-400" />
+                    <ArrowRight className="w-4 h-4 text-slate-400" />
                   </Link>
                 ))}
               </div>
@@ -493,15 +493,15 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
             <div className="pt-3 border-t border-black/[0.04] dark:border-white/[0.06] flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <ThemeToggle compact />
-                <span className="text-xs font-bold text-slate-700 dark:text-slate-200">Switch Theme</span>
+                <span className="text-sm font-bold text-slate-700 dark:text-slate-200">Switch Theme</span>
               </div>
 
               <Link
                 href="/sell"
                 onClick={() => setMobileOpen(false)}
-                className="flex items-center gap-1.5 text-xs text-[#b84357] font-bold"
+                className="flex items-center gap-1.5 text-sm text-[#b84357] font-bold"
               >
-                <PlusCircle className="w-4 h-4" />
+                <PlusCircle className="w-4.5 h-4.5" />
                 <span>List Your Items</span>
               </Link>
             </div>
