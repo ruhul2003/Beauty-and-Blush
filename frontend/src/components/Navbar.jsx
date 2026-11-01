@@ -219,7 +219,7 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
                     <div className="glass-dropdown p-4 space-y-3 shadow-2xl">
                       
                       <div className="px-2 pt-0.5 pb-2 border-b border-black/[0.04] dark:border-white/[0.06]">
-                        <span className="text-[10px] uppercase font-bold tracking-[0.2em] text-[#b84357] dark:text-rose-300">
+                        <span className="text-xs uppercase font-extrabold tracking-[0.2em] text-[#b84357] dark:text-rose-300">
                           Categories
                         </span>
                       </div>
@@ -231,25 +231,25 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
                             key={idx}
                             href={cat.href}
                             onClick={() => setCategoryDropdown(false)}
-                            className="px-3.5 py-2.5 rounded-2xl border border-white/60 dark:border-white/[0.08] bg-white/60 dark:bg-white/[0.05] hover:bg-white dark:hover:bg-white/[0.12] hover:shadow-xs transition-all flex items-center justify-between group/cat backdrop-blur-md"
+                            className="px-4 py-3 rounded-2xl border border-white/60 dark:border-white/[0.08] bg-white/60 dark:bg-white/[0.05] hover:bg-white dark:hover:bg-white/[0.12] hover:shadow-xs transition-all flex items-center justify-between group/cat backdrop-blur-md"
                           >
-                            <span className="text-xs font-bold text-slate-800 dark:text-slate-100 group-hover/cat:text-[#b84357] dark:group-hover/cat:text-rose-300 transition-colors">
+                            <span className="text-sm font-bold text-slate-800 dark:text-slate-100 group-hover/cat:text-[#b84357] dark:group-hover/cat:text-rose-300 transition-colors">
                               {cat.name}
                             </span>
-                            <ChevronRight className="w-3.5 h-3.5 text-slate-400 group-hover/cat:text-[#b84357] dark:group-hover/cat:text-rose-300 group-hover/cat:translate-x-0.5 transition-all" />
+                            <ChevronRight className="w-4 h-4 text-slate-400 group-hover/cat:text-[#b84357] dark:group-hover/cat:text-rose-300 group-hover/cat:translate-x-0.5 transition-all" />
                           </Link>
                         ))}
                       </div>
 
                       {/* Bottom Footer Strip */}
-                      <div className="pt-2 border-t border-black/[0.04] dark:border-white/[0.06] px-1 flex items-center justify-between">
+                      <div className="pt-2.5 border-t border-black/[0.04] dark:border-white/[0.06] px-1 flex items-center justify-between">
                         <Link
                           href="/browse"
                           onClick={() => setCategoryDropdown(false)}
-                          className="inline-flex items-center gap-1.5 text-xs font-bold text-[#b84357] dark:text-rose-300 hover:underline"
+                          className="inline-flex items-center gap-1.5 text-sm font-bold text-[#b84357] dark:text-rose-300 hover:underline"
                         >
                           <span>Explore All Products</span>
-                          <ArrowRight className="w-3.5 h-3.5" />
+                          <ArrowRight className="w-4 h-4" />
                         </Link>
                       </div>
 
