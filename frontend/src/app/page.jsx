@@ -5,7 +5,6 @@ import { HeroBanner } from '@/components/HeroBanner';
 import { TrustBadges } from '@/components/TrustBadges';
 import { CategoryShowcase } from '@/components/CategoryShowcase';
 import { PromoGrid } from '@/components/PromoGrid';
-import { InstagramFeed } from '@/components/InstagramFeed';
 
 export default function Home() {
   return (
@@ -21,9 +20,6 @@ export default function Home() {
 
       {/* 4. Dual Promo Banners (Skincare & Makeup) */}
       <PromoGrid />
-
-      {/* 5. Instagram Social Proof Gallery */}
-      <InstagramFeed />
     </div>
   );
 }
