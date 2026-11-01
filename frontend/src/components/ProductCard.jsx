@@ -137,27 +137,27 @@ export function ProductCard({ product }) {
 
           {/* Content Body */}
           <div className="px-1 space-y-1">
-            <div className="flex items-center justify-between text-xs">
+            <div className="flex items-center justify-between text-xs sm:text-sm">
               <Link
                 href={`/browse?category=${encodeURIComponent(product.category || 'All')}`}
-                className="text-[10px] font-bold uppercase tracking-wider text-[#b84357] dark:text-rose-300 hover:underline"
+                className="text-xs font-extrabold uppercase tracking-wider text-[#b84357] dark:text-rose-300 hover:underline"
               >
                 {product.brand || product.category}
               </Link>
-              <div className="flex items-center gap-1 text-[11px] text-slate-400">
-                <MapPin className="w-3 h-3 text-[#b84357]" />
+              <div className="flex items-center gap-1 text-xs text-slate-400">
+                <MapPin className="w-3.5 h-3.5 text-[#b84357]" />
                 <span>{product.location || 'Dhaka'}</span>
               </div>
             </div>
 
             <Link href={`/product/${product._id || product.id}`} className="block">
-              <h3 className="font-bold text-sm text-[#181416] dark:text-white group-hover:text-[#b84357] dark:group-hover:text-rose-300 line-clamp-1 transition-colors">
+              <h3 className="font-bold text-base sm:text-[17px] text-[#181416] dark:text-white group-hover:text-[#b84357] dark:group-hover:text-rose-300 line-clamp-1 transition-colors">
                 {product.title}
               </h3>
             </Link>
 
             {product.shade && (
-              <p className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-1">
+              <p className="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">
                 Shade: <span className="text-slate-800 dark:text-slate-200 font-medium">{product.shade}</span>
               </p>
             )}
