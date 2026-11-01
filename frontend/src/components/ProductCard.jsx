@@ -102,7 +102,7 @@ export function ProductCard({ product }) {
                 e.stopPropagation();
                 setQuickViewOpen(true);
               }}
-              className="absolute inset-x-4 top-1/2 -translate-y-1/2 py-2 px-3 rounded-full glass-pill text-[#181416] dark:text-white font-bold text-xs shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-200 flex items-center justify-center gap-1.5 hover:bg-[#b84357] hover:text-white dark:hover:bg-[#b84357] dark:hover:text-white z-20 cursor-pointer"
+              className="absolute inset-x-4 top-1/2 -translate-y-1/2 py-2.5 px-3 rounded-full glass-pill text-[#181416] dark:text-white font-bold text-sm shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-200 flex items-center justify-center gap-2 hover:bg-[#b84357] hover:text-white dark:hover:bg-[#b84357] dark:hover:text-white z-20 cursor-pointer"
             >
               <Eye className="w-3.5 h-3.5" />
               <span>Quick View</span>
@@ -164,11 +164,11 @@ export function ProductCard({ product }) {
 
             {/* Pricing */}
             <div className="pt-1 flex items-baseline gap-2">
-              <span className="text-base font-bold text-[#b84357] dark:text-rose-300">
+              <span className="text-lg sm:text-xl font-extrabold text-[#b84357] dark:text-rose-300">
                 {formatPrice(product.price)}
               </span>
               {product.originalPrice > product.price && (
-                <span className="text-xs text-slate-400 line-through">
+                <span className="text-xs sm:text-sm text-slate-400 line-through">
                   {formatPrice(product.originalPrice)}
                 </span>
               )}
@@ -180,7 +180,7 @@ export function ProductCard({ product }) {
         <div className="pt-3 mt-3 flex items-center gap-2 border-t border-black/[0.04] dark:border-white/[0.06]">
           <Link
             href={`/product/${product._id || product.id}`}
-            className="flex-1 py-2 text-center text-xs font-bold rounded-full glass-pill hover:bg-[#b84357] hover:text-white text-[#181416] dark:text-white hover:border-[#b84357] active:scale-98 transition-all"
+            className="flex-1 py-2.5 text-center text-sm font-bold rounded-full glass-pill hover:bg-[#b84357] hover:text-white text-[#181416] dark:text-white hover:border-[#b84357] active:scale-98 transition-all"
           >
             View Details
           </Link>
