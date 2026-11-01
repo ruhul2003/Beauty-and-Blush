@@ -17,6 +17,39 @@ export function HeroBanner() {
 
   const slides = [
     {
+      id: "hero-slide-makeup",
+      tag: "AUTHENTIC SOFT BLUSH & GLOW",
+      badge: "Best Seller • 100% Genuine",
+      titleLine1: "Radiant Flush With",
+      titleLine2: "Dewy Silk Liquid",
+      titleAccent: "Blushes & Rouge",
+      desc: "Weightless buildable formula infused with botanical lotus and gardenia extract. Crafted for ladies' natural glass skin and all-day youthful radiance.",
+      image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1920&q=85",
+      category: "Makeup"
+    },
+    {
+      id: "hero-slide-skincare",
+      tag: "CLINICAL SKINCARE FORMULAS",
+      badge: "Dermatologist Approved • 72H Dew",
+      titleLine1: "Pure & Potent",
+      titleLine2: "Hydrating Barrier",
+      titleAccent: "Dewy Serums & Creams",
+      desc: "Clinical hyaluronic acid, pure niacinamide 10% and soothing rosewater that visibly minimize pores, balance sebum, and lock in all-day radiance.",
+      image: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=1920&q=85",
+      category: "Skincare"
+    },
+    {
+      id: "hero-slide-fragrance",
+      tag: "HAUTE PARFUMERIE POUR FEMME",
+      badge: "Iconic Signature Scent • Long-lasting",
+      titleLine1: "Sensual Floral",
+      titleLine2: "French Jasmine &",
+      titleAccent: "Pink Peony Mist",
+      desc: "A romantic constellation of delicate floral notes, sparkling grapefruit, sweet quince and soft white musk crafted exclusively for women.",
+      image: "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=1920&q=85",
+      category: "Fragrance"
+    },
+    {
       id: "hero-slide-bags",
       tag: "HAUTE MAROQUINERIE & ACCESSORIES",
       badge: "Artisan Leather • Ladies Bags",
@@ -35,41 +68,8 @@ export function HeroBanner() {
       titleLine2: "Serene Minimalist",
       titleAccent: "Aesthetic Home Decor",
       desc: "Handcrafted ceramics, soothing botanical scents, and timeless architectural accents that transform living spaces into an oasis of warmth.",
-      image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1920&q=80",
+      image: "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=1920&q=85",
       category: "Home Decor"
-    },
-    {
-      id: "hero-slide-skincare",
-      tag: "CLINICAL SKINCARE FORMULAS",
-      badge: "Dermatologist Approved • 72H Dew",
-      titleLine1: "Pure & Potent",
-      titleLine2: "Hydrating Barrier",
-      titleAccent: "Dewy Serums & Creams",
-      desc: "Clinical hyaluronic acid, pure niacinamide 10% and soothing rosewater that visibly minimize pores, balance sebum, and lock in all-day radiance.",
-      image: "/images/promo-skincare.jpg",
-      category: "Skincare"
-    },
-    {
-      id: "hero-slide-fragrance",
-      tag: "HAUTE PARFUMERIE POUR FEMME",
-      badge: "Iconic Signature Scent • Long-lasting",
-      titleLine1: "Sensual Floral",
-      titleLine2: "French Jasmine &",
-      titleAccent: "Pink Peony Mist",
-      desc: "A romantic constellation of delicate floral notes, sparkling grapefruit, sweet quince and soft white musk crafted exclusively for women.",
-      image: "/images/perfume.jpg",
-      category: "Fragrance"
-    },
-    {
-      id: "hero-slide-makeup",
-      tag: "AUTHENTIC SOFT BLUSH & GLOW",
-      badge: "Best Seller • 100% Genuine",
-      titleLine1: "Radiant Flush With",
-      titleLine2: "Dewy Silk Liquid",
-      titleAccent: "Blushes & Rouge",
-      desc: "Weightless buildable formula infused with botanical lotus and gardenia extract. Crafted for ladies' natural glass skin and all-day youthful radiance.",
-      image: "/images/hero-model.jpg",
-      category: "Makeup"
     }
   ];
 
