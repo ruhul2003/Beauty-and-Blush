@@ -102,7 +102,8 @@ export function ProductCard({ product }) {
                 e.stopPropagation();
                 setQuickViewOpen(true);
               }}
-              className="absolute inset-x-4 top-1/2 -translate-y-1/2 py-2 px-3 rounded-full glass-pill text-[#181416] dark:text-white font-bold text-xs shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-200 flex items-center justify-center gap-1.5 hover:bg-[#b84357] hover:text-white dark:hover:bg-[#b84357] dark:hover:text-white z-20 cursor-pointer"
+              className="absolute inset-x-3 sm:inset-x-4 top-1/2 -translate-y-1/2 py-2 px-3 rounded-full glass-pill text-[#181416] dark:text-white font-bold text-xs shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-200 flex items-center justify-center gap-1.5 hover:bg-[#b84357] hover:text-white dark:hover:bg-[#b84357] dark:hover:text-white z-20 cursor-pointer backdrop-blur-md"
+              aria-label={`Quick view ${product.title}`}
             >
               <Eye className="w-3.5 h-3.5" />
               <span>Quick View</span>
