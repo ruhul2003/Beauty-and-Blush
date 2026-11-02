@@ -107,6 +107,20 @@ export function ProductShowcase({ products = [], loading = false }) {
           </div>
         )}
 
+        {/* Bottom Centered Explore Catalog Button */}
+        <div className="pt-4 flex flex-col items-center justify-center text-center space-y-2">
+          <Link
+            href="/browse"
+            className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-[#b84357] hover:bg-[#a13649] text-white text-xs font-bold uppercase tracking-wider shadow-lg shadow-[#b84357]/25 hover:scale-[1.02] active:scale-98 transition-all cursor-pointer"
+          >
+            <span>View All Curated Products</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+          <span className="text-[11px] text-slate-500">
+            Over 50+ luxury items available with 100% genuine batch code inspection
+          </span>
+        </div>
+
       </div>
     </section>
   );
