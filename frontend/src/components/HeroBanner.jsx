@@ -233,8 +233,8 @@ export function HeroBanner() {
 
         {/* Bottom Controls & Indicators */}
         <div className="relative z-10 w-full flex flex-col items-center justify-center pt-2 gap-3">
-          {/* Slide Indicator Pills */}
-          <div className="flex items-center justify-center gap-2 sm:gap-2.5">
+          {/* Slide Indicator Pills with Glass Capsule */}
+          <div className="flex items-center justify-center gap-2 sm:gap-2.5 px-4 py-1.5 rounded-full bg-black/30 backdrop-blur-md border border-white/20 shadow-md">
             {slides.map((s, idx) => (
               <button
                 key={s.id}
@@ -242,7 +242,7 @@ export function HeroBanner() {
                 className={`h-2 sm:h-2.5 rounded-full transition-all duration-400 cursor-pointer ${
                   currentSlide === idx 
                     ? 'w-8 sm:w-10 bg-white shadow-md' 
-                    : 'w-2.5 sm:w-3 bg-white/40 hover:bg-white/70'
+                    : 'w-2.5 sm:w-3 bg-white/45 hover:bg-white/80'
                 }`}
                 aria-label={`Go to slide ${idx + 1}`}
               />
