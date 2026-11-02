@@ -18,8 +18,11 @@ export function ProductShowcase({ products = [], loading = false }) {
   const displayedProducts = filteredProducts.slice(0, 8);
 
   return (
-    <section className="w-[95%] sm:w-[92%] max-w-[1500px] mx-auto my-8 sm:my-14 py-2">
-      <div className="glass-slab p-6 sm:p-10 md:p-12 rounded-[36px] sm:rounded-[44px] space-y-8">
+    <section className="w-[95%] sm:w-[92%] max-w-[1500px] mx-auto my-8 sm:my-14 py-2 relative">
+      {/* Ambient Glow for Dark Mode */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-[#b84357]/5 dark:bg-rose-500/10 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="glass-slab p-6 sm:p-10 md:p-12 rounded-[36px] sm:rounded-[44px] space-y-8 relative z-10">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-2 border-b border-black/[0.04] dark:border-white/[0.06]">
