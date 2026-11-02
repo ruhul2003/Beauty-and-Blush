@@ -67,11 +67,29 @@ export function ProductShowcase({ products = [], loading = false }) {
         </div>
 
         {/* Product Cards Grid with Responsive Layout */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3.5 sm:gap-6">
-          {displayedProducts.map((product) => (
-            <ProductCard key={product._id || product.id} product={product} />
-          ))}
-        </div>
+        {loading ? (
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3.5 sm:gap-6">
+            {[...Array(8)].map((_, i) => (
+              <div 
+                key={i} 
+                className="glass-slab h-72 sm:h-80 rounded-[28px] animate-pulse flex flex-col justify-between p-4"
+              >
+                <div className="w-full h-40 sm:h-48 rounded-2xl glass-well" />
+                <div className="space-y-2 mt-3">
+                  <div className="h-3 w-1/3 rounded-full bg-slate-200 dark:bg-white/10" />
+                  <div className="h-4 w-3/4 rounded-full bg-slate-200 dark:bg-white/10" />
+                  <div className="h-4 w-1/2 rounded-full bg-rose-200/50 dark:bg-rose-500/20" />
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3.5 sm:gap-6">
+            {displayedProducts.map((product) => (
+              <ProductCard key={product._id || product.id} product={product} />
+            ))}
+          </div>
+        )}
 
       </div>
     </section>
