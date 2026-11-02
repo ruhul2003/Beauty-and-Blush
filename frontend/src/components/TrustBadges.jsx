@@ -29,7 +29,7 @@ export function TrustBadges() {
   ];
 
   return (
-    <section className="w-[95%] sm:w-[92%] max-w-[1500px] mx-auto my-6 sm:my-8 py-2">
+    <section className="w-[95%] sm:w-[92%] max-w-[1500px] mx-auto mt-8 sm:mt-14 mb-6 sm:mb-8 py-2">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 items-stretch">
         {items.map((item, idx) => {
           const Icon = item.icon;
