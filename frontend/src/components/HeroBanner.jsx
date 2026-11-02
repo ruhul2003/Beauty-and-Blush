@@ -205,16 +205,16 @@ export function HeroBanner() {
             </motion.div>
           </AnimatePresence>
 
-          {/* Call To Actions */}
+          {/* Call To Actions (Enhanced Full Screen CTAs) */}
           <motion.div 
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-1 sm:pt-2"
+            className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-2 sm:pt-3"
           >
             <Link
               href="/browse"
-              className="px-7 sm:px-9 py-3.5 sm:py-4 text-xs sm:text-sm tracking-[0.18em] uppercase font-bold text-white bg-[#b84357] hover:bg-[#a13649] rounded-full flex items-center gap-2 sm:gap-2.5 shadow-xl shadow-[#b84357]/35 hover:scale-[1.02] active:scale-98 transition-all"
+              className="px-8 sm:px-10 py-3.5 sm:py-4 text-xs sm:text-sm tracking-[0.18em] uppercase font-bold text-white bg-[#b84357] hover:bg-[#a13649] rounded-full flex items-center gap-2 sm:gap-2.5 shadow-xl shadow-[#b84357]/40 hover:shadow-[#b84357]/60 hover:scale-[1.03] active:scale-97 transition-all cursor-pointer border border-rose-300/30"
             >
               <span>EXPLORE COLLECTION</span>
               <ArrowRight className="w-4 h-4" />
@@ -222,7 +222,7 @@ export function HeroBanner() {
             
             <Link
               href="/browse"
-              className="inline-flex items-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 text-xs sm:text-sm font-semibold uppercase tracking-wider text-white hover:text-rose-200 rounded-full border border-white/20 bg-white/[0.08] hover:bg-white/[0.18] backdrop-blur-xl group hover:scale-[1.02] active:scale-98 transition-all shadow-md"
+              className="inline-flex items-center gap-2 px-7 sm:px-9 py-3.5 sm:py-4 text-xs sm:text-sm font-bold uppercase tracking-wider text-white hover:text-rose-200 rounded-full border border-white/30 bg-white/[0.1] hover:bg-white/[0.2] backdrop-blur-xl group hover:scale-[1.03] active:scale-97 transition-all shadow-lg cursor-pointer"
             >
               <span>LADIES GLAMOUR</span>
               <Sparkles className="w-4 h-4 text-rose-300 group-hover:rotate-12 transition-transform" />
