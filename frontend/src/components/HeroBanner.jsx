@@ -190,7 +190,7 @@ export function HeroBanner() {
               </div>
 
               {/* Main Balanced Centered Title */}
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[66px] font-bold text-white leading-[1.12] sm:leading-[1.1] tracking-tight drop-shadow-xl min-h-[100px] sm:min-h-[130px] md:min-h-[160px] flex flex-col justify-center font-serif">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[68px] font-bold text-white leading-[1.1] tracking-tight drop-shadow-2xl min-h-[96px] sm:min-h-[120px] md:min-h-[150px] flex flex-col justify-center font-serif">
                 <span>{slide.titleLine1}</span>
                 <span className="font-light text-slate-100">{slide.titleLine2}</span>
                 <span className="text-[#f4728d] italic drop-shadow-lg mt-0.5">
@@ -199,7 +199,7 @@ export function HeroBanner() {
               </h1>
 
               {/* Description */}
-              <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-200/90 max-w-md sm:max-w-xl lg:max-w-2xl mx-auto leading-relaxed font-normal drop-shadow-md min-h-[40px] sm:min-h-[48px]">
+              <p className="text-xs sm:text-sm md:text-base text-slate-200/90 max-w-md sm:max-w-xl lg:max-w-2xl mx-auto leading-relaxed font-normal drop-shadow-md min-h-[36px] sm:min-h-[44px]">
                 {slide.desc}
               </p>
             </motion.div>
