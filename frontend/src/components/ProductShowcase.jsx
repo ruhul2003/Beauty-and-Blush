@@ -45,6 +45,27 @@ export function ProductShowcase({ products = [], loading = false }) {
           </Link>
         </div>
 
+        {/* Category Filter Tabs */}
+        <div className="flex items-center gap-2 overflow-x-auto pb-2 no-scrollbar">
+          {categories.map((cat) => {
+            const isActive = activeCategory === cat;
+            return (
+              <button
+                key={cat}
+                type="button"
+                onClick={() => setActiveCategory(cat)}
+                className={`px-5 py-2 rounded-full text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
+                  isActive
+                    ? 'bg-[#b84357] text-white shadow-md shadow-[#b84357]/25'
+                    : 'glass-pill text-slate-700 dark:text-slate-300 hover:text-[#b84357] dark:hover:text-rose-300'
+                }`}
+              >
+                {cat === 'All' ? 'All Highlights' : cat}
+              </button>
+            );
+          })}
+        </div>
+
         {/* Product Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
           {displayedProducts.map((product) => (
