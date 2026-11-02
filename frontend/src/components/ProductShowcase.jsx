@@ -66,8 +66,8 @@ export function ProductShowcase({ products = [], loading = false }) {
           })}
         </div>
 
-        {/* Product Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+        {/* Product Cards Grid with Responsive Layout */}
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3.5 sm:gap-6">
           {displayedProducts.map((product) => (
             <ProductCard key={product._id || product.id} product={product} />
           ))}
