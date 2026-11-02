@@ -83,6 +83,22 @@ export function ProductShowcase({ products = [], loading = false }) {
               </div>
             ))}
           </div>
+        ) : displayedProducts.length === 0 ? (
+          <div className="text-center py-12 sm:py-16 glass-well rounded-[32px] space-y-3">
+            <p className="text-xs sm:text-sm font-bold text-slate-700 dark:text-slate-300">
+              No products found in this category
+            </p>
+            <p className="text-[11px] text-slate-500">
+              Try switching back to all highlights or exploring the full catalogue.
+            </p>
+            <button
+              type="button"
+              onClick={() => setActiveCategory('All')}
+              className="px-5 py-2 rounded-full text-xs font-bold bg-[#b84357] text-white cursor-pointer shadow-sm mt-2"
+            >
+              Reset Filters
+            </button>
+          </div>
         ) : (
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3.5 sm:gap-6">
             {displayedProducts.map((product) => (
