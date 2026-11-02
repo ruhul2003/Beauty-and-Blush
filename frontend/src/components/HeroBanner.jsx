@@ -146,7 +146,7 @@ export function HeroBanner() {
       </div>
 
       {/* Main Full Screen Content Wrapper */}
-      <div className="w-full max-w-[1500px] mx-auto h-full flex flex-col justify-between items-center relative z-10 p-6 sm:p-10 md:p-12">
+      <div className="w-full max-w-[1500px] mx-auto h-full flex flex-col justify-between items-center relative z-10 pt-24 sm:pt-28 pb-6 sm:pb-8 px-4 sm:px-8 md:px-12">
 
         {/* Outer Top Bar Window Controls & Verification Badge */}
         <div className="relative z-10 w-full flex items-center justify-between pb-4 sm:pb-6 border-b border-white/15">
