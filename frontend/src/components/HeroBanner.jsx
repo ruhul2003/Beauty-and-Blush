@@ -118,35 +118,35 @@ export function HeroBanner() {
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
-      className="relative w-full min-h-screen h-[100dvh] overflow-hidden select-none touch-pan-y"
+      className="relative w-full min-h-screen h-[100dvh] overflow-hidden select-none touch-pan-y flex flex-col justify-between items-center"
     >
-      {/* Outer Full Screen Glass Window Container */}
-      <div className="w-[95%] sm:w-[92%] max-w-[1500px] mx-auto glass-window rounded-[36px] sm:rounded-[44px] min-h-[calc(100dvh-2rem)] h-[calc(100dvh-2rem)] my-4 relative overflow-hidden flex flex-col justify-between items-center p-6 sm:p-10 md:p-12 shadow-2xl">
-        
-        {/* Full Width Cinematic Background Crossfade Slides */}
-        <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
-          {slides.map((s, idx) => (
-            <div
-              key={s.id}
-              className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out will-change-[opacity] ${
-                currentSlide === idx ? 'opacity-100 z-0' : 'opacity-0 -z-10'
+      {/* Full Width Cinematic Background Crossfade Slides (Edge to Edge) */}
+      <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
+        {slides.map((s, idx) => (
+          <div
+            key={s.id}
+            className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out will-change-[opacity] ${
+              currentSlide === idx ? 'opacity-100 z-0' : 'opacity-0 -z-10'
+            }`}
+          >
+            <img
+              src={s.image}
+              alt={s.titleAccent}
+              className={`w-full h-full object-cover object-center transition-transform duration-[6000ms] ease-out will-change-transform ${
+                currentSlide === idx ? 'scale-105' : 'scale-100'
               }`}
-            >
-              <img
-                src={s.image}
-                alt={s.titleAccent}
-                className={`w-full h-full object-cover object-center transition-transform duration-[6000ms] ease-out will-change-transform ${
-                  currentSlide === idx ? 'scale-105' : 'scale-100'
-                }`}
-              />
-            </div>
-          ))}
+            />
+          </div>
+        ))}
 
-          {/* Light Pink Blush Glass Vignette & Gradient Overlays */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#2a131b]/80 via-[#3a1b26]/50 to-[#2a131b]/80 z-[1] backdrop-blur-[1px]" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#220d15]/60 via-pink-500/10 to-[#1e0a12]/85 z-[1]" />
-          <div className="absolute inset-0 bg-radial from-pink-400/15 via-transparent to-transparent pointer-events-none z-[1]" />
-        </div>
+        {/* Light Pink Blush Glass Vignette & Gradient Overlays */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#2a131b]/80 via-[#3a1b26]/50 to-[#2a131b]/80 z-[1] backdrop-blur-[1px]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#220d15]/60 via-pink-500/10 to-[#1e0a12]/85 z-[1]" />
+        <div className="absolute inset-0 bg-radial from-pink-400/15 via-transparent to-transparent pointer-events-none z-[1]" />
+      </div>
+
+      {/* Main Full Screen Content Wrapper */}
+      <div className="w-full max-w-[1500px] mx-auto h-full flex flex-col justify-between items-center relative z-10 p-6 sm:p-10 md:p-12">
 
         {/* Outer Top Bar Window Controls & Verification Badge */}
         <div className="relative z-10 w-full flex items-center justify-between pb-4 sm:pb-6 border-b border-white/15">
