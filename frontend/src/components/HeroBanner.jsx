@@ -168,7 +168,7 @@ export function HeroBanner() {
         </div>
 
         {/* Main Centered Content: Dynamic Animated Titles, Badges & CTAs */}
-        <div className="relative z-20 w-full max-w-3xl lg:max-w-4xl flex flex-col items-center text-center space-y-5 sm:space-y-6 my-auto py-8 sm:py-12">
+        <div className="relative z-20 w-full max-w-3xl lg:max-w-4xl flex-1 flex flex-col items-center justify-center text-center space-y-5 sm:space-y-6 py-4 sm:py-6 my-auto">
           
           <AnimatePresence mode="wait">
             <motion.div
