@@ -139,10 +139,10 @@ export function HeroBanner() {
           </div>
         ))}
 
-        {/* Light Pink Blush Glass Vignette & Gradient Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#2a131b]/80 via-[#3a1b26]/50 to-[#2a131b]/80 z-[1] backdrop-blur-[1px]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#220d15]/60 via-pink-500/10 to-[#1e0a12]/85 z-[1]" />
-        <div className="absolute inset-0 bg-radial from-pink-400/15 via-transparent to-transparent pointer-events-none z-[1]" />
+        {/* Light Pink Blush Glass Vignette & Gradient Overlays (Full Screen) */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/35 to-black/70 z-[1] backdrop-blur-[0.5px]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-rose-950/25 to-[#12070d]/90 z-[1]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-rose-500/15 via-transparent to-black/50 pointer-events-none z-[1]" />
       </div>
 
       {/* Main Full Screen Content Wrapper */}
