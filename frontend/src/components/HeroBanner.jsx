@@ -190,7 +190,7 @@ export function HeroBanner() {
               </div>
 
               {/* Main Balanced Centered Title */}
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[68px] font-bold text-white leading-[1.1] tracking-tight drop-shadow-2xl min-h-[96px] sm:min-h-[120px] md:min-h-[150px] flex flex-col justify-center font-serif">
+              <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[68px] font-bold text-white leading-[1.12] sm:leading-[1.1] tracking-tight drop-shadow-2xl min-h-[80px] sm:min-h-[120px] md:min-h-[150px] flex flex-col justify-center font-serif">
                 <span>{slide.titleLine1}</span>
                 <span className="font-light text-slate-100">{slide.titleLine2}</span>
                 <span className="text-[#f4728d] italic drop-shadow-lg mt-0.5">
