@@ -16,11 +16,13 @@ import { formatPrice, calculateDiscount } from '@/utils/formatters';
 import { useToast } from '@/context/ToastContext';
 import { useCart } from '@/context/CartContext';
 import { QuickViewModal } from './QuickViewModal';
+import { BuyModal } from './BuyModal';
 
 export function ProductCard({ product }) {
   const { showToast } = useToast();
   const { addToCart } = useCart();
   const [quickViewOpen, setQuickViewOpen] = useState(false);
+  const [buyModalOpen, setBuyModalOpen] = useState(false);
   const [isWishlisted, setIsWishlisted] = useState(() => {
     try {
       const saved = JSON.parse(localStorage.getItem('bnb_wishlist') || '[]');
@@ -216,6 +218,10 @@ export function ProductCard({ product }) {
 
       {quickViewOpen && (
         <QuickViewModal product={product} onClose={() => setQuickViewOpen(false)} />
+      )}
+
+      {buyModalOpen && (
+        <BuyModal product={product} onClose={() => setBuyModalOpen(false)} />
       )}
     </>
   );
