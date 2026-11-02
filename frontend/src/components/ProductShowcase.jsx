@@ -105,11 +105,20 @@ export function ProductShowcase({ products = [], loading = false }) {
             </button>
           </div>
         ) : (
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3.5 sm:gap-6">
-            {displayedProducts.map((product) => (
-              <ProductCard key={product._id || product.id} product={product} />
-            ))}
-          </div>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeCategory}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -12 }}
+              transition={{ duration: 0.3 }}
+              className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3.5 sm:gap-6"
+            >
+              {displayedProducts.map((product) => (
+                <ProductCard key={product._id || product.id} product={product} />
+              ))}
+            </motion.div>
+          </AnimatePresence>
         )}
 
         {/* Bottom Centered Explore Catalog Button */}
