@@ -118,10 +118,10 @@ export function HeroBanner() {
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
-      className="relative w-full pt-3 sm:pt-5 pb-8 sm:pb-12 overflow-hidden select-none touch-pan-y"
+      className="relative w-full min-h-screen h-[100dvh] overflow-hidden select-none touch-pan-y"
     >
-      {/* Outer Squircle Glass Window with smooth border and glassy blur effect */}
-      <div className="w-[95%] sm:w-[92%] max-w-[1500px] mx-auto glass-window rounded-[36px] sm:rounded-[44px] min-h-[76vh] sm:min-h-[82vh] relative overflow-hidden flex flex-col justify-between items-center p-6 sm:p-10 md:p-12 shadow-2xl">
+      {/* Outer Full Screen Glass Window Container */}
+      <div className="w-[95%] sm:w-[92%] max-w-[1500px] mx-auto glass-window rounded-[36px] sm:rounded-[44px] min-h-[calc(100dvh-2rem)] h-[calc(100dvh-2rem)] my-4 relative overflow-hidden flex flex-col justify-between items-center p-6 sm:p-10 md:p-12 shadow-2xl">
         
         {/* Full Width Cinematic Background Crossfade Slides */}
         <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
