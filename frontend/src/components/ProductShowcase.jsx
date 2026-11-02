@@ -24,10 +24,15 @@ export function ProductShowcase({ products = [], loading = false }) {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-2 border-b border-black/[0.04] dark:border-white/[0.06]">
           <div className="space-y-2 max-w-xl">
-            <span className="glass-pill px-3.5 py-1 text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#b84357] dark:text-rose-300 shadow-xs inline-flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Curated Vault</span>
-            </span>
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="glass-pill px-3.5 py-1 text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#b84357] dark:text-rose-300 shadow-xs inline-flex items-center gap-1.5">
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>Curated Vault</span>
+              </span>
+              <span className="glass-pill px-3 py-1 text-[10px] font-bold text-emerald-600 dark:text-emerald-400">
+                100% Genuine Verified
+              </span>
+            </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-[#181416] dark:text-white leading-tight">
               Featured Cosmetics & Fragrances
             </h2>
