@@ -249,10 +249,27 @@ export function HeroBanner() {
             ))}
           </div>
 
-          {/* Subtle Scroll Hint */}
-          <div className="hidden sm:flex items-center gap-1.5 text-[10px] text-white/60 uppercase tracking-[0.25em] font-medium">
+          {/* Subtle Animated Scroll Hint */}
+          <button
+            type="button"
+            onClick={() => {
+              window.scrollTo({
+                top: window.innerHeight - 40,
+                behavior: 'smooth'
+              });
+            }}
+            className="flex items-center gap-2 text-[10px] sm:text-[11px] text-white/70 hover:text-white uppercase tracking-[0.25em] font-medium transition-colors cursor-pointer group mt-0.5"
+            aria-label="Scroll down to explore products"
+          >
+            <div className="w-4 h-6 rounded-full border border-white/40 flex justify-center pt-1 group-hover:border-white transition-colors">
+              <motion.div
+                animate={{ y: [0, 6, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                className="w-1 h-1.5 bg-rose-300 rounded-full"
+              />
+            </div>
             <span>Scroll to explore</span>
-          </div>
+          </button>
         </div>
 
       </div>
