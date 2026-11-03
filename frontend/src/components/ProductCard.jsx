@@ -104,7 +104,7 @@ export function ProductCard({ product }) {
                 e.stopPropagation();
                 setQuickViewOpen(true);
               }}
-              className="absolute inset-x-3 sm:inset-x-4 top-1/2 -translate-y-1/2 py-2 px-3 rounded-full glass-pill text-[#181416] dark:text-white font-bold text-xs shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-200 flex items-center justify-center gap-1.5 hover:bg-[#b84357] hover:text-white dark:hover:bg-[#b84357] dark:hover:text-white z-20 cursor-pointer backdrop-blur-md"
+              className="absolute inset-x-3 sm:inset-x-4 top-1/2 -translate-y-1/2 py-1.5 px-3 rounded-full glass-pill text-[#181416] dark:text-white font-bold text-[11px] sm:text-xs shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-200 flex items-center justify-center gap-1.5 hover:bg-[#e06d84] hover:text-white dark:hover:bg-[#e06d84] dark:hover:text-white z-20 cursor-pointer backdrop-blur-md"
               aria-label={`Quick view ${product.title}`}
             >
               <Eye className="w-3.5 h-3.5" />
@@ -208,8 +208,9 @@ export function ProductCard({ product }) {
             href={whatsappUrl}
             target="_blank"
             rel="noreferrer"
-            className="w-8.5 h-8.5 rounded-full glass-pill text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500/10 flex items-center justify-center active:scale-95 transition-all cursor-pointer"
+            className="w-7.5 h-7.5 rounded-full glass-pill text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500/10 flex items-center justify-center active:scale-95 transition-all cursor-pointer"
             title="WhatsApp inquiry"
+            aria-label="WhatsApp inquiry"
           >
             <MessageCircle className="w-3.5 h-3.5" />
           </motion.a>
