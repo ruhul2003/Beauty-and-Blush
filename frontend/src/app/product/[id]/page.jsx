@@ -320,7 +320,7 @@ export default function ProductDetailPage() {
                 whileTap={{ scale: 0.96 }}
                 type="button"
                 onClick={() => addToCart(product, quantity)}
-                className="flex-1 py-3.5 px-6 rounded-full glass-pill hover:bg-[#b84357] hover:text-white text-[#181416] dark:text-white hover:border-[#b84357] font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 active:scale-98 transition-all cursor-pointer shadow-sm"
+                className="flex-1 py-2.5 px-5 rounded-full glass-pill hover:bg-[#e06d84] hover:text-white text-[#181416] dark:text-white hover:border-[#e06d84] font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 active:scale-98 transition-all cursor-pointer shadow-sm"
               >
                 <ShoppingBag className="w-4 h-4" />
                 <span>Add to Bag</span>
