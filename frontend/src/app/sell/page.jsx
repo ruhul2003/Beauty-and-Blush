@@ -76,7 +76,7 @@ export default function SellPage() {
     >
       <div className="glass-slab p-6 sm:p-10 rounded-[36px] space-y-6">
         <div>
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full glass-pill text-xs font-bold text-[#b84357] uppercase tracking-widest mb-2 shadow-xs">
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full glass-pill text-xs font-bold text-[#e06d84] uppercase tracking-widest mb-2 shadow-xs">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Seller Boutique Portal</span>
           </div>
@@ -97,7 +97,7 @@ export default function SellPage() {
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               placeholder="e.g. Rare Beauty Soft Pinch Liquid Blush - Joy (7.5ml)"
-              className="w-full p-3 text-xs rounded-2xl glass-well border border-white/80 dark:border-white/10 text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#b84357]/30 transition-all"
+              className="w-full p-3 text-xs rounded-2xl glass-well border border-white/80 dark:border-white/10 text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#e06d84]/30 transition-all"
             />
           </div>
 
@@ -109,7 +109,7 @@ export default function SellPage() {
                 value={brand}
                 onChange={(e) => setBrand(e.target.value)}
                 placeholder="e.g. Rare Beauty, Dior, The Ordinary"
-                className="w-full p-3 text-xs rounded-2xl glass-well border border-white/80 dark:border-white/10 text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#b84357]/30 transition-all"
+                className="w-full p-3 text-xs rounded-2xl glass-well border border-white/80 dark:border-white/10 text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#e06d84]/30 transition-all"
               />
             </div>
 
@@ -118,7 +118,7 @@ export default function SellPage() {
               <select
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
-                className="w-full p-3 text-xs rounded-2xl glass-well border border-white/80 dark:border-white/10 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#b84357]/30 cursor-pointer"
+                className="w-full p-3 text-xs rounded-2xl glass-well border border-white/80 dark:border-white/10 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#e06d84]/30 cursor-pointer"
               >
                 <option value="Makeup" className="bg-white dark:bg-[#140b17]">Makeup</option>
                 <option value="Skincare" className="bg-white dark:bg-[#140b17]">Skincare</option>
@@ -136,7 +136,7 @@ export default function SellPage() {
               <select
                 value={condition}
                 onChange={(e) => setCondition(e.target.value)}
-                className="w-full p-3 text-xs rounded-2xl glass-well border border-white/80 dark:border-white/10 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#b84357]/30 cursor-pointer"
+                className="w-full p-3 text-xs rounded-2xl glass-well border border-white/80 dark:border-white/10 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#e06d84]/30 cursor-pointer"
               >
                 <option value="Brand New & Boxed" className="bg-white dark:bg-[#140b17]">Brand New & Boxed</option>
                 <option value="Sealed" className="bg-white dark:bg-[#140b17]">Sealed</option>
@@ -152,7 +152,7 @@ export default function SellPage() {
                 value={shade}
                 onChange={(e) => setShade(e.target.value)}
                 placeholder="e.g. Joy - Dewy Peach"
-                className="w-full p-3 text-xs rounded-2xl glass-well border border-white/80 dark:border-white/10 text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#b84357]/30 transition-all"
+                className="w-full p-3 text-xs rounded-2xl glass-well border border-white/80 dark:border-white/10 text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#e06d84]/30 transition-all"
               />
             </div>
 
@@ -163,7 +163,7 @@ export default function SellPage() {
                 value={batchCode}
                 onChange={(e) => setBatchCode(e.target.value)}
                 placeholder="e.g. 3K01 (On bottle base)"
-                className="w-full p-3 text-xs rounded-2xl glass-well border border-white/80 dark:border-white/10 text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#b84357]/30 transition-all"
+                className="w-full p-3 text-xs rounded-2xl glass-well border border-white/80 dark:border-white/10 text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#e06d84]/30 transition-all"
               />
             </div>
           </div>
@@ -177,7 +177,7 @@ export default function SellPage() {
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
                 placeholder="3200"
-                className="w-full p-3 text-xs rounded-2xl glass-well border border-white/80 dark:border-white/10 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#b84357]/30 transition-all"
+                className="w-full p-3 text-xs rounded-2xl glass-well border border-white/80 dark:border-white/10 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#e06d84]/30 transition-all"
               />
             </div>
 
@@ -188,7 +188,7 @@ export default function SellPage() {
                 value={originalPrice}
                 onChange={(e) => setOriginalPrice(e.target.value)}
                 placeholder="3800"
-                className="w-full p-3 text-xs rounded-2xl glass-well border border-white/80 dark:border-white/10 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#b84357]/30 transition-all"
+                className="w-full p-3 text-xs rounded-2xl glass-well border border-white/80 dark:border-white/10 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#e06d84]/30 transition-all"
               />
             </div>
 
@@ -199,7 +199,7 @@ export default function SellPage() {
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}
                 placeholder="Gulshan, Dhaka"
-                className="w-full p-3 text-xs rounded-2xl glass-well border border-white/80 dark:border-white/10 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#b84357]/30 transition-all"
+                className="w-full p-3 text-xs rounded-2xl glass-well border border-white/80 dark:border-white/10 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#e06d84]/30 transition-all"
               />
             </div>
           </div>
@@ -211,7 +211,7 @@ export default function SellPage() {
               value={imageUrl}
               onChange={(e) => setImageUrl(e.target.value)}
               placeholder="https://images.unsplash.com/photo-..."
-              className="w-full p-3 text-xs rounded-2xl glass-well border border-white/80 dark:border-white/10 text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#b84357]/30 transition-all"
+              className="w-full p-3 text-xs rounded-2xl glass-well border border-white/80 dark:border-white/10 text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#e06d84]/30 transition-all"
             />
           </div>
 
@@ -223,7 +223,7 @@ export default function SellPage() {
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               placeholder="Describe purchase origin, batch verification, formula finish, reason for selling..."
-              className="w-full p-3 text-xs rounded-2xl glass-well border border-white/80 dark:border-white/10 text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#b84357]/30 transition-all"
+              className="w-full p-3 text-xs rounded-2xl glass-well border border-white/80 dark:border-white/10 text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#e06d84]/30 transition-all"
             />
           </div>
 
@@ -238,7 +238,7 @@ export default function SellPage() {
             whileTap={{ scale: 0.98 }}
             type="submit"
             disabled={loading}
-            className="w-full bg-[#b84357] hover:bg-[#a13649] text-white py-4 rounded-full text-xs uppercase tracking-wider font-bold flex items-center justify-center gap-2 shadow-lg shadow-[#b84357]/25 cursor-pointer transition-all"
+            className="w-full bg-[#e06d84] hover:bg-[#d45d74] text-white py-2.5 rounded-full text-xs uppercase tracking-wider font-bold flex items-center justify-center gap-2 shadow-md shadow-[#e06d84]/25 cursor-pointer transition-all"
           >
             <PlusCircle className="w-4 h-4" />
             <span>{loading ? 'Publishing...' : 'Publish Listing to Marketplace'}</span>
