@@ -114,7 +114,7 @@ function BrowsePageContent() {
         {/* Search input in page */}
         <form onSubmit={handleSearchSubmit} className="flex gap-2 max-w-md w-full">
           <div className="relative flex-1">
-            <div className="glass-well rounded-full flex items-center px-4 py-2.5">
+            <div className="glass-well rounded-full flex items-center px-4 py-2">
               <Search className="w-4 h-4 text-slate-400 mr-2 shrink-0" />
               <input
                 type="text"
@@ -127,7 +127,7 @@ function BrowsePageContent() {
           </div>
           <button 
             type="submit" 
-            className="px-6 py-2.5 text-xs font-bold uppercase tracking-wider rounded-full bg-[#181416] hover:bg-black dark:bg-white dark:hover:bg-slate-100 text-white dark:text-[#181416] shadow-md transition-all cursor-pointer"
+            className="px-5 py-2 text-xs font-bold uppercase tracking-wider rounded-full bg-[#181416] hover:bg-black dark:bg-white dark:hover:bg-slate-100 text-white dark:text-[#181416] shadow-md transition-all cursor-pointer"
           >
             Search
           </button>
