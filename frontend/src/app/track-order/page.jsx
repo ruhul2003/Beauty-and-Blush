@@ -100,7 +100,7 @@ function TrackOrderContent() {
     >
       {/* Header */}
       <div className="text-center max-w-lg mx-auto space-y-2">
-        <span className="glass-pill px-4 py-1 text-[10px] uppercase font-bold tracking-[0.22em] text-[#b84357] dark:text-rose-300 shadow-xs inline-block">
+        <span className="glass-pill px-4 py-1 text-[10px] uppercase font-bold tracking-[0.22em] text-[#e06d84] dark:text-rose-300 shadow-xs inline-block">
           Live Logistics Tracking
         </span>
         <h1 className="text-2xl sm:text-3xl font-serif font-bold text-[#181416] dark:text-white">
@@ -121,7 +121,7 @@ function TrackOrderContent() {
           className="flex gap-2"
         >
           <div className="relative flex-1">
-            <div className="glass-well rounded-full flex items-center px-4 py-2.5">
+            <div className="glass-well rounded-full flex items-center px-4 py-2">
               <Search className="w-4 h-4 text-slate-400 mr-2 shrink-0" />
               <input
                 type="text"
@@ -136,7 +136,7 @@ function TrackOrderContent() {
             whileTap={{ scale: 0.95 }}
             type="submit"
             disabled={loading}
-            className="px-6 py-2.5 rounded-full bg-[#b84357] hover:bg-[#a13649] text-white text-xs font-bold uppercase tracking-wider shrink-0 disabled:opacity-50 transition-all cursor-pointer shadow-md shadow-[#b84357]/20"
+            className="px-5 py-2 rounded-full bg-[#e06d84] hover:bg-[#d45d74] text-white text-xs font-bold uppercase tracking-wider shrink-0 disabled:opacity-50 transition-all cursor-pointer shadow-md shadow-[#e06d84]/20"
           >
             {loading ? 'Searching...' : 'Track'}
           </motion.button>
@@ -151,7 +151,7 @@ function TrackOrderContent() {
               setOrderIdInput('BNB-482019');
               handleLookup('BNB-482019');
             }}
-            className="text-[#b84357] dark:text-rose-300 hover:underline font-mono font-bold cursor-pointer"
+            className="text-[#e06d84] dark:text-rose-300 hover:underline font-mono font-bold cursor-pointer"
           >
             BNB-482019
           </button>
@@ -226,14 +226,14 @@ function TrackOrderContent() {
                       <div key={idx} className="flex flex-col items-center text-center relative z-10 space-y-2">
                         <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-all shadow-xs ${
                           isDone 
-                            ? 'bg-[#b84357] text-white scale-105 shadow-md shadow-[#b84357]/20' 
+                            ? 'bg-[#e06d84] text-white scale-105 shadow-md shadow-[#e06d84]/20' 
                             : 'glass-well text-slate-400'
                         }`}>
                           {isDone ? <CheckCircle2 className="w-4 h-4" /> : idx + 1}
                         </div>
 
                         <div>
-                          <p className={`text-[11px] font-bold ${isCurrent ? 'text-[#b84357] dark:text-rose-300' : 'text-slate-800 dark:text-slate-200'}`}>
+                          <p className={`text-[11px] font-bold ${isCurrent ? 'text-[#e06d84] dark:text-rose-300' : 'text-slate-800 dark:text-slate-200'}`}>
                             {step.label}
                           </p>
                           <p className="text-[9px] text-slate-500 hidden sm:block max-w-[90px] mx-auto mt-0.5">
@@ -263,7 +263,7 @@ function TrackOrderContent() {
                     <p className="text-[11px] text-slate-500">
                       Shade: {order.shade || 'Default'} • Qty: {order.quantity}
                     </p>
-                    <p className="text-xs font-bold text-[#b84357] dark:text-rose-300 mt-0.5">
+                    <p className="text-xs font-bold text-[#e06d84] dark:text-rose-300 mt-0.5">
                       Total: {formatPrice(order.totalAmount)} ({order.paymentMethod})
                     </p>
                   </div>
@@ -271,11 +271,11 @@ function TrackOrderContent() {
 
                 <div className="border-t border-black/[0.04] dark:border-white/[0.06] pt-2.5 grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-slate-600 dark:text-slate-300">
                   <div className="flex items-center gap-1.5">
-                    <Truck className="w-3.5 h-3.5 text-[#b84357]" />
+                    <Truck className="w-3.5 h-3.5 text-[#e06d84]" />
                     <span>Courier: <strong>{order.courierService || 'Pathao'}</strong></span>
                   </div>
                   <div className="flex items-center gap-1.5">
-                    <MapPin className="w-3.5 h-3.5 text-[#b84357]" />
+                    <MapPin className="w-3.5 h-3.5 text-[#e06d84]" />
                     <span>Destination: <strong>{order.deliveryAddress}</strong></span>
                   </div>
                 </div>
@@ -288,7 +288,7 @@ function TrackOrderContent() {
                   href={`https://wa.me/8801711224466?text=${encodeURIComponent(`Hi Beauty & Blush, I am inquiring about order ${order.orderNumber}.`)}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex-1 py-3.5 rounded-full glass-pill text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500/10 text-xs font-bold flex items-center justify-center gap-2 transition-all cursor-pointer shadow-xs"
+                  className="flex-1 py-2.5 rounded-full glass-pill text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500/10 text-xs font-bold flex items-center justify-center gap-2 transition-all cursor-pointer shadow-xs"
                 >
                   <MessageCircle className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                   <span>Contact Courier Support on WhatsApp</span>
