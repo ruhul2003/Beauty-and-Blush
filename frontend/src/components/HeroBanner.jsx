@@ -214,7 +214,7 @@ export function HeroBanner() {
           >
             <Link
               href="/browse"
-              className="px-8 sm:px-10 py-3.5 sm:py-4 text-xs sm:text-sm tracking-[0.18em] uppercase font-bold text-white bg-[#b84357] hover:bg-[#a13649] rounded-full flex items-center gap-2 sm:gap-2.5 shadow-xl shadow-[#b84357]/40 hover:shadow-[#b84357]/60 hover:scale-[1.03] active:scale-97 transition-all cursor-pointer border border-rose-300/30"
+              className="px-6 sm:px-8 py-2.5 sm:py-3 text-xs tracking-[0.16em] uppercase font-bold text-white bg-[#e06d84] hover:bg-[#d45d74] rounded-full flex items-center gap-2 shadow-lg shadow-[#e06d84]/30 hover:scale-[1.02] active:scale-98 transition-all cursor-pointer border border-rose-200/30"
             >
               <span>EXPLORE COLLECTION</span>
               <ArrowRight className="w-4 h-4" />
