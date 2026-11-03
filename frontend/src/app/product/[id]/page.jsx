@@ -330,7 +330,7 @@ export default function ProductDetailPage() {
             <motion.button
               whileTap={{ scale: 0.97 }}
               onClick={() => setBuyModalOpen(true)}
-              className="w-full bg-[#b84357] hover:bg-[#a13649] text-white py-3.5 rounded-full text-xs uppercase tracking-wider font-bold flex items-center justify-center gap-2 shadow-lg shadow-[#b84357]/25 cursor-pointer"
+              className="w-full bg-[#e06d84] hover:bg-[#d45d74] text-white py-2.5 rounded-full text-xs uppercase tracking-wider font-bold flex items-center justify-center gap-2 shadow-md shadow-[#e06d84]/25 cursor-pointer"
             >
               <span>Instant Buy with Cash on Delivery (COD)</span>
             </motion.button>
