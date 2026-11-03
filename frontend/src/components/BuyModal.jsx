@@ -216,7 +216,7 @@ export function BuyModal({ product, onClose }) {
             <motion.button
               whileTap={{ scale: 0.96 }}
               onClick={onClose}
-              className="w-full bg-[#b84357] hover:bg-[#a13649] text-white py-3.5 text-xs font-bold rounded-full shadow-lg shadow-[#b84357]/25 cursor-pointer"
+              className="w-full bg-[#e06d84] hover:bg-[#d45d74] text-white py-2.5 text-xs font-bold rounded-full shadow-md shadow-[#e06d84]/25 cursor-pointer transition-all"
             >
               Done & Return
             </motion.button>
@@ -420,7 +420,7 @@ export function BuyModal({ product, onClose }) {
                     type="button"
                     onClick={handleApplyCoupon}
                     disabled={couponLoading || !couponInput.trim()}
-                    className="bg-[#b84357] hover:bg-[#a13649] text-white px-5 py-2 text-xs font-bold rounded-2xl shrink-0 disabled:opacity-50 cursor-pointer shadow-sm"
+                    className="bg-[#e06d84] hover:bg-[#d45d74] text-white px-4 py-1.5 text-xs font-bold rounded-2xl shrink-0 disabled:opacity-50 cursor-pointer shadow-sm transition-all"
                   >
                     {couponLoading ? 'Checking...' : 'Apply'}
                   </motion.button>
@@ -446,7 +446,7 @@ export function BuyModal({ product, onClose }) {
               </div>
               <div className="flex justify-between text-sm font-bold text-[#181416] dark:text-white pt-2 border-t border-black/[0.04] dark:border-white/[0.06]">
                 <span>Total Amount:</span>
-                <span className="text-[#b84357] dark:text-rose-300 text-base">{formatPrice(totalAmount)}</span>
+                <span className="text-[#e06d84] dark:text-rose-300 text-base">{formatPrice(totalAmount)}</span>
               </div>
             </div>
 
@@ -454,7 +454,7 @@ export function BuyModal({ product, onClose }) {
               whileTap={{ scale: 0.97 }}
               type="submit"
               disabled={submitting}
-              className="w-full bg-[#b84357] hover:bg-[#a13649] text-white py-3.5 text-xs font-bold flex items-center justify-center gap-2 shadow-lg shadow-[#b84357]/25 cursor-pointer rounded-full"
+              className="w-full bg-[#e06d84] hover:bg-[#d45d74] text-white py-2.5 text-xs font-bold flex items-center justify-center gap-2 shadow-md shadow-[#e06d84]/25 cursor-pointer rounded-full transition-all"
             >
               <ShoppingBag className="w-4 h-4" />
               <span>{submitting ? 'Placing Order...' : 'Confirm Order with Cash on Delivery'}</span>
