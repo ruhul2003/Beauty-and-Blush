@@ -33,7 +33,7 @@ export default function WishlistPage() {
     >
       <div className="glass-slab p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <div className="glass-pill inline-flex items-center gap-1.5 px-3.5 py-1 text-xs font-bold text-[#b84357] uppercase tracking-widest mb-2 shadow-xs">
+          <div className="glass-pill inline-flex items-center gap-1.5 px-3.5 py-1 text-xs font-bold text-[#e06d84] uppercase tracking-widest mb-2 shadow-xs">
             <Heart className="w-3.5 h-3.5 fill-current" />
             <span>Saved Beauty Vault</span>
           </div>
@@ -41,7 +41,7 @@ export default function WishlistPage() {
             My Beauty Wishlist
           </h1>
           <p className="text-xs text-slate-500 mt-1">
-            {wishlist.length} item{wishlist.length === 1 ? '' : 's'} saved • Total Valuation: <strong className="text-[#b84357] font-bold">{formatPrice(totalValuation)}</strong>
+            {wishlist.length} item{wishlist.length === 1 ? '' : 's'} saved • Total Valuation: <strong className="text-[#e06d84] font-bold">{formatPrice(totalValuation)}</strong>
           </p>
         </div>
 
@@ -49,7 +49,7 @@ export default function WishlistPage() {
           <motion.button
             whileTap={{ scale: 0.94 }}
             onClick={clearWishlist}
-            className="glass-pill px-5 py-2.5 text-[#b84357] dark:text-rose-300 text-xs font-bold flex items-center gap-1.5 self-start sm:self-center cursor-pointer shadow-xs"
+            className="glass-pill px-4 py-2 text-[#e06d84] dark:text-rose-300 text-xs font-bold flex items-center gap-1.5 self-start sm:self-center cursor-pointer shadow-xs"
           >
             <Trash2 className="w-4 h-4" />
             <span>Clear Wishlist</span>
@@ -63,8 +63,8 @@ export default function WishlistPage() {
           animate={{ opacity: 1, scale: 1 }}
           className="text-center py-20 glass-slab space-y-3"
         >
-          <div className="w-16 h-16 rounded-3xl glass-well text-[#b84357] dark:text-rose-300 mx-auto flex items-center justify-center mb-2">
-            <Heart className="w-8 h-8 text-[#b84357]" />
+          <div className="w-16 h-16 rounded-3xl glass-well text-[#e06d84] dark:text-rose-300 mx-auto flex items-center justify-center mb-2">
+            <Heart className="w-8 h-8 text-[#e06d84]" />
           </div>
           <h2 className="text-base font-serif font-bold text-[#181416] dark:text-slate-200">Your wishlist is empty</h2>
           <p className="text-xs text-slate-500 max-w-sm mx-auto">
@@ -73,7 +73,7 @@ export default function WishlistPage() {
           <div className="pt-3">
             <Link 
               href="/browse" 
-              className="bg-[#b84357] hover:bg-[#a13649] text-white px-8 py-3 rounded-full text-xs uppercase tracking-wider font-bold inline-flex items-center gap-2 shadow-lg shadow-[#b84357]/20"
+              className="bg-[#e06d84] hover:bg-[#d45d74] text-white px-6 py-2.5 rounded-full text-xs uppercase tracking-wider font-bold inline-flex items-center gap-2 shadow-md shadow-[#e06d84]/20"
             >
               <span>Browse Catalog</span>
               <ArrowRight className="w-3.5 h-3.5" />
