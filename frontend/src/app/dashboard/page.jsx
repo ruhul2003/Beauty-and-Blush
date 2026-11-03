@@ -67,7 +67,7 @@ export default function DashboardPage() {
       {/* Header */}
       <div className="glass-slab p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <div className="glass-pill inline-flex items-center gap-1.5 px-3 py-1 text-xs font-bold text-[#b84357] uppercase tracking-widest mb-2 shadow-xs">
+          <div className="glass-pill inline-flex items-center gap-1.5 px-3 py-1 text-xs font-bold text-[#e06d84] uppercase tracking-widest mb-2 shadow-xs">
             <Store className="w-3.5 h-3.5" />
             <span>Merchant Overview</span>
           </div>
@@ -79,7 +79,7 @@ export default function DashboardPage() {
 
         <Link
           href="/sell"
-          className="bg-[#b84357] hover:bg-[#a13649] text-white px-7 py-3 rounded-full text-xs uppercase tracking-wider font-bold flex items-center gap-2 self-start sm:self-center shadow-lg shadow-[#b84357]/25 cursor-pointer"
+          className="bg-[#e06d84] hover:bg-[#d45d74] text-white px-5 py-2 rounded-full text-xs uppercase tracking-wider font-bold flex items-center gap-2 self-start sm:self-center shadow-md shadow-[#e06d84]/25 cursor-pointer"
         >
           <PlusCircle className="w-4 h-4" />
           <span>Add New Product</span>
@@ -92,7 +92,7 @@ export default function DashboardPage() {
           <span className="text-xs text-slate-500 font-bold uppercase tracking-wider">Active Listings</span>
           <div className="text-3xl font-bold font-serif text-[#181416] dark:text-white flex items-center justify-between">
             <span>{myProducts.length}</span>
-            <div className="w-12 h-12 rounded-2xl glass-well text-[#b84357] dark:text-rose-300 flex items-center justify-center">
+            <div className="w-12 h-12 rounded-2xl glass-well text-[#e06d84] dark:text-rose-300 flex items-center justify-center">
               <Sparkles className="w-6 h-6" />
             </div>
           </div>
@@ -128,7 +128,7 @@ export default function DashboardPage() {
         {myProducts.length === 0 ? (
           <div className="text-center py-12 text-slate-500 text-xs">
             <p>You have not listed any cosmetics or perfumes yet.</p>
-            <Link href="/sell" className="mt-3 inline-block text-[#b84357] font-bold hover:underline">
+            <Link href="/sell" className="mt-3 inline-block text-[#e06d84] font-bold hover:underline">
               Publish your first listing →
             </Link>
           </div>
@@ -157,11 +157,11 @@ export default function DashboardPage() {
                     </td>
                     <td className="py-3.5 text-slate-600 dark:text-slate-400 font-medium">{p.category}</td>
                     <td className="py-3.5">
-                      <span className="glass-pill px-3 py-0.5 text-[#b84357] dark:text-rose-300 text-[10px] font-bold">
+                      <span className="glass-pill px-3 py-0.5 text-[#e06d84] dark:text-rose-300 text-[10px] font-bold">
                         {p.condition}
                       </span>
                     </td>
-                    <td className="py-3.5 font-bold text-[#b84357] dark:text-rose-300">
+                    <td className="py-3.5 font-bold text-[#e06d84] dark:text-rose-300">
                       {formatPrice(p.price)}
                     </td>
                     <td className="py-3.5">
