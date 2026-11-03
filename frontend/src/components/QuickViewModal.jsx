@@ -177,7 +177,7 @@ export function QuickViewModal({ product, onClose }) {
                       addToCart(product);
                       onClose();
                     }}
-                    className="flex-1 py-3 text-xs font-bold rounded-full glass-pill hover:bg-[#b84357] hover:text-white text-[#181416] dark:text-white hover:border-[#b84357] flex items-center justify-center gap-2 transition-all shadow-xs cursor-pointer"
+                    className="flex-1 py-2.5 text-xs font-bold rounded-full glass-pill hover:bg-[#e06d84] hover:text-white text-[#181416] dark:text-white hover:border-[#e06d84] flex items-center justify-center gap-2 transition-all shadow-xs cursor-pointer"
                   >
                     <ShoppingBag className="w-4 h-4" />
                     <span>Add to Bag</span>
