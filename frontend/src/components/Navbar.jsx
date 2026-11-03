@@ -437,8 +437,8 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
           >
             {/* Mobile Search */}
             <form onSubmit={handleSearch} className="relative">
-              <div className="glass-well rounded-full flex items-center px-4 py-2.5">
-                <Search className="w-4 h-4 text-[#b84357] mr-2 shrink-0" />
+              <div className="glass-well rounded-full flex items-center px-3.5 py-2">
+                <Search className="w-4 h-4 text-[#e06d84] mr-2 shrink-0" />
                 <input
                   type="text"
                   value={searchTerm}
