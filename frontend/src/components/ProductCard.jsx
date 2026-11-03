@@ -167,7 +167,7 @@ export function ProductCard({ product }) {
 
             {/* Pricing */}
             <div className="pt-1 flex items-baseline gap-2">
-              <span className="text-base font-bold text-[#b84357] dark:text-rose-300">
+              <span className="text-base font-bold text-[#e06d84] dark:text-rose-300">
                 {formatPrice(product.price)}
               </span>
               {product.originalPrice > product.price && (
@@ -183,7 +183,7 @@ export function ProductCard({ product }) {
         <div className="pt-3 mt-3 flex items-center gap-2 border-t border-black/[0.04] dark:border-white/[0.06]">
           <Link
             href={`/product/${product._id || product.id}`}
-            className="flex-1 py-2 text-center text-xs font-bold rounded-full glass-pill hover:bg-[#b84357] hover:text-white text-[#181416] dark:text-white hover:border-[#b84357] active:scale-98 transition-all"
+            className="flex-1 py-1.5 text-center text-[11px] sm:text-xs font-bold rounded-full glass-pill hover:bg-[#e06d84] hover:text-white text-[#181416] dark:text-white hover:border-[#e06d84] active:scale-98 transition-all"
           >
             View Details
           </Link>
@@ -196,7 +196,7 @@ export function ProductCard({ product }) {
               e.stopPropagation();
               addToCart(product);
             }}
-            className="w-8.5 h-8.5 rounded-full bg-[#b84357] hover:bg-[#a13649] text-white flex items-center justify-center active:scale-95 transition-all shadow-md shadow-[#b84357]/20 cursor-pointer"
+            className="w-7.5 h-7.5 rounded-full bg-[#e06d84] hover:bg-[#d45d74] text-white flex items-center justify-center active:scale-95 transition-all shadow-md shadow-[#e06d84]/20 cursor-pointer"
             title="Add to Cart"
             aria-label={`Add ${product.title} to bag`}
           >
