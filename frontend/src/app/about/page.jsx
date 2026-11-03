@@ -86,7 +86,7 @@ export default function AboutPage() {
       
       {/* Top Breadcrumb */}
       <nav className="text-xs text-slate-500 flex items-center gap-2">
-        <Link href="/" className="hover:text-[#b84357] dark:hover:text-rose-300 transition-colors">Home</Link>
+        <Link href="/" className="hover:text-[#e06d84] dark:hover:text-rose-300 transition-colors">Home</Link>
         <span>/</span>
         <span className="text-[#181416] dark:text-slate-200 font-bold">About Our Boutique</span>
       </nav>
@@ -94,7 +94,7 @@ export default function AboutPage() {
       {/* Hero Section */}
       <section className="glass-slab p-6 sm:p-12 lg:p-16 rounded-[36px] sm:rounded-[44px] relative overflow-hidden">
         <div className="max-w-3xl space-y-5 relative z-10">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-pill text-xs font-bold text-[#b84357] dark:text-rose-300 uppercase tracking-widest shadow-xs">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-pill text-xs font-bold text-[#e06d84] dark:text-rose-300 uppercase tracking-widest shadow-xs">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Our Heritage & Vision</span>
           </div>
@@ -104,13 +104,13 @@ export default function AboutPage() {
           </h1>
 
           <p className="text-xs sm:text-sm md:text-base text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl">
-            Founded with a passion for genuine beauty, <strong className="text-[#b84357] dark:text-rose-300">Beauty & Blush</strong> was born out of a commitment to solve a vital need in Bangladesh: providing discerning beauty lovers with uncompromising access to 100% verified cosmetics, clinical skincare, and luxury fragrances.
+            Founded with a passion for genuine beauty, <strong className="text-[#e06d84] dark:text-rose-300">Beauty & Blush</strong> was born out of a commitment to solve a vital need in Bangladesh: providing discerning beauty lovers with uncompromising access to 100% verified cosmetics, clinical skincare, and luxury fragrances.
           </p>
 
           <div className="pt-2 flex flex-wrap items-center gap-3">
             <Link
               href="/browse"
-              className="bg-[#b84357] hover:bg-[#a13649] text-white px-7 sm:px-9 py-3.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider flex items-center gap-2 shadow-lg shadow-[#b84357]/25 hover:scale-[1.02] active:scale-98 transition-all"
+              className="bg-[#e06d84] hover:bg-[#d45d74] text-white px-6 sm:px-8 py-2.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider flex items-center gap-2 shadow-md shadow-[#e06d84]/25 hover:scale-[1.02] active:scale-98 transition-all"
             >
               <span>Explore The Boutique</span>
               <ArrowRight className="w-4 h-4" />
@@ -118,7 +118,7 @@ export default function AboutPage() {
 
             <Link
               href="/track-order"
-              className="glass-pill px-6 sm:px-8 py-3.5 rounded-full text-xs sm:text-sm font-bold text-slate-800 dark:text-white hover:text-[#b84357] transition-all"
+              className="glass-pill px-5 sm:px-7 py-2.5 rounded-full text-xs sm:text-sm font-bold text-slate-800 dark:text-white hover:text-[#e06d84] transition-all"
             >
               <span>Track An Order</span>
             </Link>
@@ -126,7 +126,7 @@ export default function AboutPage() {
         </div>
 
         {/* Decorative Light Glows */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[#b84357]/10 dark:bg-rose-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[#e06d84]/10 dark:bg-rose-500/10 rounded-full blur-3xl pointer-events-none" />
       </section>
 
       {/* Brand Numbers & Milestones */}
@@ -237,9 +237,9 @@ export default function AboutPage() {
                 <span className="text-[10px] uppercase font-bold tracking-widest text-[#b84357] dark:text-rose-300 glass-pill px-2.5 py-0.5">
                   {dept.tag}
                 </span>
-                <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#b84357] group-hover:translate-x-1 transition-all" />
+                <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#e06d84] group-hover:translate-x-1 transition-all" />
               </div>
-              <h4 className="text-sm font-serif font-bold text-[#181416] dark:text-white group-hover:text-[#b84357] dark:group-hover:text-rose-300 transition-colors">
+              <h4 className="text-sm font-serif font-bold text-[#181416] dark:text-white group-hover:text-[#e06d84] dark:group-hover:text-rose-300 transition-colors">
                 {dept.title}
               </h4>
               <p className="text-xs text-slate-500 leading-relaxed">
@@ -282,7 +282,7 @@ export default function AboutPage() {
         {/* Concierge & Contact Hub Card */}
         <div className="lg:col-span-5 glass-slab p-8 sm:p-10 rounded-[32px] sm:rounded-[36px] flex flex-col justify-between space-y-6">
           <div>
-            <span className="glass-pill px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-[#b84357] dark:text-rose-300 shadow-xs inline-block mb-3">
+            <span className="glass-pill px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-[#e06d84] dark:text-rose-300 shadow-xs inline-block mb-3">
               Personal Concierge
             </span>
             <h3 className="text-xl font-serif font-bold text-[#181416] dark:text-white">
@@ -295,17 +295,17 @@ export default function AboutPage() {
 
           <div className="space-y-3 text-xs">
             <div className="p-3 rounded-2xl glass-well flex items-center gap-3">
-              <MapPin className="w-4 h-4 text-[#b84357] shrink-0" />
+              <MapPin className="w-4 h-4 text-[#e06d84] shrink-0" />
               <span className="text-slate-700 dark:text-slate-300">Gulshan-1 & Banani, Dhaka, Bangladesh</span>
             </div>
 
             <div className="p-3 rounded-2xl glass-well flex items-center gap-3">
-              <Phone className="w-4 h-4 text-[#b84357] shrink-0" />
+              <Phone className="w-4 h-4 text-[#e06d84] shrink-0" />
               <span className="text-slate-700 dark:text-slate-300">+880 1711-224466 (Support & Orders)</span>
             </div>
 
             <div className="p-3 rounded-2xl glass-well flex items-center gap-3">
-              <Mail className="w-4 h-4 text-[#b84357] shrink-0" />
+              <Mail className="w-4 h-4 text-[#e06d84] shrink-0" />
               <span className="text-slate-700 dark:text-slate-300">concierge@beautyandblush.com</span>
             </div>
           </div>
@@ -314,7 +314,7 @@ export default function AboutPage() {
             href="https://wa.me/8801711224466?text=Hello%2C%20I%20would%20like%20to%20consult%20with%20a%20Beauty%20%26%20Blush%20advisor."
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 rounded-full text-xs font-bold flex items-center justify-center gap-2 transition-all cursor-pointer shadow-md shadow-emerald-600/20"
+            className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-2.5 rounded-full text-xs font-bold flex items-center justify-center gap-2 transition-all cursor-pointer shadow-md shadow-emerald-600/20"
           >
             <span>Chat via WhatsApp Concierge</span>
           </a>
