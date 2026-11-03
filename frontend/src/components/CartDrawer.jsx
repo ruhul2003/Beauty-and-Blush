@@ -115,7 +115,7 @@ export function CartDrawer() {
                         <Link
                           href="/browse"
                           onClick={closeCart}
-                          className="px-6 py-2.5 rounded-full bg-[#b84357] hover:bg-[#a13649] text-white text-xs font-bold uppercase tracking-wider inline-flex items-center gap-2 shadow-sm transition-all cursor-pointer"
+                          className="px-5 py-2 rounded-full bg-[#e06d84] hover:bg-[#d45d74] text-white text-xs font-bold uppercase tracking-wider inline-flex items-center gap-2 shadow-sm transition-all cursor-pointer"
                         >
                           <span>Explore Catalog</span>
                           <ArrowRight className="w-3.5 h-3.5" />
@@ -214,7 +214,7 @@ export function CartDrawer() {
                       </div>
                       <div className="border-t border-black/[0.04] dark:border-white/[0.06] pt-2 flex justify-between text-sm font-bold text-[#181416] dark:text-white">
                         <span>Estimated Total</span>
-                        <span className="text-[#b84357] dark:text-rose-300 text-base">
+                        <span className="text-[#e06d84] dark:text-rose-300 text-base">
                           {formatPrice(cartTotal + (cartTotal >= freeShippingThreshold ? 0 : 60))}
                         </span>
                       </div>
@@ -239,7 +239,7 @@ export function CartDrawer() {
                           });
                         }
                       }}
-                      className="w-full py-3.5 px-4 rounded-full bg-[#b84357] hover:bg-[#a13649] text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-[#b84357]/25 active:scale-98 transition-all cursor-pointer"
+                      className="w-full py-2.5 px-4 rounded-full bg-[#e06d84] hover:bg-[#d45d74] text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md shadow-[#e06d84]/25 active:scale-98 transition-all cursor-pointer"
                     >
                       <ShoppingBag className="w-4 h-4" />
                       <span>Proceed to Checkout (COD)</span>
@@ -249,7 +249,7 @@ export function CartDrawer() {
                       <button
                         type="button"
                         onClick={clearCart}
-                        className="hover:text-[#b84357] transition-colors cursor-pointer"
+                        className="hover:text-[#e06d84] transition-colors cursor-pointer"
                       >
                         Clear All Items
                       </button>
