@@ -64,8 +64,8 @@ export function ProductShowcase({ products = [], loading = false }) {
                 onClick={() => setActiveCategory(cat)}
                 className={`px-4 py-1.5 rounded-full text-[11px] sm:text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
                   isActive
-                    ? 'bg-[#b84357] text-white shadow-md shadow-[#b84357]/25'
-                    : 'glass-pill text-slate-700 dark:text-slate-300 hover:text-[#b84357] dark:hover:text-rose-300'
+                    ? 'bg-[#e06d84] text-white shadow-md shadow-[#e06d84]/25'
+                    : 'glass-pill text-slate-700 dark:text-slate-300 hover:text-[#e06d84] dark:hover:text-rose-300'
                 }`}
               >
                 {cat === 'All' ? 'All Highlights' : cat}
@@ -102,7 +102,7 @@ export function ProductShowcase({ products = [], loading = false }) {
             <button
               type="button"
               onClick={() => setActiveCategory('All')}
-              className="px-5 py-2 rounded-full text-xs font-bold bg-[#b84357] text-white cursor-pointer shadow-sm mt-2"
+              className="px-4 py-1.5 rounded-full text-xs font-bold bg-[#e06d84] hover:bg-[#d45d74] text-white cursor-pointer shadow-sm mt-2 transition-all"
             >
               Reset Filters
             </button>
