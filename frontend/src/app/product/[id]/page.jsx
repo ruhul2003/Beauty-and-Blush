@@ -338,7 +338,7 @@ export default function ProductDetailPage() {
             <motion.button
               whileTap={{ scale: 0.97 }}
               onClick={openWhatsApp}
-              className="w-full py-3 rounded-full glass-pill text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500/10 font-bold text-xs flex items-center justify-center gap-2 transition-all cursor-pointer"
+              className="w-full py-2.5 rounded-full glass-pill text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500/10 font-bold text-xs flex items-center justify-center gap-2 transition-all cursor-pointer"
             >
               <MessageCircle className="w-4 h-4" />
               <span>Ask Seller via WhatsApp Direct</span>
@@ -507,7 +507,7 @@ export default function ProductDetailPage() {
             <motion.button 
               whileTap={{ scale: 0.94 }}
               type="submit" 
-              className="bg-[#b84357] hover:bg-[#a13649] text-white px-6 py-2.5 rounded-full text-xs uppercase tracking-wider font-bold cursor-pointer shadow-md shadow-[#b84357]/20"
+              className="bg-[#e06d84] hover:bg-[#d45d74] text-white px-5 py-2 rounded-full text-xs uppercase tracking-wider font-bold cursor-pointer shadow-md shadow-[#e06d84]/20"
             >
               Post Review
             </motion.button>
