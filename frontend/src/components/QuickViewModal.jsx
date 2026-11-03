@@ -152,7 +152,7 @@ export function QuickViewModal({ product, onClose }) {
 
                 {/* Price Display */}
                 <div className="flex items-baseline gap-2 mt-3">
-                  <span className="text-2xl font-bold font-serif text-[#b84357] dark:text-rose-300">
+                  <span className="text-2xl font-bold font-serif text-[#e06d84] dark:text-rose-300">
                     {formatPrice(product.price)}
                   </span>
                   {product.originalPrice && product.originalPrice > product.price && (
@@ -186,7 +186,7 @@ export function QuickViewModal({ product, onClose }) {
                   <motion.button
                     whileTap={{ scale: 0.96 }}
                     onClick={() => setBuyModalOpen(true)}
-                    className="flex-1 bg-[#b84357] hover:bg-[#a13649] text-white py-3 text-xs font-bold rounded-full flex items-center justify-center gap-2 shadow-md shadow-[#b84357]/20 cursor-pointer"
+                    className="flex-1 bg-[#e06d84] hover:bg-[#d45d74] text-white py-2.5 text-xs font-bold rounded-full flex items-center justify-center gap-2 shadow-md shadow-[#e06d84]/20 cursor-pointer transition-all"
                   >
                     <span>Instant Order</span>
                   </motion.button>
