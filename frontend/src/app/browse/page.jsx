@@ -147,13 +147,13 @@ function BrowsePageContent() {
           <div className="glass-slab p-5 space-y-5">
             <div className="flex items-center justify-between pb-3 border-b border-black/[0.04] dark:border-white/[0.06]">
               <span className="font-bold text-xs uppercase tracking-wider text-[#181416] dark:text-white flex items-center gap-1.5 font-serif">
-                <Filter className="w-3.5 h-3.5 text-[#b84357]" />
+                <Filter className="w-3.5 h-3.5 text-[#e06d84]" />
                 <span>Filters</span>
               </span>
               <button
                 type="button"
                 onClick={resetFilters}
-                className="text-[11px] font-bold text-slate-500 hover:text-[#b84357] dark:hover:text-rose-400 transition-colors cursor-pointer"
+                className="text-[11px] font-bold text-slate-500 hover:text-[#e06d84] dark:hover:text-rose-400 transition-colors cursor-pointer"
               >
                 Reset All
               </button>
@@ -171,9 +171,9 @@ function BrowsePageContent() {
                       setCategory(cat);
                       setMobileFilterOpen(false);
                     }}
-                    className={`block w-full text-left px-3.5 py-2 rounded-full transition-all cursor-pointer ${
+                    className={`block w-full text-left px-3.5 py-1.5 rounded-full transition-all cursor-pointer ${
                       category === cat
-                        ? 'bg-[#b84357] text-white font-bold shadow-xs'
+                        ? 'bg-[#e06d84] text-white font-bold shadow-xs'
                         : 'text-slate-600 dark:text-slate-300 hover:bg-white/80 dark:hover:bg-white/[0.06]'
                     }`}
                   >
@@ -241,7 +241,7 @@ function BrowsePageContent() {
                   type="checkbox"
                   checked={onlyInStock}
                   onChange={(e) => setOnlyInStock(e.target.checked)}
-                  className="rounded text-[#b84357] focus:ring-[#b84357] accent-[#b84357]"
+                  className="rounded text-[#e06d84] focus:ring-[#e06d84] accent-[#e06d84]"
                 />
                 <span>In-Stock Only</span>
               </label>
@@ -250,7 +250,7 @@ function BrowsePageContent() {
             {/* Max Price Filter */}
             <div>
               <label className="text-xs font-bold text-[#181416] dark:text-slate-200 block mb-2 font-serif">
-                Max Budget: <span className="text-[#b84357] dark:text-rose-300">{maxPrice ? `৳${maxPrice}` : 'Any'}</span>
+                Max Budget: <span className="text-[#e06d84] dark:text-rose-300">{maxPrice ? `৳${maxPrice}` : 'Any'}</span>
               </label>
               <input
                 type="range"
@@ -259,7 +259,7 @@ function BrowsePageContent() {
                 step="500"
                 value={maxPrice || 25000}
                 onChange={(e) => setMaxPrice(e.target.value)}
-                className="w-full accent-[#b84357] cursor-pointer"
+                className="w-full accent-[#e06d84] cursor-pointer"
               />
               <div className="flex justify-between text-[10px] text-slate-400 mt-1">
                 <span>৳1,000</span>
@@ -320,7 +320,7 @@ function BrowsePageContent() {
               </p>
               <button
                 onClick={resetFilters}
-                className="px-6 py-2.5 text-xs font-bold rounded-full bg-[#b84357] text-white hover:bg-[#a13649] transition-all"
+                className="px-5 py-2 text-xs font-bold rounded-full bg-[#e06d84] text-white hover:bg-[#d45d74] shadow-md shadow-[#e06d84]/20 transition-all cursor-pointer"
               >
                 Reset All Filters
               </button>
