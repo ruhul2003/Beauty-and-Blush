@@ -159,7 +159,7 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
               <span className="text-lg sm:text-xl font-serif tracking-tight text-[#181416] dark:text-white font-bold transition-colors">
                 Beauty & Blush
               </span>
-              <span className="text-[9px] uppercase tracking-[0.24em] text-[#b84357] dark:text-rose-300 font-bold -mt-0.5 hidden sm:block">
+              <span className="text-[9px] uppercase tracking-[0.24em] text-[#e06d84] dark:text-rose-300 font-bold -mt-0.5 hidden sm:block">
                 Luxury Cosmetics
               </span>
             </div>
@@ -310,7 +310,7 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
             >
               <Heart className="w-4 h-4" />
               {wishlistCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-[#b84357] text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-xs">
+                <span className="absolute -top-1 -right-1 bg-[#e06d84] text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-xs">
                   {wishlistCount}
                 </span>
               )}
@@ -321,12 +321,12 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
               whileTap={{ scale: 0.92 }}
               type="button"
               onClick={openCart}
-              className="glass-pill w-9.5 h-9.5 sm:w-10 sm:h-10 flex items-center justify-center text-slate-700 dark:text-slate-200 hover:text-[#b84357] shadow-xs relative cursor-pointer"
+              className="glass-pill w-9.5 h-9.5 sm:w-10 sm:h-10 flex items-center justify-center text-slate-700 dark:text-slate-200 hover:text-[#e06d84] shadow-xs relative cursor-pointer"
               title="Shopping Bag"
               aria-label="Open Shopping Bag"
             >
               <ShoppingBag className="w-4 h-4" />
-              <span className="absolute -top-1 -right-1 bg-[#b84357] text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-xs">
+              <span className="absolute -top-1 -right-1 bg-[#e06d84] text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-xs">
                 {cartCount}
               </span>
             </motion.button>
@@ -342,7 +342,7 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
                   onClick={() => setUserDropdown(!userDropdown)}
                   className="glass-pill flex items-center gap-1.5 p-1 pr-2 shadow-xs cursor-pointer"
                 >
-                  <div className="w-7 h-7 rounded-full bg-[#b84357] text-white flex items-center justify-center text-xs font-bold overflow-hidden shadow-xs">
+                  <div className="w-7 h-7 rounded-full bg-[#e06d84] text-white flex items-center justify-center text-xs font-bold overflow-hidden shadow-xs">
                     {user.avatar ? (
                       <img src={user.avatar} alt={user.name} className="w-full h-full object-cover" />
                     ) : (
@@ -499,7 +499,7 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
               <Link
                 href="/sell"
                 onClick={() => setMobileOpen(false)}
-                className="flex items-center gap-1.5 text-xs text-[#b84357] font-bold"
+                className="flex items-center gap-1.5 text-xs text-[#e06d84] font-bold"
               >
                 <PlusCircle className="w-4 h-4" />
                 <span>List Your Items</span>
