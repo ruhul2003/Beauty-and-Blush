@@ -20,9 +20,9 @@
     --card-hover-bg: rgba(255, 255, 255, 0.92);
     --surface-subtle: rgba(245, 242, 237, 0.85);
     --surface-input: rgba(246, 244, 239, 0.85);
-    --accent-rose: #b84357;
-    --accent-rose-hover: #a13649;
-    --accent-blush: #c94d64;
+    --accent-rose: #e06d84;
+    --accent-rose-hover: #d45d74;
+    --accent-blush: #e88297;
     --accent-peach: #faf5f3;
     --accent-gold: #c98822;
     --accent-champagne: #f0dec5;
@@ -40,9 +40,9 @@
     --card-hover-bg: rgba(32, 21, 37, 0.85);
     --surface-subtle: rgba(255, 255, 255, 0.04);
     --surface-input: rgba(14, 9, 16, 0.75);
-    --accent-rose: #c94d64;
-    --accent-rose-hover: #db5972;
-    --accent-blush: #e26982;
+    --accent-rose: #e06d84;
+    --accent-rose-hover: #e88297;
+    --accent-blush: #f095a8;
     --accent-peach: #191018;
     --accent-gold: #d89830;
     --accent-champagne: #ebd5a0;
