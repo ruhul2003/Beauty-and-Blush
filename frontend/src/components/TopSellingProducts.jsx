@@ -100,6 +100,10 @@ export function TopSellingProducts() {
     setStartIndex((prev) => (prev < maxIndex ? prev + 1 : 0));
   };
 
+  const jumpToSlide = (idx) => {
+    setStartIndex(Math.max(0, Math.min(idx, maxIndex)));
+  };
+
   const handleTouchStart = (e) => {
     touchStartX.current = e.targetTouches[0].clientX;
   };
@@ -216,7 +220,7 @@ export function TopSellingProducts() {
               <button
                 key={idx}
                 type="button"
-                onClick={() => setStartIndex(idx)}
+                onClick={() => jumpToSlide(idx)}
                 aria-label={`Jump to top selling slide ${idx + 1}`}
                 className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
                   startIndex === idx
