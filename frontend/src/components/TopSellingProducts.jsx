@@ -30,8 +30,9 @@ const TOP_SELLERS = [
   },
   {
     id: "top-seller-3",
-    tag: "LUXURY CROSSBODY",
-    title: "Chic Quilted Mini Chain Bag",
+    tag: "DESIGNER BAG • TRENDING",
+    title: "Chic Quilted Mini Leather Crossbody",
+    price: "৳3,950",
     bgClass: "bg-[#e2f0fb] dark:bg-[#152331]",
     image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=900&q=85",
     alt: "Quilted leather luxury handbag",
@@ -50,8 +51,9 @@ const TOP_SELLERS = [
   },
   {
     id: "top-seller-5",
-    tag: "SIGNATURE FRAGRANCE",
+    tag: "HAUTE PARFUM • PARIS",
     title: "Eau Tendre Peony & Rose Flacon",
+    price: "৳8,900",
     bgClass: "bg-[#faf0e1] dark:bg-[#2c2215]",
     image: "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=900&q=85",
     alt: "Designer perfume mist flacon",
