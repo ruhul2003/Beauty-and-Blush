@@ -5,6 +5,7 @@ import { HeroBanner } from '@/components/HeroBanner';
 import { TrustBadges } from '@/components/TrustBadges';
 import { CategoryShowcase } from '@/components/CategoryShowcase';
 import { NewArrivals } from '@/components/NewArrivals';
+import { TopSellingProducts } from '@/components/TopSellingProducts';
 import { ProductShowcase } from '@/components/ProductShowcase';
 import { PromoGrid } from '@/components/PromoGrid';
 import { api } from '@/lib/api';
