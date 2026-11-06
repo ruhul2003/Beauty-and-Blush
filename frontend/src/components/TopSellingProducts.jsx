@@ -162,7 +162,7 @@ export function TopSellingProducts() {
             {TOP_SELLERS.slice(startIndex, startIndex + 3).map((item) => (
               <div
                 key={item.id}
-                className={`relative rounded-[32px] sm:rounded-[36px] overflow-hidden ${item.bgClass} min-h-[460px] sm:min-h-[500px] lg:min-h-[520px] flex flex-col justify-end shadow-md group transition-all`}
+                className={`relative rounded-[32px] sm:rounded-[36px] overflow-hidden ${item.bgClass} border border-black/[0.04] dark:border-white/[0.08] min-h-[460px] sm:min-h-[500px] lg:min-h-[520px] flex flex-col justify-end shadow-md group transition-all`}
               >
                 {/* Product Photograph */}
                 <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
