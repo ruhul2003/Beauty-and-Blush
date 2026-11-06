@@ -111,7 +111,7 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
       name: 'Ladies Bags',
       href: '/browse?category=Bags',
       desc: 'Artisan leather & designer handbags',
-      tag: 'New'
+      tag: 'Top Seller'
     },
     {
       name: 'Home Decor',
