@@ -289,7 +289,7 @@ export default function AboutPage() {
               Connect With Our Team
             </h3>
             <p className="text-xs text-slate-500 mt-1 leading-relaxed">
-              Need assistance finding your exact shade or checking a product's formulation? Our beauty advisors are on standby.
+              Need assistance finding your exact shade or checking a product's formulation? Our concierge team is on standby.
             </p>
           </div>
 
@@ -311,7 +311,7 @@ export default function AboutPage() {
           </div>
 
           <a
-            href="https://wa.me/8801711224466?text=Hello%2C%20I%20would%20like%20to%20consult%20with%20a%20Beauty%20%26%20Blush%20advisor."
+            href="https://wa.me/8801711224466?text=Hello%2C%20I%20would%20like%20to%20consult%20with%20Beauty%20%26%20Blush."
             target="_blank"
             rel="noopener noreferrer"
             className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-2.5 rounded-full text-xs font-bold flex items-center justify-center gap-2 transition-all cursor-pointer shadow-md shadow-emerald-600/20"

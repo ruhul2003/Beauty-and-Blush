@@ -7,7 +7,6 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { FooterTrustStrip } from "@/components/FooterTrustStrip";
 import { MobileBottomNav } from "@/components/MobileBottomNav";
-import { AiChatbox } from "@/components/AiChatbox";
 import { CartDrawer } from "@/components/CartDrawer";
 
 export const metadata = {
@@ -58,7 +57,6 @@ export default function RootLayout({ children }) {
                 <FooterTrustStrip />
                 <Footer />
                 <MobileBottomNav />
-                <AiChatbox />
                 <CartDrawer />
               </CartProvider>
             </ToastProvider>
