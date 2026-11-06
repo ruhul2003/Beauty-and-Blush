@@ -159,9 +159,12 @@ export function TopSellingProducts() {
 
           {/* 3-Card Grid Showcase with Pastel Themes */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {TOP_SELLERS.slice(startIndex, startIndex + 3).map((item) => (
-              <div
+            {TOP_SELLERS.slice(startIndex, startIndex + 3).map((item, index) => (
+              <motion.div
                 key={item.id}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.35, delay: index * 0.08 }}
                 className={`relative rounded-[32px] sm:rounded-[36px] overflow-hidden ${item.bgClass} border border-black/[0.04] dark:border-white/[0.08] min-h-[460px] sm:min-h-[500px] lg:min-h-[520px] flex flex-col justify-end shadow-md group transition-all`}
               >
                 {/* Product Photograph */}
@@ -195,7 +198,7 @@ export function TopSellingProducts() {
                     </Link>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
 
