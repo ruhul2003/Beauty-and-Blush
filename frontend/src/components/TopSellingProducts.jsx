@@ -122,7 +122,7 @@ export function TopSellingProducts() {
   };
 
   return (
-    <section className="py-12 sm:py-16 overflow-hidden">
+    <section aria-label="Top Selling Products" className="py-12 sm:py-16 overflow-hidden">
       <div className="w-[95%] sm:w-[92%] max-w-[1500px] mx-auto px-2 sm:px-4 space-y-8 sm:space-y-10">
         {/* Top Selling Products Header */}
         <div className="text-center space-y-2.5">
@@ -149,6 +149,7 @@ export function TopSellingProducts() {
             type="button"
             onClick={handlePrev}
             aria-label="Previous top sellers"
+            title="View previous luxury collection"
             className="absolute left-0 sm:left-1 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/85 dark:bg-[#181416]/85 backdrop-blur-md shadow-lg border border-black/5 dark:border-white/10 flex items-center justify-center text-slate-700 dark:text-slate-200 hover:scale-110 active:scale-95 transition-all cursor-pointer group"
           >
             <ChevronLeft className="w-5 h-5 group-hover:-translate-x-0.5 transition-transform" />
@@ -159,6 +160,7 @@ export function TopSellingProducts() {
             type="button"
             onClick={handleNext}
             aria-label="Next top sellers"
+            title="View next luxury collection"
             className="absolute right-0 sm:right-1 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/85 dark:bg-[#181416]/85 backdrop-blur-md shadow-lg border border-black/5 dark:border-white/10 flex items-center justify-center text-slate-700 dark:text-slate-200 hover:scale-110 active:scale-95 transition-all cursor-pointer group"
           >
             <ChevronRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
