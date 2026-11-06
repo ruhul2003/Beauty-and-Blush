@@ -110,6 +110,15 @@ export function TopSellingProducts() {
                 <h3 className="text-sm sm:text-base font-bold text-[#181416] dark:text-white leading-snug line-clamp-1">
                   {item.title}
                 </h3>
+
+                <div className="pt-1">
+                  <Link
+                    href={item.href}
+                    className="inline-flex items-center justify-center px-6 py-1.5 sm:py-2 rounded-lg bg-[#edd59e] hover:bg-[#e4ca8c] text-[#181416] font-bold text-[10px] sm:text-xs uppercase tracking-wider shadow-xs hover:shadow-md transition-all hover:scale-105 active:scale-95 cursor-pointer"
+                  >
+                    <span>{item.buttonText}</span>
+                  </Link>
+                </div>
               </div>
             </div>
           ))}
