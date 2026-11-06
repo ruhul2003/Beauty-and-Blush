@@ -155,6 +155,23 @@ export function TopSellingProducts() {
               </div>
             ))}
           </div>
+
+          {/* Dots Indicator */}
+          <div className="flex items-center justify-center gap-2 pt-6">
+            {Array.from({ length: maxIndex + 1 }).map((_, idx) => (
+              <button
+                key={idx}
+                type="button"
+                onClick={() => setStartIndex(idx)}
+                aria-label={`Jump to top selling slide ${idx + 1}`}
+                className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                  startIndex === idx
+                    ? 'w-7 bg-[#181416] dark:bg-white'
+                    : 'w-2 bg-slate-300 dark:bg-white/30 hover:bg-slate-400'
+                }`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
