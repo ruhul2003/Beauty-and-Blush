@@ -8,8 +8,9 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 const TOP_SELLERS = [
   {
     id: "top-seller-1",
-    tag: "BEST SELLING BAG",
+    tag: "HANDCRAFTED BAG • ATELIER",
     title: "Artisan Leather Tote & Shoulder Bag",
+    price: "৳4,850",
     bgClass: "bg-[#fde7e7] dark:bg-[#2b1820]",
     image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=900&q=85",
     alt: "Handcrafted artisan leather bag",
