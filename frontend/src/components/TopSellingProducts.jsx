@@ -19,8 +19,9 @@ const TOP_SELLERS = [
   },
   {
     id: "top-seller-2",
-    tag: "ICONIC BLUSH COSMETIC",
-    title: "Soft Pinch Velvet Liquid Rouge",
+    tag: "ICONIC BLUSH • BEST SELLER",
+    title: "Rare Soft Pinch Dewy Liquid Blush",
+    price: "৳2,850",
     bgClass: "bg-[#f3e8fa] dark:bg-[#25172d]",
     image: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=900&q=85",
     alt: "Dewy soft pinch blush cosmetic",
