@@ -172,7 +172,7 @@ export default function Home() {
       {/* 4. New Arrivals Showcase (Inspired by reference) */}
       <NewArrivals />
 
-      {/* 5. Top Selling Products Showcase (Bags & Cosmetics) */}
+      {/* 5. Top Selling Products Showcase (Luxury Bags & Cosmetics) */}
       <TopSellingProducts />
 
       {/* 6. Curated Products Showcase */}
