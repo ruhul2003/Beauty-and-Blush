@@ -168,7 +168,7 @@ export function TopSellingProducts() {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.35, delay: index * 0.08 }}
-                className={`relative rounded-[32px] sm:rounded-[36px] overflow-hidden ${item.bgClass} border border-black/[0.04] dark:border-white/[0.08] min-h-[460px] sm:min-h-[500px] lg:min-h-[520px] flex flex-col justify-end shadow-md group transition-all`}
+                className={`relative rounded-[28px] sm:rounded-[36px] overflow-hidden ${item.bgClass} border border-black/[0.04] dark:border-white/[0.08] min-h-[430px] sm:min-h-[480px] lg:min-h-[520px] flex flex-col justify-end shadow-md group transition-all`}
               >
                 {/* Product Photograph */}
                 <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
