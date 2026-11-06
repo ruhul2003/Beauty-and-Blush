@@ -5,8 +5,7 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   ArrowRight, 
-  Sparkles,
-  ShieldCheck
+  Sparkles
 } from 'lucide-react';
 
 export function HeroBanner() {
@@ -147,25 +146,6 @@ export function HeroBanner() {
 
       {/* Main Full Screen Content Wrapper */}
       <div className="w-full max-w-[1500px] mx-auto h-full flex flex-col justify-between items-center relative z-10 pt-24 sm:pt-28 pb-6 sm:pb-8 px-4 sm:px-8 md:px-12">
-
-        {/* Outer Top Bar Window Controls & Verification Badge */}
-        <div className="relative z-10 w-full flex items-center justify-between pb-4 sm:pb-6 border-b border-white/15">
-          <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-rose-400/90 shadow-xs" />
-            <span className="w-2.5 h-2.5 rounded-full bg-amber-400/90 shadow-xs" />
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-400/90 shadow-xs" />
-            <span className="text-[10px] font-bold uppercase tracking-[0.24em] text-white/80 ml-2 hidden sm:inline-block">
-              Beauty & Blush • Luxury Atelier Edition
-            </span>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <span className="glass-pill px-3.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider text-slate-800 dark:text-white border border-white/60 dark:border-white/20 shadow-xs flex items-center gap-1.5">
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
-              <span>100% Genuine Guaranteed</span>
-            </span>
-          </div>
-        </div>
 
         {/* Main Centered Content: Dynamic Animated Titles, Badges & CTAs */}
         <div className="relative z-20 w-full max-w-3xl lg:max-w-4xl flex-1 flex flex-col items-center justify-center text-center space-y-5 sm:space-y-6 py-4 sm:py-6 my-auto">
