@@ -41,8 +41,9 @@ const TOP_SELLERS = [
   },
   {
     id: "top-seller-4",
-    tag: "HAUTE COSMETICS",
+    tag: "HAUTE COSMETICS • DIOR",
     title: "Color Revival Hydrating Lip Glow",
+    price: "৳4,950",
     bgClass: "bg-[#e5f5ec] dark:bg-[#162920]",
     image: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=900&q=85",
     alt: "Luxury hydrating lipstick",
@@ -62,8 +63,9 @@ const TOP_SELLERS = [
   },
   {
     id: "top-seller-6",
-    tag: "CLINICAL SKINCARE",
+    tag: "CLINICAL SKINCARE • DERMA",
     title: "Pure Hyaluronic Barrier Elixir",
+    price: "৳1,850",
     bgClass: "bg-[#f5eef8] dark:bg-[#22162b]",
     image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=900&q=85",
     alt: "Clinical hydrating serum cosmetic",
