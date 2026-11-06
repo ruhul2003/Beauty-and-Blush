@@ -71,6 +71,17 @@ const TOP_SELLERS = [
     alt: "Clinical hydrating serum cosmetic",
     href: "/browse?category=Skincare",
     buttonText: "SHOP NOW"
+  },
+  {
+    id: "top-seller-7",
+    tag: "COSMETIC CLUTCH • VAULT",
+    title: "Monogram Velvet Cosmetic Pouch & Bag",
+    price: "৳2,450",
+    bgClass: "bg-[#fef2f2] dark:bg-[#2b1717]",
+    image: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=900&q=85",
+    alt: "Luxury cosmetic travel pouch bag",
+    href: "/browse?category=Accessories",
+    buttonText: "SHOP NOW"
   }
 ];
 
