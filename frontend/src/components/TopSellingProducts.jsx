@@ -71,6 +71,16 @@ const TOP_SELLERS = [
 export function TopSellingProducts() {
   const [startIndex, setStartIndex] = useState(0);
 
+  const maxIndex = TOP_SELLERS.length - 3;
+
+  const handlePrev = () => {
+    setStartIndex((prev) => (prev > 0 ? prev - 1 : maxIndex));
+  };
+
+  const handleNext = () => {
+    setStartIndex((prev) => (prev < maxIndex ? prev + 1 : 0));
+  };
+
   return (
     <section className="py-12 sm:py-16 overflow-hidden">
       <div className="w-[95%] sm:w-[92%] max-w-[1500px] mx-auto px-2 sm:px-4 space-y-8 sm:space-y-10">
@@ -84,44 +94,67 @@ export function TopSellingProducts() {
           </p>
         </div>
 
-        {/* 3-Card Grid Showcase with Pastel Themes */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {TOP_SELLERS.slice(startIndex, startIndex + 3).map((item) => (
-            <div
-              key={item.id}
-              className={`relative rounded-[32px] sm:rounded-[36px] overflow-hidden ${item.bgClass} min-h-[460px] sm:min-h-[500px] lg:min-h-[520px] flex flex-col justify-end shadow-md group transition-all`}
-            >
-              {/* Product Photograph */}
-              <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
-                <img
-                  src={item.image}
-                  alt={item.alt}
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 pointer-events-none"
-                  loading="lazy"
-                />
-              </div>
+        {/* Carousel Container with Side Navigation Arrows */}
+        <div className="relative px-2 sm:px-6">
+          {/* Left Arrow Button */}
+          <button
+            type="button"
+            onClick={handlePrev}
+            aria-label="Previous top sellers"
+            className="absolute left-0 sm:left-1 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/85 dark:bg-[#181416]/85 backdrop-blur-md shadow-lg border border-black/5 dark:border-white/10 flex items-center justify-center text-slate-700 dark:text-slate-200 hover:scale-110 active:scale-95 transition-all cursor-pointer group"
+          >
+            <ChevronLeft className="w-5 h-5 group-hover:-translate-x-0.5 transition-transform" />
+          </button>
 
-              {/* Floating Frosted Glass Bottom Overlay Card */}
-              <div className="relative z-10 mx-3 sm:mx-4 mb-3 sm:mb-4 p-4 sm:p-5 rounded-2xl bg-white/80 dark:bg-black/65 backdrop-blur-md border border-white/60 dark:border-white/15 shadow-lg text-center space-y-2">
-                <span className="block text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.22em] text-slate-600 dark:text-slate-300">
-                  {item.tag}
-                </span>
+          {/* Right Arrow Button */}
+          <button
+            type="button"
+            onClick={handleNext}
+            aria-label="Next top sellers"
+            className="absolute right-0 sm:right-1 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/85 dark:bg-[#181416]/85 backdrop-blur-md shadow-lg border border-black/5 dark:border-white/10 flex items-center justify-center text-slate-700 dark:text-slate-200 hover:scale-110 active:scale-95 transition-all cursor-pointer group"
+          >
+            <ChevronRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
+          </button>
 
-                <h3 className="text-sm sm:text-base font-bold text-[#181416] dark:text-white leading-snug line-clamp-1">
-                  {item.title}
-                </h3>
+          {/* 3-Card Grid Showcase with Pastel Themes */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {TOP_SELLERS.slice(startIndex, startIndex + 3).map((item) => (
+              <div
+                key={item.id}
+                className={`relative rounded-[32px] sm:rounded-[36px] overflow-hidden ${item.bgClass} min-h-[460px] sm:min-h-[500px] lg:min-h-[520px] flex flex-col justify-end shadow-md group transition-all`}
+              >
+                {/* Product Photograph */}
+                <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
+                  <img
+                    src={item.image}
+                    alt={item.alt}
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 pointer-events-none"
+                    loading="lazy"
+                  />
+                </div>
 
-                <div className="pt-1">
-                  <Link
-                    href={item.href}
-                    className="inline-flex items-center justify-center px-6 py-1.5 sm:py-2 rounded-lg bg-[#edd59e] hover:bg-[#e4ca8c] text-[#181416] font-bold text-[10px] sm:text-xs uppercase tracking-wider shadow-xs hover:shadow-md transition-all hover:scale-105 active:scale-95 cursor-pointer"
-                  >
-                    <span>{item.buttonText}</span>
-                  </Link>
+                {/* Floating Frosted Glass Bottom Overlay Card */}
+                <div className="relative z-10 mx-3 sm:mx-4 mb-3 sm:mb-4 p-4 sm:p-5 rounded-2xl bg-white/80 dark:bg-black/65 backdrop-blur-md border border-white/60 dark:border-white/15 shadow-lg text-center space-y-2">
+                  <span className="block text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.22em] text-slate-600 dark:text-slate-300">
+                    {item.tag}
+                  </span>
+
+                  <h3 className="text-sm sm:text-base font-bold text-[#181416] dark:text-white leading-snug line-clamp-1">
+                    {item.title}
+                  </h3>
+
+                  <div className="pt-1">
+                    <Link
+                      href={item.href}
+                      className="inline-flex items-center justify-center px-6 py-1.5 sm:py-2 rounded-lg bg-[#edd59e] hover:bg-[#e4ca8c] text-[#181416] font-bold text-[10px] sm:text-xs uppercase tracking-wider shadow-xs hover:shadow-md transition-all hover:scale-105 active:scale-95 cursor-pointer"
+                    >
+                      <span>{item.buttonText}</span>
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
