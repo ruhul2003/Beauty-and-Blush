@@ -70,6 +70,8 @@ const TOP_SELLERS = [
 
 export function TopSellingProducts() {
   const [startIndex, setStartIndex] = useState(0);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
 
   const maxIndex = TOP_SELLERS.length - 3;
 
@@ -79,6 +81,23 @@ export function TopSellingProducts() {
 
   const handleNext = () => {
     setStartIndex((prev) => (prev < maxIndex ? prev + 1 : 0));
+  };
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    const distance = touchStartX.current - touchEndX.current;
+    if (distance > 50) {
+      handleNext();
+    } else if (distance < -50) {
+      handlePrev();
+    }
   };
 
   return (
@@ -95,7 +114,12 @@ export function TopSellingProducts() {
         </div>
 
         {/* Carousel Container with Side Navigation Arrows */}
-        <div className="relative px-2 sm:px-6">
+        <div 
+          className="relative px-2 sm:px-6"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
           {/* Left Arrow Button */}
           <button
             type="button"
