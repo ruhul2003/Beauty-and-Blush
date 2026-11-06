@@ -172,10 +172,13 @@ export default function Home() {
       {/* 4. New Arrivals Showcase (Inspired by reference) */}
       <NewArrivals />
 
-      {/* 5. Curated Products Showcase */}
+      {/* 5. Top Selling Products Showcase (Bags & Cosmetics) */}
+      <TopSellingProducts />
+
+      {/* 6. Curated Products Showcase */}
       <ProductShowcase products={products} loading={loading} />
 
-      {/* 6. Dual Promo Banners (Skincare & Makeup) */}
+      {/* 7. Dual Promo Banners (Skincare & Makeup) */}
       <PromoGrid />
     </div>
   );
