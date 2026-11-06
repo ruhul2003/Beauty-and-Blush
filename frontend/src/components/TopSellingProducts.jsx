@@ -1,6 +1,9 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const TOP_SELLERS = [
   {
@@ -66,9 +69,11 @@ const TOP_SELLERS = [
 ];
 
 export function TopSellingProducts() {
+  const [startIndex, setStartIndex] = useState(0);
+
   return (
     <section className="py-12 sm:py-16 overflow-hidden">
-      <div className="w-[95%] sm:w-[92%] max-w-[1500px] mx-auto px-2 sm:px-4">
+      <div className="w-[95%] sm:w-[92%] max-w-[1500px] mx-auto px-2 sm:px-4 space-y-8 sm:space-y-10">
         {/* Top Selling Products Header */}
         <div className="text-center space-y-2">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight text-[#181416] dark:text-white">
@@ -77,6 +82,26 @@ export function TopSellingProducts() {
           <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 max-w-xl mx-auto font-normal">
             Explore our most celebrated luxury bags, iconic cosmetics and radiant essentials
           </p>
+        </div>
+
+        {/* 3-Card Grid Showcase with Pastel Themes */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {TOP_SELLERS.slice(startIndex, startIndex + 3).map((item) => (
+            <div
+              key={item.id}
+              className={`relative rounded-[32px] sm:rounded-[36px] overflow-hidden ${item.bgClass} min-h-[460px] sm:min-h-[500px] lg:min-h-[520px] flex flex-col justify-end shadow-md group transition-all`}
+            >
+              {/* Product Photograph */}
+              <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
+                <img
+                  src={item.image}
+                  alt={item.alt}
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 pointer-events-none"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
