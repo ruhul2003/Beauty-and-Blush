@@ -4,6 +4,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { HeroBanner } from '@/components/HeroBanner';
 import { TrustBadges } from '@/components/TrustBadges';
 import { CategoryShowcase } from '@/components/CategoryShowcase';
+import { NewArrivals } from '@/components/NewArrivals';
 import { ProductShowcase } from '@/components/ProductShowcase';
 import { PromoGrid } from '@/components/PromoGrid';
 import { api } from '@/lib/api';
@@ -167,10 +168,13 @@ export default function Home() {
       {/* 3. Circular Shop by Category Showcase */}
       <CategoryShowcase />
 
-      {/* 4. Curated Products Showcase */}
+      {/* 4. New Arrivals Showcase (Inspired by reference) */}
+      <NewArrivals />
+
+      {/* 5. Curated Products Showcase */}
       <ProductShowcase products={products} loading={loading} />
 
-      {/* 5. Dual Promo Banners (Skincare & Makeup) */}
+      {/* 6. Dual Promo Banners (Skincare & Makeup) */}
       <PromoGrid />
     </div>
   );
