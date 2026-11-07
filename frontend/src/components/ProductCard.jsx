@@ -117,8 +117,8 @@ export function ProductCard({ product }) {
               onClick={toggleWishlist}
               className={`absolute top-2.5 right-2.5 w-8 h-8 rounded-full flex items-center justify-center transition-all z-20 cursor-pointer ${
                 isWishlisted
-                  ? 'bg-[#b84357] text-white shadow-sm'
-                  : 'glass-pill text-slate-600 dark:text-slate-300 hover:text-[#b84357]'
+                  ? 'bg-[#e06d84] text-white shadow-sm'
+                  : 'glass-pill text-slate-600 dark:text-slate-300 hover:text-[#e06d84]'
               }`}
               title="Save to wishlist"
             >
