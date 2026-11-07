@@ -9,7 +9,7 @@ const ARRIVALS = [
   {
     id: "arrival-1",
     tag: "FALL COLLECTION",
-    title: "Blooming Trends Fresh 2026",
+    title: "Oversized Streetwear Hoodie & Beige Set",
     bgClass: "bg-[#fde7e7] dark:bg-[#2b1820]",
     image: "https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&fit=crop&w=900&q=85",
     alt: "Streetwear hoodie style",
@@ -19,7 +19,7 @@ const ARRIVALS = [
   {
     id: "arrival-2",
     tag: "FALL COLLECTION",
-    title: "Blooming Trends Fresh 2026",
+    title: "Minimalist Crisp Cotton Top & Gold Chain",
     bgClass: "bg-[#f3e8fa] dark:bg-[#25172d]",
     image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=85",
     alt: "Minimalist luxury white top",
@@ -29,7 +29,7 @@ const ARRIVALS = [
   {
     id: "arrival-3",
     tag: "FALL COLLECTION",
-    title: "Blooming Trends Fresh 2026",
+    title: "Classic Striped Breton Tee & Selvedge Denim",
     bgClass: "bg-[#e2f0fb] dark:bg-[#152331]",
     image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=85",
     alt: "Striped casual elegance",
@@ -39,7 +39,7 @@ const ARRIVALS = [
   {
     id: "arrival-4",
     tag: "FALL COLLECTION",
-    title: "Blooming Trends Fresh 2026",
+    title: "Editorial Haute Velvet Trench & Slip Dress",
     bgClass: "bg-[#e5f5ec] dark:bg-[#162920]",
     image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85",
     alt: "High-fashion model apparel",
@@ -49,7 +49,7 @@ const ARRIVALS = [
   {
     id: "arrival-5",
     tag: "FALL COLLECTION",
-    title: "Blooming Trends Fresh 2026",
+    title: "Chunky Ribbed Knitwear & Cashmere Flannel",
     bgClass: "bg-[#faf0e1] dark:bg-[#2c2215]",
     image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=85",
     alt: "Atelier collection knitwear",
