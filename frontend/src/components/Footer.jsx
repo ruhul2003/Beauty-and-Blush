@@ -37,15 +37,15 @@ export function Footer() {
 
             <div className="pt-2 space-y-2 text-xs text-slate-600 dark:text-slate-400">
               <div className="flex items-center gap-2">
-                <MapPin className="w-3.5 h-3.5 text-[#b84357] shrink-0" />
+                <MapPin className="w-3.5 h-3.5 text-[#e06d84] shrink-0" />
                 <span>Gulshan-1 & Banani, Dhaka, Bangladesh</span>
               </div>
               <div className="flex items-center gap-2">
-                <Phone className="w-3.5 h-3.5 text-[#b84357] shrink-0" />
+                <Phone className="w-3.5 h-3.5 text-[#e06d84] shrink-0" />
                 <span>+880 1711-224466 (Concierge Support)</span>
               </div>
               <div className="flex items-center gap-2">
-                <Mail className="w-3.5 h-3.5 text-[#b84357] shrink-0" />
+                <Mail className="w-3.5 h-3.5 text-[#e06d84] shrink-0" />
                 <span>support@beautyandblush.com</span>
               </div>
             </div>
@@ -57,11 +57,11 @@ export function Footer() {
               Collections
             </h4>
             <ul className="space-y-2.5 text-xs text-slate-600 dark:text-slate-400">
-              <li><Link href="/browse?category=Skincare" className="hover:text-[#b84357] dark:hover:text-rose-300 transition-colors">Skincare & Serums</Link></li>
-              <li><Link href="/browse?category=Makeup" className="hover:text-[#b84357] dark:hover:text-rose-300 transition-colors">Luxury Makeup</Link></li>
-              <li><Link href="/browse?category=Fragrance" className="hover:text-[#b84357] dark:hover:text-rose-300 transition-colors">Designer Fragrances</Link></li>
-              <li><Link href="/browse?category=Haircare" className="hover:text-[#b84357] dark:hover:text-rose-300 transition-colors">Botanical Haircare</Link></li>
-              <li><Link href="/browse?category=Accessories" className="hover:text-[#b84357] dark:hover:text-rose-300 transition-colors">Makeup Brushes</Link></li>
+              <li><Link href="/browse?category=Skincare" className="hover:text-[#e06d84] dark:hover:text-rose-300 transition-colors">Skincare & Serums</Link></li>
+              <li><Link href="/browse?category=Makeup" className="hover:text-[#e06d84] dark:hover:text-rose-300 transition-colors">Luxury Makeup</Link></li>
+              <li><Link href="/browse?category=Fragrance" className="hover:text-[#e06d84] dark:hover:text-rose-300 transition-colors">Designer Fragrances</Link></li>
+              <li><Link href="/browse?category=Haircare" className="hover:text-[#e06d84] dark:hover:text-rose-300 transition-colors">Botanical Haircare</Link></li>
+              <li><Link href="/browse?category=Accessories" className="hover:text-[#e06d84] dark:hover:text-rose-300 transition-colors">Makeup Brushes</Link></li>
             </ul>
           </div>
 
@@ -71,11 +71,11 @@ export function Footer() {
               Customer Care
             </h4>
             <ul className="space-y-2.5 text-xs text-slate-600 dark:text-slate-400">
-              <li><Link href="/about" className="hover:text-[#b84357] dark:hover:text-rose-300 transition-colors">About Our Atelier</Link></li>
-              <li><Link href="/about" className="hover:text-[#b84357] dark:hover:text-rose-300 transition-colors">Authenticity Promise</Link></li>
-              <li><Link href="/track-order" className="hover:text-[#b84357] dark:hover:text-rose-300 transition-colors">Shipping & Returns</Link></li>
-              <li><Link href="/wishlist" className="hover:text-[#b84357] dark:hover:text-rose-300 transition-colors">Saved Wishlist</Link></li>
-              <li><Link href="/about" className="hover:text-[#b84357] dark:hover:text-rose-300 transition-colors">Support Concierge</Link></li>
+              <li><Link href="/about" className="hover:text-[#e06d84] dark:hover:text-rose-300 transition-colors">About Our Atelier</Link></li>
+              <li><Link href="/about" className="hover:text-[#e06d84] dark:hover:text-rose-300 transition-colors">Authenticity Promise</Link></li>
+              <li><Link href="/track-order" className="hover:text-[#e06d84] dark:hover:text-rose-300 transition-colors">Shipping & Returns</Link></li>
+              <li><Link href="/wishlist" className="hover:text-[#e06d84] dark:hover:text-rose-300 transition-colors">Saved Wishlist</Link></li>
+              <li><Link href="/about" className="hover:text-[#e06d84] dark:hover:text-rose-300 transition-colors">Support Concierge</Link></li>
             </ul>
           </div>
 
@@ -85,10 +85,10 @@ export function Footer() {
               Boutiques
             </h4>
             <ul className="space-y-2.5 text-xs text-slate-600 dark:text-slate-400">
-              <li><Link href="/sell" className="hover:text-[#b84357] dark:hover:text-rose-300 transition-colors">List a Product</Link></li>
-              <li><Link href="/dashboard" className="hover:text-[#b84357] dark:hover:text-rose-300 transition-colors">Seller Dashboard</Link></li>
-              <li><Link href="/auth/register" className="hover:text-[#b84357] dark:hover:text-rose-300 transition-colors">MUA Verification</Link></li>
-              <li><Link href="/dashboard" className="hover:text-[#b84357] dark:hover:text-rose-300 transition-colors">Boutique Analytics</Link></li>
+              <li><Link href="/sell" className="hover:text-[#e06d84] dark:hover:text-rose-300 transition-colors">List a Product</Link></li>
+              <li><Link href="/dashboard" className="hover:text-[#e06d84] dark:hover:text-rose-300 transition-colors">Seller Dashboard</Link></li>
+              <li><Link href="/auth/register" className="hover:text-[#e06d84] dark:hover:text-rose-300 transition-colors">MUA Verification</Link></li>
+              <li><Link href="/dashboard" className="hover:text-[#e06d84] dark:hover:text-rose-300 transition-colors">Boutique Analytics</Link></li>
             </ul>
           </div>
         </motion.div>
