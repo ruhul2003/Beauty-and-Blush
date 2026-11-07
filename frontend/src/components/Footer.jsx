@@ -93,6 +93,42 @@ export function Footer() {
           </div>
         </motion.div>
 
+        {/* Newsletter Subscription Strip */}
+        <div className="pt-6 pb-8 border-t border-black/[0.04] dark:border-white/[0.06] flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="space-y-1 text-center md:text-left">
+            <h4 className="text-sm font-bold text-[#181416] dark:text-white">
+              Subscribe to Atelier Privileges
+            </h4>
+            <p className="text-xs text-slate-500 dark:text-slate-400">
+              Receive private invitations, new drop alerts, and exclusive seasonal offers.
+            </p>
+          </div>
+          <form 
+            onSubmit={(e) => { 
+              e.preventDefault(); 
+              const input = e.target.querySelector('input');
+              if (input && input.value) {
+                alert('Thank you for subscribing to Beauty & Blush atelier privileges!'); 
+                input.value = '';
+              }
+            }} 
+            className="flex w-full md:w-auto max-w-md gap-2"
+          >
+            <input
+              type="email"
+              required
+              placeholder="Enter your email address"
+              className="flex-1 md:w-64 px-4 py-2 text-xs rounded-full glass-well text-[#181416] dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#e06d84]/30"
+            />
+            <button
+              type="submit"
+              className="px-5 py-2 text-xs font-bold uppercase tracking-wider rounded-full bg-[#e06d84] hover:bg-[#d45d74] text-white shadow-sm transition-all cursor-pointer"
+            >
+              Join
+            </button>
+          </form>
+        </div>
+
         {/* Bottom Bar */}
         <div className="pt-6 border-t border-black/[0.04] dark:border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400">
           <p>© {new Date().getFullYear()} Beauty and Blush. All rights reserved.</p>
