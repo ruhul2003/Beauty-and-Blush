@@ -10,6 +10,7 @@ const ARRIVALS = [
     id: "arrival-1",
     tag: "FALL COLLECTION",
     title: "Oversized Streetwear Hoodie & Beige Set",
+    price: "৳3,650",
     bgClass: "bg-[#fde7e7] dark:bg-[#2b1820]",
     image: "https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&fit=crop&w=900&q=85",
     alt: "Streetwear hoodie style",
@@ -20,6 +21,7 @@ const ARRIVALS = [
     id: "arrival-2",
     tag: "FALL COLLECTION",
     title: "Minimalist Crisp Cotton Top & Gold Chain",
+    price: "৳2,250",
     bgClass: "bg-[#f3e8fa] dark:bg-[#25172d]",
     image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=85",
     alt: "Minimalist luxury white top",
@@ -30,6 +32,7 @@ const ARRIVALS = [
     id: "arrival-3",
     tag: "FALL COLLECTION",
     title: "Classic Striped Breton Tee & Selvedge Denim",
+    price: "৳1,950",
     bgClass: "bg-[#e2f0fb] dark:bg-[#152331]",
     image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=85",
     alt: "Striped casual elegance",
@@ -40,6 +43,7 @@ const ARRIVALS = [
     id: "arrival-4",
     tag: "FALL COLLECTION",
     title: "Editorial Haute Velvet Trench & Slip Dress",
+    price: "৳4,800",
     bgClass: "bg-[#e5f5ec] dark:bg-[#162920]",
     image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85",
     alt: "High-fashion model apparel",
@@ -50,6 +54,7 @@ const ARRIVALS = [
     id: "arrival-5",
     tag: "FALL COLLECTION",
     title: "Chunky Ribbed Knitwear & Cashmere Flannel",
+    price: "৳3,400",
     bgClass: "bg-[#faf0e1] dark:bg-[#2c2215]",
     image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=85",
     alt: "Atelier collection knitwear",
@@ -164,10 +169,15 @@ export function NewArrivals() {
                     {item.title}
                   </h3>
 
-                  <div className="pt-1">
+                  <div className="pt-1 flex items-center justify-center gap-3">
+                    {item.price && (
+                      <span className="text-xs sm:text-sm font-bold text-[#e06d84] dark:text-rose-300">
+                        {item.price}
+                      </span>
+                    )}
                     <Link
                       href={item.href}
-                      className="inline-flex items-center justify-center px-6 py-1.5 sm:py-2 rounded-lg bg-[#edd59e] hover:bg-[#e4ca8c] text-[#181416] font-bold text-[10px] sm:text-xs uppercase tracking-wider shadow-xs hover:shadow-md transition-all hover:scale-105 active:scale-95 cursor-pointer"
+                      className="inline-flex items-center justify-center px-5 sm:px-6 py-1.5 sm:py-2 rounded-lg bg-[#edd59e] hover:bg-[#e4ca8c] text-[#181416] font-bold text-[10px] sm:text-xs uppercase tracking-wider shadow-xs hover:shadow-md transition-all hover:scale-105 active:scale-95 cursor-pointer"
                     >
                       <span>{item.buttonText}</span>
                     </Link>
