@@ -81,7 +81,7 @@ export function CategoryShowcase() {
                 className="group flex flex-col items-center text-center w-full"
               >
                 {/* Circular Liquid Glass Pod with pronounced 3D Depth */}
-                <div className="relative w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-full p-2 bg-white/90 dark:bg-white/[0.1] backdrop-blur-2xl border-2 border-white dark:border-white/25 shadow-[0_18px_40px_-5px_rgba(0,0,0,0.14),0_6px_16px_-2px_rgba(0,0,0,0.08),inset_0_3px_2px_rgba(255,255,255,1),inset_0_-3px_3px_rgba(0,0,0,0.06)] group-hover:shadow-[0_26px_55px_-5px_rgba(224,109,132,0.35),0_10px_20px_-2px_rgba(224,109,132,0.22),inset_0_3px_2px_rgba(255,255,255,1)] group-hover:border-[#e06d84]/40 transition-all duration-300">
+                <div className="relative w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-full p-2 bg-white/90 dark:bg-white/[0.1] backdrop-blur-2xl border-2 border-white dark:border-white/25 shadow-[0_18px_40px_-5px_rgba(0,0,0,0.14),0_6px_16px_-2px_rgba(0,0,0,0.08),inset_0_3px_2px_rgba(255,255,255,1),inset_0_-3px_3px_rgba(0,0,0,0.06)] group-hover:shadow-[0_26px_55px_-5px_rgba(224,109,132,0.35),0_10px_20px_-2px_rgba(224,109,132,0.22),inset_0_3px_2px_rgba(255,255,255,1)] group-hover:border-[#e06d84]/50 group-hover:ring-4 group-hover:ring-[#e06d84]/15 transition-all duration-300">
                   <div className="w-full h-full rounded-full overflow-hidden shadow-inner">
                     <img
                       src={cat.image}
