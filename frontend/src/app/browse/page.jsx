@@ -100,10 +100,10 @@ function BrowsePageContent() {
       {/* Header & Search Hero Slab */}
       <div className="glass-slab p-6 sm:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
         <div>
-          <span className="glass-pill inline-block px-3 py-1 text-[10px] font-bold tracking-widest text-[#b84357] dark:text-rose-300 uppercase mb-2">
+          <span className="glass-pill inline-block px-3 py-1 text-[10px] font-bold tracking-widest text-[#e06d84] dark:text-rose-300 uppercase mb-2">
             Curated Beauty Vault
           </span>
-          <h1 className="text-2xl sm:text-3xl font-serif font-bold text-[#181416] dark:text-white">
+          <h1 className="text-2xl sm:text-3xl font-bold text-[#181416] dark:text-white">
             Catalog & Collections
           </h1>
           <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
@@ -120,7 +120,7 @@ function BrowsePageContent() {
                 type="text"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                placeholder="Search by brand, shade, product..."
+                placeholder="Search by brand, shade, luxury bags, cosmetics..."
                 className="w-full bg-transparent text-xs text-[#181416] dark:text-white placeholder:text-slate-400 focus:outline-none"
               />
             </div>
