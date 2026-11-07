@@ -44,11 +44,11 @@ export function TrustBadges() {
                 className="glass-slab py-5 sm:py-6 px-5 sm:px-6 min-h-[94px] sm:min-h-[102px] flex items-center gap-4 h-full rounded-[24px] sm:rounded-[26px]"
               >
                 {/* Recessed Concave Icon Well (Reference Image Style) */}
-                <div className="glass-well w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 text-[#b84357] dark:text-rose-300 shadow-xs">
+                <div className="glass-well w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 text-[#e06d84] dark:text-rose-300 shadow-xs">
                   <Icon className="w-5 h-5 stroke-[1.8]" />
                 </div>
                 <div className="flex flex-col justify-center min-w-0 flex-1">
-                  <h3 className="text-xs sm:text-[13px] font-bold tracking-wider text-[#181416] dark:text-white uppercase font-serif leading-snug">
+                  <h3 className="text-xs sm:text-[13px] font-bold tracking-wider text-[#181416] dark:text-white uppercase leading-snug">
                     {item.title}
                   </h3>
                   <p className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 mt-1 leading-normal">
