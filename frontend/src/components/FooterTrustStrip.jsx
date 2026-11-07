@@ -47,7 +47,7 @@ export function FooterTrustStrip() {
                 transition={{ duration: 0.25 }}
                 className="glass-slab py-5 sm:py-6 px-5 sm:px-6 min-h-[94px] sm:min-h-[102px] flex items-center gap-4 rounded-[24px] sm:rounded-[26px] h-full"
               >
-                <div className="glass-well w-12 h-12 rounded-2xl flex items-center justify-center text-[#b84357] dark:text-rose-300 shrink-0 shadow-xs">
+                <div className="glass-well w-12 h-12 rounded-2xl flex items-center justify-center text-[#e06d84] dark:text-rose-300 shrink-0 shadow-xs">
                   <Icon className="w-5 h-5 stroke-[1.8]" />
                 </div>
                 <div className="flex flex-col justify-center min-w-0 flex-1">
