@@ -9,31 +9,36 @@ const categories = [
     name: 'SKINCARE',
     slug: 'Skincare',
     image: '/images/serum.jpg',
-    desc: 'Hydrating serums & creams'
+    desc: 'Hydrating serums & creams',
+    count: '42+ items'
   },
   {
     name: 'MAKEUP',
     slug: 'Makeup',
     image: '/images/promo-makeup.jpg',
-    desc: 'Lipsticks, palettes & blushes'
+    desc: 'Lipsticks, palettes & blushes',
+    count: '56+ items'
   },
   {
     name: 'HAIRCARE',
     slug: 'Haircare',
     image: '/images/haircare.jpg',
-    desc: 'Botanical oils & masks'
+    desc: 'Botanical oils & masks',
+    count: '28+ items'
   },
   {
     name: 'ACCESSORIES',
     slug: 'Accessories',
     image: '/images/brushes.jpg',
-    desc: 'Pro rose gold brush sets'
+    desc: 'Pro rose gold brush sets',
+    count: '20+ items'
   },
   {
     name: 'FRAGRANCE',
     slug: 'Fragrance',
     image: '/images/perfume.jpg',
-    desc: 'Designer Eau de Parfum'
+    desc: 'Designer Eau de Parfum',
+    count: '35+ items'
   }
 ];
 
@@ -50,10 +55,10 @@ export function CategoryShowcase() {
           transition={{ duration: 0.5 }}
           className="text-center mb-10 sm:mb-12 flex flex-col items-center"
         >
-          <span className="glass-pill px-4 py-1.5 text-[10px] sm:text-[11px] uppercase tracking-[0.24em] font-bold text-[#b84357] dark:text-rose-300 shadow-xs mb-3">
+          <span className="glass-pill px-4 py-1.5 text-[10px] sm:text-[11px] uppercase tracking-[0.24em] font-bold text-[#e06d84] dark:text-rose-300 shadow-xs mb-3">
             Curated Collections
           </span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-[#181416] dark:text-white font-bold tracking-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-[#181416] dark:text-white">
             Shop by Category
           </h2>
         </motion.div>
@@ -76,7 +81,7 @@ export function CategoryShowcase() {
                 className="group flex flex-col items-center text-center w-full"
               >
                 {/* Circular Liquid Glass Pod with pronounced 3D Depth */}
-                <div className="relative w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-full p-2 bg-white/90 dark:bg-white/[0.1] backdrop-blur-2xl border-2 border-white dark:border-white/25 shadow-[0_18px_40px_-5px_rgba(0,0,0,0.14),0_6px_16px_-2px_rgba(0,0,0,0.08),inset_0_3px_2px_rgba(255,255,255,1),inset_0_-3px_3px_rgba(0,0,0,0.06)] group-hover:shadow-[0_26px_55px_-5px_rgba(184,67,87,0.35),0_10px_20px_-2px_rgba(184,67,87,0.22),inset_0_3px_2px_rgba(255,255,255,1)] group-hover:border-[#b84357]/40 transition-all duration-300">
+                <div className="relative w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-full p-2 bg-white/90 dark:bg-white/[0.1] backdrop-blur-2xl border-2 border-white dark:border-white/25 shadow-[0_18px_40px_-5px_rgba(0,0,0,0.14),0_6px_16px_-2px_rgba(0,0,0,0.08),inset_0_3px_2px_rgba(255,255,255,1),inset_0_-3px_3px_rgba(0,0,0,0.06)] group-hover:shadow-[0_26px_55px_-5px_rgba(224,109,132,0.35),0_10px_20px_-2px_rgba(224,109,132,0.22),inset_0_3px_2px_rgba(255,255,255,1)] group-hover:border-[#e06d84]/40 transition-all duration-300">
                   <div className="w-full h-full rounded-full overflow-hidden shadow-inner">
                     <img
                       src={cat.image}
@@ -88,12 +93,15 @@ export function CategoryShowcase() {
 
                 {/* Title & Link */}
                 <div className="mt-3.5 space-y-1">
-                  <h3 className="text-xs sm:text-[13px] font-bold tracking-wider text-[#181416] dark:text-white uppercase group-hover:text-[#b84357] dark:group-hover:text-rose-300 transition-colors font-serif">
+                  <h3 className="text-xs sm:text-[13px] font-bold tracking-wider text-[#181416] dark:text-white uppercase group-hover:text-[#e06d84] dark:group-hover:text-rose-300 transition-colors">
                     {cat.name}
                   </h3>
                   <p className="text-[11px] text-slate-500 dark:text-slate-400">
                     {cat.desc}
                   </p>
+                  <span className="glass-pill inline-block px-2.5 py-0.5 text-[9px] font-bold text-slate-600 dark:text-slate-300 mt-0.5">
+                    {cat.count}
+                  </span>
                 </div>
               </Link>
             </motion.div>
