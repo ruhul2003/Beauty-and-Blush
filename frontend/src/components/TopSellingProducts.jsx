@@ -3,7 +3,7 @@
 import React, { useState, useRef } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 
 const TOP_SELLERS = [
   {
@@ -190,9 +190,15 @@ export function TopSellingProducts() {
 
                 {/* Floating Frosted Glass Bottom Overlay Card */}
                 <div className="relative z-10 mx-3 sm:mx-4 mb-3 sm:mb-4 p-4 sm:p-5 rounded-2xl bg-white/80 dark:bg-black/65 backdrop-blur-md border border-white/60 dark:border-white/15 shadow-lg text-center space-y-2">
-                  <span className="block text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.22em] text-slate-600 dark:text-slate-300">
-                    {item.tag}
-                  </span>
+                  <div className="flex items-center justify-between text-[10px] sm:text-[11px] font-bold">
+                    <span className="uppercase tracking-[0.22em] text-slate-600 dark:text-slate-300">
+                      {item.tag}
+                    </span>
+                    <span className="flex items-center gap-1 text-amber-500 font-bold">
+                      <Star className="w-3.5 h-3.5 fill-current" />
+                      <span>4.9</span>
+                    </span>
+                  </div>
 
                   <h3 className="text-sm sm:text-base font-bold text-[#181416] dark:text-white leading-snug line-clamp-1">
                     {item.title}
