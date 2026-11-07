@@ -159,7 +159,7 @@ export default function Home() {
   }, [fetchProducts]);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen space-y-4 sm:space-y-6">
       {/* 1. Hero Showcase Section */}
       <HeroBanner />
 
