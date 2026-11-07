@@ -191,7 +191,7 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
                 type="button"
                 className={`px-4 py-2 rounded-full border transition-all duration-200 flex items-center gap-1.5 cursor-pointer ${
                   categoryDropdown
-                    ? 'bg-white/90 dark:bg-white/[0.12] text-[#b84357] dark:text-rose-300 border-white/90 dark:border-white/20 shadow-xs'
+                    ? 'bg-white/90 dark:bg-white/[0.12] text-[#e06d84] dark:text-rose-300 border-white/90 dark:border-white/20 shadow-xs'
                     : 'border-transparent hover:border-white/80 dark:hover:border-white/15 hover:bg-white/80 dark:hover:bg-white/[0.08] text-slate-700 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white'
                 }`}
                 aria-expanded={categoryDropdown}
@@ -199,7 +199,7 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
                 <span>Categories</span>
                 <ChevronDown 
                   className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                    categoryDropdown ? 'rotate-180 text-[#b84357]' : 'text-slate-400'
+                    categoryDropdown ? 'rotate-180 text-[#e06d84]' : 'text-slate-400'
                   }`} 
                 />
               </button>
@@ -219,7 +219,7 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
                     <div className="glass-dropdown p-4 space-y-3 shadow-2xl">
                       
                       <div className="px-2 pt-0.5 pb-2 border-b border-black/[0.04] dark:border-white/[0.06]">
-                        <span className="text-[10px] uppercase font-bold tracking-[0.2em] text-[#b84357] dark:text-rose-300">
+                        <span className="text-[10px] uppercase font-bold tracking-[0.2em] text-[#e06d84] dark:text-rose-300">
                           Categories
                         </span>
                       </div>
@@ -233,10 +233,10 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
                             onClick={() => setCategoryDropdown(false)}
                             className="px-3.5 py-2.5 rounded-2xl border border-white/60 dark:border-white/[0.08] bg-white/60 dark:bg-white/[0.05] hover:bg-white dark:hover:bg-white/[0.12] hover:shadow-xs transition-all flex items-center justify-between group/cat backdrop-blur-md"
                           >
-                            <span className="text-xs font-bold text-slate-800 dark:text-slate-100 group-hover/cat:text-[#b84357] dark:group-hover/cat:text-rose-300 transition-colors">
+                            <span className="text-xs font-bold text-slate-800 dark:text-slate-100 group-hover/cat:text-[#e06d84] dark:group-hover/cat:text-rose-300 transition-colors">
                               {cat.name}
                             </span>
-                            <ChevronRight className="w-3.5 h-3.5 text-slate-400 group-hover/cat:text-[#b84357] dark:group-hover/cat:text-rose-300 group-hover/cat:translate-x-0.5 transition-all" />
+                            <ChevronRight className="w-3.5 h-3.5 text-slate-400 group-hover/cat:text-[#e06d84] dark:group-hover/cat:text-rose-300 group-hover/cat:translate-x-0.5 transition-all" />
                           </Link>
                         ))}
                       </div>
@@ -295,7 +295,7 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
             <motion.button
               whileTap={{ scale: 0.92 }}
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="md:hidden glass-pill w-9.5 h-9.5 flex items-center justify-center text-slate-700 dark:text-slate-200 hover:text-[#b84357] shadow-xs cursor-pointer"
+              className="md:hidden glass-pill w-9.5 h-9.5 flex items-center justify-center text-slate-700 dark:text-slate-200 hover:text-[#e06d84] shadow-xs cursor-pointer"
               aria-label="Search"
             >
               <Search className="w-4 h-4" />
@@ -304,7 +304,7 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
             {/* Wishlist Link */}
             <Link
               href="/wishlist"
-              className="glass-pill w-9.5 h-9.5 sm:w-10 sm:h-10 flex items-center justify-center text-slate-700 dark:text-slate-200 hover:text-[#b84357] shadow-xs relative cursor-pointer"
+              className="glass-pill w-9.5 h-9.5 sm:w-10 sm:h-10 flex items-center justify-center text-slate-700 dark:text-slate-200 hover:text-[#e06d84] shadow-xs relative cursor-pointer"
               title="Saved Wishlist"
               aria-label="Wishlist"
             >
