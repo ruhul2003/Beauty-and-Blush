@@ -93,13 +93,13 @@ export function CategoryShowcase() {
 
                 {/* Title & Link */}
                 <div className="mt-3.5 space-y-1">
-                  <h3 className="text-xs sm:text-[13px] font-bold tracking-wider text-[#181416] dark:text-white uppercase group-hover:text-[#e06d84] dark:group-hover:text-rose-300 transition-colors">
+                  <h3 className="text-xs sm:text-[13px] font-bold tracking-wider text-[#181416] dark:text-white uppercase group-hover:text-[#e06d84] dark:group-hover:text-rose-300 transition-colors inline-block group-hover:scale-105 duration-200">
                     {cat.name}
                   </h3>
                   <p className="text-[11px] text-slate-500 dark:text-slate-400">
                     {cat.desc}
                   </p>
-                  <span className="glass-pill inline-block px-2.5 py-0.5 text-[9px] font-bold text-slate-600 dark:text-slate-300 mt-0.5">
+                  <span className="glass-pill inline-block px-2.5 py-0.5 text-[9px] font-bold text-slate-600 dark:text-slate-300 group-hover:border-[#e06d84]/40 group-hover:text-[#e06d84] dark:group-hover:text-rose-300 transition-colors mt-0.5">
                     {cat.count}
                   </span>
                 </div>
