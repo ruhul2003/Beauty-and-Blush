@@ -36,12 +36,12 @@ export function TrustBadges() {
           return (
             <motion.div
               key={idx}
-              whileHover={{ y: -3 }}
+              whileHover={{ y: -4, scale: 1.01 }}
               transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
               className="h-full flex flex-col"
             >
               <div 
-                className="glass-slab py-5 sm:py-6 px-5 sm:px-6 min-h-[94px] sm:min-h-[102px] flex items-center gap-4 h-full rounded-[24px] sm:rounded-[26px]"
+                className="glass-slab py-5 sm:py-6 px-5 sm:px-6 min-h-[94px] sm:min-h-[102px] flex items-center gap-4 h-full rounded-[24px] sm:rounded-[26px] hover:border-[#e06d84]/30 hover:shadow-lg hover:shadow-[#e06d84]/5 transition-all duration-300"
               >
                 {/* Recessed Concave Icon Well (Reference Image Style) */}
                 <div className="glass-well w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 text-[#e06d84] dark:text-rose-300 shadow-xs">
