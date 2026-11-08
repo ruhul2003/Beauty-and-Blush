@@ -183,7 +183,7 @@ export function ProductCard({ product }) {
         <div className="pt-3 mt-3 flex items-center gap-2 border-t border-black/[0.04] dark:border-white/[0.06]">
           <Link
             href={`/product/${product._id || product.id}`}
-            className="flex-1 py-1.5 text-center text-[11px] sm:text-xs font-bold rounded-full glass-pill hover:bg-[#e06d84] hover:text-white text-[#181416] dark:text-white hover:border-[#e06d84] active:scale-98 transition-all"
+            className="flex-1 py-1.5 text-center text-[11px] sm:text-xs font-bold rounded-full glass-pill hover:bg-[#e06d84] hover:text-white text-[#181416] dark:text-white hover:border-[#e06d84] active:scale-98 transition-all shadow-xs"
           >
             View Details
           </Link>
@@ -196,7 +196,7 @@ export function ProductCard({ product }) {
               e.stopPropagation();
               addToCart(product);
             }}
-            className="w-7.5 h-7.5 rounded-full bg-[#e06d84] hover:bg-[#d45d74] text-white flex items-center justify-center active:scale-95 transition-all shadow-md shadow-[#e06d84]/20 cursor-pointer"
+            className="w-8 h-8 rounded-full bg-[#e06d84] hover:bg-[#d45d74] text-white flex items-center justify-center active:scale-95 transition-all shadow-md shadow-[#e06d84]/25 hover:shadow-lg hover:shadow-[#e06d84]/35 cursor-pointer"
             title="Add to Cart"
             aria-label={`Add ${product.title} to bag`}
           >
@@ -208,7 +208,7 @@ export function ProductCard({ product }) {
             href={whatsappUrl}
             target="_blank"
             rel="noreferrer"
-            className="w-7.5 h-7.5 rounded-full glass-pill text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500/10 flex items-center justify-center active:scale-95 transition-all cursor-pointer"
+            className="w-8 h-8 rounded-full glass-pill text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500/15 hover:border-emerald-500/30 flex items-center justify-center active:scale-95 transition-all cursor-pointer shadow-xs"
             title="WhatsApp inquiry"
             aria-label="WhatsApp inquiry"
           >
