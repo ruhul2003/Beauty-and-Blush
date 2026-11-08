@@ -219,10 +219,10 @@ export function HeroBanner() {
               <button
                 key={s.id}
                 onClick={() => setCurrentSlide(idx)}
-                className={`h-2 sm:h-2.5 rounded-full transition-all duration-400 cursor-pointer ${
+                className={`h-2 sm:h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
                   currentSlide === idx 
-                    ? 'w-8 sm:w-10 bg-white shadow-md' 
-                    : 'w-2.5 sm:w-3 bg-white/45 hover:bg-white/80'
+                    ? 'w-8 sm:w-10 bg-white shadow-[0_0_12px_rgba(255,255,255,0.6)]' 
+                    : 'w-2.5 sm:w-3 bg-white/40 hover:bg-white/80'
                 }`}
                 aria-label={`Go to slide ${idx + 1}`}
               />
