@@ -68,7 +68,7 @@ export function CartDrawer() {
 
                   <button
                     onClick={closeCart}
-                    className="glass-pill w-9 h-9 flex items-center justify-center text-slate-500 hover:text-slate-800 dark:hover:text-white transition-colors cursor-pointer"
+                    className="glass-pill w-9 h-9 flex items-center justify-center text-slate-500 hover:text-[#e06d84] dark:hover:text-rose-300 hover:rotate-90 transition-all duration-200 cursor-pointer shadow-xs"
                     aria-label="Close cart"
                   >
                     <X className="w-4 h-4" />
@@ -92,7 +92,7 @@ export function CartDrawer() {
                   </div>
                   <div className="w-full h-2 rounded-full glass-well p-0.5 overflow-hidden">
                     <div 
-                      className="h-full bg-[#b84357] rounded-full transition-all duration-500"
+                      className="h-full bg-gradient-to-r from-[#e06d84] to-[#d45d74] rounded-full transition-all duration-500"
                       style={{ width: `${progressPercent}%` }}
                     />
                   </div>
@@ -102,7 +102,7 @@ export function CartDrawer() {
                 <div className="flex-1 overflow-y-auto p-4 sm:p-5 space-y-3.5">
                   {cartItems.length === 0 ? (
                     <div className="text-center py-16 space-y-3">
-                      <div className="w-16 h-16 rounded-3xl glass-well text-slate-400 dark:text-slate-500 mx-auto flex items-center justify-center">
+                      <div className="w-16 h-16 rounded-3xl glass-well text-slate-400 dark:text-slate-500 mx-auto flex items-center justify-center hover:scale-105 transition-transform duration-300 shadow-inner">
                         <ShoppingBag className="w-8 h-8" />
                       </div>
                       <h3 className="text-base font-serif font-bold text-[#181416] dark:text-slate-200">
