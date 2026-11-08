@@ -64,8 +64,8 @@ export function ProductShowcase({ products = [], loading = false }) {
                 onClick={() => setActiveCategory(cat)}
                 className={`px-4 py-1.5 rounded-full text-[11px] sm:text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
                   isActive
-                    ? 'bg-[#e06d84] text-white shadow-md shadow-[#e06d84]/25'
-                    : 'glass-pill text-slate-700 dark:text-slate-300 hover:text-[#e06d84] dark:hover:text-rose-300'
+                    ? 'bg-[#e06d84] text-white shadow-md shadow-[#e06d84]/25 scale-[1.02]'
+                    : 'glass-pill text-slate-700 dark:text-slate-300 hover:text-[#e06d84] dark:hover:text-rose-300 hover:border-[#e06d84]/30 hover:shadow-xs'
                 }`}
               >
                 {cat === 'All' ? 'All Highlights' : cat}
