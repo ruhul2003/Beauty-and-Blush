@@ -118,11 +118,11 @@ export function Footer() {
               type="email"
               required
               placeholder="Enter your email address"
-              className="flex-1 md:w-64 px-4 py-2 text-xs rounded-full glass-well text-[#181416] dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#e06d84]/30"
+              className="flex-1 md:w-64 px-4 py-2.5 text-xs rounded-full glass-well text-[#181416] dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#e06d84]/30 focus:border-[#e06d84]/40 transition-all"
             />
             <button
               type="submit"
-              className="px-5 py-2 text-xs font-bold uppercase tracking-wider rounded-full bg-[#e06d84] hover:bg-[#d45d74] text-white shadow-sm transition-all cursor-pointer"
+              className="px-5 py-2.5 text-xs font-bold uppercase tracking-wider rounded-full bg-[#e06d84] hover:bg-[#d45d74] text-white shadow-sm hover:shadow-md hover:scale-102 active:scale-98 transition-all cursor-pointer"
             >
               Join
             </button>
