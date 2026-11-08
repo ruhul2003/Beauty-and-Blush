@@ -149,7 +149,7 @@ export function NewArrivals() {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.35, delay: index * 0.08 }}
-                className={`relative rounded-[32px] sm:rounded-[36px] overflow-hidden ${item.bgClass} min-h-[460px] sm:min-h-[500px] lg:min-h-[520px] flex flex-col justify-end shadow-md group transition-all`}
+                className={`relative rounded-[32px] sm:rounded-[36px] overflow-hidden ${item.bgClass} border border-black/[0.04] dark:border-white/[0.08] min-h-[460px] sm:min-h-[500px] lg:min-h-[520px] flex flex-col justify-end shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group`}
               >
                 {/* Model / Product Photograph */}
                 <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
@@ -165,7 +165,7 @@ export function NewArrivals() {
 
                 {/* Floating Frosted Glass Bottom Overlay Card */}
                 <div className="relative z-10 mx-3 sm:mx-4 mb-3 sm:mb-4 p-4 sm:p-5 rounded-2xl bg-white/80 dark:bg-black/65 backdrop-blur-md border border-white/60 dark:border-white/15 shadow-lg text-center space-y-2">
-                  <span className="block text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.22em] text-slate-600 dark:text-slate-300">
+                  <span className="inline-block px-3 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-[0.22em] bg-black/[0.04] dark:bg-white/[0.08] text-slate-700 dark:text-slate-200">
                     {item.tag}
                   </span>
 
