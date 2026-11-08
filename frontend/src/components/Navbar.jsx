@@ -326,9 +326,15 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
               aria-label="Open Shopping Bag"
             >
               <ShoppingBag className="w-4 h-4" />
-              <span className="absolute -top-1 -right-1 bg-[#e06d84] text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-xs">
-                {cartCount}
-              </span>
+              {cartCount > 0 ? (
+                <span className="absolute -top-1 -right-1 bg-[#e06d84] text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-md shadow-[#e06d84]/40 animate-pulse">
+                  {cartCount}
+                </span>
+              ) : (
+                <span className="absolute -top-1 -right-1 bg-slate-300 dark:bg-white/20 text-slate-700 dark:text-slate-200 text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
+                  0
+                </span>
+              )}
             </motion.button>
 
             {/* 3D Glass Light/Dark Mode Theme Toggle */}
