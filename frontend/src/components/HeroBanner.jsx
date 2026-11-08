@@ -194,7 +194,7 @@ export function HeroBanner() {
           >
             <Link
               href="/browse"
-              className="px-6 sm:px-8 py-2.5 sm:py-3 text-xs tracking-[0.16em] uppercase font-bold text-white bg-[#e06d84] hover:bg-[#d45d74] rounded-full flex items-center gap-2 shadow-lg shadow-[#e06d84]/30 hover:scale-[1.02] active:scale-98 transition-all cursor-pointer border border-rose-200/30"
+              className="px-6 sm:px-8 py-2.5 sm:py-3 text-xs tracking-[0.16em] uppercase font-bold text-white bg-[#e06d84] hover:bg-[#d45d74] rounded-full flex items-center gap-2 shadow-lg shadow-[#e06d84]/35 hover:shadow-xl hover:shadow-[#e06d84]/45 hover:scale-[1.02] active:scale-98 transition-all cursor-pointer border border-rose-200/40"
             >
               <span>EXPLORE COLLECTION</span>
               <ArrowRight className="w-4 h-4" />
@@ -202,7 +202,7 @@ export function HeroBanner() {
             
             <Link
               href="/browse"
-              className="inline-flex items-center gap-2 px-6 sm:px-8 py-2.5 sm:py-3 text-xs font-bold uppercase tracking-wider text-white hover:text-rose-200 rounded-full border border-white/25 bg-white/[0.08] hover:bg-white/[0.18] backdrop-blur-xl group hover:scale-[1.02] active:scale-98 transition-all shadow-md cursor-pointer"
+              className="inline-flex items-center gap-2 px-6 sm:px-8 py-2.5 sm:py-3 text-xs font-bold uppercase tracking-wider text-white hover:text-rose-200 rounded-full border border-white/30 bg-white/[0.1] hover:bg-white/[0.2] backdrop-blur-xl group hover:scale-[1.02] active:scale-98 transition-all shadow-lg shadow-black/20 cursor-pointer"
             >
               <span>LADIES GLAMOUR</span>
               <Sparkles className="w-4 h-4 text-rose-300 group-hover:rotate-12 transition-transform" />
