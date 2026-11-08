@@ -51,7 +51,7 @@ export function PromoGrid() {
             <div className="pt-4 relative z-10">
               <Link
                 href="/browse?category=Skincare"
-                className="px-5 py-2.5 text-xs tracking-wider uppercase font-bold rounded-full bg-white text-indigo-700 hover:bg-slate-100 inline-flex items-center gap-2 shadow-[0_8px_18px_-4px_rgba(0,0,0,0.18),0_2px_6px_rgba(0,0,0,0.08),inset_0_2px_1px_#ffffff] hover:scale-105 active:scale-95 transition-all"
+                className="px-5 py-2.5 text-xs tracking-wider uppercase font-bold rounded-full bg-white text-indigo-700 hover:bg-slate-100 inline-flex items-center gap-2 shadow-[0_8px_18px_-4px_rgba(0,0,0,0.18),0_2px_6px_rgba(0,0,0,0.08),inset_0_2px_1px_#ffffff] hover:shadow-lg hover:shadow-black/15 hover:scale-105 active:scale-95 transition-all"
               >
                 <span>EXPLORE SKINCARE</span>
                 <ArrowRight className="w-4 h-4" />
@@ -102,7 +102,7 @@ export function PromoGrid() {
             <div className="pt-4 relative z-10">
               <Link
                 href="/browse?category=Makeup"
-                className="px-5 py-2.5 text-xs tracking-wider uppercase font-bold rounded-full bg-white text-[#e06d84] hover:bg-slate-100 inline-flex items-center gap-2 shadow-[0_8px_18px_-4px_rgba(0,0,0,0.18),0_2px_6px_rgba(0,0,0,0.08),inset_0_2px_1px_#ffffff] hover:scale-105 active:scale-95 transition-all"
+                className="px-5 py-2.5 text-xs tracking-wider uppercase font-bold rounded-full bg-white text-[#e06d84] hover:bg-slate-100 inline-flex items-center gap-2 shadow-[0_8px_18px_-4px_rgba(0,0,0,0.18),0_2px_6px_rgba(0,0,0,0.08),inset_0_2px_1px_#ffffff] hover:shadow-lg hover:shadow-black/15 hover:scale-105 active:scale-95 transition-all"
               >
                 <span>SHOP MAKEUP</span>
                 <ArrowRight className="w-4 h-4" />
