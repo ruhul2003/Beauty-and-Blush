@@ -104,7 +104,7 @@ export function ProductCard({ product }) {
                 e.stopPropagation();
                 setQuickViewOpen(true);
               }}
-              className="absolute inset-x-3 sm:inset-x-4 top-1/2 -translate-y-1/2 py-1.5 px-3 rounded-full glass-pill text-[#181416] dark:text-white font-bold text-[11px] sm:text-xs shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-200 flex items-center justify-center gap-1.5 hover:bg-[#e06d84] hover:text-white dark:hover:bg-[#e06d84] dark:hover:text-white z-20 cursor-pointer backdrop-blur-md"
+              className="absolute inset-x-3 sm:inset-x-4 top-1/2 -translate-y-1/2 py-2 px-3 rounded-full glass-pill text-[#181416] dark:text-white font-bold text-[11px] sm:text-xs shadow-xl opacity-0 group-hover:opacity-100 transition-all duration-200 flex items-center justify-center gap-1.5 hover:bg-[#e06d84] hover:text-white dark:hover:bg-[#e06d84] dark:hover:text-white z-20 cursor-pointer backdrop-blur-lg"
               aria-label={`Quick view ${product.title}`}
             >
               <Eye className="w-3.5 h-3.5" />
@@ -126,10 +126,10 @@ export function ProductCard({ product }) {
             </motion.button>
 
             {/* Authenticity Verified Pill */}
-            <div className="absolute bottom-2 left-2 right-2 flex items-center justify-between text-[10px] text-white bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-full pointer-events-none border border-white/10">
+            <div className="absolute bottom-2.5 left-2.5 right-2.5 flex items-center justify-between text-[10px] text-white bg-black/65 backdrop-blur-lg px-2.5 py-1 rounded-full pointer-events-none border border-white/20 shadow-xs">
               <div className="flex items-center gap-1 font-semibold">
                 <ShieldCheck className="w-3 h-3 text-emerald-400" />
-                <span>Verified</span>
+                <span className="tracking-wide">Verified</span>
               </div>
               <div className="flex items-center gap-1 text-amber-300 font-bold">
                 <Star className="w-3 h-3 fill-current" />
