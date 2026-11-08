@@ -278,7 +278,7 @@ export function BuyModal({ product, onClose }) {
                   value={buyerName}
                   onChange={(e) => setBuyerName(e.target.value)}
                   placeholder="e.g. Nusrat Jahan"
-                  className="w-full text-xs p-3 rounded-2xl glass-well text-[#181416] dark:text-white focus:outline-none"
+                  className="w-full text-xs p-3 rounded-2xl glass-well text-[#181416] dark:text-white focus:outline-none focus:ring-2 focus:ring-[#e06d84]/30 focus:border-[#e06d84]/40 transition-all"
                 />
               </div>
 
@@ -290,7 +290,7 @@ export function BuyModal({ product, onClose }) {
                   value={buyerPhone}
                   onChange={(e) => setBuyerPhone(e.target.value)}
                   placeholder="e.g. 01700-112233"
-                  className="w-full text-xs p-3 rounded-2xl glass-well text-[#181416] dark:text-white focus:outline-none"
+                  className="w-full text-xs p-3 rounded-2xl glass-well text-[#181416] dark:text-white focus:outline-none focus:ring-2 focus:ring-[#e06d84]/30 focus:border-[#e06d84]/40 transition-all"
                 />
               </div>
 
@@ -302,7 +302,7 @@ export function BuyModal({ product, onClose }) {
                   value={buyerAddress}
                   onChange={(e) => setBuyerAddress(e.target.value)}
                   placeholder="House, Road, Area (e.g. House 14, Road 7, Banani, Dhaka)"
-                  className="w-full text-xs p-3 rounded-2xl glass-well text-[#181416] dark:text-white focus:outline-none"
+                  className="w-full text-xs p-3 rounded-2xl glass-well text-[#181416] dark:text-white focus:outline-none focus:ring-2 focus:ring-[#e06d84]/30 focus:border-[#e06d84]/40 transition-all"
                 />
               </div>
 
