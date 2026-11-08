@@ -73,7 +73,7 @@ export function QuickViewModal({ product, onClose }) {
           <motion.button
             whileTap={{ scale: 0.9 }}
             onClick={onClose}
-            className="absolute top-4 right-4 glass-pill w-9 h-9 flex items-center justify-center text-slate-500 hover:text-slate-800 dark:hover:text-white transition-colors cursor-pointer z-10"
+            className="absolute top-4 right-4 glass-pill w-9 h-9 flex items-center justify-center text-slate-500 hover:text-[#e06d84] dark:hover:text-rose-300 hover:rotate-90 transition-all duration-200 cursor-pointer z-10 shadow-xs"
             aria-label="Close modal"
           >
             <X className="w-4 h-4" />
