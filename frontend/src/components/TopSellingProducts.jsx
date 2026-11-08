@@ -191,11 +191,11 @@ export function TopSellingProducts() {
                 {/* Floating Frosted Glass Bottom Overlay Card */}
                 <div className="relative z-10 mx-3 sm:mx-4 mb-3 sm:mb-4 p-4 sm:p-5 rounded-2xl bg-white/80 dark:bg-black/65 backdrop-blur-md border border-white/60 dark:border-white/15 shadow-lg text-center space-y-2">
                   <div className="flex items-center justify-between text-[10px] sm:text-[11px] font-bold">
-                    <span className="uppercase tracking-[0.22em] text-slate-600 dark:text-slate-300">
+                    <span className="uppercase tracking-[0.22em] text-[10px] text-slate-600 dark:text-slate-300 font-semibold">
                       {item.tag}
                     </span>
-                    <span className="flex items-center gap-1 text-amber-500 font-bold">
-                      <Star className="w-3.5 h-3.5 fill-current" />
+                    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-500/10 dark:bg-amber-400/15 border border-amber-500/20 text-amber-600 dark:text-amber-400 font-bold">
+                      <Star className="w-3 h-3 fill-current" />
                       <span>4.9</span>
                     </span>
                   </div>
