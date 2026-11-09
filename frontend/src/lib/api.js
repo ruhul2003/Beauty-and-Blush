@@ -10,10 +10,13 @@ export const api = axios.create({
   timeout: 10000,
 });
 
-// Interceptor to inject stored auth token
+// Interceptor to inject stored auth or admin token
 api.interceptors.request.use((config) => {
   if (typeof window !== 'undefined') {
-    const token = localStorage.getItem('bnb_token');
+    const isAdminRoute = config.url && config.url.startsWith('/admin');
+    const adminToken = localStorage.getItem('bnb_admin_token');
+    const userToken = localStorage.getItem('bnb_token');
+    const token = isAdminRoute && adminToken ? adminToken : userToken;
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
@@ -27,5 +30,12 @@ export const cartApi = {
   track: (eventData) => api.post('/cart/track', eventData),
   getEvents: () => api.get('/cart/events'),
   getAdminAnalytics: () => api.get('/admin/cart-analytics')
+};
+
+export const adminApi = {
+  login: (username, password) => api.post('/admin/login', { username, password }),
+  verify: () => api.get('/admin/verify'),
+  getAnalytics: () => api.get('/admin/analytics'),
+  getCartAnalytics: () => api.get('/admin/cart-analytics')
 };
 
