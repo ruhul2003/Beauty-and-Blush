@@ -173,7 +173,7 @@ export default function AdminCouponsPage() {
 
         <button
           onClick={() => setShowCreateModal(true)}
-          className="bg-[#b84357] hover:bg-[#a13649] text-white px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center gap-2 self-start sm:self-auto shadow-md shadow-[#b84357]/20 cursor-pointer"
+          className="bg-[#e06d84] hover:bg-[#d45d74] text-white px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-2 self-start sm:self-auto shadow-md shadow-[#e06d84]/25 hover:scale-[1.02] active:scale-95 transition-all cursor-pointer"
         >
           <PlusCircle className="w-4 h-4" />
           <span>Create New Coupon</span>
@@ -185,7 +185,7 @@ export default function AdminCouponsPage() {
         {coupons.map((cpn) => (
           <div 
             key={cpn._id}
-            className={`p-5 rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl border transition-all relative ${
+            className={`p-5 rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl border transition-all relative hover:shadow-md hover:-translate-y-0.5 ${
               cpn.isActive 
                 ? 'border-black/[0.05] dark:border-white/[0.08] shadow-xs' 
                 : 'border-black/[0.03] dark:border-white/[0.04] opacity-60'
@@ -193,14 +193,14 @@ export default function AdminCouponsPage() {
           >
             <div className="flex items-center justify-between">
               <span className="font-mono text-base font-bold text-slate-900 dark:text-white tracking-wider flex items-center gap-1.5">
-                <Tag className="w-4 h-4 text-[#b84357] dark:text-rose-300" />
+                <Tag className="w-4 h-4 text-[#e06d84] dark:text-rose-300" />
                 <span>{cpn.code}</span>
               </span>
 
               <button
                 type="button"
                 onClick={() => copyCode(cpn.code)}
-                className="p-1 text-slate-400 hover:text-slate-700 dark:hover:text-white cursor-pointer"
+                className="p-1.5 rounded-full text-slate-400 hover:text-[#e06d84] hover:bg-black/[0.04] dark:hover:text-white transition-colors cursor-pointer"
                 title="Copy code"
               >
                 <Copy className="w-3.5 h-3.5" />
@@ -208,7 +208,7 @@ export default function AdminCouponsPage() {
             </div>
 
             <div className="mt-3 space-y-1">
-              <div className="flex items-baseline gap-1 text-2xl font-serif font-bold text-[#b84357] dark:text-rose-300">
+              <div className="flex items-baseline gap-1 text-2xl font-serif font-bold text-[#e06d84] dark:text-rose-300">
                 {cpn.discountType === 'percentage' && <span>{cpn.discountValue}% OFF</span>}
                 {cpn.discountType === 'fixed' && <span>৳{cpn.discountValue} FLAT OFF</span>}
                 {cpn.discountType === 'shipping' && <span>FREE SHIPPING</span>}
@@ -239,7 +239,7 @@ export default function AdminCouponsPage() {
                 <button
                   type="button"
                   onClick={() => handleDeleteCoupon(cpn._id, cpn.code)}
-                  className="p-1 text-slate-400 hover:text-[#b84357] transition-colors cursor-pointer"
+                  className="p-1 text-slate-400 hover:text-[#e06d84] transition-colors cursor-pointer"
                   title="Delete Coupon"
                 >
                   <Trash2 className="w-3.5 h-3.5" />
@@ -346,14 +346,14 @@ export default function AdminCouponsPage() {
                 <button
                   type="button"
                   onClick={() => setShowCreateModal(false)}
-                  className="flex-1 py-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] text-slate-700 dark:text-slate-300 font-semibold cursor-pointer"
+                  className="flex-1 py-2 rounded-full border border-black/[0.08] dark:border-white/[0.1] text-slate-700 dark:text-slate-300 font-semibold cursor-pointer hover:bg-black/[0.03] transition-colors"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="flex-1 bg-[#b84357] hover:bg-[#a13649] text-white py-2.5 rounded-xl font-bold cursor-pointer shadow-md shadow-[#b84357]/20"
+                  className="flex-1 bg-[#e06d84] hover:bg-[#d45d74] text-white py-2 rounded-full font-bold cursor-pointer shadow-md shadow-[#e06d84]/25 transition-all"
                 >
                   {submitting ? 'Creating...' : 'Publish Voucher'}
                 </button>
