@@ -242,7 +242,7 @@ export default function AdminOverviewPage() {
               <h3 className="text-lg font-serif font-bold text-slate-900 dark:text-white">
                 Live Cart Activity & Conversion Funnel
               </h3>
-              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-black/[0.03] dark:bg-white/[0.05] text-[#b84357] dark:text-rose-300 border border-black/[0.06] dark:border-white/[0.08]">
+              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-[#e06d84]/10 text-[#e06d84] dark:text-rose-300 border border-[#e06d84]/25">
                 REAL-TIME
               </span>
             </div>
@@ -253,7 +253,7 @@ export default function AdminOverviewPage() {
 
           <Link
             href="/admin/cart"
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl border border-black/[0.06] dark:border-white/[0.08] bg-black/[0.02] dark:bg-white/[0.04] backdrop-blur-md text-xs font-bold text-[#b84357] dark:text-rose-300 hover:bg-black/[0.05] transition-all self-start sm:self-auto shadow-xs"
+            className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full border border-black/[0.06] dark:border-white/[0.08] bg-black/[0.02] dark:bg-white/[0.04] backdrop-blur-md text-xs font-bold text-[#e06d84] dark:text-rose-300 hover:border-[#e06d84]/35 hover:bg-black/[0.04] transition-all self-start sm:self-auto shadow-xs"
           >
             <span>Full Cart Intelligence</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -291,7 +291,7 @@ export default function AdminOverviewPage() {
             </div>
             <div className="w-full bg-black/[0.06] dark:bg-white/10 h-2 rounded-full overflow-hidden">
               <div 
-                className="bg-[#b84357] h-full rounded-full" 
+                className="bg-[#e06d84] h-full rounded-full" 
                 style={{ width: `${cartAnalytics?.summary?.abandonmentRate || 24.2}%` }}
               />
             </div>
@@ -309,7 +309,7 @@ export default function AdminOverviewPage() {
                 <p className="text-xs font-bold text-slate-900 dark:text-white line-clamp-1">
                   {cartAnalytics?.topAddedProducts?.[0]?.productTitle || "Rare Beauty Soft Pinch Liquid Blush"}
                 </p>
-                <p className="text-[10px] text-[#b84357] dark:text-rose-300 font-semibold">
+                <p className="text-[10px] text-[#e06d84] dark:text-rose-300 font-semibold">
                   {cartAnalytics?.topAddedProducts?.[0]?.totalAdds || 48} additions • {cartAnalytics?.topAddedProducts?.[0]?.conversionRate || 68}% conv.
                 </p>
               </div>
@@ -330,7 +330,7 @@ export default function AdminOverviewPage() {
           </div>
           <Link
             href="/admin/orders"
-            className="text-xs font-bold text-[#b84357] dark:text-rose-300 hover:underline flex items-center gap-1"
+            className="text-xs font-bold text-[#e06d84] dark:text-rose-300 hover:underline flex items-center gap-1"
           >
             <span>View All Orders</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
@@ -369,7 +369,7 @@ export default function AdminOverviewPage() {
                       <p className="truncate font-medium text-slate-800 dark:text-slate-200">{ord.productTitle}</p>
                       <p className="text-[10px] text-slate-400">Shade: {ord.shade || 'Default'}</p>
                     </td>
-                    <td className="py-3 font-bold text-[#b84357] dark:text-rose-300 font-serif">
+                    <td className="py-3 font-bold text-[#e06d84] dark:text-rose-300 font-serif">
                       {formatPrice(ord.totalAmount)}
                     </td>
                     <td className="py-3 text-slate-600 dark:text-slate-300">
@@ -391,7 +391,7 @@ export default function AdminOverviewPage() {
                     <td className="py-3 text-right">
                       <Link
                         href={`/track-order?order=${ord.orderNumber}`}
-                        className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#b84357] dark:text-rose-300 hover:underline"
+                        className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#e06d84] dark:text-rose-300 hover:underline"
                       >
                         <Eye className="w-3.5 h-3.5" />
                         <span>Track</span>
