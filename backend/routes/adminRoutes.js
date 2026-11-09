@@ -1,11 +1,82 @@
 const express = require('express');
 const router = express.Router();
+const jwt = require('jsonwebtoken');
 const { products, orders, coupons, reviews, cartEvents, seedCartEvents } = require('../store');
 const { getIsConnected } = require('../config/db');
 const Order = require('../models/Order');
 const Product = require('../models/Product');
 const Review = require('../models/Review');
 const CartEvent = require('../models/CartEvent');
+
+const JWT_SECRET = process.env.JWT_SECRET || 'beauty_and_blush_jwt_secret_key_2026_luxury_token';
+const ADMIN_USERNAME = process.env.ADMIN_USERNAME || 'admin';
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'ruhuls12';
+
+// Middleware to verify admin JWT
+const verifyAdmin = (req, res, next) => {
+  const authHeader = req.headers.authorization;
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    return res.status(401).json({ message: 'Admin authorization token required' });
+  }
+
+  const token = authHeader.split(' ')[1];
+  try {
+    const decoded = jwt.verify(token, JWT_SECRET);
+    if (decoded.role !== 'admin') {
+      return res.status(403).json({ message: 'Forbidden: Admin access required' });
+    }
+    req.admin = decoded;
+    next();
+  } catch (err) {
+    return res.status(401).json({ message: 'Invalid or expired admin session' });
+  }
+};
+
+// POST /api/admin/login - Authenticate administrator credentials
+router.post('/login', (req, res) => {
+  try {
+    const { username, password } = req.body || {};
+
+    if (!username || !password) {
+      return res.status(400).json({ message: 'Username and password are required' });
+    }
+
+    if (String(username).trim() !== ADMIN_USERNAME || String(password) !== ADMIN_PASSWORD) {
+      return res.status(401).json({ message: 'Invalid admin username or password' });
+    }
+
+    const token = jwt.sign(
+      { role: 'admin', username: ADMIN_USERNAME, name: 'Beauty & Blush Admin' },
+      JWT_SECRET,
+      { expiresIn: '7d' }
+    );
+
+    return res.json({
+      success: true,
+      token,
+      admin: {
+        username: ADMIN_USERNAME,
+        name: 'Beauty & Blush Admin',
+        role: 'admin'
+      }
+    });
+  } catch (error) {
+    console.error('Admin login error:', error);
+    return res.status(500).json({ message: 'Server error during admin authentication' });
+  }
+});
+
+// GET /api/admin/verify - Validate active admin session token
+router.get('/verify', verifyAdmin, (req, res) => {
+  return res.json({
+    valid: true,
+    admin: {
+      username: req.admin.username,
+      name: req.admin.name || 'Beauty & Blush Admin',
+      role: req.admin.role
+    }
+  });
+});
 
 // GET /api/admin/analytics - Aggregated marketplace KPIs and statistics
 router.get('/analytics', async (req, res) => {
