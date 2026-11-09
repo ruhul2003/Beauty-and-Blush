@@ -82,7 +82,7 @@ export default function AdminOrdersPage() {
 
         <button
           onClick={fetchOrders}
-          className="bg-[#b84357] hover:bg-[#a13649] text-white px-4 py-2 text-xs font-bold rounded-xl flex items-center gap-2 self-start sm:self-auto shadow-md shadow-[#b84357]/20 cursor-pointer"
+          className="bg-[#e06d84] hover:bg-[#d45d74] text-white px-5 py-2 text-xs font-bold rounded-full flex items-center gap-2 self-start sm:self-auto shadow-md shadow-[#e06d84]/25 hover:scale-[1.02] active:scale-95 transition-all cursor-pointer"
         >
           <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
           <span>Refresh Orders</span>
@@ -97,10 +97,10 @@ export default function AdminOrdersPage() {
             <button
               key={st}
               onClick={() => setStatusFilter(st)}
-              className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
+              className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
                 statusFilter === st
-                  ? 'bg-[#b84357] text-white shadow-xs'
-                  : 'bg-black/[0.03] dark:bg-white/[0.05] text-slate-600 dark:text-slate-300 hover:bg-black/[0.05]'
+                  ? 'bg-[#e06d84] text-white shadow-sm shadow-[#e06d84]/25'
+                  : 'bg-black/[0.03] dark:bg-white/[0.05] text-slate-600 dark:text-slate-300 hover:bg-black/[0.06] hover:text-[#e06d84]'
               }`}
             >
               {st} {st !== 'All' ? `(${orders.filter(o => o.status === st).length})` : `(${orders.length})`}
@@ -115,7 +115,7 @@ export default function AdminOrdersPage() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search by order number (BNB-...), customer name, or phone number..."
-            className="w-full pl-9 pr-3 py-2 text-xs rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-slate-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-[#b84357]"
+            className="w-full pl-9 pr-3 py-2 text-xs rounded-full border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#e06d84]/30 focus:border-[#e06d84]/40 transition-all"
           />
           <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
         </div>
@@ -166,7 +166,7 @@ export default function AdminOrdersPage() {
                         </div>
                       </div>
                     </td>
-                    <td className="py-3.5 px-4 font-bold text-[#b84357] dark:text-rose-300 font-serif">
+                    <td className="py-3.5 px-4 font-bold text-[#e06d84] dark:text-rose-300 font-serif">
                       {formatPrice(ord.totalAmount)}
                     </td>
                     <td className="py-3.5 px-4 text-slate-600 dark:text-slate-300">
@@ -199,7 +199,7 @@ export default function AdminOrdersPage() {
                         <button
                           type="button"
                           onClick={() => setActiveModalOrder(ord)}
-                          className="p-1.5 rounded-lg text-slate-500 hover:text-[#b84357] hover:bg-black/[0.04] transition-colors cursor-pointer"
+                          className="p-1.5 rounded-lg text-slate-500 hover:text-[#e06d84] hover:bg-black/[0.04] transition-colors cursor-pointer"
                           title="View Invoice & Full Details"
                         >
                           <FileText className="w-3.5 h-3.5" />
@@ -236,7 +236,7 @@ export default function AdminOrdersPage() {
             </button>
 
             <div className="border-b border-black/[0.05] dark:border-white/[0.08] pb-3">
-              <span className="text-[10px] uppercase tracking-wider font-bold text-[#b84357] dark:text-rose-300">
+              <span className="text-[10px] uppercase tracking-wider font-bold text-[#e06d84] dark:text-rose-300">
                 Order Details & Invoice
               </span>
               <h3 className="text-xl font-mono font-bold text-slate-900 dark:text-white mt-0.5">
@@ -256,21 +256,21 @@ export default function AdminOrdersPage() {
                 <p className="font-bold text-slate-900 dark:text-white">Courier & Fulfillment:</p>
                 <p className="text-slate-600 dark:text-slate-300">Courier Partner: {activeModalOrder.courierService || 'Pathao Courier'}</p>
                 <p className="text-slate-600 dark:text-slate-300">Payment: {activeModalOrder.paymentMethod} (৳{activeModalOrder.totalAmount})</p>
-                <p className="text-slate-600 dark:text-slate-300">Status: <strong className="text-[#b84357] dark:text-rose-300">{activeModalOrder.status}</strong></p>
+                <p className="text-slate-600 dark:text-slate-300">Status: <strong className="text-[#e06d84] dark:text-rose-300">{activeModalOrder.status}</strong></p>
               </div>
 
               <div className="pt-2 flex gap-2">
                 <Link
                   href={`/track-order?order=${activeModalOrder.orderNumber}`}
                   target="_blank"
-                  className="flex-1 py-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] text-center font-bold text-slate-700 dark:text-slate-300 hover:text-[#b84357]"
+                  className="flex-1 py-2 rounded-full border border-black/[0.08] dark:border-white/[0.1] text-center font-bold text-slate-700 dark:text-slate-300 hover:text-[#e06d84] hover:border-[#e06d84]/40 transition-colors"
                 >
                   Open Live Tracker
                 </Link>
 
                 <button
                   onClick={() => setActiveModalOrder(null)}
-                  className="flex-1 bg-[#b84357] hover:bg-[#a13649] text-white py-2.5 rounded-xl font-bold cursor-pointer shadow-xs"
+                  className="flex-1 bg-[#e06d84] hover:bg-[#d45d74] text-white py-2 rounded-full font-bold cursor-pointer shadow-sm shadow-[#e06d84]/20 transition-all"
                 >
                   Done
                 </button>
