@@ -80,7 +80,7 @@ export default function AdminCartAnalyticsPage() {
       {/* Header and Actions */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[#b84357] uppercase tracking-widest mb-1">
+          <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[#e06d84] uppercase tracking-widest mb-1">
             <ShoppingCart className="w-3.5 h-3.5" />
             <span>Customer Intent & Cart Metrics</span>
           </div>
@@ -95,16 +95,16 @@ export default function AdminCartAnalyticsPage() {
         <div className="flex items-center gap-2 self-start sm:self-auto">
           <button
             onClick={fetchCartAnalytics}
-            className="p-2.5 rounded-xl border border-black/[0.06] dark:border-white/[0.08] bg-black/[0.02] dark:bg-white/[0.04] backdrop-blur-md text-slate-700 dark:text-slate-300 hover:text-[#b84357] hover:bg-black/[0.05] transition-all cursor-pointer shadow-xs"
+            className="p-2 rounded-full border border-black/[0.06] dark:border-white/[0.08] bg-black/[0.02] dark:bg-white/[0.04] backdrop-blur-md text-slate-700 dark:text-slate-300 hover:text-[#e06d84] hover:border-[#e06d84]/30 transition-all cursor-pointer shadow-xs"
             title="Refresh Cart Data"
           >
-            <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin text-[#b84357]' : ''}`} />
+            <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin text-[#e06d84]' : ''}`} />
           </button>
 
           <Link
             href="/browse"
             target="_blank"
-            className="px-4 py-2.5 rounded-xl border border-black/[0.06] dark:border-white/[0.08] bg-black/[0.02] dark:bg-white/[0.04] backdrop-blur-md text-xs font-bold text-slate-700 dark:text-slate-200 hover:text-[#b84357] transition-all flex items-center gap-1.5 shadow-xs"
+            className="px-4 py-2 rounded-full border border-black/[0.06] dark:border-white/[0.08] bg-black/[0.02] dark:bg-white/[0.04] backdrop-blur-md text-xs font-bold text-slate-700 dark:text-slate-200 hover:text-[#e06d84] hover:border-[#e06d84]/30 transition-all flex items-center gap-1.5 shadow-xs"
           >
             <span>View Live Catalog</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
@@ -118,7 +118,7 @@ export default function AdminCartAnalyticsPage() {
         <div className="p-6 rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl border border-black/[0.05] dark:border-white/[0.08] shadow-xs relative overflow-hidden">
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold uppercase tracking-wider text-slate-500 font-serif">Total Items Added</span>
-            <div className="w-9 h-9 rounded-xl bg-black/[0.03] dark:bg-white/[0.06] text-[#b84357] dark:text-rose-300 flex items-center justify-center border border-black/[0.06] dark:border-white/[0.08]">
+            <div className="w-9 h-9 rounded-xl bg-[#e06d84]/10 text-[#e06d84] dark:text-rose-300 flex items-center justify-center border border-[#e06d84]/20">
               <ShoppingCart className="w-5 h-5" />
             </div>
           </div>
@@ -203,10 +203,10 @@ export default function AdminCartAnalyticsPage() {
             <div key={cat.category} className="p-4 rounded-2xl bg-black/[0.02] dark:bg-white/[0.04] backdrop-blur-md border border-black/[0.04] dark:border-white/[0.06]">
               <div className="flex justify-between items-center text-xs font-semibold mb-1.5">
                 <span>{cat.category}</span>
-                <span className="text-[#b84357] font-bold">{cat.count} adds</span>
+                <span className="text-[#e06d84] font-bold">{cat.count} adds</span>
               </div>
               <div className="w-full bg-black/[0.06] dark:bg-white/10 h-1.5 rounded-full overflow-hidden">
-                <div className="bg-[#b84357] h-full rounded-full" style={{ width: `${cat.percentage}%` }} />
+                <div className="bg-[#e06d84] h-full rounded-full" style={{ width: `${cat.percentage}%` }} />
               </div>
             </div>
           ))}
@@ -234,7 +234,7 @@ export default function AdminCartAnalyticsPage() {
                 placeholder="Search products..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-8 pr-3 py-1.5 text-xs rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] backdrop-blur-md focus:outline-none focus:ring-1 focus:ring-[#b84357] text-slate-800 dark:text-slate-100 w-44 sm:w-52 shadow-xs"
+                className="pl-8 pr-3 py-1.5 text-xs rounded-full border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] backdrop-blur-md focus:outline-none focus:ring-2 focus:ring-[#e06d84]/30 focus:border-[#e06d84]/40 text-slate-800 dark:text-slate-100 w-44 sm:w-52 shadow-xs"
               />
             </div>
 
@@ -243,10 +243,10 @@ export default function AdminCartAnalyticsPage() {
                 <button
                   key={cat}
                   onClick={() => setCategoryFilter(cat)}
-                  className={`px-3 py-1 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+                  className={`px-3.5 py-1 rounded-full text-xs font-semibold transition-all cursor-pointer ${
                     categoryFilter === cat
-                      ? 'bg-[#b84357] text-white shadow-xs'
-                      : 'border border-black/[0.06] dark:border-white/[0.08] bg-black/[0.02] dark:bg-white/[0.04] text-slate-600 dark:text-slate-400 hover:text-[#b84357]'
+                      ? 'bg-[#e06d84] text-white shadow-xs'
+                      : 'border border-black/[0.06] dark:border-white/[0.08] bg-black/[0.02] dark:bg-white/[0.04] text-slate-600 dark:text-slate-400 hover:text-[#e06d84]'
                   }`}
                 >
                   {cat}
