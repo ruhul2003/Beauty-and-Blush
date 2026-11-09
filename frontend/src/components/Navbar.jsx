@@ -375,29 +375,29 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
                       </div>
 
                       <Link href="/dashboard" className="flex items-center gap-2.5 px-4 py-2.5 hover:bg-white/80 dark:hover:bg-white/[0.05] text-slate-700 dark:text-slate-200">
-                        <Store className="w-4 h-4 text-[#b84357]" />
+                        <Store className="w-4 h-4 text-[#e06d84]" />
                         <span>Seller Dashboard</span>
                       </Link>
 
                       <Link href="/sell" className="flex items-center gap-2.5 px-4 py-2.5 hover:bg-white/80 dark:hover:bg-white/[0.05] text-slate-700 dark:text-slate-200">
-                        <PlusCircle className="w-4 h-4 text-[#b84357]" />
+                        <PlusCircle className="w-4 h-4 text-[#e06d84]" />
                         <span>Post New Listing</span>
                       </Link>
 
                       <Link href="/track-order" className="flex items-center gap-2.5 px-4 py-2.5 hover:bg-white/80 dark:hover:bg-white/[0.05] text-slate-700 dark:text-slate-200">
-                        <Truck className="w-4 h-4 text-[#b84357]" />
+                        <Truck className="w-4 h-4 text-[#e06d84]" />
                         <span>Track Order</span>
                       </Link>
 
-                      <Link href="/admin" className="flex items-center gap-2.5 px-4 py-2.5 hover:bg-white/80 dark:hover:bg-white/[0.05] text-rose-700 dark:text-rose-400 font-bold border-t border-black/[0.04] dark:border-white/[0.06] mt-1">
-                        <LayoutDashboard className="w-4 h-4 text-[#b84357]" />
+                      <Link href="/admin" className="flex items-center gap-2.5 px-4 py-2.5 hover:bg-white/80 dark:hover:bg-white/[0.05] text-[#e06d84] dark:text-rose-300 font-bold border-t border-black/[0.04] dark:border-white/[0.06] mt-1">
+                        <LayoutDashboard className="w-4 h-4 text-[#e06d84]" />
                         <span>Admin Control Panel</span>
                       </Link>
 
                       <div className="border-t border-black/[0.04] dark:border-white/[0.06] mt-1 pt-1">
                         <button
                           onClick={logout}
-                          className="w-full text-left flex items-center gap-2.5 px-4 py-2.5 hover:bg-white/80 dark:hover:bg-white/[0.05] text-[#b84357] font-bold"
+                          className="w-full text-left flex items-center gap-2.5 px-4 py-2.5 hover:bg-white/80 dark:hover:bg-white/[0.05] text-[#e06d84] font-bold cursor-pointer"
                         >
                           <LogOut className="w-4 h-4" />
                           <span>Sign Out</span>
@@ -410,7 +410,7 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
             ) : (
               <Link
                 href="/auth/login"
-                className="glass-pill w-9.5 h-9.5 sm:w-10 sm:h-10 flex items-center justify-center text-slate-700 dark:text-slate-200 hover:text-[#b84357] shadow-xs cursor-pointer"
+                className="glass-pill w-9.5 h-9.5 sm:w-10 sm:h-10 flex items-center justify-center text-slate-700 dark:text-slate-200 hover:text-[#e06d84] shadow-xs cursor-pointer"
                 title="Account"
                 aria-label="Account"
               >
