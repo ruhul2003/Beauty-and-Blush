@@ -89,6 +89,7 @@ export function Footer() {
               <li><Link href="/dashboard" className="hover:text-[#e06d84] dark:hover:text-rose-300 transition-colors">Seller Dashboard</Link></li>
               <li><Link href="/auth/register" className="hover:text-[#e06d84] dark:hover:text-rose-300 transition-colors">MUA Verification</Link></li>
               <li><Link href="/dashboard" className="hover:text-[#e06d84] dark:hover:text-rose-300 transition-colors">Boutique Analytics</Link></li>
+              <li><Link href="/admin" className="hover:text-[#e06d84] dark:hover:text-rose-300 transition-colors font-semibold text-[#e06d84]/90 dark:text-rose-300/90">Admin Portal</Link></li>
             </ul>
           </div>
         </motion.div>
