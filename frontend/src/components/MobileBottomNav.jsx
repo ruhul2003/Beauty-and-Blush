@@ -76,14 +76,14 @@ export function MobileBottomNav({ onOpenCategories }) {
               whileTap={{ scale: 0.88 }}
               className={`flex flex-col items-center justify-center py-1 px-3 rounded-full transition-all ${
                 item.isActive 
-                  ? 'text-[#b84357] dark:text-rose-300 font-bold glass-pill shadow-xs' 
+                  ? 'text-[#e06d84] dark:text-rose-300 font-bold glass-pill shadow-xs border-[#e06d84]/25' 
                   : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
               <div className="relative">
                 <Icon className={`w-4 h-4 sm:w-5 sm:h-5 ${item.isActive ? 'stroke-[2.2]' : 'stroke-[1.6]'}`} />
                 {item.badge && (
-                  <span className="absolute -top-1.5 -right-2 bg-[#b84357] text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-xs">
+                  <span className="absolute -top-1.5 -right-2 bg-[#e06d84] text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-sm shadow-[#e06d84]/35">
                     {item.badge}
                   </span>
                 )}
