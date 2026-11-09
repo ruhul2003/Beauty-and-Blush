@@ -121,8 +121,8 @@ function TrackOrderContent() {
           className="flex gap-2"
         >
           <div className="relative flex-1">
-            <div className="glass-well rounded-full flex items-center px-4 py-2">
-              <Search className="w-4 h-4 text-slate-400 mr-2 shrink-0" />
+            <div className="glass-well rounded-full flex items-center px-4 py-2 border border-transparent focus-within:border-[#e06d84]/40 focus-within:ring-2 focus-within:ring-[#e06d84]/20 transition-all">
+              <Search className="w-4 h-4 text-[#e06d84] mr-2 shrink-0" />
               <input
                 type="text"
                 value={orderIdInput}
@@ -162,7 +162,7 @@ function TrackOrderContent() {
               setOrderIdInput('BNB-910243');
               handleLookup('BNB-910243');
             }}
-            className="text-[#b84357] dark:text-rose-300 hover:underline font-mono font-bold cursor-pointer"
+            className="text-[#e06d84] dark:text-rose-300 hover:underline font-mono font-bold cursor-pointer"
           >
             BNB-910243
           </button>
@@ -174,7 +174,7 @@ function TrackOrderContent() {
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="p-4 rounded-2xl glass-well border border-rose-500/30 max-w-xl mx-auto flex items-center gap-3 text-xs text-[#b84357] dark:text-rose-300 font-bold"
+          className="p-4 rounded-2xl glass-well border border-rose-500/30 max-w-xl mx-auto flex items-center gap-3 text-xs text-[#e06d84] dark:text-rose-300 font-bold"
         >
           <AlertCircle className="w-5 h-5 shrink-0" />
           <span>{error}</span>
@@ -195,7 +195,7 @@ function TrackOrderContent() {
             <div className="glass-slab p-6 sm:p-8 space-y-6">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-black/[0.04] dark:border-white/[0.06] pb-4">
                 <div>
-                  <span className="text-[10px] uppercase tracking-widest text-[#b84357] dark:text-rose-300 font-bold">
+                  <span className="text-[10px] uppercase tracking-widest text-[#e06d84] dark:text-rose-300 font-bold">
                     Order Reference
                   </span>
                   <h3 className="text-xl font-mono font-bold text-[#181416] dark:text-white">
@@ -214,7 +214,7 @@ function TrackOrderContent() {
                   {/* Connecting Line */}
                   <div className="absolute top-4 left-6 right-6 h-1 bg-black/[0.05] dark:bg-white/[0.1] rounded-full -z-0" />
                   <div 
-                    className="absolute top-4 left-6 h-1 bg-[#b84357] rounded-full transition-all duration-500 -z-0"
+                    className="absolute top-4 left-6 h-1 bg-[#e06d84] rounded-full transition-all duration-500 -z-0"
                     style={{ width: `${(currentStep / 3) * 85}%` }}
                   />
 
