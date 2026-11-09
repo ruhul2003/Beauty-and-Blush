@@ -1,8 +1,8 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { 
   LayoutDashboard, 
   Package, 
@@ -13,11 +13,96 @@ import {
   Settings, 
   Store, 
   ArrowLeft,
-  ShieldCheck
+  ShieldCheck,
+  LogOut
 } from 'lucide-react';
+import { AdminLoginGate } from '@/components/AdminLoginGate';
+import { adminApi } from '@/lib/api';
+import { useToast } from '@/context/ToastContext';
 
 export default function AdminLayout({ children }) {
   const pathname = usePathname() || '';
+  const router = useRouter();
+  const { showToast } = useToast();
+
+  const [checkingAuth, setCheckingAuth] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [adminUser, setAdminUser] = useState(null);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    const verifySession = async () => {
+      try {
+        const token = localStorage.getItem('bnb_admin_token');
+        const cachedRaw = localStorage.getItem('bnb_admin_user');
+        const cachedUser = cachedRaw ? JSON.parse(cachedRaw) : null;
+
+        if (!token) {
+          if (isMounted) {
+            setIsAuthenticated(false);
+            setCheckingAuth(false);
+          }
+          return;
+        }
+
+        if (token.startsWith('bnb_admin_local_') && cachedUser?.role === 'admin') {
+          if (isMounted) {
+            setAdminUser(cachedUser);
+            setIsAuthenticated(true);
+            setCheckingAuth(false);
+          }
+          return;
+        }
+
+        try {
+          const res = await adminApi.verify();
+          if (res.data?.valid && isMounted) {
+            setAdminUser(res.data.admin);
+            setIsAuthenticated(true);
+          }
+        } catch (err) {
+          if (err.response && (err.response.status === 401 || err.response.status === 403)) {
+            localStorage.removeItem('bnb_admin_token');
+            localStorage.removeItem('bnb_admin_user');
+            if (isMounted) setIsAuthenticated(false);
+          } else if (cachedUser?.role === 'admin' && isMounted) {
+            setAdminUser(cachedUser);
+            setIsAuthenticated(true);
+          }
+        }
+      } catch (e) {
+        if (isMounted) setIsAuthenticated(false);
+      } finally {
+        if (isMounted) setCheckingAuth(false);
+      }
+    };
+
+    verifySession();
+    return () => { isMounted = false; };
+  }, []);
+
+  useEffect(() => {
+    if (!checkingAuth && isAuthenticated && pathname === '/admin/login') {
+      router.replace('/admin');
+    }
+  }, [checkingAuth, isAuthenticated, pathname, router]);
+
+  const handleLoginSuccess = (admin) => {
+    setAdminUser(admin);
+    setIsAuthenticated(true);
+    if (pathname === '/admin/login') {
+      router.replace('/admin');
+    }
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('bnb_admin_token');
+    localStorage.removeItem('bnb_admin_user');
+    setAdminUser(null);
+    setIsAuthenticated(false);
+    showToast?.('Signed out from Admin Portal', 'info');
+  };
 
   const navItems = [
     { label: 'Overview', href: '/admin', icon: LayoutDashboard, exact: true },
@@ -29,6 +114,21 @@ export default function AdminLayout({ children }) {
     { label: 'Settings', href: '/admin/settings', icon: Settings },
   ];
 
+  if (checkingAuth) {
+    return (
+      <div className="min-h-[75vh] flex flex-col items-center justify-center gap-3">
+        <div className="w-10 h-10 rounded-full border-2 border-[#e06d84]/30 border-t-[#e06d84] animate-spin" />
+        <p className="text-xs font-semibold text-slate-500 dark:text-slate-400">
+          Verifying admin credentials...
+        </p>
+      </div>
+    );
+  }
+
+  if (!isAuthenticated) {
+    return <AdminLoginGate onSuccess={handleLoginSuccess} />;
+  }
+
   return (
     <div className="min-h-screen text-slate-900 dark:text-slate-100 pb-16">
       {/* Top Admin Header Bar */}
@@ -38,7 +138,7 @@ export default function AdminLayout({ children }) {
             <div className="flex items-center gap-3">
               <Link
                 href="/"
-                className="w-9 h-9 rounded-full glass-pill flex items-center justify-center text-slate-700 dark:text-slate-200 hover:text-[#b84357] transition-colors shadow-xs"
+                className="w-9 h-9 rounded-full glass-pill flex items-center justify-center text-slate-700 dark:text-slate-200 hover:text-[#e06d84] transition-colors shadow-xs"
                 title="Return to Store"
               >
                 <ArrowLeft className="w-4 h-4" />
@@ -49,8 +149,8 @@ export default function AdminLayout({ children }) {
                   <span className="text-sm sm:text-base font-serif font-bold text-slate-900 dark:text-white">
                     Beauty & Blush Control Portal
                   </span>
-                  <span className="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-[#b84357] text-white tracking-widest uppercase shadow-xs">
-                    ADMIN
+                  <span className="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-[#e06d84] text-white tracking-widest uppercase shadow-xs">
+                    {adminUser?.username || 'ADMIN'}
                   </span>
                 </div>
                 <p className="text-[11px] text-slate-500 dark:text-slate-400">
@@ -59,7 +159,7 @@ export default function AdminLayout({ children }) {
               </div>
             </div>
 
-            <div className="flex items-center gap-2 self-start sm:self-auto">
+            <div className="flex items-center flex-wrap gap-2 self-start sm:self-auto">
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full glass-pill bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 text-xs font-semibold border border-emerald-500/20">
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
                 <span>System Operational</span>
@@ -68,11 +168,21 @@ export default function AdminLayout({ children }) {
               <Link
                 href="/browse"
                 target="_blank"
-                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full glass-pill text-xs font-bold text-[#b84357] dark:text-rose-300 hover:scale-[1.02] transition-transform shadow-xs"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full glass-pill text-xs font-bold text-[#e06d84] dark:text-rose-300 hover:scale-[1.02] transition-transform shadow-xs"
               >
                 <Store className="w-3.5 h-3.5" />
                 <span>View Storefront</span>
               </Link>
+
+              <button
+                type="button"
+                onClick={handleLogout}
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full glass-pill text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-[#e06d84] hover:text-white transition-all shadow-xs cursor-pointer"
+                title="Sign out of Admin Portal"
+              >
+                <LogOut className="w-3.5 h-3.5" />
+                <span>Logout</span>
+              </button>
             </div>
           </div>
 
@@ -91,8 +201,8 @@ export default function AdminLayout({ children }) {
                     href={item.href}
                     className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold transition-all whitespace-nowrap shrink-0 ${
                       isActive
-                        ? 'bg-[#b84357] text-white shadow-md shadow-[#b84357]/25 border border-white/40'
-                        : 'glass-pill text-slate-600 dark:text-slate-300 hover:text-[#b84357]'
+                        ? 'bg-[#e06d84] text-white shadow-md shadow-[#e06d84]/25 border border-white/40'
+                        : 'glass-pill text-slate-600 dark:text-slate-300 hover:text-[#e06d84]'
                     }`}
                   >
                     <Icon className={`w-4 h-4 ${isActive ? 'stroke-[2.2]' : 'stroke-[1.8]'}`} />
