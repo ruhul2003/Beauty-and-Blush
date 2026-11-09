@@ -49,7 +49,7 @@ export default function WishlistPage() {
           <motion.button
             whileTap={{ scale: 0.94 }}
             onClick={clearWishlist}
-            className="glass-pill px-4 py-2 text-[#e06d84] dark:text-rose-300 text-xs font-bold flex items-center gap-1.5 self-start sm:self-center cursor-pointer shadow-xs"
+            className="glass-pill px-4 py-2 text-[#e06d84] dark:text-rose-300 hover:bg-[#e06d84] hover:text-white text-xs font-bold flex items-center gap-1.5 self-start sm:self-center cursor-pointer shadow-xs transition-all"
           >
             <Trash2 className="w-4 h-4" />
             <span>Clear Wishlist</span>
@@ -63,7 +63,7 @@ export default function WishlistPage() {
           animate={{ opacity: 1, scale: 1 }}
           className="text-center py-20 glass-slab space-y-3"
         >
-          <div className="w-16 h-16 rounded-3xl glass-well text-[#e06d84] dark:text-rose-300 mx-auto flex items-center justify-center mb-2">
+          <div className="w-16 h-16 rounded-3xl glass-well text-[#e06d84] dark:text-rose-300 mx-auto flex items-center justify-center mb-2 shadow-inner hover:scale-105 transition-transform">
             <Heart className="w-8 h-8 text-[#e06d84]" />
           </div>
           <h2 className="text-base font-serif font-bold text-[#181416] dark:text-slate-200">Your wishlist is empty</h2>
@@ -73,7 +73,7 @@ export default function WishlistPage() {
           <div className="pt-3">
             <Link 
               href="/browse" 
-              className="bg-[#e06d84] hover:bg-[#d45d74] text-white px-6 py-2.5 rounded-full text-xs uppercase tracking-wider font-bold inline-flex items-center gap-2 shadow-md shadow-[#e06d84]/20"
+              className="bg-[#e06d84] hover:bg-[#d45d74] text-white px-6 py-2.5 rounded-full text-xs uppercase tracking-wider font-bold inline-flex items-center gap-2 shadow-md shadow-[#e06d84]/20 hover:shadow-lg hover:shadow-[#e06d84]/30 hover:scale-[1.02] active:scale-95 transition-all"
             >
               <span>Browse Catalog</span>
               <ArrowRight className="w-3.5 h-3.5" />
