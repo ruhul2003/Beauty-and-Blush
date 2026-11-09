@@ -85,7 +85,7 @@ export default function AdminSettingsPage() {
       <form onSubmit={handleSave} className="space-y-6 text-xs">
         {/* Section 1: Store Brand Info */}
         <div className="p-6 rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl border border-black/[0.05] dark:border-white/[0.08] shadow-sm space-y-4">
-          <div className="flex items-center gap-2 border-b border-black/[0.05] dark:border-white/[0.06] pb-3 text-[#b84357] dark:text-rose-300">
+          <div className="flex items-center gap-2 border-b border-black/[0.05] dark:border-white/[0.06] pb-3 text-[#e06d84] dark:text-rose-300">
             <Store className="w-4 h-4" />
             <h3 className="text-sm font-bold text-[#191416] dark:text-white">
               Boutique Brand Identity
@@ -101,7 +101,7 @@ export default function AdminSettingsPage() {
                 type="text"
                 value={storeName}
                 onChange={(e) => setStoreName(e.target.value)}
-                className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-[#191416] dark:text-white focus:outline-none focus:border-[#b84357]/50"
+                className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-[#191416] dark:text-white focus:outline-none focus:ring-2 focus:ring-[#e06d84]/25 focus:border-[#e06d84]/50 transition-all"
                 required
               />
             </div>
@@ -114,7 +114,7 @@ export default function AdminSettingsPage() {
                 type="text"
                 value={tagline}
                 onChange={(e) => setTagline(e.target.value)}
-                className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-[#191416] dark:text-white focus:outline-none focus:border-[#b84357]/50"
+                className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-[#191416] dark:text-white focus:outline-none focus:ring-2 focus:ring-[#e06d84]/25 focus:border-[#e06d84]/50 transition-all"
               />
             </div>
 
@@ -126,7 +126,7 @@ export default function AdminSettingsPage() {
                 type="text"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-[#191416] dark:text-white focus:outline-none focus:border-[#b84357]/50"
+                className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-[#191416] dark:text-white focus:outline-none focus:ring-2 focus:ring-[#e06d84]/25 focus:border-[#e06d84]/50 transition-all"
               />
             </div>
 
@@ -138,7 +138,7 @@ export default function AdminSettingsPage() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-[#191416] dark:text-white focus:outline-none focus:border-[#b84357]/50"
+                className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-[#191416] dark:text-white focus:outline-none focus:ring-2 focus:ring-[#e06d84]/25 focus:border-[#e06d84]/50 transition-all"
               />
             </div>
           </div>
@@ -146,7 +146,7 @@ export default function AdminSettingsPage() {
 
         {/* Section 2: Delivery & Courier Rates */}
         <div className="p-6 rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl border border-black/[0.05] dark:border-white/[0.08] shadow-sm space-y-4">
-          <div className="flex items-center gap-2 border-b border-black/[0.05] dark:border-white/[0.06] pb-3 text-[#b84357] dark:text-rose-300">
+          <div className="flex items-center gap-2 border-b border-black/[0.05] dark:border-white/[0.06] pb-3 text-[#e06d84] dark:text-rose-300">
             <Truck className="w-4 h-4" />
             <h3 className="text-sm font-bold text-[#191416] dark:text-white">
               Nationwide Delivery & Courier Charges
@@ -162,7 +162,7 @@ export default function AdminSettingsPage() {
                 type="number"
                 value={dhakaFee}
                 onChange={(e) => setDhakaFee(e.target.value)}
-                className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-[#191416] dark:text-white focus:outline-none focus:border-[#b84357]/50"
+                className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-[#191416] dark:text-white focus:outline-none focus:ring-2 focus:ring-[#e06d84]/25 focus:border-[#e06d84]/50 transition-all"
               />
             </div>
 
@@ -174,7 +174,7 @@ export default function AdminSettingsPage() {
                 type="number"
                 value={outsideFee}
                 onChange={(e) => setOutsideFee(e.target.value)}
-                className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-[#191416] dark:text-white focus:outline-none focus:border-[#b84357]/50"
+                className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-[#191416] dark:text-white focus:outline-none focus:ring-2 focus:ring-[#e06d84]/25 focus:border-[#e06d84]/50 transition-all"
               />
             </div>
 
@@ -186,7 +186,7 @@ export default function AdminSettingsPage() {
                 type="number"
                 value={freeShippingThreshold}
                 onChange={(e) => setFreeShippingThreshold(e.target.value)}
-                className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-[#191416] dark:text-white focus:outline-none focus:border-[#b84357]/50"
+                className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-[#191416] dark:text-white focus:outline-none focus:ring-2 focus:ring-[#e06d84]/25 focus:border-[#e06d84]/50 transition-all"
               />
             </div>
           </div>
@@ -194,7 +194,7 @@ export default function AdminSettingsPage() {
 
         {/* Section 3: Announcement Banner */}
         <div className="p-6 rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl border border-black/[0.05] dark:border-white/[0.08] shadow-sm space-y-4">
-          <div className="flex items-center gap-2 border-b border-black/[0.05] dark:border-white/[0.06] pb-3 text-[#b84357] dark:text-rose-300">
+          <div className="flex items-center gap-2 border-b border-black/[0.05] dark:border-white/[0.06] pb-3 text-[#e06d84] dark:text-rose-300">
             <Bell className="w-4 h-4" />
             <h3 className="text-sm font-bold text-[#191416] dark:text-white">
               Top Announcement Banner Message
@@ -209,7 +209,7 @@ export default function AdminSettingsPage() {
               type="text"
               value={announcement}
               onChange={(e) => setAnnouncement(e.target.value)}
-              className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-[#191416] dark:text-white focus:outline-none focus:border-[#b84357]/50"
+              className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-[#191416] dark:text-white focus:outline-none focus:ring-2 focus:ring-[#e06d84]/25 focus:border-[#e06d84]/50 transition-all"
             />
             <p className="text-[10px] text-slate-400 mt-1">
               Displayed prominently across the website header for promotional campaigns.
@@ -222,7 +222,7 @@ export default function AdminSettingsPage() {
           <button
             type="submit"
             disabled={saving}
-            className="px-6 py-3 text-xs font-bold rounded-2xl bg-[#b84357] hover:bg-[#a13649] text-white flex items-center gap-2 shadow-lg shadow-[#b84357]/20 transition-all"
+            className="px-6 py-2.5 text-xs font-bold rounded-full bg-[#e06d84] hover:bg-[#d45d74] text-white flex items-center gap-2 shadow-md shadow-[#e06d84]/25 hover:scale-[1.02] active:scale-95 transition-all cursor-pointer"
           >
             <Save className="w-4 h-4" />
             <span>{saving ? 'Saving...' : 'Save Configuration'}</span>
