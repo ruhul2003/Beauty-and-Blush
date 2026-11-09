@@ -157,15 +157,15 @@ export default function AdminProductsPage() {
         <div className="flex items-center gap-2 self-start sm:self-auto">
           <button
             onClick={fetchProducts}
-            className="p-2.5 rounded-2xl bg-white/60 dark:bg-white/[0.04] backdrop-blur-xl border border-black/[0.05] dark:border-white/[0.08] text-[#191416] dark:text-white/80 hover:text-[#b84357] dark:hover:text-rose-300 hover:border-[#b84357]/30 transition-all shadow-xs"
+            className="p-2 rounded-full bg-white/60 dark:bg-white/[0.04] backdrop-blur-xl border border-black/[0.05] dark:border-white/[0.08] text-[#191416] dark:text-white/80 hover:text-[#e06d84] dark:hover:text-rose-300 hover:border-[#e06d84]/30 transition-all shadow-xs cursor-pointer"
             title="Reload Products"
           >
-            <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin text-[#b84357] dark:text-rose-400' : ''}`} />
+            <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin text-[#e06d84] dark:text-rose-400' : ''}`} />
           </button>
 
           <Link
             href="/sell"
-            className="px-4 py-2.5 text-xs font-semibold rounded-2xl bg-[#b84357] hover:bg-[#a13649] text-white flex items-center gap-2 shadow-sm shadow-[#b84357]/20 transition-all"
+            className="px-5 py-2 text-xs font-bold rounded-full bg-[#e06d84] hover:bg-[#d45d74] text-white flex items-center gap-2 shadow-md shadow-[#e06d84]/25 hover:scale-[1.02] active:scale-95 transition-all"
           >
             <PlusCircle className="w-4 h-4" />
             <span>Add New Cosmetic</span>
@@ -181,7 +181,7 @@ export default function AdminProductsPage() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search by title, brand, or batch code..."
-            className="w-full pl-9 pr-3 py-2 text-xs rounded-xl border border-black/[0.06] dark:border-white/[0.08] bg-white/80 dark:bg-white/[0.03] text-[#191416] dark:text-white placeholder:text-slate-400 focus:outline-none focus:border-[#b84357]/40"
+            className="w-full pl-9 pr-3 py-2 text-xs rounded-full border border-black/[0.06] dark:border-white/[0.08] bg-white/80 dark:bg-white/[0.03] text-[#191416] dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#e06d84]/25 focus:border-[#e06d84]/40 transition-all"
           />
           <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
         </div>
@@ -190,7 +190,7 @@ export default function AdminProductsPage() {
           <select
             value={categoryFilter}
             onChange={(e) => setCategoryFilter(e.target.value)}
-            className="text-xs p-2 rounded-xl border border-black/[0.06] dark:border-white/[0.08] bg-white/80 dark:bg-white/[0.03] text-[#191416] dark:text-white focus:outline-none focus:border-[#b84357]/40 w-full md:w-auto"
+            className="text-xs px-3 py-2 rounded-full border border-black/[0.06] dark:border-white/[0.08] bg-white/80 dark:bg-white/[0.03] text-[#191416] dark:text-white focus:outline-none focus:border-[#e06d84]/40 w-full md:w-auto cursor-pointer"
           >
             <option value="All">All Categories</option>
             <option value="Makeup">Makeup</option>
@@ -202,7 +202,7 @@ export default function AdminProductsPage() {
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="text-xs p-2 rounded-xl border border-black/[0.06] dark:border-white/[0.08] bg-white/80 dark:bg-white/[0.03] text-[#191416] dark:text-white focus:outline-none focus:border-[#b84357]/40 w-full md:w-auto"
+            className="text-xs px-3 py-2 rounded-full border border-black/[0.06] dark:border-white/[0.08] bg-white/80 dark:bg-white/[0.03] text-[#191416] dark:text-white focus:outline-none focus:border-[#e06d84]/40 w-full md:w-auto cursor-pointer"
           >
             <option value="All">All Status</option>
             <option value="Featured">Featured Only</option>
@@ -242,7 +242,7 @@ export default function AdminProductsPage() {
                       />
                       <div className="max-w-[240px]">
                         <p className="font-bold text-[#191416] dark:text-white truncate">{prod.title}</p>
-                        <p className="text-[10px] text-[#b84357] dark:text-rose-300 font-semibold">{prod.brand} • {prod.shade || 'Standard'}</p>
+                        <p className="text-[10px] text-[#e06d84] dark:text-rose-300 font-semibold">{prod.brand} • {prod.shade || 'Standard'}</p>
                       </div>
                     </div>
                   </td>
@@ -256,7 +256,7 @@ export default function AdminProductsPage() {
                     </span>
                   </td>
                   <td className="py-3 px-4">
-                    <span className="font-bold text-[#b84357] dark:text-rose-300">
+                    <span className="font-bold text-[#e06d84] dark:text-rose-300">
                       {formatPrice(prod.price)}
                     </span>
                     {prod.originalPrice > prod.price && (
@@ -284,7 +284,7 @@ export default function AdminProductsPage() {
                       <Link
                         href={`/product/${prod._id || prod.id}`}
                         target="_blank"
-                        className="p-1.5 rounded-lg text-slate-500 hover:text-[#b84357] hover:bg-black/[0.03] dark:hover:bg-white/[0.05] transition-colors"
+                        className="p-1.5 rounded-lg text-slate-500 hover:text-[#e06d84] hover:bg-black/[0.03] dark:hover:bg-white/[0.05] transition-colors"
                         title="View Live Listing"
                       >
                         <Eye className="w-3.5 h-3.5" />
@@ -343,7 +343,7 @@ export default function AdminProductsPage() {
                   type="number"
                   value={editPrice}
                   onChange={(e) => setEditPrice(e.target.value)}
-                  className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-[#191416] dark:text-white focus:outline-none focus:border-[#b84357]/50"
+                  className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-[#191416] dark:text-white focus:outline-none focus:ring-2 focus:ring-[#e06d84]/25 focus:border-[#e06d84]/50"
                   required
                 />
               </div>
@@ -356,7 +356,7 @@ export default function AdminProductsPage() {
                   type="number"
                   value={editOriginalPrice}
                   onChange={(e) => setEditOriginalPrice(e.target.value)}
-                  className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-[#191416] dark:text-white focus:outline-none focus:border-[#b84357]/50"
+                  className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-[#191416] dark:text-white focus:outline-none focus:ring-2 focus:ring-[#e06d84]/25 focus:border-[#e06d84]/50"
                 />
               </div>
 
@@ -368,7 +368,7 @@ export default function AdminProductsPage() {
                   type="text"
                   value={editShade}
                   onChange={(e) => setEditShade(e.target.value)}
-                  className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-[#191416] dark:text-white focus:outline-none focus:border-[#b84357]/50"
+                  className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-[#191416] dark:text-white focus:outline-none focus:ring-2 focus:ring-[#e06d84]/25 focus:border-[#e06d84]/50"
                 />
               </div>
 
@@ -376,14 +376,14 @@ export default function AdminProductsPage() {
                 <button
                   type="button"
                   onClick={() => setEditingProduct(null)}
-                  className="flex-1 py-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-transparent hover:bg-black/[0.03] dark:hover:bg-white/[0.04] text-slate-700 dark:text-slate-300 font-semibold transition-colors"
+                  className="flex-1 py-2 rounded-full border border-black/[0.08] dark:border-white/[0.1] bg-transparent hover:bg-black/[0.03] dark:hover:bg-white/[0.04] text-slate-700 dark:text-slate-300 font-semibold transition-colors cursor-pointer"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={editSaving}
-                  className="flex-1 py-2.5 rounded-xl bg-[#b84357] hover:bg-[#a13649] text-white font-bold transition-all shadow-md shadow-[#b84357]/20"
+                  className="flex-1 py-2 rounded-full bg-[#e06d84] hover:bg-[#d45d74] text-white font-bold transition-all shadow-md shadow-[#e06d84]/20 cursor-pointer"
                 >
                   {editSaving ? 'Saving...' : 'Update Product'}
                 </button>
