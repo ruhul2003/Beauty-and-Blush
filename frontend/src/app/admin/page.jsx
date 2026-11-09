@@ -77,15 +77,15 @@ export default function AdminOverviewPage() {
         <div className="flex items-center gap-2 self-start sm:self-auto">
           <button
             onClick={fetchData}
-            className="p-2.5 rounded-xl border border-black/[0.06] dark:border-white/[0.08] bg-black/[0.02] dark:bg-white/[0.04] backdrop-blur-md text-slate-700 dark:text-slate-300 hover:text-[#b84357] hover:bg-black/[0.05] transition-all cursor-pointer shadow-xs"
+            className="p-2 rounded-full border border-black/[0.06] dark:border-white/[0.08] bg-black/[0.02] dark:bg-white/[0.04] backdrop-blur-md text-slate-700 dark:text-slate-300 hover:text-[#e06d84] hover:border-[#e06d84]/30 transition-all cursor-pointer shadow-xs"
             title="Refresh Metrics"
           >
-            <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin text-[#b84357]' : ''}`} />
+            <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin text-[#e06d84]' : ''}`} />
           </button>
 
           <Link
             href="/admin/products"
-            className="bg-[#b84357] hover:bg-[#a13649] text-white px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-md shadow-[#b84357]/20 cursor-pointer"
+            className="bg-[#e06d84] hover:bg-[#d45d74] text-white px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-md shadow-[#e06d84]/25 hover:scale-[1.02] active:scale-95 transition-all cursor-pointer"
           >
             <PlusCircle className="w-4 h-4" />
             <span>Manage Products</span>
@@ -96,10 +96,10 @@ export default function AdminOverviewPage() {
       {/* Top Key Metrics Grid (5 Key Performance Pillars) */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
         {/* Metric 1: Total Revenue */}
-        <div className="p-5 rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl border border-black/[0.05] dark:border-white/[0.08] shadow-xs relative overflow-hidden">
+        <div className="p-5 rounded-3xl bg-white/65 dark:bg-[#140b17]/65 backdrop-blur-2xl border border-black/[0.05] dark:border-white/[0.08] shadow-xs hover:shadow-md hover:-translate-y-0.5 transition-all relative overflow-hidden">
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Gross Sales</span>
-            <div className="w-9 h-9 rounded-xl bg-black/[0.03] dark:bg-white/[0.06] text-[#b84357] dark:text-rose-300 flex items-center justify-center border border-black/[0.06] dark:border-white/[0.08]">
+            <div className="w-9 h-9 rounded-xl bg-[#e06d84]/10 text-[#e06d84] dark:text-rose-300 flex items-center justify-center border border-[#e06d84]/20">
               <DollarSign className="w-5 h-5" />
             </div>
           </div>
@@ -115,7 +115,7 @@ export default function AdminOverviewPage() {
         </div>
 
         {/* Metric 2: Total Orders */}
-        <div className="p-5 rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl border border-black/[0.05] dark:border-white/[0.08] shadow-xs relative overflow-hidden">
+        <div className="p-5 rounded-3xl bg-white/65 dark:bg-[#140b17]/65 backdrop-blur-2xl border border-black/[0.05] dark:border-white/[0.08] shadow-xs hover:shadow-md hover:-translate-y-0.5 transition-all relative overflow-hidden">
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Total Orders</span>
             <div className="w-9 h-9 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center border border-purple-500/20">
@@ -133,7 +133,7 @@ export default function AdminOverviewPage() {
         </div>
 
         {/* Metric 3: Active Listings */}
-        <div className="p-5 rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl border border-black/[0.05] dark:border-white/[0.08] shadow-xs relative overflow-hidden">
+        <div className="p-5 rounded-3xl bg-white/65 dark:bg-[#140b17]/65 backdrop-blur-2xl border border-black/[0.05] dark:border-white/[0.08] shadow-xs hover:shadow-md hover:-translate-y-0.5 transition-all relative overflow-hidden">
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Catalog Items</span>
             <div className="w-9 h-9 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center border border-blue-500/20">
@@ -151,7 +151,7 @@ export default function AdminOverviewPage() {
         </div>
 
         {/* Metric 4: Courier Milestones */}
-        <div className="p-5 rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl border border-black/[0.05] dark:border-white/[0.08] shadow-xs relative overflow-hidden">
+        <div className="p-5 rounded-3xl bg-white/65 dark:bg-[#140b17]/65 backdrop-blur-2xl border border-black/[0.05] dark:border-white/[0.08] shadow-xs hover:shadow-md hover:-translate-y-0.5 transition-all relative overflow-hidden">
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Delivered</span>
             <div className="w-9 h-9 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center border border-emerald-500/20">
@@ -170,10 +170,10 @@ export default function AdminOverviewPage() {
         </div>
 
         {/* Metric 5: Products Added To Cart */}
-        <div className="p-5 rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl border border-black/[0.05] dark:border-white/[0.08] shadow-xs relative overflow-hidden group hover:border-black/20 dark:hover:border-white/20 transition-colors">
+        <div className="p-5 rounded-3xl bg-white/65 dark:bg-[#140b17]/65 backdrop-blur-2xl border border-black/[0.05] dark:border-white/[0.08] shadow-xs hover:shadow-md hover:-translate-y-0.5 transition-all relative overflow-hidden group hover:border-[#e06d84]/30">
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Added to Cart</span>
-            <div className="w-9 h-9 rounded-xl bg-black/[0.03] dark:bg-white/[0.06] text-[#b84357] dark:text-rose-300 flex items-center justify-center border border-black/[0.06] dark:border-white/[0.08]">
+            <div className="w-9 h-9 rounded-xl bg-[#e06d84]/10 text-[#e06d84] dark:text-rose-300 flex items-center justify-center border border-[#e06d84]/20">
               <ShoppingCart className="w-5 h-5" />
             </div>
           </div>
@@ -182,10 +182,10 @@ export default function AdminOverviewPage() {
               {cartAnalytics?.summary?.totalCartAdditions || 142}
             </h2>
             <div className="flex items-center justify-between mt-1 text-[11px]">
-              <span className="text-[#b84357] dark:text-rose-300 font-semibold truncate">
+              <span className="text-[#e06d84] dark:text-rose-300 font-semibold truncate">
                 {formatPrice(cartAnalytics?.summary?.totalValuation || 428000)} val.
               </span>
-              <Link href="/admin/cart" className="text-slate-400 hover:text-[#b84357] flex items-center gap-0.5 shrink-0">
+              <Link href="/admin/cart" className="text-slate-400 hover:text-[#e06d84] flex items-center gap-0.5 shrink-0">
                 <span>View</span>
                 <ArrowRight className="w-3 h-3" />
               </Link>
