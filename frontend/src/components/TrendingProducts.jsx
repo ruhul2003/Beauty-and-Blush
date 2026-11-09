@@ -133,7 +133,7 @@ export function TrendingProducts({ products = [] }) {
           transition={{ duration: 0.5 }}
           className="text-center mb-10 sm:mb-12 flex flex-col items-center"
         >
-          <span className="glass-pill px-4 py-1.5 text-[10px] sm:text-[11px] uppercase tracking-[0.24em] font-bold text-[#b84357] dark:text-rose-300 shadow-xs mb-3">
+          <span className="glass-pill px-4 py-1.5 text-[10px] sm:text-[11px] uppercase tracking-[0.24em] font-bold text-[#e06d84] dark:text-rose-300 shadow-xs mb-3">
             Iconic Formulations
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-[#181416] dark:text-white font-bold tracking-tight">
@@ -147,7 +147,7 @@ export function TrendingProducts({ products = [] }) {
           {/* Left Arrow Button */}
           <button
             onClick={() => handleScroll('left')}
-            className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full glass-pill items-center justify-center text-[#181416] dark:text-white hover:text-[#b84357] shadow-lg active:scale-95 transition-all cursor-pointer"
+            className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full glass-pill items-center justify-center text-[#181416] dark:text-white hover:text-[#e06d84] shadow-lg active:scale-95 transition-all cursor-pointer"
             aria-label="Previous products"
           >
             <ChevronLeft className="w-5 h-5" />
@@ -156,7 +156,7 @@ export function TrendingProducts({ products = [] }) {
           {/* Right Arrow Button */}
           <button
             onClick={() => handleScroll('right')}
-            className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full glass-pill items-center justify-center text-[#181416] dark:text-white hover:text-[#b84357] shadow-lg active:scale-95 transition-all cursor-pointer"
+            className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full glass-pill items-center justify-center text-[#181416] dark:text-white hover:text-[#e06d84] shadow-lg active:scale-95 transition-all cursor-pointer"
             aria-label="Next products"
           >
             <ChevronRight className="w-5 h-5" />
@@ -202,8 +202,8 @@ export function TrendingProducts({ products = [] }) {
                         onClick={() => toggleWishlist(prod)}
                         className={`absolute top-2.5 right-2.5 w-8 h-8 rounded-full flex items-center justify-center transition-all cursor-pointer ${
                           isSaved 
-                            ? 'bg-[#b84357] text-white shadow-xs' 
-                            : 'glass-pill text-slate-600 dark:text-slate-300 hover:text-[#b84357] dark:hover:text-rose-300'
+                            ? 'bg-[#e06d84] text-white shadow-xs' 
+                            : 'glass-pill text-slate-600 dark:text-slate-300 hover:text-[#e06d84] dark:hover:text-rose-300'
                         }`}
                         title="Save to wishlist"
                       >
@@ -213,14 +213,14 @@ export function TrendingProducts({ products = [] }) {
 
                     {/* Product Info */}
                     <Link href={`/browse?category=${prod.category}`} className="block">
-                      <h3 className="font-bold text-xs sm:text-sm text-[#181416] dark:text-white truncate group-hover/card:text-[#b84357] dark:group-hover/card:text-rose-300 transition-colors">
+                      <h3 className="font-bold text-xs sm:text-sm text-[#181416] dark:text-white truncate group-hover/card:text-[#e06d84] dark:group-hover/card:text-rose-300 transition-colors">
                         {prod.title}
                       </h3>
                     </Link>
 
                     {/* Price with Strike-through */}
                     <div className="mt-1 flex items-center gap-2">
-                      <span className="text-xs sm:text-sm font-bold text-[#b84357] dark:text-rose-300">
+                      <span className="text-xs sm:text-sm font-bold text-[#e06d84] dark:text-rose-300">
                         {prod.price}
                       </span>
                       {prod.originalPrice && (
@@ -247,7 +247,7 @@ export function TrendingProducts({ products = [] }) {
                   <div className="mt-3 pt-3 border-t border-black/[0.04] dark:border-white/[0.06]">
                     <Link
                       href={`/browse?category=${prod.category}`}
-                      className="w-full py-2 text-center text-xs font-bold rounded-full glass-pill hover:bg-[#b84357] text-[#181416] dark:text-white hover:text-white hover:border-[#b84357] active:scale-95 transition-all block"
+                      className="w-full py-1.5 text-center text-xs font-bold rounded-full glass-pill hover:bg-[#e06d84] text-[#181416] dark:text-white hover:text-white hover:border-[#e06d84] active:scale-95 transition-all block"
                     >
                       View Product
                     </Link>
