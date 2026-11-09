@@ -79,7 +79,7 @@ router.get('/verify', verifyAdmin, (req, res) => {
 });
 
 // GET /api/admin/analytics - Aggregated marketplace KPIs and statistics
-router.get('/analytics', async (req, res) => {
+router.get('/analytics', verifyAdmin, async (req, res) => {
   try {
     let orderList = orders;
     let prodList = products;
@@ -163,7 +163,7 @@ router.get('/analytics', async (req, res) => {
 });
 
 // GET /api/admin/cart-analytics - In-depth Cart & Add-to-Cart intelligence for Admin
-router.get('/cart-analytics', async (req, res) => {
+router.get('/cart-analytics', verifyAdmin, async (req, res) => {
   try {
     let list = cartEvents;
     if (getIsConnected()) {
