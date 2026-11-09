@@ -55,8 +55,8 @@ export default function RegisterPage() {
         className="max-w-lg w-full glass-slab p-8 sm:p-10 rounded-[36px] shadow-2xl space-y-6"
       >
         <div className="text-center space-y-2">
-          <div className="w-14 h-14 rounded-full glass-well text-[#b84357] dark:text-rose-300 flex items-center justify-center mx-auto shadow-xs">
-            <Sparkles className="w-6 h-6 text-[#b84357] dark:text-rose-300" />
+          <div className="w-14 h-14 rounded-full glass-well text-[#e06d84] dark:text-rose-300 flex items-center justify-center mx-auto shadow-xs">
+            <Sparkles className="w-6 h-6 text-[#e06d84] dark:text-rose-300" />
           </div>
           <h1 className="text-2xl font-serif font-bold text-[#181416] dark:text-white">
             Create Your Account
@@ -69,8 +69,8 @@ export default function RegisterPage() {
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="text-xs font-bold text-[#181416] dark:text-slate-300 block mb-1">Full Name</label>
-            <div className="glass-well rounded-full flex items-center px-4 py-2.5">
-              <User className="w-4 h-4 text-[#b84357] dark:text-rose-300 mr-2 shrink-0" />
+            <div className="glass-well rounded-full flex items-center px-4 py-2.5 border border-transparent focus-within:border-[#e06d84]/40 focus-within:ring-2 focus-within:ring-[#e06d84]/20 transition-all">
+              <User className="w-4 h-4 text-[#e06d84] dark:text-rose-300 mr-2 shrink-0" />
               <input
                 type="text"
                 required
@@ -85,8 +85,8 @@ export default function RegisterPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label className="text-xs font-bold text-[#181416] dark:text-slate-300 block mb-1">Email</label>
-              <div className="glass-well rounded-full flex items-center px-4 py-2.5">
-                <Mail className="w-4 h-4 text-[#b84357] dark:text-rose-300 mr-2 shrink-0" />
+              <div className="glass-well rounded-full flex items-center px-4 py-2.5 border border-transparent focus-within:border-[#e06d84]/40 focus-within:ring-2 focus-within:ring-[#e06d84]/20 transition-all">
+                <Mail className="w-4 h-4 text-[#e06d84] dark:text-rose-300 mr-2 shrink-0" />
                 <input
                   type="email"
                   required
@@ -100,8 +100,8 @@ export default function RegisterPage() {
 
             <div>
               <label className="text-xs font-bold text-[#181416] dark:text-slate-300 block mb-1">Phone</label>
-              <div className="glass-well rounded-full flex items-center px-4 py-2.5">
-                <Phone className="w-4 h-4 text-[#b84357] dark:text-rose-300 mr-2 shrink-0" />
+              <div className="glass-well rounded-full flex items-center px-4 py-2.5 border border-transparent focus-within:border-[#e06d84]/40 focus-within:ring-2 focus-within:ring-[#e06d84]/20 transition-all">
+                <Phone className="w-4 h-4 text-[#e06d84] dark:text-rose-300 mr-2 shrink-0" />
                 <input
                   type="tel"
                   required
@@ -116,8 +116,8 @@ export default function RegisterPage() {
 
           <div>
             <label className="text-xs font-bold text-[#181416] dark:text-slate-300 block mb-1">Password</label>
-            <div className="glass-well rounded-full flex items-center px-4 py-2.5">
-              <Lock className="w-4 h-4 text-[#b84357] dark:text-rose-300 mr-2 shrink-0" />
+            <div className="glass-well rounded-full flex items-center px-4 py-2.5 border border-transparent focus-within:border-[#e06d84]/40 focus-within:ring-2 focus-within:ring-[#e06d84]/20 transition-all">
+              <Lock className="w-4 h-4 text-[#e06d84] dark:text-rose-300 mr-2 shrink-0" />
               <input
                 type="password"
                 required
@@ -166,10 +166,10 @@ export default function RegisterPage() {
                 type="checkbox"
                 checked={hasShop}
                 onChange={(e) => setHasShop(e.target.checked)}
-                className="rounded text-[#b84357] focus:ring-[#b84357] w-4 h-4 accent-[#b84357]"
+                className="rounded text-[#e06d84] focus:ring-[#e06d84] w-4 h-4 accent-[#e06d84]"
               />
               <span className="text-xs font-bold text-[#181416] dark:text-slate-200 flex items-center gap-1.5 font-serif">
-                <Store className="w-4 h-4 text-[#b84357]" />
+                <Store className="w-4 h-4 text-[#e06d84]" />
                 <span>I want to open a verified Beauty Boutique / Store</span>
               </span>
             </label>
@@ -183,7 +183,7 @@ export default function RegisterPage() {
                   value={shopName}
                   onChange={(e) => setShopName(e.target.value)}
                   placeholder="e.g. GlowVogue Cosmetics"
-                  className="w-full p-2.5 text-xs rounded-xl glass-well text-[#181416] dark:text-white focus:outline-none"
+                  className="w-full p-2.5 text-xs rounded-xl glass-well text-[#181416] dark:text-white focus:outline-none focus:ring-2 focus:ring-[#e06d84]/25"
                 />
               </div>
             )}
@@ -193,7 +193,7 @@ export default function RegisterPage() {
             whileTap={{ scale: 0.98 }}
             type="submit"
             disabled={loading}
-            className="w-full bg-[#b84357] hover:bg-[#a13649] text-white py-3.5 rounded-full text-xs uppercase tracking-wider font-bold flex items-center justify-center gap-2 shadow-lg shadow-[#b84357]/25 cursor-pointer"
+            className="w-full bg-[#e06d84] hover:bg-[#d45d74] text-white py-3 rounded-full text-xs uppercase tracking-wider font-bold flex items-center justify-center gap-2 shadow-lg shadow-[#e06d84]/25 cursor-pointer transition-all"
           >
             <span>{loading ? 'Creating Account...' : 'Complete Registration'}</span>
             <ArrowRight className="w-4 h-4" />
@@ -202,7 +202,7 @@ export default function RegisterPage() {
 
         <div className="text-center text-xs text-slate-500 pt-3 border-t border-black/[0.04] dark:border-white/[0.06]">
           <span>Already registered? </span>
-          <Link href="/auth/login" className="font-bold text-[#b84357] dark:text-rose-400 hover:underline">
+          <Link href="/auth/login" className="font-bold text-[#e06d84] dark:text-rose-400 hover:underline">
             Sign In
           </Link>
         </div>
