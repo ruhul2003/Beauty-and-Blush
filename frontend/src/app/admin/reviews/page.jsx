@@ -125,7 +125,7 @@ export default function AdminReviewsPage() {
 
         <button
           onClick={fetchContent}
-          className="px-4 py-2 text-xs font-semibold rounded-2xl bg-[#b84357] hover:bg-[#a13649] text-white flex items-center gap-2 self-start sm:self-auto shadow-sm shadow-[#b84357]/20 transition-all"
+          className="px-5 py-2 text-xs font-bold rounded-full bg-[#e06d84] hover:bg-[#d45d74] text-white flex items-center gap-2 self-start sm:self-auto shadow-md shadow-[#e06d84]/25 hover:scale-[1.02] active:scale-95 transition-all cursor-pointer"
         >
           <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
           <span>Refresh Feed</span>
@@ -168,7 +168,7 @@ export default function AdminReviewsPage() {
                 </div>
 
                 {rev.productTitle && (
-                  <p className="text-[11px] text-[#b84357] dark:text-rose-300 font-semibold">
+                  <p className="text-[11px] text-[#e06d84] dark:text-rose-300 font-semibold">
                     Product: {rev.productTitle}
                   </p>
                 )}
@@ -181,7 +181,7 @@ export default function AdminReviewsPage() {
                   <span>Batch verification positive</span>
                   <button
                     onClick={() => handleDeleteReview(rev._id)}
-                    className="text-rose-500 hover:text-rose-600 dark:text-rose-400 flex items-center gap-1 font-semibold transition-colors"
+                    className="text-[#e06d84] hover:text-[#d45d74] dark:text-rose-400 flex items-center gap-1 font-semibold transition-colors cursor-pointer"
                   >
                     <Trash2 className="w-3.5 h-3.5" />
                     <span>Delete</span>
@@ -196,7 +196,7 @@ export default function AdminReviewsPage() {
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <h2 className="text-lg font-serif font-bold text-[#191416] dark:text-white flex items-center gap-2">
-              <HelpCircle className="w-4 h-4 text-[#b84357] dark:text-rose-300" />
+              <HelpCircle className="w-4 h-4 text-[#e06d84] dark:text-rose-300" />
               <span>Boutique Q&A Inquiries ({qaList.length})</span>
             </h2>
             <span className="text-xs text-slate-500 dark:text-slate-400">Customer beauty questions</span>
@@ -209,7 +209,7 @@ export default function AdminReviewsPage() {
                 className="p-5 rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl border border-black/[0.05] dark:border-white/[0.08] shadow-sm space-y-3"
               >
                 <div>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#b84357] dark:text-rose-300">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#e06d84] dark:text-rose-300">
                     Item: {qa.productTitle}
                   </span>
                   <h4 className="text-xs font-bold text-[#191416] dark:text-white mt-0.5">
@@ -235,12 +235,12 @@ export default function AdminReviewsPage() {
                         value={replyInput[idx] || ''}
                         onChange={(e) => setReplyInput({ ...replyInput, [idx]: e.target.value })}
                         placeholder="Write official boutique response..."
-                        className="flex-1 p-2 text-xs rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-[#191416] dark:text-white focus:outline-none focus:border-[#b84357]/50"
+                        className="flex-1 px-3.5 py-2 text-xs rounded-full border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-[#191416] dark:text-white focus:outline-none focus:ring-2 focus:ring-[#e06d84]/30 focus:border-[#e06d84]/50 transition-all"
                       />
                       <button
                         type="button"
                         onClick={() => handleSendAnswer(qa, idx)}
-                        className="px-3 py-2 text-xs font-bold rounded-xl bg-[#b84357] hover:bg-[#a13649] text-white flex items-center gap-1.5 shrink-0 transition-all shadow-sm shadow-[#b84357]/20"
+                        className="px-4 py-2 text-xs font-bold rounded-full bg-[#e06d84] hover:bg-[#d45d74] text-white flex items-center gap-1.5 shrink-0 transition-all shadow-sm shadow-[#e06d84]/25 cursor-pointer"
                       >
                         <Send className="w-3 h-3" />
                         <span>Publish</span>
