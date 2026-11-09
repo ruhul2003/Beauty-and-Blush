@@ -114,8 +114,8 @@ function BrowsePageContent() {
         {/* Search input in page */}
         <form onSubmit={handleSearchSubmit} className="flex gap-2 max-w-md w-full">
           <div className="relative flex-1">
-            <div className="glass-well rounded-full flex items-center px-4 py-2">
-              <Search className="w-4 h-4 text-slate-400 mr-2 shrink-0" />
+            <div className="glass-well rounded-full flex items-center px-4 py-2 border border-transparent focus-within:border-[#e06d84]/40 focus-within:ring-2 focus-within:ring-[#e06d84]/20 transition-all">
+              <Search className="w-4 h-4 text-[#e06d84] mr-2 shrink-0" />
               <input
                 type="text"
                 value={searchTerm}
@@ -127,14 +127,15 @@ function BrowsePageContent() {
           </div>
           <button 
             type="submit" 
-            className="px-5 py-2 text-xs font-bold uppercase tracking-wider rounded-full bg-[#181416] hover:bg-black dark:bg-white dark:hover:bg-slate-100 text-white dark:text-[#181416] shadow-md transition-all cursor-pointer"
+            className="px-5 py-2 text-xs font-bold uppercase tracking-wider rounded-full bg-[#e06d84] hover:bg-[#d45d74] text-white shadow-md shadow-[#e06d84]/20 hover:scale-[1.02] active:scale-95 transition-all cursor-pointer"
           >
             Search
           </button>
           <button
             type="button"
             onClick={() => setMobileFilterOpen(!mobileFilterOpen)}
-            className="md:hidden glass-pill w-10 h-10 flex items-center justify-center text-slate-700 dark:text-slate-200 cursor-pointer"
+            className="md:hidden glass-pill w-10 h-10 flex items-center justify-center text-slate-700 dark:text-slate-200 hover:text-[#e06d84] cursor-pointer"
+            aria-label="Toggle filters"
           >
             <SlidersHorizontal className="w-4 h-4" />
           </button>
@@ -142,8 +143,8 @@ function BrowsePageContent() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-        {/* Desktop Sidebar Filters */}
-        <aside className="hidden md:block space-y-6">
+        {/* Sidebar Filters (Responsive) */}
+        <aside className={`${mobileFilterOpen ? 'block' : 'hidden'} md:block space-y-6`}>
           <div className="glass-slab p-5 space-y-5">
             <div className="flex items-center justify-between pb-3 border-b border-black/[0.04] dark:border-white/[0.06]">
               <span className="font-bold text-xs uppercase tracking-wider text-[#181416] dark:text-white flex items-center gap-1.5 font-serif">
