@@ -26,11 +26,11 @@ export function ThemeToggle({ className = "", compact = false }) {
       whileHover={{ scale: 1.05 }}
       onClick={toggleTheme}
       type="button"
-      className={`glass-pill flex items-center justify-center transition-all cursor-pointer relative overflow-hidden ${
+      className={`glass-pill flex items-center justify-center transition-all cursor-pointer relative overflow-hidden hover:shadow-md ${
         compact 
           ? 'w-8 h-8 rounded-full' 
           : 'w-9.5 h-9.5 sm:w-10 sm:h-10 rounded-full'
-      } text-slate-700 dark:text-slate-200 hover:text-[#b84357] dark:hover:text-amber-300 ${className}`}
+      } text-slate-700 dark:text-slate-200 hover:text-[#e06d84] dark:hover:text-amber-300 ${className}`}
       title={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
       aria-label={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
     >
