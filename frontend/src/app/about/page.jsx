@@ -138,9 +138,9 @@ export default function AboutPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.35, delay: idx * 0.08 }}
-            className="glass-slab p-6 sm:p-8 text-center space-y-1.5 rounded-[28px]"
+            className="glass-slab p-6 sm:p-8 text-center space-y-1.5 rounded-[28px] hover:shadow-lg transition-all"
           >
-            <span className="text-2xl sm:text-4xl font-serif font-black text-[#b84357] dark:text-rose-300 block">
+            <span className="text-2xl sm:text-4xl font-serif font-black text-[#e06d84] dark:text-rose-300 block">
               {m.value}
             </span>
             <span className="text-xs sm:text-sm font-bold text-[#181416] dark:text-white block font-serif">
@@ -156,7 +156,7 @@ export default function AboutPage() {
       {/* 4 Pillars of Quality */}
       <section className="space-y-6">
         <div className="text-center max-w-xl mx-auto space-y-2">
-          <span className="glass-pill px-3.5 py-1 text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#b84357] dark:text-rose-300 shadow-xs inline-block">
+          <span className="glass-pill px-3.5 py-1 text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#e06d84] dark:text-rose-300 shadow-xs inline-block">
             Our Standard
           </span>
           <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#181416] dark:text-white">
@@ -178,17 +178,17 @@ export default function AboutPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.1 }}
                 whileHover={{ y: -4 }}
-                className="glass-slab p-6 sm:p-7 space-y-4 rounded-[28px] flex flex-col justify-between"
+                className="glass-slab p-6 sm:p-7 space-y-4 rounded-[28px] flex flex-col justify-between hover:shadow-lg transition-all"
               >
                 <div className="space-y-4">
-                  <div className="glass-well w-12 h-12 rounded-2xl flex items-center justify-center text-[#b84357] dark:text-rose-300 shrink-0 shadow-xs">
+                  <div className="glass-well w-12 h-12 rounded-2xl flex items-center justify-center text-[#e06d84] dark:text-rose-300 shrink-0 shadow-xs">
                     <Icon className="w-6 h-6 stroke-[1.8]" />
                   </div>
                   <div>
                     <h3 className="text-sm font-serif font-bold text-[#181416] dark:text-white">
                       {pillar.title}
                     </h3>
-                    <span className="text-[11px] font-bold text-[#b84357] dark:text-rose-300 uppercase tracking-wider block mt-0.5">
+                    <span className="text-[11px] font-bold text-[#e06d84] dark:text-rose-300 uppercase tracking-wider block mt-0.5">
                       {pillar.subtitle}
                     </span>
                   </div>
