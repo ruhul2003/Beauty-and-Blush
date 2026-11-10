@@ -239,7 +239,7 @@ export function CartDrawer() {
                           });
                         }
                       }}
-                      className="w-full py-2.5 px-4 rounded-full bg-[#e06d84] hover:bg-[#d45d74] text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md shadow-[#e06d84]/25 active:scale-98 transition-all cursor-pointer"
+                      className="w-full py-2.5 px-4 rounded-full bg-[#e06d84] hover:bg-[#d45d74] text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md shadow-[#e06d84]/25 hover:shadow-lg hover:shadow-[#e06d84]/35 active:scale-98 transition-all cursor-pointer"
                     >
                       <ShoppingBag className="w-4 h-4" />
                       <span>Proceed to Checkout (COD)</span>
@@ -249,7 +249,7 @@ export function CartDrawer() {
                       <button
                         type="button"
                         onClick={clearCart}
-                        className="hover:text-[#e06d84] transition-colors cursor-pointer"
+                        className="hover:text-[#e06d84] font-semibold transition-colors cursor-pointer"
                       >
                         Clear All Items
                       </button>
