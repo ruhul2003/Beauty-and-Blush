@@ -88,7 +88,7 @@ export default function DashboardPage() {
 
       {/* Metrics Row */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-        <div className="glass-slab p-6 space-y-2">
+        <div className="glass-slab p-6 space-y-2 hover:-translate-y-0.5 hover:shadow-md transition-all">
           <span className="text-xs text-slate-500 font-bold uppercase tracking-wider">Active Listings</span>
           <div className="text-3xl font-bold font-serif text-[#181416] dark:text-white flex items-center justify-between">
             <span>{myProducts.length}</span>
@@ -98,7 +98,7 @@ export default function DashboardPage() {
           </div>
         </div>
 
-        <div className="glass-slab p-6 space-y-2">
+        <div className="glass-slab p-6 space-y-2 hover:-translate-y-0.5 hover:shadow-md transition-all">
           <span className="text-xs text-slate-500 font-bold uppercase tracking-wider">Customer Orders</span>
           <div className="text-3xl font-bold font-serif text-[#181416] dark:text-white flex items-center justify-between">
             <span>{myOrders.length}</span>
@@ -108,7 +108,7 @@ export default function DashboardPage() {
           </div>
         </div>
 
-        <div className="glass-slab p-6 space-y-2">
+        <div className="glass-slab p-6 space-y-2 hover:-translate-y-0.5 hover:shadow-md transition-all">
           <span className="text-xs text-slate-500 font-bold uppercase tracking-wider">Store Reputation</span>
           <div className="text-3xl font-bold font-serif text-[#181416] dark:text-white flex items-center justify-between">
             <span>4.95 / 5.0</span>
@@ -126,9 +126,9 @@ export default function DashboardPage() {
         </h2>
 
         {myProducts.length === 0 ? (
-          <div className="text-center py-12 text-slate-500 text-xs">
+          <div className="text-center py-12 text-slate-500 text-xs space-y-3">
             <p>You have not listed any cosmetics or perfumes yet.</p>
-            <Link href="/sell" className="mt-3 inline-block text-[#e06d84] font-bold hover:underline">
+            <Link href="/sell" className="inline-flex items-center gap-1.5 px-5 py-2 rounded-full bg-[#e06d84] hover:bg-[#d45d74] text-white font-bold shadow-sm transition-all">
               Publish your first listing →
             </Link>
           </div>
