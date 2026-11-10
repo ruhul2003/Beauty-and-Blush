@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ShieldCheck, User, Lock, Eye, EyeOff, ArrowRight, ArrowLeft, AlertCircle } from 'lucide-react';
+import { ShieldCheck, User, Lock, Eye, EyeOff, ArrowRight, ArrowLeft, AlertCircle, Loader2 } from 'lucide-react';
 import { adminApi } from '@/lib/api';
 import { useToast } from '@/context/ToastContext';
 
@@ -112,7 +112,7 @@ export function AdminLoginGate({ onSuccess }) {
             >
               Admin Username
             </label>
-            <div className="glass-well rounded-full flex items-center px-4 py-2.5 border border-transparent focus-within:border-[#e06d84]/40 focus-within:ring-2 focus-within:ring-[#e06d84]/20 transition-all">
+            <div className="glass-well rounded-full flex items-center px-4 py-2.5 border border-transparent hover:border-[#e06d84]/25 focus-within:border-[#e06d84]/40 focus-within:ring-2 focus-within:ring-[#e06d84]/20 transition-all">
               <User className="w-4 h-4 text-[#e06d84] dark:text-rose-300 mr-2.5 shrink-0" />
               <input
                 id="admin-username"
@@ -135,7 +135,7 @@ export function AdminLoginGate({ onSuccess }) {
             >
               Password
             </label>
-            <div className="glass-well rounded-full flex items-center px-4 py-2.5 border border-transparent focus-within:border-[#e06d84]/40 focus-within:ring-2 focus-within:ring-[#e06d84]/20 transition-all">
+            <div className="glass-well rounded-full flex items-center px-4 py-2.5 border border-transparent hover:border-[#e06d84]/25 focus-within:border-[#e06d84]/40 focus-within:ring-2 focus-within:ring-[#e06d84]/20 transition-all">
               <Lock className="w-4 h-4 text-[#e06d84] dark:text-rose-300 mr-2.5 shrink-0" />
               <input
                 id="admin-password"
@@ -163,10 +163,19 @@ export function AdminLoginGate({ onSuccess }) {
             whileTap={{ scale: 0.98 }}
             type="submit"
             disabled={loading}
-            className="w-full bg-[#e06d84] hover:bg-[#d45d74] disabled:opacity-70 text-white py-3 rounded-full text-xs uppercase tracking-wider font-bold flex items-center justify-center gap-2 shadow-lg shadow-[#e06d84]/25 hover:shadow-xl hover:shadow-[#e06d84]/35 transition-all cursor-pointer mt-2"
+            className="w-full bg-[#e06d84] hover:bg-[#d45d74] disabled:opacity-70 text-white py-2.5 rounded-full text-xs uppercase tracking-wider font-bold flex items-center justify-center gap-2 shadow-lg shadow-[#e06d84]/25 hover:shadow-xl hover:shadow-[#e06d84]/35 transition-all cursor-pointer mt-2"
           >
-            <span>{loading ? 'Verifying Session...' : 'Unlock Admin Portal'}</span>
-            <ArrowRight className="w-4 h-4" />
+            {loading ? (
+              <>
+                <Loader2 className="w-4 h-4 animate-spin" />
+                <span>Verifying Session...</span>
+              </>
+            ) : (
+              <>
+                <span>Unlock Admin Portal</span>
+                <ArrowRight className="w-4 h-4" />
+              </>
+            )}
           </motion.button>
         </form>
 
