@@ -143,18 +143,18 @@ export function ProductCard({ product }) {
             <div className="flex items-center justify-between text-xs">
               <Link
                 href={`/browse?category=${encodeURIComponent(product.category || 'All')}`}
-                className="text-[10px] font-bold uppercase tracking-wider text-[#b84357] dark:text-rose-300 hover:underline"
+                className="text-[10px] font-bold uppercase tracking-wider text-[#e06d84] dark:text-rose-300 hover:underline"
               >
                 {product.brand || product.category}
               </Link>
               <div className="flex items-center gap-1 text-[11px] text-slate-400">
-                <MapPin className="w-3 h-3 text-[#b84357]" />
+                <MapPin className="w-3 h-3 text-[#e06d84]" />
                 <span>{product.location || 'Dhaka'}</span>
               </div>
             </div>
 
             <Link href={`/product/${product._id || product.id}`} className="block">
-              <h3 className="font-bold text-sm text-[#181416] dark:text-white group-hover:text-[#b84357] dark:group-hover:text-rose-300 line-clamp-1 transition-colors">
+              <h3 className="font-bold text-sm text-[#181416] dark:text-white group-hover:text-[#e06d84] dark:group-hover:text-rose-300 line-clamp-1 transition-colors">
                 {product.title}
               </h3>
             </Link>
