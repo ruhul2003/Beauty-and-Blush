@@ -82,12 +82,13 @@ export function CategoryShowcase() {
               >
                 {/* Circular Liquid Glass Pod with pronounced 3D Depth */}
                 <div className="relative w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-full p-2 bg-white/90 dark:bg-white/[0.1] backdrop-blur-2xl border-2 border-white dark:border-white/25 shadow-[0_18px_40px_-5px_rgba(0,0,0,0.14),0_6px_16px_-2px_rgba(0,0,0,0.08),inset_0_3px_2px_rgba(255,255,255,1),inset_0_-3px_3px_rgba(0,0,0,0.06)] group-hover:shadow-[0_26px_55px_-5px_rgba(224,109,132,0.35),0_10px_20px_-2px_rgba(224,109,132,0.22),inset_0_3px_2px_rgba(255,255,255,1)] group-hover:border-[#e06d84]/50 group-hover:ring-4 group-hover:ring-[#e06d84]/15 transition-all duration-300">
-                  <div className="w-full h-full rounded-full overflow-hidden shadow-inner">
+                  <div className="relative w-full h-full rounded-full overflow-hidden shadow-inner">
                     <img
                       src={cat.image}
                       alt={cat.name}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-transparent opacity-60 group-hover:opacity-20 transition-opacity duration-300 pointer-events-none" />
                   </div>
                 </div>
 
@@ -99,7 +100,7 @@ export function CategoryShowcase() {
                   <p className="text-[11px] text-slate-500 dark:text-slate-400">
                     {cat.desc}
                   </p>
-                  <span className="glass-pill inline-block px-2.5 py-0.5 text-[9px] font-bold text-slate-600 dark:text-slate-300 group-hover:border-[#e06d84]/40 group-hover:text-[#e06d84] dark:group-hover:text-rose-300 transition-colors mt-0.5">
+                  <span className="glass-pill inline-block px-2.5 py-0.5 text-[9px] font-bold text-slate-600 dark:text-slate-300 group-hover:border-[#e06d84]/40 group-hover:text-[#e06d84] dark:group-hover:text-rose-300 transition-all mt-0.5">
                     {cat.count}
                   </span>
                 </div>
