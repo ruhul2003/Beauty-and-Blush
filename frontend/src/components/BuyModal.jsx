@@ -191,7 +191,7 @@ export function BuyModal({ product, onClose }) {
             </h2>
 
             <p className="text-xs text-slate-600 dark:text-slate-300">
-              Your order reference is <strong className="font-mono text-[#b84357] dark:text-rose-300 font-bold">{orderResult.orderNumber}</strong>. The boutique is preparing your item.
+              Your order reference is <strong className="font-mono text-[#e06d84] dark:text-rose-300 font-bold">{orderResult.orderNumber}</strong>. The boutique is preparing your item.
             </p>
 
             <div className="p-4 rounded-2xl glass-well text-left text-xs space-y-2">
@@ -201,7 +201,7 @@ export function BuyModal({ product, onClose }) {
               </div>
               <div className="flex justify-between">
                 <span className="text-slate-500 font-medium">Total Payable (COD):</span>
-                <span className="font-bold text-[#b84357] dark:text-rose-300">{formatPrice(orderResult.totalAmount)}</span>
+                <span className="font-bold text-[#e06d84] dark:text-rose-300">{formatPrice(orderResult.totalAmount)}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-slate-500 font-medium">Courier:</span>
@@ -225,7 +225,7 @@ export function BuyModal({ product, onClose }) {
           /* Order Placement Form */
           <form onSubmit={handleSubmitOrder} className="space-y-5">
             <div>
-              <span className="glass-pill px-3 py-0.5 text-[10px] uppercase font-bold tracking-widest text-[#b84357] dark:text-rose-300 inline-block mb-1">
+              <span className="glass-pill px-3 py-0.5 text-[10px] uppercase font-bold tracking-widest text-[#e06d84] dark:text-rose-300 inline-block mb-1">
                 Express Checkout
               </span>
               <h2 className="text-xl font-serif font-bold text-[#181416] dark:text-white">
@@ -243,7 +243,7 @@ export function BuyModal({ product, onClose }) {
               <div className="flex-1 min-w-0">
                 <h4 className="text-xs font-bold text-[#181416] dark:text-white truncate">{product.title}</h4>
                 <p className="text-[11px] text-slate-500">{product.shade || product.condition}</p>
-                <p className="text-xs font-bold text-[#b84357] dark:text-rose-300 mt-0.5">{formatPrice(product.price)}</p>
+                <p className="text-xs font-bold text-[#e06d84] dark:text-rose-300 mt-0.5">{formatPrice(product.price)}</p>
               </div>
 
               {/* Quantity Selector */}
