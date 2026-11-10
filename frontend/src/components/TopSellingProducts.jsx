@@ -150,7 +150,7 @@ export function TopSellingProducts() {
             onClick={handlePrev}
             aria-label="Previous top sellers"
             title="View previous luxury collection"
-            className="absolute left-0 sm:left-1 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/85 dark:bg-[#181416]/85 backdrop-blur-md shadow-lg border border-black/5 dark:border-white/10 flex items-center justify-center text-slate-700 dark:text-slate-200 hover:scale-110 active:scale-95 transition-all cursor-pointer group"
+            className="absolute left-0 sm:left-1 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/90 dark:bg-[#181416]/90 backdrop-blur-md shadow-lg border border-black/5 dark:border-white/15 flex items-center justify-center text-slate-700 dark:text-slate-200 hover:text-[#e06d84] dark:hover:text-rose-300 hover:border-[#e06d84]/35 hover:shadow-xl hover:scale-110 active:scale-95 transition-all cursor-pointer group"
           >
             <ChevronLeft className="w-5 h-5 group-hover:-translate-x-0.5 transition-transform" />
           </button>
@@ -161,7 +161,7 @@ export function TopSellingProducts() {
             onClick={handleNext}
             aria-label="Next top sellers"
             title="View next luxury collection"
-            className="absolute right-0 sm:right-1 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/85 dark:bg-[#181416]/85 backdrop-blur-md shadow-lg border border-black/5 dark:border-white/10 flex items-center justify-center text-slate-700 dark:text-slate-200 hover:scale-110 active:scale-95 transition-all cursor-pointer group"
+            className="absolute right-0 sm:right-1 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/90 dark:bg-[#181416]/90 backdrop-blur-md shadow-lg border border-black/5 dark:border-white/15 flex items-center justify-center text-slate-700 dark:text-slate-200 hover:text-[#e06d84] dark:hover:text-rose-300 hover:border-[#e06d84]/35 hover:shadow-xl hover:scale-110 active:scale-95 transition-all cursor-pointer group"
           >
             <ChevronRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
           </button>
@@ -174,7 +174,7 @@ export function TopSellingProducts() {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.35, delay: index * 0.08 }}
-                className={`relative rounded-[28px] sm:rounded-[36px] overflow-hidden ${item.bgClass} border border-black/[0.04] dark:border-white/[0.08] min-h-[430px] sm:min-h-[480px] lg:min-h-[520px] flex flex-col justify-end shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group`}
+                className={`relative rounded-[28px] sm:rounded-[36px] overflow-hidden ${item.bgClass} border border-black/[0.04] dark:border-white/[0.08] min-h-[450px] sm:min-h-[490px] lg:min-h-[520px] flex flex-col justify-end shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group`}
               >
                 {/* Product Photograph */}
                 <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
@@ -189,7 +189,7 @@ export function TopSellingProducts() {
                 </div>
 
                 {/* Floating Frosted Glass Bottom Overlay Card */}
-                <div className="relative z-10 mx-3 sm:mx-4 mb-3 sm:mb-4 p-4 sm:p-5 rounded-2xl bg-white/80 dark:bg-black/65 backdrop-blur-md border border-white/60 dark:border-white/15 shadow-lg text-center space-y-2">
+                <div className="relative z-10 mx-3 sm:mx-4 mb-3 sm:mb-4 p-4 sm:p-5 rounded-2xl bg-white/85 dark:bg-black/70 backdrop-blur-md border border-white/75 dark:border-white/20 shadow-lg text-center space-y-2">
                   <div className="flex items-center justify-between text-[10px] sm:text-[11px] font-bold">
                     <span className="uppercase tracking-[0.22em] text-[10px] text-slate-600 dark:text-slate-300 font-semibold">
                       {item.tag}
