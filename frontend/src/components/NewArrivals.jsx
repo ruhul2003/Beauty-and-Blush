@@ -126,7 +126,7 @@ export function NewArrivals() {
             type="button"
             onClick={handlePrev}
             aria-label="Previous arrivals"
-            className="absolute left-0 sm:left-1 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/85 dark:bg-[#181416]/85 backdrop-blur-md shadow-lg border border-black/5 dark:border-white/10 flex items-center justify-center text-slate-700 dark:text-slate-200 hover:scale-110 active:scale-95 transition-all cursor-pointer group"
+            className="absolute left-0 sm:left-1 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/90 dark:bg-[#181416]/90 backdrop-blur-md shadow-lg border border-black/5 dark:border-white/15 flex items-center justify-center text-slate-700 dark:text-slate-200 hover:text-[#e06d84] dark:hover:text-rose-300 hover:border-[#e06d84]/35 hover:shadow-xl hover:scale-110 active:scale-95 transition-all cursor-pointer group"
           >
             <ChevronLeft className="w-5 h-5 group-hover:-translate-x-0.5 transition-transform" />
           </button>
@@ -136,7 +136,7 @@ export function NewArrivals() {
             type="button"
             onClick={handleNext}
             aria-label="Next arrivals"
-            className="absolute right-0 sm:right-1 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/85 dark:bg-[#181416]/85 backdrop-blur-md shadow-lg border border-black/5 dark:border-white/10 flex items-center justify-center text-slate-700 dark:text-slate-200 hover:scale-110 active:scale-95 transition-all cursor-pointer group"
+            className="absolute right-0 sm:right-1 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/90 dark:bg-[#181416]/90 backdrop-blur-md shadow-lg border border-black/5 dark:border-white/15 flex items-center justify-center text-slate-700 dark:text-slate-200 hover:text-[#e06d84] dark:hover:text-rose-300 hover:border-[#e06d84]/35 hover:shadow-xl hover:scale-110 active:scale-95 transition-all cursor-pointer group"
           >
             <ChevronRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
           </button>
@@ -164,7 +164,7 @@ export function NewArrivals() {
                 </div>
 
                 {/* Floating Frosted Glass Bottom Overlay Card */}
-                <div className="relative z-10 mx-3 sm:mx-4 mb-3 sm:mb-4 p-4 sm:p-5 rounded-2xl bg-white/80 dark:bg-black/65 backdrop-blur-md border border-white/60 dark:border-white/15 shadow-lg text-center space-y-2">
+                <div className="relative z-10 mx-3 sm:mx-4 mb-3 sm:mb-4 p-4 sm:p-5 rounded-2xl bg-white/85 dark:bg-black/70 backdrop-blur-md border border-white/75 dark:border-white/20 shadow-lg text-center space-y-2">
                   <span className="inline-block px-3 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-[0.22em] bg-black/[0.04] dark:bg-white/[0.08] text-slate-700 dark:text-slate-200">
                     {item.tag}
                   </span>
