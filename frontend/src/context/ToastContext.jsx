@@ -33,13 +33,13 @@ export function ToastProvider({ children }) {
                 ? 'bg-rose-950/80 text-rose-100 border-rose-500/30'
                 : t.type === 'info'
                 ? 'bg-white/85 dark:bg-[#140b17]/90 text-[#191416] dark:text-white border-black/[0.08] dark:border-white/[0.1] shadow-[0_8px_30px_rgba(0,0,0,0.06)]'
-                : 'bg-white/85 dark:bg-[#140b17]/90 text-[#191416] dark:text-white border-black/[0.06] dark:border-white/[0.08] shadow-[0_8px_30px_rgba(0,0,0,0.06)]'
+                : 'bg-white/88 dark:bg-[#140b17]/92 text-[#191416] dark:text-white border-[#e06d84]/20 dark:border-white/[0.08] shadow-[0_10px_32px_rgba(224,109,132,0.12)]'
             }`}
           >
             <div className="flex items-center gap-2.5">
               {t.type === 'error' && <AlertCircle className="w-4 h-4 text-rose-400 shrink-0" />}
               {t.type === 'info' && <Info className="w-4 h-4 text-sky-400 shrink-0" />}
-              {t.type === 'success' && <CheckCircle2 className="w-4 h-4 text-[#b84357] dark:text-rose-400 shrink-0" />}
+              {t.type === 'success' && <CheckCircle2 className="w-4 h-4 text-[#e06d84] dark:text-rose-400 shrink-0" />}
               <span className="text-xs font-semibold">{t.message}</span>
             </div>
             <button
