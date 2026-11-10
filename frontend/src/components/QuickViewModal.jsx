@@ -106,7 +106,7 @@ export function QuickViewModal({ product, onClose }) {
                       onClick={() => setActiveImageIdx(idx)}
                       className={`relative w-12 h-12 rounded-xl overflow-hidden glass-slab p-0.5 transition-all cursor-pointer ${
                         activeImageIdx === idx 
-                          ? 'border-[#b84357] ring-2 ring-[#b84357]/20' 
+                          ? 'border-[#e06d84] ring-2 ring-[#e06d84]/25' 
                           : 'opacity-70 hover:opacity-100'
                       }`}
                     >
@@ -121,7 +121,7 @@ export function QuickViewModal({ product, onClose }) {
             <div className="flex flex-col justify-between space-y-4">
               <div>
                 <div className="flex items-center justify-between gap-2">
-                  <span className="glass-pill px-3 py-0.5 text-[10px] uppercase tracking-wider font-bold text-[#b84357] dark:text-rose-300">
+                  <span className="glass-pill px-3 py-0.5 text-[10px] uppercase tracking-wider font-bold text-[#e06d84] dark:text-rose-300">
                     {product.brand || 'Luxury Cosmetic'}
                   </span>
                   <div className="glass-well flex items-center gap-1 text-xs text-amber-500 font-bold px-2.5 py-1 rounded-full">
@@ -196,8 +196,8 @@ export function QuickViewModal({ product, onClose }) {
                     onClick={toggleWishlist}
                     className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors cursor-pointer ${
                       isWishlisted 
-                        ? 'bg-[#b84357] text-white shadow-xs' 
-                        : 'glass-pill text-slate-600 dark:text-slate-300 hover:text-[#b84357] dark:hover:text-rose-300'
+                        ? 'bg-[#e06d84] text-white shadow-xs' 
+                        : 'glass-pill text-slate-600 dark:text-slate-300 hover:text-[#e06d84] dark:hover:text-rose-300'
                     }`}
                     title={isWishlisted ? "In Wishlist" : "Save to Wishlist"}
                   >
@@ -208,7 +208,7 @@ export function QuickViewModal({ product, onClose }) {
                 <Link
                   href={`/product/${product._id || product.id}`}
                   onClick={onClose}
-                  className="w-full py-2.5 rounded-full glass-pill text-xs font-bold text-center text-slate-700 dark:text-slate-300 hover:text-[#b84357] dark:hover:text-rose-300 transition-colors flex items-center justify-center gap-1.5 shadow-xs"
+                  className="w-full py-2.5 rounded-full glass-pill text-xs font-bold text-center text-slate-700 dark:text-slate-300 hover:text-[#e06d84] dark:hover:text-rose-300 transition-colors flex items-center justify-center gap-1.5 shadow-xs"
                 >
                   <span>View Complete Details & Reviews</span>
                   <ArrowRight className="w-3.5 h-3.5" />
