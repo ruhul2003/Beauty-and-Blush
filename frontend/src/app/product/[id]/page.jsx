@@ -152,7 +152,7 @@ export default function ProductDetailPage() {
   if (loading) {
     return (
       <div className="w-[95%] sm:w-[92%] max-w-[1500px] mx-auto px-2 sm:px-4 py-20 text-center">
-        <Sparkles className="w-8 h-8 text-[#b84357] animate-spin mx-auto mb-3" />
+        <Sparkles className="w-8 h-8 text-[#e06d84] animate-spin mx-auto mb-3" />
         <p className="text-xs text-slate-500">Loading authentic beauty listing...</p>
       </div>
     );
@@ -162,7 +162,7 @@ export default function ProductDetailPage() {
     return (
       <div className="w-[95%] sm:w-[92%] max-w-[1500px] mx-auto px-2 sm:px-4 py-20 text-center">
         <h2 className="text-xl font-bold">Listing Not Found</h2>
-        <Link href="/browse" className="mt-4 inline-block bg-[#b84357] hover:bg-[#a13649] text-white px-6 py-2.5 text-xs rounded-full shadow-xs">
+        <Link href="/browse" className="mt-4 inline-block bg-[#e06d84] hover:bg-[#d45d74] text-white px-6 py-2 rounded-full text-xs font-bold shadow-xs transition-all">
           Return to Catalog
         </Link>
       </div>
@@ -184,9 +184,9 @@ export default function ProductDetailPage() {
     >
       {/* Top Breadcrumb */}
       <nav className="text-xs text-slate-500 flex items-center gap-2">
-        <Link href="/" className="hover:text-[#b84357] dark:hover:text-rose-300 transition-colors">Home</Link>
+        <Link href="/" className="hover:text-[#e06d84] dark:hover:text-rose-300 transition-colors">Home</Link>
         <span>/</span>
-        <Link href={`/browse?category=${product.category}`} className="hover:text-[#b84357] dark:hover:text-rose-300 transition-colors">{product.category}</Link>
+        <Link href={`/browse?category=${product.category}`} className="hover:text-[#e06d84] dark:hover:text-rose-300 transition-colors">{product.category}</Link>
         <span>/</span>
         <span className="text-[#181416] dark:text-slate-200 font-bold truncate max-w-xs">{product.title}</span>
       </nav>
@@ -224,7 +224,7 @@ export default function ProductDetailPage() {
                   onClick={() => setActiveImageIndex(idx)}
                   className={`w-16 h-16 rounded-2xl overflow-hidden glass-slab p-1 transition-all shrink-0 cursor-pointer ${
                     activeImageIndex === idx 
-                      ? 'border-[#b84357] ring-2 ring-[#b84357]/20 scale-105' 
+                      ? 'border-[#e06d84] ring-2 ring-[#e06d84]/25 scale-105' 
                       : 'opacity-70 hover:opacity-100'
                   }`}
                 >
@@ -244,7 +244,7 @@ export default function ProductDetailPage() {
                 Authenticity Guarantee
               </h4>
               <p className="text-[11px] text-slate-600 dark:text-slate-400 mt-0.5 leading-relaxed">
-                Batch code <strong className="font-mono glass-well px-2 py-0.5 rounded-lg text-[#b84357] dark:text-rose-300 font-bold">{product.batchCode || '3K01'}</strong> verified against manufacturer records.
+                Batch code <strong className="font-mono glass-well px-2 py-0.5 rounded-lg text-[#e06d84] dark:text-rose-300 font-bold">{product.batchCode || '3K01'}</strong> verified against manufacturer records.
               </p>
             </div>
           </div>
@@ -256,7 +256,7 @@ export default function ProductDetailPage() {
             <div className="flex items-center justify-between text-xs mb-2">
               <Link
                 href={`/browse?category=${encodeURIComponent(product.category || 'All')}`}
-                className="glass-pill px-3.5 py-1 text-[#b84357] dark:text-rose-300 font-bold uppercase tracking-wider text-[10px]"
+                className="glass-pill px-3.5 py-1 text-[#e06d84] dark:text-rose-300 font-bold uppercase tracking-wider text-[10px]"
               >
                 {product.brand || product.category}
               </Link>
@@ -273,7 +273,7 @@ export default function ProductDetailPage() {
 
             {product.shade && (
               <p className="text-xs text-slate-600 dark:text-slate-300 mt-2">
-                Shade / Finish: <span className="font-bold text-[#b84357] dark:text-rose-300">{product.shade}</span>
+                Shade / Finish: <span className="font-bold text-[#e06d84] dark:text-rose-300">{product.shade}</span>
               </p>
             )}
           </div>
