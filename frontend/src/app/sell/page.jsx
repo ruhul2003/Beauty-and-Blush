@@ -118,7 +118,7 @@ export default function SellPage() {
               <select
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
-                className="w-full p-3 text-xs rounded-2xl glass-well border border-white/80 dark:border-white/10 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#e06d84]/30 cursor-pointer"
+                className="w-full p-3 text-xs rounded-2xl glass-well border border-white/80 dark:border-white/10 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#e06d84]/30 hover:border-[#e06d84]/40 transition-all cursor-pointer"
               >
                 <option value="Makeup" className="bg-white dark:bg-[#140b17]">Makeup</option>
                 <option value="Skincare" className="bg-white dark:bg-[#140b17]">Skincare</option>
@@ -136,7 +136,7 @@ export default function SellPage() {
               <select
                 value={condition}
                 onChange={(e) => setCondition(e.target.value)}
-                className="w-full p-3 text-xs rounded-2xl glass-well border border-white/80 dark:border-white/10 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#e06d84]/30 cursor-pointer"
+                className="w-full p-3 text-xs rounded-2xl glass-well border border-white/80 dark:border-white/10 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#e06d84]/30 hover:border-[#e06d84]/40 transition-all cursor-pointer"
               >
                 <option value="Brand New & Boxed" className="bg-white dark:bg-[#140b17]">Brand New & Boxed</option>
                 <option value="Sealed" className="bg-white dark:bg-[#140b17]">Sealed</option>
@@ -227,7 +227,7 @@ export default function SellPage() {
             />
           </div>
 
-          <div className="p-4 rounded-2xl glass-well border border-emerald-500/20 flex items-center gap-2 text-emerald-800 dark:text-emerald-300 shadow-xs">
+          <div className="p-4 rounded-2xl glass-well border border-emerald-500/25 bg-emerald-500/[0.04] flex items-center gap-2.5 text-emerald-800 dark:text-emerald-300 shadow-xs">
             <ShieldCheck className="w-5 h-5 shrink-0 text-emerald-600 dark:text-emerald-400" />
             <span className="text-[11px] font-medium">
               By posting, you certify this cosmetic or fragrance is 100% genuine and not a clone/replica.
@@ -238,7 +238,7 @@ export default function SellPage() {
             whileTap={{ scale: 0.98 }}
             type="submit"
             disabled={loading}
-            className="w-full bg-[#e06d84] hover:bg-[#d45d74] text-white py-2.5 rounded-full text-xs uppercase tracking-wider font-bold flex items-center justify-center gap-2 shadow-md shadow-[#e06d84]/25 cursor-pointer transition-all"
+            className="w-full bg-[#e06d84] hover:bg-[#d45d74] disabled:opacity-60 text-white py-2.5 rounded-full text-xs uppercase tracking-wider font-bold flex items-center justify-center gap-2 shadow-md shadow-[#e06d84]/25 cursor-pointer transition-all"
           >
             <PlusCircle className="w-4 h-4" />
             <span>{loading ? 'Publishing...' : 'Publish Listing to Marketplace'}</span>
