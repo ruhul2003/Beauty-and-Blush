@@ -53,7 +53,7 @@ export function CartDrawer() {
                 {/* Drawer Header */}
                 <div className="p-5 border-b border-black/[0.04] dark:border-white/[0.06] flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="glass-well w-10 h-10 rounded-2xl text-[#b84357] dark:text-rose-300 flex items-center justify-center">
+                    <div className="glass-well w-10 h-10 rounded-2xl text-[#e06d84] dark:text-rose-300 flex items-center justify-center">
                       <ShoppingBag className="w-5 h-5" />
                     </div>
                     <div>
@@ -80,7 +80,7 @@ export function CartDrawer() {
                   <div className="flex items-center justify-between text-[11px] mb-1.5 font-medium">
                     {remainingForFreeShipping > 0 ? (
                       <span className="text-slate-700 dark:text-slate-300">
-                        Add <strong className="text-[#b84357] font-bold">{formatPrice(remainingForFreeShipping)}</strong> for <strong>Free Shipping</strong>
+                        Add <strong className="text-[#e06d84] font-bold">{formatPrice(remainingForFreeShipping)}</strong> for <strong>Free Shipping</strong>
                       </span>
                     ) : (
                       <span className="text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-1">
@@ -142,7 +142,7 @@ export function CartDrawer() {
                           <h4 className="text-xs sm:text-sm font-bold text-[#181416] dark:text-white truncate">
                             {item.title}
                           </h4>
-                          <p className="text-[11px] text-[#b84357] dark:text-rose-300 font-bold mt-0.5">
+                          <p className="text-[11px] text-[#e06d84] dark:text-rose-300 font-bold mt-0.5">
                             {item.shade}
                           </p>
                           <div className="text-xs font-bold text-slate-800 dark:text-slate-200 mt-1">
@@ -183,7 +183,7 @@ export function CartDrawer() {
                         <button
                           type="button"
                           onClick={() => removeFromCart(item.id, item.shade)}
-                          className="absolute top-3 right-3 text-slate-400 hover:text-[#b84357] p-1 transition-colors cursor-pointer"
+                          className="absolute top-3 right-3 text-slate-400 hover:text-[#e06d84] p-1 transition-colors cursor-pointer"
                           title="Remove item"
                           aria-label="Remove item"
                         >
