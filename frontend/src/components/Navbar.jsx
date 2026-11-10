@@ -246,10 +246,10 @@ export function Navbar({ onOpenMobileMenu, isMobileMenuOpen, setIsMobileMenuOpen
                         <Link
                           href="/browse"
                           onClick={() => setCategoryDropdown(false)}
-                          className="inline-flex items-center gap-1.5 text-xs font-bold text-[#b84357] dark:text-rose-300 hover:underline"
+                          className="group inline-flex items-center gap-1.5 text-xs font-bold text-[#e06d84] dark:text-rose-300 hover:underline"
                         >
                           <span>Explore All Products</span>
-                          <ArrowRight className="w-3.5 h-3.5" />
+                          <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                         </Link>
                       </div>
 
