@@ -355,7 +355,7 @@ export default function AdminCartAnalyticsPage() {
                     </div>
                   </td>
                   <td className="py-3.5 px-3">
-                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-black/[0.03] dark:bg-white/[0.05] text-[#b84357] dark:text-rose-300 border border-black/[0.06] dark:border-white/[0.08]">
+                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-black/[0.03] dark:bg-white/[0.05] text-[#e06d84] dark:text-rose-300 border border-black/[0.06] dark:border-white/[0.08]">
                       {prod.category || 'Beauty'}
                     </span>
                   </td>
@@ -370,7 +370,7 @@ export default function AdminCartAnalyticsPage() {
                   <td className="py-3.5 px-3 text-center font-semibold text-slate-700 dark:text-slate-300">
                     {prod.totalQuantity || prod.totalAdds}
                   </td>
-                  <td className="py-3.5 px-3 font-bold text-[#b84357] font-serif">
+                  <td className="py-3.5 px-3 font-bold text-[#e06d84] font-serif">
                     {formatPrice(prod.totalRevenueValue || (prod.productPrice * prod.totalAdds))}
                   </td>
                   <td className="py-3.5 px-3 text-center">
@@ -382,7 +382,7 @@ export default function AdminCartAnalyticsPage() {
                     <Link
                       href={`/browse`}
                       target="_blank"
-                      className="p-1.5 rounded-xl border border-black/[0.06] dark:border-white/[0.08] hover:text-[#b84357] text-slate-500 hover:bg-black/[0.04] transition-colors inline-block"
+                      className="p-1.5 rounded-xl border border-black/[0.06] dark:border-white/[0.08] hover:text-[#e06d84] text-slate-500 hover:bg-black/[0.04] transition-colors inline-block"
                       title="View in Store"
                     >
                       <ArrowUpRight className="w-3.5 h-3.5" />
@@ -526,7 +526,7 @@ export default function AdminCartAnalyticsPage() {
                     evt.status === 'converted'
                       ? 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20'
                       : evt.status === 'abandoned'
-                      ? 'bg-black/[0.03] dark:bg-white/[0.05] text-[#b84357] dark:text-rose-400 border border-black/[0.06] dark:border-white/[0.08]'
+                      ? 'bg-black/[0.03] dark:bg-white/[0.05] text-[#e06d84] dark:text-rose-400 border border-black/[0.06] dark:border-white/[0.08]'
                       : 'bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20'
                   }`}>
                     {evt.status === 'converted' ? 'Converted to Order' : evt.status === 'abandoned' ? 'Abandoned in Bag' : 'Active in Bag'}
