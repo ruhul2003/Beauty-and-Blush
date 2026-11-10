@@ -206,7 +206,7 @@ export default function AboutPage() {
       <section className="glass-slab p-6 sm:p-10 lg:p-12 rounded-[36px] sm:rounded-[40px] space-y-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <div>
-            <span className="glass-pill px-3.5 py-1 text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#b84357] dark:text-rose-300 shadow-xs inline-block mb-2">
+            <span className="glass-pill px-3.5 py-1 text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#e06d84] dark:text-rose-300 shadow-xs inline-block mb-2">
               Curated Departments
             </span>
             <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#181416] dark:text-white">
@@ -219,7 +219,7 @@ export default function AboutPage() {
 
           <Link
             href="/browse"
-            className="text-xs font-bold text-[#b84357] dark:text-rose-300 hover:underline flex items-center gap-1.5 self-start sm:self-auto"
+            className="text-xs font-bold text-[#e06d84] dark:text-rose-300 hover:underline flex items-center gap-1.5 self-start sm:self-auto"
           >
             <span>View Full Catalog</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -231,10 +231,10 @@ export default function AboutPage() {
             <Link
               key={idx}
               href={dept.href}
-              className="glass-well p-5 rounded-2xl hover:border-[#b84357]/40 transition-all group block space-y-3"
+              className="glass-well p-5 rounded-2xl hover:border-[#e06d84]/40 hover:shadow-md transition-all group block space-y-3"
             >
               <div className="flex items-center justify-between">
-                <span className="text-[10px] uppercase font-bold tracking-widest text-[#b84357] dark:text-rose-300 glass-pill px-2.5 py-0.5">
+                <span className="text-[10px] uppercase font-bold tracking-widest text-[#e06d84] dark:text-rose-300 glass-pill px-2.5 py-0.5">
                   {dept.tag}
                 </span>
                 <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#e06d84] group-hover:translate-x-1 transition-all" />
@@ -314,7 +314,7 @@ export default function AboutPage() {
             href="https://wa.me/8801711224466?text=Hello%2C%20I%20would%20like%20to%20consult%20with%20Beauty%20%26%20Blush."
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-2.5 rounded-full text-xs font-bold flex items-center justify-center gap-2 transition-all cursor-pointer shadow-md shadow-emerald-600/20"
+            className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-2.5 rounded-full text-xs font-bold flex items-center justify-center gap-2 transition-all cursor-pointer shadow-md shadow-emerald-600/25 hover:shadow-lg hover:shadow-emerald-600/30"
           >
             <span>Chat via WhatsApp Concierge</span>
           </a>
