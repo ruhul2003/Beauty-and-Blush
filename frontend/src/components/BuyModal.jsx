@@ -355,7 +355,7 @@ export function BuyModal({ product, onClose }) {
                   onClick={() => setPaymentMethod('Cash on Delivery (COD)')}
                   className={`p-3 rounded-2xl font-bold transition-all cursor-pointer ${
                     paymentMethod === 'Cash on Delivery (COD)'
-                      ? 'bg-[#b84357] text-white shadow-sm'
+                      ? 'bg-[#e06d84] text-white shadow-sm shadow-[#e06d84]/25'
                       : 'glass-well text-slate-700 dark:text-slate-300'
                   }`}
                 >
@@ -366,7 +366,7 @@ export function BuyModal({ product, onClose }) {
                   onClick={() => setPaymentMethod('bKash / Nagad')}
                   className={`p-3 rounded-2xl font-bold transition-all cursor-pointer ${
                     paymentMethod === 'bKash / Nagad'
-                      ? 'bg-[#b84357] text-white shadow-sm'
+                      ? 'bg-[#e06d84] text-white shadow-sm shadow-[#e06d84]/25'
                       : 'glass-well text-slate-700 dark:text-slate-300'
                   }`}
                 >
@@ -396,7 +396,7 @@ export function BuyModal({ product, onClose }) {
                   <button
                     type="button"
                     onClick={handleRemoveCoupon}
-                    className="text-xs font-bold text-[#b84357] hover:text-[#a13649] px-2 py-1 cursor-pointer"
+                    className="text-xs font-bold text-[#e06d84] hover:text-[#d45d74] px-2 py-1 cursor-pointer transition-colors"
                   >
                     Remove
                   </button>
