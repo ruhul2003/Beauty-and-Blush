@@ -348,15 +348,15 @@ export default function ProductDetailPage() {
           {/* Courier Delivery Timeline Box */}
           <div className="p-5 rounded-3xl glass-slab space-y-3">
             <div className="flex items-center gap-2 text-xs font-bold text-[#181416] dark:text-white font-serif">
-              <Truck className="w-4 h-4 text-[#b84357]" />
+              <Truck className="w-4 h-4 text-[#e06d84]" />
               <span>Courier Delivery Estimates</span>
             </div>
             <div className="grid grid-cols-2 gap-3 text-xs">
-              <div className="p-3.5 rounded-2xl glass-well">
+              <div className="p-3.5 rounded-2xl glass-well hover:border-[#e06d84]/30 transition-all">
                 <span className="font-bold text-[#181416] dark:text-slate-200 block">Inside Dhaka</span>
                 <span className="text-slate-500 text-[11px]">24 - 48 Hours • ৳60</span>
               </div>
-              <div className="p-3.5 rounded-2xl glass-well">
+              <div className="p-3.5 rounded-2xl glass-well hover:border-[#e06d84]/30 transition-all">
                 <span className="font-bold text-[#181416] dark:text-slate-200 block">Outside Dhaka</span>
                 <span className="text-slate-500 text-[11px]">48 - 72 Hours • ৳120</span>
               </div>
@@ -366,7 +366,7 @@ export default function ProductDetailPage() {
           {/* Seller / Boutique Box */}
           <div className="p-5 rounded-3xl glass-slab flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-2xl glass-well overflow-hidden text-[#b84357] dark:text-rose-300 flex items-center justify-center font-bold text-base">
+              <div className="w-12 h-12 rounded-2xl glass-well overflow-hidden text-[#e06d84] dark:text-rose-300 flex items-center justify-center font-bold text-base">
                 {product.sellerAvatar ? (
                   <img src={product.sellerAvatar} alt={product.sellerName} className="w-full h-full object-cover" />
                 ) : (
@@ -376,10 +376,10 @@ export default function ProductDetailPage() {
               <div>
                 <h4 className="text-xs font-bold font-serif text-[#181416] dark:text-white flex items-center gap-1.5">
                   <span>{product.sellerName || 'Verified Boutique'}</span>
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#b84357]" />
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#e06d84]" />
                 </h4>
                 <p className="text-[11px] text-slate-500 flex items-center gap-1">
-                  <MapPin className="w-3 h-3 text-[#b84357]" />
+                  <MapPin className="w-3 h-3 text-[#e06d84]" />
                   <span>{product.location || 'Dhaka, Bangladesh'}</span>
                 </p>
               </div>
