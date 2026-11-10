@@ -412,7 +412,7 @@ export default function ProductDetailPage() {
           <div className="flex items-center justify-between">
             <div>
               <h2 className="text-xl font-serif font-bold text-[#181416] dark:text-white flex items-center gap-2">
-                <HelpCircle className="w-5 h-5 text-[#b84357]" />
+                <HelpCircle className="w-5 h-5 text-[#e06d84]" />
                 <span>Customer Questions & Answers</span>
               </h2>
               <p className="text-xs text-slate-500">Ask the boutique seller directly about shades, skin suitability or authenticity.</p>
@@ -421,7 +421,7 @@ export default function ProductDetailPage() {
 
           {/* Ask question form */}
           <form onSubmit={handleAskQuestion} className="flex gap-2">
-            <div className="glass-well rounded-full flex-1 flex items-center px-4 py-2.5">
+            <div className="glass-well rounded-full flex-1 flex items-center px-4 py-2">
               <input
                 type="text"
                 value={questionInput}
@@ -433,7 +433,7 @@ export default function ProductDetailPage() {
             <motion.button 
               whileTap={{ scale: 0.94 }}
               type="submit" 
-              className="bg-[#b84357] hover:bg-[#a13649] text-white px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 cursor-pointer shadow-md shadow-[#b84357]/20"
+              className="bg-[#e06d84] hover:bg-[#d45d74] text-white px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 cursor-pointer shadow-md shadow-[#e06d84]/25 transition-all"
             >
               <Send className="w-3.5 h-3.5" />
               <span>Ask</span>
@@ -448,11 +448,11 @@ export default function ProductDetailPage() {
               qaList.map((item, idx) => (
                 <div key={idx} className="p-5 rounded-3xl glass-slab space-y-2.5">
                   <div className="flex items-center gap-2 text-xs font-bold text-[#181416] dark:text-white">
-                    <span className="text-[#b84357] font-extrabold">Q:</span>
+                    <span className="text-[#e06d84] font-extrabold">Q:</span>
                     <span>{item.question}</span>
                   </div>
                   {item.answer ? (
-                    <div className="flex items-start gap-2.5 text-xs text-slate-600 dark:text-slate-300 pl-4 border-l-2 border-[#b84357]">
+                    <div className="flex items-start gap-2.5 text-xs text-slate-600 dark:text-slate-300 pl-4 border-l-2 border-[#e06d84]">
                       <span className="text-emerald-500 font-bold">A:</span>
                       <div>
                         <p>{item.answer}</p>
@@ -544,7 +544,7 @@ export default function ProductDetailPage() {
         <section className="pt-10 border-t border-black/[0.04] dark:border-white/[0.06] space-y-5">
           <div className="flex items-center justify-between">
             <div>
-              <div className="glass-pill inline-flex items-center gap-1.5 px-3 py-1 text-xs font-bold text-[#b84357] uppercase tracking-wider mb-1">
+              <div className="glass-pill inline-flex items-center gap-1.5 px-3 py-1 text-xs font-bold text-[#e06d84] uppercase tracking-wider mb-1">
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>Browsing History</span>
               </div>
@@ -554,7 +554,7 @@ export default function ProductDetailPage() {
             </div>
             <Link
               href="/browse"
-              className="text-xs font-bold text-[#b84357] hover:underline"
+              className="text-xs font-bold text-[#e06d84] hover:underline"
             >
               Explore All Catalog
             </Link>
