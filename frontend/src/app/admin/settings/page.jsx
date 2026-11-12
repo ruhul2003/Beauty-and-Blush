@@ -12,7 +12,8 @@ import {
   Save, 
   Sparkles,
   CheckCircle2,
-  Bell
+  Bell,
+  Loader2
 } from 'lucide-react';
 import { useToast } from '@/context/ToastContext';
 
@@ -26,7 +27,7 @@ export default function AdminSettingsPage() {
   const [dhakaFee, setDhakaFee] = useState('60');
   const [outsideFee, setOutsideFee] = useState('120');
   const [freeShippingThreshold, setFreeShippingThreshold] = useState('2500');
-  const [announcement, setAnnouncement] = useState('FREE SHIPPING on all orders over $50 | 30 Days Easy Returns');
+  const [announcement, setAnnouncement] = useState('FREE SHIPPING on all orders over ৳2,000 | 30 Days Easy Returns');
   const [batchCheckUrl, setBatchCheckUrl] = useState('http://checkcosmetic.net');
   const [saving, setSaving] = useState(false);
 
@@ -101,7 +102,7 @@ export default function AdminSettingsPage() {
                 type="text"
                 value={storeName}
                 onChange={(e) => setStoreName(e.target.value)}
-                className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-[#191416] dark:text-white focus:outline-none focus:ring-2 focus:ring-[#e06d84]/25 focus:border-[#e06d84]/50 transition-all"
+                className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] hover:border-[#e06d84]/25 bg-black/[0.02] dark:bg-white/[0.04] text-[#191416] dark:text-white focus:outline-none focus:ring-2 focus:ring-[#e06d84]/25 focus:border-[#e06d84]/50 transition-all"
                 required
               />
             </div>
@@ -114,7 +115,7 @@ export default function AdminSettingsPage() {
                 type="text"
                 value={tagline}
                 onChange={(e) => setTagline(e.target.value)}
-                className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-[#191416] dark:text-white focus:outline-none focus:ring-2 focus:ring-[#e06d84]/25 focus:border-[#e06d84]/50 transition-all"
+                className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] hover:border-[#e06d84]/25 bg-black/[0.02] dark:bg-white/[0.04] text-[#191416] dark:text-white focus:outline-none focus:ring-2 focus:ring-[#e06d84]/25 focus:border-[#e06d84]/50 transition-all"
               />
             </div>
 
@@ -126,7 +127,7 @@ export default function AdminSettingsPage() {
                 type="text"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-[#191416] dark:text-white focus:outline-none focus:ring-2 focus:ring-[#e06d84]/25 focus:border-[#e06d84]/50 transition-all"
+                className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] hover:border-[#e06d84]/25 bg-black/[0.02] dark:bg-white/[0.04] text-[#191416] dark:text-white focus:outline-none focus:ring-2 focus:ring-[#e06d84]/25 focus:border-[#e06d84]/50 transition-all"
               />
             </div>
 
@@ -138,7 +139,7 @@ export default function AdminSettingsPage() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-[#191416] dark:text-white focus:outline-none focus:ring-2 focus:ring-[#e06d84]/25 focus:border-[#e06d84]/50 transition-all"
+                className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] hover:border-[#e06d84]/25 bg-black/[0.02] dark:bg-white/[0.04] text-[#191416] dark:text-white focus:outline-none focus:ring-2 focus:ring-[#e06d84]/25 focus:border-[#e06d84]/50 transition-all"
               />
             </div>
           </div>
@@ -222,9 +223,9 @@ export default function AdminSettingsPage() {
           <button
             type="submit"
             disabled={saving}
-            className="px-6 py-2.5 text-xs font-bold rounded-full bg-[#e06d84] hover:bg-[#d45d74] text-white flex items-center gap-2 shadow-md shadow-[#e06d84]/25 hover:scale-[1.02] active:scale-95 transition-all cursor-pointer"
+            className="px-6 py-2.5 text-xs font-bold rounded-full bg-[#e06d84] hover:bg-[#d45d74] text-white flex items-center gap-2 shadow-md shadow-[#e06d84]/25 hover:scale-[1.02] active:scale-95 disabled:opacity-60 transition-all cursor-pointer"
           >
-            <Save className="w-4 h-4" />
+            {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
             <span>{saving ? 'Saving...' : 'Save Configuration'}</span>
           </button>
         </div>
