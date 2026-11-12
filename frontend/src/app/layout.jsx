@@ -31,7 +31,7 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </head>
-      <body className="antialiased min-h-screen flex flex-col justify-between relative selection:bg-[#b84357]/20 selection:text-[#b84357]">
+      <body className="antialiased min-h-screen flex flex-col justify-between relative selection:bg-[#e06d84]/20 selection:text-[#e06d84]">
         {/* Claymorphic Background Ambient Environment & Floating Liquid Glass Droplets */}
         <div className="fixed inset-0 pointer-events-none -z-10 overflow-hidden" aria-hidden="true">
           {/* Ambient luminous glow centers */}
