@@ -14,20 +14,24 @@ import {
   MessageCircle,
   ExternalLink,
   ChevronRight,
-  Package
+  Package,
+  X,
+  Loader2
 } from 'lucide-react';
 import { formatPrice } from '@/utils/formatters';
 import { api } from '@/lib/api';
 
 function TrackOrderContent() {
   const searchParams = useSearchParams();
-  const [orderIdInput, setOrderIdInput] = useState(searchParams.get('orderId') || '');
+  const [orderIdInput, setOrderIdInput] = useState(
+    searchParams.get('orderId') || searchParams.get('order') || ''
+  );
   const [order, setOrder] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
   useEffect(() => {
-    const q = searchParams.get('orderId');
+    const q = searchParams.get('orderId') || searchParams.get('order');
     if (q) {
       setOrderIdInput(q);
       handleLookup(q);
@@ -130,15 +134,30 @@ function TrackOrderContent() {
                 placeholder="e.g. BNB-748921"
                 className="w-full bg-transparent text-xs text-[#181416] dark:text-white uppercase tracking-wider font-mono font-bold focus:outline-none"
               />
+              {(orderIdInput || order || error) && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setOrderIdInput('');
+                    setOrder(null);
+                    setError('');
+                  }}
+                  aria-label="Clear tracking reference"
+                  className="ml-1.5 text-slate-400 hover:text-[#e06d84] transition-colors cursor-pointer shrink-0"
+                >
+                  <X className="w-3.5 h-3.5" />
+                </button>
+              )}
             </div>
           </div>
           <motion.button
             whileTap={{ scale: 0.95 }}
             type="submit"
             disabled={loading}
-            className="px-5 py-2 rounded-full bg-[#e06d84] hover:bg-[#d45d74] text-white text-xs font-bold uppercase tracking-wider shrink-0 disabled:opacity-50 transition-all cursor-pointer shadow-md shadow-[#e06d84]/20"
+            className="px-5 py-2 rounded-full bg-[#e06d84] hover:bg-[#d45d74] text-white text-xs font-bold uppercase tracking-wider shrink-0 disabled:opacity-50 transition-all cursor-pointer shadow-md shadow-[#e06d84]/20 inline-flex items-center gap-1.5"
           >
-            {loading ? 'Searching...' : 'Track'}
+            {loading && <Loader2 className="w-3.5 h-3.5 animate-spin" />}
+            <span>{loading ? 'Searching...' : 'Track'}</span>
           </motion.button>
         </form>
 
