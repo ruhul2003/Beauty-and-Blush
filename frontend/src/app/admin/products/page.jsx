@@ -192,11 +192,11 @@ export default function AdminProductsPage() {
             onChange={(e) => setCategoryFilter(e.target.value)}
             className="text-xs px-3 py-2 rounded-full border border-black/[0.06] dark:border-white/[0.08] bg-white/80 dark:bg-white/[0.03] text-[#191416] dark:text-white focus:outline-none focus:border-[#e06d84]/40 w-full md:w-auto cursor-pointer"
           >
-            <option value="All">All Categories</option>
-            <option value="Makeup">Makeup</option>
-            <option value="Skincare">Skincare</option>
-            <option value="Haircare">Haircare</option>
-            <option value="Fragrance">Fragrance</option>
+            <option value="All" className="bg-white dark:bg-[#140b17] text-[#191416] dark:text-white">All Categories</option>
+            <option value="Makeup" className="bg-white dark:bg-[#140b17] text-[#191416] dark:text-white">Makeup</option>
+            <option value="Skincare" className="bg-white dark:bg-[#140b17] text-[#191416] dark:text-white">Skincare</option>
+            <option value="Haircare" className="bg-white dark:bg-[#140b17] text-[#191416] dark:text-white">Haircare</option>
+            <option value="Fragrance" className="bg-white dark:bg-[#140b17] text-[#191416] dark:text-white">Fragrance</option>
           </select>
 
           <select
@@ -204,9 +204,9 @@ export default function AdminProductsPage() {
             onChange={(e) => setStatusFilter(e.target.value)}
             className="text-xs px-3 py-2 rounded-full border border-black/[0.06] dark:border-white/[0.08] bg-white/80 dark:bg-white/[0.03] text-[#191416] dark:text-white focus:outline-none focus:border-[#e06d84]/40 w-full md:w-auto cursor-pointer"
           >
-            <option value="All">All Status</option>
-            <option value="Featured">Featured Only</option>
-            <option value="Available">Available</option>
+            <option value="All" className="bg-white dark:bg-[#140b17] text-[#191416] dark:text-white">All Status</option>
+            <option value="Featured" className="bg-white dark:bg-[#140b17] text-[#191416] dark:text-white">Featured Only</option>
+            <option value="Available" className="bg-white dark:bg-[#140b17] text-[#191416] dark:text-white">Available</option>
           </select>
         </div>
       </div>
@@ -318,8 +318,14 @@ export default function AdminProductsPage() {
 
       {/* Edit Product Modal */}
       {editingProduct && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-md animate-fade-in">
-          <div className="bg-white/90 dark:bg-[#140b17]/95 backdrop-blur-3xl rounded-3xl max-w-md w-full p-6 border border-black/[0.08] dark:border-white/[0.1] shadow-2xl relative space-y-4">
+        <div
+          onClick={() => setEditingProduct(null)}
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-md animate-fade-in"
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="bg-white/90 dark:bg-[#140b17]/95 backdrop-blur-3xl rounded-3xl max-w-md w-full p-6 border border-black/[0.08] dark:border-white/[0.1] shadow-2xl relative space-y-4"
+          >
             <button
               onClick={() => setEditingProduct(null)}
               className="absolute top-4 right-4 p-1.5 rounded-full text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
