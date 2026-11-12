@@ -44,7 +44,7 @@ function BrowsePageContent() {
     fetchProducts();
   }, [category, brand, sortBy, condition, skinType, onlyInStock, maxPrice]);
 
-  const fetchProducts = async () => {
+  const fetchProducts = async (searchOverride) => {
     setLoading(true);
     try {
       const params = {};
@@ -54,7 +54,8 @@ function BrowsePageContent() {
       if (skinType && skinType !== 'All') params.skinType = skinType;
       if (onlyInStock) params.onlyInStock = true;
       if (maxPrice) params.maxPrice = maxPrice;
-      if (searchTerm) params.search = searchTerm;
+      const effectiveSearch = typeof searchOverride === 'string' ? searchOverride : searchTerm;
+      if (effectiveSearch) params.search = effectiveSearch;
       if (sortBy) params.sort = sortBy;
 
       const res = await api.get('/products', { params });
@@ -123,6 +124,19 @@ function BrowsePageContent() {
                 placeholder="Search by brand, shade, luxury bags, cosmetics..."
                 className="w-full bg-transparent text-xs text-[#181416] dark:text-white placeholder:text-slate-400 focus:outline-none"
               />
+              {searchTerm && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSearchTerm('');
+                    fetchProducts('');
+                  }}
+                  aria-label="Clear search query"
+                  className="ml-1.5 text-slate-400 hover:text-[#e06d84] transition-colors cursor-pointer shrink-0"
+                >
+                  <X className="w-3.5 h-3.5" />
+                </button>
+              )}
             </div>
           </div>
           <button 
@@ -164,7 +178,7 @@ function BrowsePageContent() {
             <div>
               <label className="text-xs font-bold text-[#181416] dark:text-slate-200 block mb-2 font-serif">Category</label>
               <div className="space-y-1 text-xs">
-                {['All', 'Skincare', 'Makeup', 'Haircare', 'Fragrance', 'Bath & Body', 'Tools & Brushes'].map(cat => (
+                {['All', 'Skincare', 'Makeup', 'Haircare', 'Fragrance', 'Bath & Body', 'Accessories', 'Tools & Brushes'].map(cat => (
                   <button
                     key={cat}
                     type="button"
