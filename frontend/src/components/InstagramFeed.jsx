@@ -61,8 +61,9 @@ export function InstagramFeed() {
             >
               <Link
                 href={post.href || '/browse'}
-                className="glass-slab p-1.5 block group relative aspect-square w-full rounded-[24px] overflow-hidden"
+                className="glass-slab p-1.5 block group relative aspect-square w-full rounded-[24px] overflow-hidden border border-transparent hover:border-[#e06d84]/30 hover:shadow-lg transition-all"
                 title={post.alt}
+                aria-label={post.alt}
               >
                 <div className="w-full h-full rounded-[18px] overflow-hidden relative">
                   <img
@@ -74,7 +75,7 @@ export function InstagramFeed() {
                   {/* Hover Glassy Blur Dark Overlay with Instagram Heart */}
                   <div className="absolute inset-0 bg-black/45 backdrop-blur-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white p-2">
                     <InstagramIcon className="w-5 h-5 mb-1.5 text-white/95" />
-                    <div className="px-3 py-1 rounded-full flex items-center gap-1.5 text-[11px] font-bold text-white bg-black/65 backdrop-blur-md border border-white/30 shadow-md">
+                    <div className="px-3 py-1 rounded-full flex items-center gap-1.5 text-[11px] font-bold text-white bg-black/65 backdrop-blur-md border border-[#e06d84]/40 shadow-md shadow-[#e06d84]/15">
                       <Heart className="w-3.5 h-3.5 fill-current text-[#e06d84]" />
                       <span>{post.likes}</span>
                     </div>
