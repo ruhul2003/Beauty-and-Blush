@@ -147,7 +147,7 @@ export default function AdminReviewsPage() {
             {reviews.map((rev) => (
               <div 
                 key={rev._id}
-                className="p-5 rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl border border-black/[0.05] dark:border-white/[0.08] shadow-sm space-y-2.5"
+                className="p-5 rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl border border-black/[0.05] dark:border-white/[0.08] shadow-sm hover:shadow-md transition-all space-y-2.5"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
@@ -206,7 +206,7 @@ export default function AdminReviewsPage() {
             {qaList.map((qa, idx) => (
               <div 
                 key={idx}
-                className="p-5 rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl border border-black/[0.05] dark:border-white/[0.08] shadow-sm space-y-3"
+                className="p-5 rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl border border-black/[0.05] dark:border-white/[0.08] shadow-sm hover:shadow-md transition-all space-y-3"
               >
                 <div>
                   <span className="text-[10px] font-bold uppercase tracking-wider text-[#e06d84] dark:text-rose-300">
@@ -234,13 +234,20 @@ export default function AdminReviewsPage() {
                         type="text"
                         value={replyInput[idx] || ''}
                         onChange={(e) => setReplyInput({ ...replyInput, [idx]: e.target.value })}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter' && replyInput[idx]?.trim()) {
+                            e.preventDefault();
+                            handleSendAnswer(qa, idx);
+                          }
+                        }}
                         placeholder="Write official boutique response..."
                         className="flex-1 px-3.5 py-2 text-xs rounded-full border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-[#191416] dark:text-white focus:outline-none focus:ring-2 focus:ring-[#e06d84]/30 focus:border-[#e06d84]/50 transition-all"
                       />
                       <button
                         type="button"
+                        disabled={!replyInput[idx]?.trim()}
                         onClick={() => handleSendAnswer(qa, idx)}
-                        className="px-4 py-2 text-xs font-bold rounded-full bg-[#e06d84] hover:bg-[#d45d74] text-white flex items-center gap-1.5 shrink-0 transition-all shadow-sm shadow-[#e06d84]/25 cursor-pointer"
+                        className="px-4 py-2 text-xs font-bold rounded-full bg-[#e06d84] hover:bg-[#d45d74] text-white flex items-center gap-1.5 shrink-0 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-sm shadow-[#e06d84]/25 cursor-pointer"
                       >
                         <Send className="w-3 h-3" />
                         <span>Publish</span>
