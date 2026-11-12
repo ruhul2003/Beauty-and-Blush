@@ -76,7 +76,7 @@ export function MobileBottomNav({ onOpenCategories }) {
               whileTap={{ scale: 0.88 }}
               className={`flex flex-col items-center justify-center py-1 px-3 rounded-full transition-all ${
                 item.isActive 
-                  ? 'text-[#e06d84] dark:text-rose-300 font-bold glass-pill shadow-xs border-[#e06d84]/25' 
+                  ? 'text-[#e06d84] dark:text-rose-300 font-bold glass-pill shadow-xs border border-[#e06d84]/30 ring-1 ring-[#e06d84]/15' 
                   : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
@@ -94,14 +94,14 @@ export function MobileBottomNav({ onOpenCategories }) {
 
           if (item.onClick) {
             return (
-              <button key={idx} type="button" onClick={item.onClick} className="focus:outline-none cursor-pointer">
+              <button key={idx} type="button" onClick={item.onClick} aria-label={item.label} className="focus:outline-none cursor-pointer">
                 {content}
               </button>
             );
           }
 
           return (
-            <Link key={idx} href={item.href}>
+            <Link key={idx} href={item.href} aria-label={item.label}>
               {content}
             </Link>
           );
