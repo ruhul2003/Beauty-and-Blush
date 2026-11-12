@@ -187,11 +187,11 @@ export default function AdminOrdersPage() {
                             : 'bg-amber-500/10 text-amber-800 border-amber-500/20 dark:bg-amber-950/40 dark:text-amber-300'
                         }`}
                       >
-                        <option value="Confirmed">Confirmed</option>
-                        <option value="Processing">Processing</option>
-                        <option value="Shipped">Shipped</option>
-                        <option value="Delivered">Delivered</option>
-                        <option value="Cancelled">Cancelled</option>
+                        <option value="Confirmed" className="bg-white dark:bg-[#140b17] text-slate-900 dark:text-white">Confirmed</option>
+                        <option value="Processing" className="bg-white dark:bg-[#140b17] text-slate-900 dark:text-white">Processing</option>
+                        <option value="Shipped" className="bg-white dark:bg-[#140b17] text-slate-900 dark:text-white">Shipped</option>
+                        <option value="Delivered" className="bg-white dark:bg-[#140b17] text-slate-900 dark:text-white">Delivered</option>
+                        <option value="Cancelled" className="bg-white dark:bg-[#140b17] text-slate-900 dark:text-white">Cancelled</option>
                       </select>
                     </td>
                     <td className="py-3.5 px-4 text-right">
@@ -226,8 +226,14 @@ export default function AdminOrdersPage() {
 
       {/* Order Detail Modal */}
       {activeModalOrder && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-md animate-fade-in">
-          <div className="bg-white/85 dark:bg-[#140b17]/90 backdrop-blur-3xl rounded-3xl max-w-lg w-full p-6 border border-black/[0.06] dark:border-white/[0.08] shadow-[0_25px_60px_rgba(0,0,0,0.25)] relative space-y-4">
+        <div
+          onClick={() => setActiveModalOrder(null)}
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-md animate-fade-in"
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="bg-white/85 dark:bg-[#140b17]/90 backdrop-blur-3xl rounded-3xl max-w-lg w-full p-6 border border-black/[0.06] dark:border-white/[0.08] shadow-[0_25px_60px_rgba(0,0,0,0.25)] relative space-y-4"
+          >
             <button
               onClick={() => setActiveModalOrder(null)}
               className="absolute top-4 right-4 p-1.5 rounded-full text-slate-400 hover:text-slate-600 dark:hover:text-white cursor-pointer"
