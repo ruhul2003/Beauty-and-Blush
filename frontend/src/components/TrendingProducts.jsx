@@ -147,7 +147,7 @@ export function TrendingProducts({ products = [] }) {
           {/* Left Arrow Button */}
           <button
             onClick={() => handleScroll('left')}
-            className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full glass-pill items-center justify-center text-[#181416] dark:text-white hover:text-[#e06d84] shadow-lg active:scale-95 transition-all cursor-pointer"
+            className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full glass-pill items-center justify-center text-[#181416] dark:text-white hover:text-[#e06d84] border border-transparent hover:border-[#e06d84]/35 shadow-lg hover:shadow-xl active:scale-95 transition-all cursor-pointer"
             aria-label="Previous products"
           >
             <ChevronLeft className="w-5 h-5" />
@@ -156,7 +156,7 @@ export function TrendingProducts({ products = [] }) {
           {/* Right Arrow Button */}
           <button
             onClick={() => handleScroll('right')}
-            className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full glass-pill items-center justify-center text-[#181416] dark:text-white hover:text-[#e06d84] shadow-lg active:scale-95 transition-all cursor-pointer"
+            className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full glass-pill items-center justify-center text-[#181416] dark:text-white hover:text-[#e06d84] border border-transparent hover:border-[#e06d84]/35 shadow-lg hover:shadow-xl active:scale-95 transition-all cursor-pointer"
             aria-label="Next products"
           >
             <ChevronRight className="w-5 h-5" />
@@ -177,7 +177,7 @@ export function TrendingProducts({ products = [] }) {
                   viewport={{ once: true, margin: "-40px" }}
                   transition={{ duration: 0.45, delay: idx * 0.08 }}
                   whileHover={{ y: -4 }}
-                  className="snap-item w-[230px] sm:w-[250px] md:w-[270px] shrink-0 glass-slab glass-slab-interactive p-3.5 flex flex-col justify-between group/card"
+                  className="snap-item w-[230px] sm:w-[250px] md:w-[270px] shrink-0 glass-slab glass-slab-interactive hover:shadow-xl transition-all p-3.5 flex flex-col justify-between group/card"
                 >
                   <div>
                     {/* Product Image Frame seated in a Recessed Well */}
