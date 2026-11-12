@@ -6,8 +6,10 @@ import { motion } from 'framer-motion';
 import { Heart, Trash2, ArrowRight } from 'lucide-react';
 import { formatPrice } from '@/utils/formatters';
 import { ProductCard } from '@/components/ProductCard';
+import { useToast } from '@/context/ToastContext';
 
 export default function WishlistPage() {
+  const { showToast } = useToast();
   const [wishlist, setWishlist] = useState([]);
 
   useEffect(() => {
@@ -20,6 +22,7 @@ export default function WishlistPage() {
   const clearWishlist = () => {
     localStorage.removeItem('bnb_wishlist');
     setWishlist([]);
+    showToast('Wishlist cleared', 'info');
   };
 
   const totalValuation = wishlist.reduce((sum, item) => sum + (Number(item.price) || 0), 0);
@@ -46,14 +49,23 @@ export default function WishlistPage() {
         </div>
 
         {wishlist.length > 0 && (
-          <motion.button
-            whileTap={{ scale: 0.94 }}
-            onClick={clearWishlist}
-            className="glass-pill px-4 py-2 text-[#e06d84] dark:text-rose-300 hover:bg-[#e06d84] hover:text-white text-xs font-bold flex items-center gap-1.5 self-start sm:self-center cursor-pointer shadow-xs transition-all"
-          >
-            <Trash2 className="w-4 h-4" />
-            <span>Clear Wishlist</span>
-          </motion.button>
+          <div className="flex items-center gap-2.5 self-start sm:self-center">
+            <Link
+              href="/browse"
+              className="glass-pill px-4 py-2 text-[#181416] dark:text-slate-200 hover:text-[#e06d84] dark:hover:text-rose-300 text-xs font-bold flex items-center gap-1.5 shadow-xs transition-all"
+            >
+              <span>Browse More</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+            <motion.button
+              whileTap={{ scale: 0.94 }}
+              onClick={clearWishlist}
+              className="glass-pill px-4 py-2 text-[#e06d84] dark:text-rose-300 hover:bg-[#e06d84] hover:text-white text-xs font-bold flex items-center gap-1.5 cursor-pointer shadow-xs transition-all"
+            >
+              <Trash2 className="w-4 h-4" />
+              <span>Clear Wishlist</span>
+            </motion.button>
+          </div>
         )}
       </div>
 
