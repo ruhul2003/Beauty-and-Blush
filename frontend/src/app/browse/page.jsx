@@ -201,11 +201,11 @@ function BrowsePageContent() {
             {/* Brand Filter */}
             <div>
               <label className="text-xs font-bold text-[#181416] dark:text-slate-200 block mb-2 font-serif">Brand</label>
-              <div className="glass-well rounded-2xl p-1">
+              <div className="glass-well rounded-2xl p-1 border border-transparent hover:border-[#e06d84]/30 transition-all">
                 <select
                   value={brand}
                   onChange={(e) => setBrand(e.target.value)}
-                  className="w-full text-xs p-2 bg-transparent text-[#181416] dark:text-white focus:outline-none"
+                  className="w-full text-xs p-2 bg-transparent text-[#181416] dark:text-white focus:outline-none cursor-pointer"
                 >
                   {popularBrands.map(b => (
                     <option key={b} value={b} className="bg-white dark:bg-[#140c17] text-[#181416] dark:text-white">{b === 'All' ? 'All Brands' : b}</option>
@@ -217,11 +217,11 @@ function BrowsePageContent() {
             {/* Condition Filter */}
             <div>
               <label className="text-xs font-bold text-[#181416] dark:text-slate-200 block mb-2 font-serif">Condition</label>
-              <div className="glass-well rounded-2xl p-1">
+              <div className="glass-well rounded-2xl p-1 border border-transparent hover:border-[#e06d84]/30 transition-all">
                 <select
                   value={condition}
                   onChange={(e) => setCondition(e.target.value)}
-                  className="w-full text-xs p-2 bg-transparent text-[#181416] dark:text-white focus:outline-none"
+                  className="w-full text-xs p-2 bg-transparent text-[#181416] dark:text-white focus:outline-none cursor-pointer"
                 >
                   <option value="All" className="bg-white dark:bg-[#140c17] text-[#181416] dark:text-white">All Conditions</option>
                   <option value="Brand New & Boxed" className="bg-white dark:bg-[#140c17] text-[#181416] dark:text-white">Brand New & Boxed</option>
@@ -235,11 +235,11 @@ function BrowsePageContent() {
             {/* Skin Type Filter */}
             <div>
               <label className="text-xs font-bold text-[#181416] dark:text-slate-200 block mb-2 font-serif">Skin Type</label>
-              <div className="glass-well rounded-2xl p-1">
+              <div className="glass-well rounded-2xl p-1 border border-transparent hover:border-[#e06d84]/30 transition-all">
                 <select
                   value={skinType}
                   onChange={(e) => setSkinType(e.target.value)}
-                  className="w-full text-xs p-2 bg-transparent text-[#181416] dark:text-white focus:outline-none"
+                  className="w-full text-xs p-2 bg-transparent text-[#181416] dark:text-white focus:outline-none cursor-pointer"
                 >
                   <option value="All" className="bg-white dark:bg-[#140c17] text-[#181416] dark:text-white">All Skin Types</option>
                   <option value="Oily" className="bg-white dark:bg-[#140c17] text-[#181416] dark:text-white">Oily / Combination</option>
@@ -294,7 +294,7 @@ function BrowsePageContent() {
 
             <div className="flex items-center gap-2">
               <span className="text-slate-500 font-bold hidden sm:inline">Sort:</span>
-              <div className="glass-well rounded-full px-3 py-1">
+              <div className="glass-well rounded-full px-3.5 py-1.5 border border-transparent hover:border-[#e06d84]/30 transition-all">
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
