@@ -185,7 +185,7 @@ export default function AdminCouponsPage() {
         {coupons.map((cpn) => (
           <div 
             key={cpn._id}
-            className={`p-5 rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl border transition-all relative hover:shadow-md hover:-translate-y-0.5 ${
+            className={`p-5 rounded-3xl bg-white/60 dark:bg-[#140b17]/65 backdrop-blur-2xl border transition-all relative hover:shadow-md hover:-translate-y-0.5 hover:border-[#e06d84]/30 ${
               cpn.isActive 
                 ? 'border-black/[0.05] dark:border-white/[0.08] shadow-xs' 
                 : 'border-black/[0.03] dark:border-white/[0.04] opacity-60'
@@ -252,8 +252,14 @@ export default function AdminCouponsPage() {
 
       {/* Create Modal */}
       {showCreateModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-md animate-fade-in">
-          <div className="bg-white/85 dark:bg-[#140b17]/90 backdrop-blur-3xl rounded-3xl max-w-md w-full p-6 border border-black/[0.06] dark:border-white/[0.08] shadow-[0_25px_60px_rgba(0,0,0,0.25)] relative space-y-4">
+        <div
+          onClick={() => setShowCreateModal(false)}
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-md animate-fade-in"
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="bg-white/85 dark:bg-[#140b17]/90 backdrop-blur-3xl rounded-3xl max-w-md w-full p-6 border border-black/[0.06] dark:border-white/[0.08] shadow-[0_25px_60px_rgba(0,0,0,0.25)] relative space-y-4"
+          >
             <button
               onClick={() => setShowCreateModal(false)}
               className="absolute top-4 right-4 p-1.5 rounded-full text-slate-400 hover:text-slate-600 dark:hover:text-white cursor-pointer"
@@ -280,7 +286,7 @@ export default function AdminCouponsPage() {
                   value={code}
                   onChange={(e) => setCode(e.target.value.toUpperCase())}
                   placeholder="BLUSH25"
-                  className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-slate-900 dark:text-white uppercase font-mono font-bold"
+                  className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-slate-900 dark:text-white uppercase font-mono font-bold focus:outline-none focus:ring-2 focus:ring-[#e06d84]/25 focus:border-[#e06d84]/50 transition-all"
                   required
                 />
               </div>
@@ -293,7 +299,7 @@ export default function AdminCouponsPage() {
                   <select
                     value={discountType}
                     onChange={(e) => setDiscountType(e.target.value)}
-                    className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-slate-900 dark:text-white"
+                    className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#e06d84]/25 focus:border-[#e06d84]/50 transition-all"
                   >
                     <option value="percentage" className="bg-white dark:bg-[#140b17]">Percentage (%)</option>
                     <option value="fixed" className="bg-white dark:bg-[#140b17]">Fixed Amount (৳)</option>
@@ -310,7 +316,7 @@ export default function AdminCouponsPage() {
                     value={discountValue}
                     onChange={(e) => setDiscountValue(e.target.value)}
                     placeholder={discountType === 'percentage' ? '15' : '500'}
-                    className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-slate-900 dark:text-white"
+                    className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#e06d84]/25 focus:border-[#e06d84]/50 transition-all"
                     required
                   />
                 </div>
@@ -325,7 +331,7 @@ export default function AdminCouponsPage() {
                   value={minPurchase}
                   onChange={(e) => setMinPurchase(e.target.value)}
                   placeholder="1500"
-                  className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-slate-900 dark:text-white"
+                  className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#e06d84]/25 focus:border-[#e06d84]/50 transition-all"
                 />
               </div>
 
@@ -338,7 +344,7 @@ export default function AdminCouponsPage() {
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
                   placeholder="15% discount on all orders over ৳1,500"
-                  className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-slate-900 dark:text-white"
+                  className="w-full p-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.1] bg-black/[0.02] dark:bg-white/[0.04] text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#e06d84]/25 focus:border-[#e06d84]/50 transition-all"
                 />
               </div>
 
