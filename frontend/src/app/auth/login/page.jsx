@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { Sparkles, Mail, Lock, ArrowRight } from 'lucide-react';
+import { Sparkles, Mail, Lock, ArrowRight, Eye, EyeOff, Loader2 } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
 import { useToast } from '@/context/ToastContext';
 
@@ -15,6 +15,7 @@ export default function LoginPage() {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -54,7 +55,7 @@ export default function LoginPage() {
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="text-xs font-bold text-[#181416] dark:text-slate-300 block mb-1">Email Address</label>
-            <div className="glass-well rounded-full flex items-center px-4 py-2.5 border border-transparent focus-within:border-[#e06d84]/40 focus-within:ring-2 focus-within:ring-[#e06d84]/20 transition-all">
+            <div className="glass-well rounded-full flex items-center px-4 py-2.5 border border-transparent hover:border-[#e06d84]/25 focus-within:border-[#e06d84]/40 focus-within:ring-2 focus-within:ring-[#e06d84]/20 transition-all">
               <Mail className="w-4 h-4 text-[#e06d84] dark:text-rose-300 mr-2 shrink-0" />
               <input
                 type="email"
@@ -69,16 +70,24 @@ export default function LoginPage() {
 
           <div>
             <label className="text-xs font-bold text-[#181416] dark:text-slate-300 block mb-1">Password</label>
-            <div className="glass-well rounded-full flex items-center px-4 py-2.5 border border-transparent focus-within:border-[#e06d84]/40 focus-within:ring-2 focus-within:ring-[#e06d84]/20 transition-all">
+            <div className="glass-well rounded-full flex items-center px-4 py-2.5 border border-transparent hover:border-[#e06d84]/25 focus-within:border-[#e06d84]/40 focus-within:ring-2 focus-within:ring-[#e06d84]/20 transition-all">
               <Lock className="w-4 h-4 text-[#e06d84] dark:text-rose-300 mr-2 shrink-0" />
               <input
-                type="password"
+                type={showPassword ? 'text' : 'password'}
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
                 className="w-full bg-transparent text-xs text-[#181416] dark:text-white placeholder:text-slate-400 focus:outline-none"
               />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                aria-label={showPassword ? 'Hide password' : 'Show password'}
+                className="ml-2 text-slate-400 hover:text-[#e06d84] transition-colors cursor-pointer shrink-0"
+              >
+                {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+              </button>
             </div>
           </div>
 
@@ -86,10 +95,19 @@ export default function LoginPage() {
             whileTap={{ scale: 0.98 }}
             type="submit"
             disabled={loading}
-            className="w-full bg-[#e06d84] hover:bg-[#d45d74] text-white py-3 rounded-full text-xs uppercase tracking-wider font-bold flex items-center justify-center gap-2 shadow-lg shadow-[#e06d84]/25 cursor-pointer transition-all"
+            className="w-full bg-[#e06d84] hover:bg-[#d45d74] text-white py-2.5 rounded-full text-xs uppercase tracking-wider font-bold flex items-center justify-center gap-2 shadow-lg shadow-[#e06d84]/25 disabled:opacity-60 cursor-pointer transition-all"
           >
-            <span>{loading ? 'Signing in...' : 'Sign In to Account'}</span>
-            <ArrowRight className="w-4 h-4" />
+            {loading ? (
+              <>
+                <Loader2 className="w-4 h-4 animate-spin" />
+                <span>Signing in...</span>
+              </>
+            ) : (
+              <>
+                <span>Sign In to Account</span>
+                <ArrowRight className="w-4 h-4" />
+              </>
+            )}
           </motion.button>
         </form>
 
