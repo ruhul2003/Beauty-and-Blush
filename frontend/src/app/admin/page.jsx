@@ -200,7 +200,7 @@ export default function AdminOverviewPage() {
           Order Pipeline Status
         </h3>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-          <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/20 backdrop-blur-md flex items-center justify-between">
+          <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/20 backdrop-blur-md flex items-center justify-between hover:-translate-y-0.5 hover:shadow-md transition-all">
             <div>
               <span className="text-[11px] font-bold text-amber-800 dark:text-amber-300">Confirmed</span>
               <p className="text-lg font-bold text-amber-900 dark:text-amber-200">{confirmedCount}</p>
@@ -208,7 +208,7 @@ export default function AdminOverviewPage() {
             <Clock className="w-5 h-5 text-amber-500" />
           </div>
 
-          <div className="p-4 rounded-2xl bg-blue-500/10 border border-blue-500/20 backdrop-blur-md flex items-center justify-between">
+          <div className="p-4 rounded-2xl bg-blue-500/10 border border-blue-500/20 backdrop-blur-md flex items-center justify-between hover:-translate-y-0.5 hover:shadow-md transition-all">
             <div>
               <span className="text-[11px] font-bold text-blue-800 dark:text-blue-300">Processing</span>
               <p className="text-lg font-bold text-blue-900 dark:text-blue-200">{processingCount}</p>
@@ -216,7 +216,7 @@ export default function AdminOverviewPage() {
             <Package className="w-5 h-5 text-blue-500" />
           </div>
 
-          <div className="p-4 rounded-2xl bg-purple-500/10 border border-purple-500/20 backdrop-blur-md flex items-center justify-between">
+          <div className="p-4 rounded-2xl bg-purple-500/10 border border-purple-500/20 backdrop-blur-md flex items-center justify-between hover:-translate-y-0.5 hover:shadow-md transition-all">
             <div>
               <span className="text-[11px] font-bold text-purple-800 dark:text-purple-300">Shipped</span>
               <p className="text-lg font-bold text-purple-900 dark:text-purple-200">{shippedCount}</p>
@@ -224,7 +224,7 @@ export default function AdminOverviewPage() {
             <Truck className="w-5 h-5 text-purple-500" />
           </div>
 
-          <div className="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 backdrop-blur-md flex items-center justify-between">
+          <div className="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 backdrop-blur-md flex items-center justify-between hover:-translate-y-0.5 hover:shadow-md transition-all">
             <div>
               <span className="text-[11px] font-bold text-emerald-800 dark:text-emerald-300">Delivered</span>
               <p className="text-lg font-bold text-emerald-900 dark:text-emerald-200">{deliveredCount}</p>
@@ -261,7 +261,7 @@ export default function AdminOverviewPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="p-5 rounded-2xl bg-black/[0.02] dark:bg-white/[0.04] backdrop-blur-md border border-black/[0.05] dark:border-white/[0.08] flex flex-col justify-between shadow-xs">
+          <div className="p-5 rounded-2xl bg-black/[0.02] dark:bg-white/[0.04] backdrop-blur-md border border-black/[0.05] dark:border-white/[0.08] flex flex-col justify-between shadow-xs hover:-translate-y-0.5 hover:shadow-md transition-all">
             <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500">Cart-to-Order Conversion</span>
             <div className="my-2">
               <span className="text-2xl font-serif font-bold text-slate-900 dark:text-white">
@@ -279,7 +279,7 @@ export default function AdminOverviewPage() {
             </div>
           </div>
 
-          <div className="p-5 rounded-2xl bg-black/[0.02] dark:bg-white/[0.04] backdrop-blur-md border border-black/[0.05] dark:border-white/[0.08] flex flex-col justify-between shadow-xs">
+          <div className="p-5 rounded-2xl bg-black/[0.02] dark:bg-white/[0.04] backdrop-blur-md border border-black/[0.05] dark:border-white/[0.08] flex flex-col justify-between shadow-xs hover:-translate-y-0.5 hover:shadow-md transition-all">
             <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500">Cart Abandonment Rate</span>
             <div className="my-2">
               <span className="text-2xl font-serif font-bold text-slate-900 dark:text-white">
@@ -297,7 +297,7 @@ export default function AdminOverviewPage() {
             </div>
           </div>
 
-          <div className="p-5 rounded-2xl bg-black/[0.02] dark:bg-white/[0.04] backdrop-blur-md border border-black/[0.05] dark:border-white/[0.08] flex flex-col justify-between shadow-xs">
+          <div className="p-5 rounded-2xl bg-black/[0.02] dark:bg-white/[0.04] backdrop-blur-md border border-black/[0.05] dark:border-white/[0.08] flex flex-col justify-between shadow-xs hover:-translate-y-0.5 hover:shadow-md transition-all">
             <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500">Most Added Beauty Item</span>
             <div className="my-2 flex items-center gap-3">
               <img 
