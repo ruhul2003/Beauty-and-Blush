@@ -1,11 +1,14 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail } from 'lucide-react';
+import { useToast } from '@/context/ToastContext';
 
 export function Footer() {
+  const { showToast } = useToast();
+  const [email, setEmail] = useState('');
   return (
     <footer className="w-[95%] sm:w-[92%] max-w-[1500px] mx-auto mb-6 sm:mb-8 glass-window p-8 sm:p-12 md:p-16 relative overflow-hidden transition-colors">
       <div className="w-full">
@@ -107,10 +110,9 @@ export function Footer() {
           <form 
             onSubmit={(e) => { 
               e.preventDefault(); 
-              const input = e.target.querySelector('input');
-              if (input && input.value) {
-                alert('Thank you for subscribing to Beauty & Blush atelier privileges!'); 
-                input.value = '';
+              if (email.trim()) {
+                showToast('Subscribed to Beauty & Blush atelier privileges!', 'success');
+                setEmail('');
               }
             }} 
             className="flex w-full md:w-auto max-w-md gap-2"
@@ -118,6 +120,9 @@ export function Footer() {
             <input
               type="email"
               required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              aria-label="Email address for atelier privileges newsletter"
               placeholder="Enter your email address"
               className="flex-1 md:w-64 px-4 py-2.5 text-xs rounded-full glass-well text-[#181416] dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#e06d84]/30 focus:border-[#e06d84]/40 transition-all"
             />
